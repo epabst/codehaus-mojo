@@ -1,0 +1,88 @@
+ ------
+ Usage
+ ------
+ Mark Hobson
+ <markhobson@gmail.com>
+ ------
+ 22 April 2008
+ ------
+
+
+Usage
+
+ The Apt Maven Plugin processes sources using
+ {{{http://java.sun.com/j2se/1.5.0/docs/guide/apt/GettingStarted.html}apt}}.  The following examples describe the basic
+ usage of the plugin:
+ 
+* Running apt explicitly
+
+ To run apt against the project's sources using a discovered annotation processor factory, add the following to your
+ pom:
+
+---
+<project>
+  ...
+    <build>
+      ...
+      <plugins>
+        ...
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>apt-maven-plugin</artifactId>
+          <version>${project.version}</version>
+        </plugin>
+        ...
+      </plugins>
+      ...
+    </build>
+  ...
+</project>
+---
+
+ Then execute the following command to run apt against the project's sources:
+ 
+---
+mvn apt:process
+---
+
+ Or to run apt against the project's test sources instead:
+ 
+---
+mvn apt:test-process
+---
+
+* Running apt as part of the build
+
+ To run apt as part of the build process using a discovered annotation processor factory, add the following to your pom:
+ 
+---
+<project>
+  ...
+    <build>
+      ...
+      <plugins>
+        ...
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>apt-maven-plugin</artifactId>
+          <version>${project.version}</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>process</goal>
+                <goal>test-process</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+        ...
+      </plugins>
+      ...
+    </build>
+  ...
+</project>
+---
+
+ Apt will then process the project's sources during the <<<generate-resources>>> phase and the project's test sources
+ during the <<<generate-test-resources>>> phase.  Note that the execution's goals can be changed to only process one or 
+ the other if required.

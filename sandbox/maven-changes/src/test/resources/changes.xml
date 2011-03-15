@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<document>
+  <properties>
+    <title>Changes</title>
+    <author email="snicoll@apache.org">Stephane Nicoll</author>
+  </properties>
+  <body>
+    <release version="1.3-SNAPSHOT" date="in SVN">
+      <action dev="lmr" type="update" issue="TST-2">
+        Added blah support in dependencies.
+      </action>
+    </release>
+    <release version="1.2.1" date="2003-09-30">
+      <action dev="snicoll" type="fix" issue="TST-29" due-to="friend" due-to-email="friend@somedomain.org">
+        Another documentation of some properties were outdated.
+      </action>
+    </release>
+
+    <release version="1.2" date="2003-09-29">
+      <action dev="snicoll" type="fix" issue="TST-1">
+        Documentation of some properties were outdated.
+      </action>
+      <action dev="snicoll" type="fix" issue="TST-518">
+        Artifact processing in the plugin was slightly changed and
+        now it supports jar overriding mechanism.
+      </action>
+      <action dev="snicoll" type="add">
+        Added 'deploy', 'deploy-snapshot' and 'install-snapshot' goals.
+      </action>
+      <action dev="sse" type="fix">
+        Removed warning about some component being added twice to the file.
+      </action>
+      <action dev="sse" type="update">
+        This functionnality now supports this extra parameter.
+      </action>
+      <action dev="snicoll" type="remove">
+        Removed blah goal which is not used anyway.
+      </action>
+    </release>
+    <release version="1.1" date="2003-05-08">
+      <action dev="aat" type="add">
+        Added autogeneration of some component.
+      </action>
+      <action dev="snicoll" type="fix" issue="TST-23">
+        Fixed this nasty bug.
+      </action>
+    </release>
+    <release version="1.0" date="2002-08-04" description="First release.">
+      <action dev="snicoll" type="add">
+        Initial plugin created.
+      </action>
+    </release>
+  </body>
+</document>

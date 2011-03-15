@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<faqs id="FAQ" title="Frequently Asked Questions">
+ <part id="General">
+   <faq id="Aggregate Reporting">
+     <question>Is there an easy way to aggregate dashboard reports from various projects?</question>
+     <answer>
+     	<p>
+        Unfortunately Maven's internal support for report aggregation is rather poor and does have a number of limitations.
+		</p>
+      	<p>
+		This may be addressed by an application like <a href="http://sonar.hortis.ch/">Sonar</a> to monitor quality statistics from various projects.
+    	</p>
+     </answer>
+   </faq>
+   <faq id="Unix machine problem">
+     <question>Why do I get the error "java.lang.InternalError: Can't connect to X11 window server using ':0.0' as the value of the DISPLAY variable."?</question>
+     <answer>
+     	<p>
+        This happens on Unix/Linux machine without installed X11 window server. See <a href="unix_support.html">Unix Environment</a> documentation.
+    	</p>
+     </answer>
+   </faq>
+   <faq id="Maven 2.0.9 problem">
+     <question>Why do I get the error "Invalid class loader hierarchy. You have more than one version of 'xxxxxx' visible, which is not allowed."?</question>
+     <answer>
+     	<p>
+        Due to Changes that may affect existing builds in Maven 2.0.9 (MNG-1412 / MNG-3111 introduced deterministic ordering of dependencies on the classpath.), you can have a "java.lang.ExceptionInInitializerError".
+    	</p>
+    	<p>
+    	This error can be raised if you used "commons-logging" in the last version which is incompatible with the version used by Hibernate in dashboard plugin.
+    	</p>
+    	<p>
+    	To resolve it, you must use the ability for Maven 2.0.9 to override a dependency used by a plugin.
+    	</p>
+    	<p>
+    	For example, with "commons-logging" version conflict, use this configuration :
+    	<source>
+<![CDATA[
+<!-- Dashboard -->
+<plugin>
+	<groupId>org.codehaus.mojo</groupId>
+	<artifactId>dashboard-maven-plugin</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<configuration>
+		<dialect>${org.hibernate.dialect}</dialect>
+		<driverClass>
+			${org.hibernate.connection.driverclass}
+		</driverClass>
+		<connectionUrl>
+			${org.hibernate.connection.connectionurl}
+		</connectionUrl>
+		<username>${org.hibernate.connection.username}</username>
+		<password>${org.hibernate.connection.password}</password>
+		<keepVersionAsDiscriminantCriteria>
+			false
+		</keepVersionAsDiscriminantCriteria>
+
+	</configuration>
+	<dependencies>
+		<dependency>
+			<!-- HSQLDB Jdbc Driver -->
+			<groupId>hsqldb</groupId>
+			<artifactId>hsqldb</artifactId>
+			<version>1.8.0.9</version>
+		</dependency>
+
+		<!-- to override commons-logging in Hibernate library dependency -->
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+			<version>1.1</version>
+		</dependency>
+	</dependencies>
+</plugin>
+]]>
+</source>
+    	</p>
+     </answer>
+   </faq>
+   <faq id="Printing problem">
+     <question>Why do I lose the table's colors when i want to print dashboard's reports?</question>
+     <answer>
+     	<p>
+        This is a setting of the browser, not a CSS issue.
+    	</p>
+    	<p>In MSIE, it is part of the Advanced Options of the Internet Settings:</p>
+    	<p><img border="0" alt="IE print configuration" src="./images/printmeIE.gif"></img></p>
+    	<p>In Firefox, it is an option in the File - Page Setup dialogue:</p>
+    	<p><img border="0" alt="IE print configuration" src="./images/printme.gif"></img></p>
+     </answer>
+   </faq>
+ </part>
+</faqs>

@@ -1,0 +1,57 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>test</groupId>
+  <artifactId>echo-out-IT</artifactId>
+  <version>1.1-SNAPSHOT</version>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>shell-maven-plugin</artifactId>
+
+        <configuration>
+          <chmod>true</chmod>
+          <messageLevel>info</messageLevel>
+        </configuration>
+
+        <executions>
+          <execution>
+            <id>exec-echo</id>
+            <phase>initialize</phase>
+
+            <configuration>
+              <script><![CDATA[
+#!/bin/bash
+
+echo "Hello, World" > ${project.build.directory}/echo-out.txt
+
+              ]]></script>
+            </configuration>
+
+            <goals>
+              <goal>shell</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>exec-echo2</id>
+            <phase>compile</phase>
+
+            <configuration>
+              <script><![CDATA[
+#!/bin/bash
+
+echo "Hello, World (again)" > ${project.build.directory}/echo-out2.txt
+
+              ]]></script>
+            </configuration>
+
+            <goals>
+              <goal>shell</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

@@ -1,0 +1,59 @@
+[VAR]
+varPageCaption=Web Online Help
+varContentswidth=250
+varContents=Contents
+varIndex=Index
+varSearch=Search
+varHomeUrl=http://www.mycoolproduct.com
+varHomeCap=Home
+varPrintCap=Print Page
+varPrevCap=Prev Page
+varNextCap=Next Page
+
+[OPTIONS]
+Template=c:\Program Files\A!K Research Labs\chm2web\Templates\default.cwtpl
+ConvertStyle=0
+HelpSrcFolder=source
+AddAklabsLink=1
+ContentsDoNotWrap=0
+ContentsSmallFont=1
+Keywords=online documentation, web online help, web help, chm2web
+UseAdvancedCleaner=0
+DefaultCharset=0
+ContentsSplit=1
+ContentsSplitLn=40
+UseOriginalStyles=0
+AddToStyleSheet=h1,h2,h3,h4 { color: #SCHEMECOLOR4# }
+SEOptimization=1
+CreateHelpIndex=1
+MinQueryLen=3
+UseSpecialChars=0
+SpecialChars=#-/\!@$%&
+ExpandRootNodes=0
+OpenFrameset=1
+ChangeCase=1
+ServerSidePHP=0
+ServerSidePath=http://localhost/
+
+[MAIN]
+SourceFile=target\dita\out\DITA-readme.chm
+TargetFolder=target\chm2web
+IndexFileName=index.html
+HelpChangeExt=0
+HelpChangeExtOn=html
+
+[OPTIONS.ADV]
+ppPagePreprocessing=0
+ppRemoveAllBefore=0
+ppRemoveAllAfter=0
+ppRemoveAllBeforeRE=0
+ppRemoveAllAfterRE=0
+ppRemoveAllBeforeExp=<HR
+ppRemoveAllAfterExp=
+ppRemoveAllBeforeIncl=0
+ppRemoveAllAfterIncl=0
+ppAddHeaderCode=<b>page header</b>
+ppAddFooterCode=<b>page footer</b>
+ppAddHeader=0
+ppAddFooter=0
+

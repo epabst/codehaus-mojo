@@ -1,0 +1,8 @@
+<project name="good-test" default="good-test" >
+  <target name="good-test" >
+    <echo>good test</echo>
+  </target>
+	
+  <target name="clean" />
+  
+</project>

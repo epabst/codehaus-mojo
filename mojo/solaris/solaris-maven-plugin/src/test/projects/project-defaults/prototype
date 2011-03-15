@@ -1,0 +1,6 @@
+d none /bin 0755 mysystem mysystem
+f none /bin/yo 0644 mysystem mysystem
+d none /etc 0755 mysystem mysystem
+f none /etc/conf 0644 mysystem mysystem
+d none /var 0755 mysystem mysystem
+d none /var/logs 0755 mysystem mysystem

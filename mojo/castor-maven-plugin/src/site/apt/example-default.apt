@@ -1,0 +1,44 @@
+ ------
+ Generating sources from all XML schemas at the default location 
+ ------
+ <wguttmn@codehaus.org>
+ ------
+ July 24, 2009
+ ------
+
+Generating sources for all XML schemas at the default location
+
+  To generate Java sources from all XML schemas located at the default 
+  location, i.e. src/main/castor using the Maven Plugin for Castor, 
+  simply define a plugin configuration as follows:
+
++-------------------
+<project>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>castor-maven-plugin</artifactId>
+        <version>2.0</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
++-------------------
+
+  This will generate Java classes (and their associated descriptors) for all
+  XML content definitions defined in the set of XML schemas found at
+  <<<src/main/castor>>>, putting them into the default package. The Java source
+  classes will be generated at the default destination, i.e. 
+  <<<target/generated-sources/castor>>>. 
+  will 

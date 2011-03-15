@@ -1,0 +1,47 @@
+ -----
+ Introduction
+ ------
+ Dan T. Tran
+ <dantran@gmail.com>
+ ------
+ October 31, 2009
+ ------
+
+DITA Open Toolkit Maven Plugin
+
+	This plugin is a thin wrapper of DITA Open Toolkit's Ant command line. In addition, it also has extra goals to 
+	convert the DITA's Microsoft CHM output to a pure HTML output, and configure Eclipse IDE to allow editing and building DITA.
+
+* Goals Overview
+
+  * {{{run-mojo.html}dita:run}} Execute Dita build.
+
+  * {{{version-mojo.html}dita:version}} Display DITA Open Toolkit's version.
+
+  * {{{print-help-mojo.html}dita:print-help}} Display DITA Open Toolkit's common Ant properties usage.
+
+  * {{{chm2web-mojo.html}dita:chm2web}} Convert DITA Open Toolkit's Microsoft CHM output file, produced by htmlhelp transtype, 
+    to pure HTML set of files. Require commercial chm2web utility from {{{http://chm2web.aklabs.com}A!K Research Labs}}
+
+  * {{{print-help-mojo.html}dita:eclipse}} Generate {{{http://www.dita-op.org}DITA Open Plaform }} Eclipse configuration
+    to allow editing, previewing, and building DITA with DITA Open Tookit.
+
+  []
+
+
+* Usage
+
+  Instructions on how to use the DITA Open Toolkit Maven Plugin can be found on the {{{usage.html}usage page}}.
+
+
+* Examples
+
+  * {{{https://svn.codehaus.org/mojo/trunk/mojo/dita-maven-plugin/src/it/dita-to-htmlhelp-to-web}  Transform DITA to Microsoft Help, then to HTML example.}}
+
+  * {{{https://svn.codehaus.org/mojo/trunk/mojo/dita-maven-plugin/src/it/dita-to-pdf}  Transform DITA to PDF.}}
+
+  * {{{https://svn.codehaus.org/mojo/trunk/mojo/dita-maven-plugin/src/it/validate-dita-ot-custom-version}  Validate DITA-OT version.}}
+
+  []
+
+

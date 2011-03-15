@@ -1,0 +1,67 @@
+<document>
+  <properties>
+    <title>FitNesse maven plugin</title>
+    <author email="pkernevez@octo.com">Philippe Kernevez</author>
+  </properties>
+  <body>
+    <release version="1.0" date="2008-04-05" description="Initial release">
+      <action dev="pkernevez" type="test" issue="MFITNESSE-21">
+        Use port 8083 instead of 83 for tests according to privileged Linux port.
+      </action>
+      <action dev="pkernevez" type="fix" issue="MFITNESSE-20">
+        Build status reported as [ERROR] but should be [FAILURE] if a FitNesse test fails
+      </action>
+      <action dev="pkernevez" type="fix" issue="MFITNESSE-19">
+        Build status reported as [ERROR] but should be [FAILURE] if a FitNesse test fails
+      </action>
+      <action dev="pkernevez" type="fix" issue="MFITNESSE-18">
+        Fixtures classes from the project sources or test-sources are not included in classpath.
+      </action>
+      <action dev="pkernevez" type="fix" issue="MFITNESSE-17">
+        Build status reported as [ERROR] but should be [FAILURE] if a FitNesse test fails
+      </action>
+      <action dev="pkernevez" type="fix" issue="MFITNESSE-16">
+        Allow the local copy of dependencies for descreasing the classspath size and go through the windows CMD.EXE limitation (8192 chars).
+      </action>
+      <action dev="pkernevez" type="add" issue="MOJO-753">
+        Add timestamp to the FitNesse result page.
+      </action>
+      <action dev="pkernevez" type="add" issue="MOJO-745">
+        Have the "output captured" on the suite result page.
+      </action>
+      <action dev="averet" type="add" issue="MOJO-659">
+        Mock FitnesseRunnerMojo logger in order to clean the tests execution log.
+      </action>
+      <action dev="pkernevez" type="fix" issue="MOJO-744">
+        Can't execute Test twice.
+      </action>
+      <action dev="pkernevez" type="fix" issue="MOJO-706">
+        Can't execute a single FitNesse Page Test.
+      </action>
+      <action dev="pkernevez" type="fix" issue="MOJO-725">
+        The FitNesse process is not killed when we stop the Maven build.
+      </action>
+      <action dev="pkernevez" type="fix" issue="MOJO-728">
+        Error when creating report index.
+      </action>
+      <action dev="pkernevez" type="fix" issue="MOJO-737">
+        The plugin doesn't use properly the fitnesse conventions for page naming. It neiher use properly the &lt;type&gt; tags to override this conventions.
+      </action>
+      <action dev="pkernevez" type="fix" issue="MOJO-729">
+        Can't use 'Expand All' or 'Collapse All' on a 'Command Line Test Results' html page.
+      </action>
+      <action dev="pkernevez" type="fix" issue="MOJO-743">
+        No picture in the result html page.
+      </action>
+      <action dev="pkernevez" type="fix" issue="MOJO-701">
+        Sometime, when we execute the plugin on the complete Suite, it seems that it's blocked just before write the result, and the HTML is not generated.
+      </action>
+      <action dev="pkernevez" type="fix" issue="MOJO-845">
+        The Fitnesse plugin is now compatible with JDK 1.4
+      </action>
+    </release>
+
+  </body>
+</document>
+
+

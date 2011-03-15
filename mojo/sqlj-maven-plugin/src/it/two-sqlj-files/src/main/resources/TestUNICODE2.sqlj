@@ -1,0 +1,75 @@
+package test.com.tmme.x01;
+
+import java.sql.SQLException;
+
+import org.apache.log4j.Logger;
+
+import sqlj.runtime.ref.DefaultContext;
+
+#sql iterator TestUNICODE2Iterator ( String COL1, String COL2 );
+
+/**
+ * This is a test for SQLJ processing UNICODE
+ * 
+ * @author whe4841
+ */
+public class TestUNICODE2 {
+
+	// The context to be used
+	private DefaultContext ctx = null;
+
+	private DefaultContext getContext() {
+
+		return ctx;
+
+	}
+
+	/**
+	 * Insert into UNICODE_TBL
+	 */
+	private void insert() {
+
+		try {
+			int key = 1;
+			String value = "abcd\u5B66\uD800\uDF30";
+			System.out.println("Before INSERT INTO UNICODE_TBL (COL1, COL2) values (:key, :value)");
+			#sql [ getContext() ] { INSERT INTO X01D.UNICODE_TBL (COL1, COL2) values (:key, :value) };
+			#sql [ getContext() ] { COMMIT };
+			System.out.println("After INSERT INTO X01D.UNICODE_TBL (COL1, COL2) values (:key, :value)");
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+	}
+
+	/**
+	 * Select from UNICODE_TBL
+	 */
+	private void select() {
+
+		TestUNICODE2Iterator TestUNICODE2Iterator = null;
+		try {
+			#sql [ getContext() ] TestUNICODE2Iterator = { SELECT COL1, COL2 FROM X01D.UNICODE_TBL };
+			while (TestUNICODE2Iterator.next()) {
+				System.out.println(TestUNICODE2Iterator.COL1() + "/" + TestUNICODE2Iterator.COL2());
+			}
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		} finally {
+			if (TestUNICODE2Iterator != null) {
+				try {
+					TestUNICODE2Iterator.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		TestUNICODE2 TestUNICODE2 = new TestUNICODE2();
+		TestUNICODE2.insert();
+		TestUNICODE2.select();
+	}
+
+}

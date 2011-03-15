@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE ejb-jar PUBLIC
+	"-//Sun Microsystems, Inc.//DTD Enterprise JavaBeans 2.0//EN"
+	"http://java.sun.com/dtd/ejb-jar_2_0.dtd">
+
+<ejb-jar>
+  <description>Custom EJB Jar assembly</description>
+  <display-name>${artifactId}-ejbs</display-name>
+  
+  <enterprise-beans>
+    <!-- MDB
+    <message-driven>
+      <ejb-name>mdbName</ejb-name>
+      <ejb-class>mdbImplClass</ejb-class>
+      <message-selector></message-selector>
+      <transaction-type>Container</transaction-type>
+      <message-driven-destination>
+	<destination-type>javax.jms.Topic</destination-type>
+	<subscription-durability>NonDurable</subscription-durability>
+      </message-driven-destination>
+    </message-driven>
+    -->
+
+    <!-- SLSB
+    <session>
+      <ejb-name>slsbName</ejb-name>
+      <home>slsbRemoteHome</home>
+      <remote>slsbRemoteObject</remote>
+      <ejb-class>slsbImplClass</ejb-class>
+      <session-type>Stateful</session-type>
+      <transaction-type>Container</transaction-type>
+    </session>
+    -->
+  </enterprise-beans>
+
+  <assembly-descriptor>
+  </assembly-descriptor>
+</ejb-jar>

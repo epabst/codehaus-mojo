@@ -1,0 +1,159 @@
+ -----
+ Ruby on Maven: How-To
+ -----
+ Eric Redmond
+ -----
+
+Ruby on Maven Quickstart
+
+* Update
+
+  Switched back to RDoc annotations. Had to for the same reason that Java descriptor is run before compilation: magic voodoo. The plus side is that 
+
+* If you'd like to just get started, begin here
+
+ Creating a new jruby-plugin project with the following layout:
+
+-----
+rubyplugin
+|-- pom.xml
+ `-- src
+     `-- main
+         `-- scripts
+             `-- my_mojo.rb
+-----
+
+ Set the pom.xml to the following:
+
+-----
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.mycompany</groupId>
+  <artifactId>rubyplugin</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>maven-plugin</packaging>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>jruby-maven-plugin</artifactId>
+      <version>1.0-beta-4</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-plugin-plugin</artifactId>
+        <dependencies>
+          <dependency>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>jruby-maven-plugin</artifactId>
+            <version>1.0-beta-4</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+-----
+
+ Note a few things. Firstly, the packaging is a maven-plugin just like any other plugin. 
+ Then, you must add the jruby-mavan-plugin project to both the dependency set, as well as
+ the maven-plugin-plugin's dependency set. This is similar to other language extensions,
+ such as the ant-plugin Ant language extension.
+
+ Next, create a Ruby Mojo.
+
+-----
+# This is a mojo description
+# @goal
+# @phase "validate"
+# @requiresDependencyResolution "compile"
+class MyMojo < Mojo
+
+  # @parameter type="java.lang.String" default-value="nothing" alias="prop3"
+  def prop;;end
+
+  # @parameter type="org.apache.maven.project.MavenProject" expression=>"${project}" alias="prop3"
+  # @required true
+  def project;;end
+
+  def execute
+    info "The following String was passed to prop: '#{$prop}'"
+    info "My project artifact is: #{$project.artifactId}"
+  end
+end
+
+run_mojo MyMojo
+-----
+
+ The Mojo class must extend Mojo (which you then extend "execute", or the mojo won't run). 
+ At the end of the file add "run_mojo" followed by the mojo's class name (not an instance of the class).
+
+ There are some important values above to note:
+
+ [[1]] The annotations are similar to the Java versions
+       {{{http://maven.apache.org/developers/mojo-api-specification.html}here}}.
+
+ [[2]] type must be provided as the fully-qualified name of the Java class, for example
+ "org.apache.maven.project.MavenProject". The following are comma-seperated. 
+
+ [[3]] Parameter values are accessed as global variables of the given name - i.e., the parameter named <<<project>>>
+ can be used as <<<$project>>>. Java objects can be used as normal JRuby objects.
+ 
+ [[4]] You can output using the normal ruby methods (puts, print) or use the corrosponding mojo methods (info, error).
+ 
+ []
+
+ Next, install the plugin
+
+-----
+mvn install
+-----
+
+ Now you have a Ruby Mojo in your repository! Go ahead and run the mymojo goal.
+
+-----
+mvn com.mycompany:rubyplugin:mymojo -Dmessage=hello
+-----
+
+ You should see the following, with the default value in the param:
+
+-----
+[INFO] [ruby:mymojo]
+[INFO] This is my param: 'hello'
+-----
+
+ That's it! You can create a test project that configures the param to be any value you wish, and it
+ will be displayed instead of the default 'hello!'. I hope everything worked well. Please note that
+ this has yet to be tested extensively (just WinXPSP2 and Ubuntu Linux), so testing on more OS's
+ would be great! If you find any errors, please {{{mailto:eredmond@codehaus.org}contact me}}. Thanks!
+
+Run Goal
+
+ There is also the <<<jruby:run>>> goal where you can embed jruby code into - or run scripts from your POM.
+ This is useful for quick tests and debugging, I would not recommend this as a normal practice. 
+
+ You can embed code via the <<<ruby>>> element:
+
+-----
+  <plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>jruby-maven-plugin</artifactId>
+    <version>1.0-beta-4</version>
+    <configuration>
+      <ruby>require 'java'; $LOAD_PATH.each { |p| puts p }</ruby>
+      <libraryPaths>
+        <libraryPath>/usr/local/lib/site_ruby/1.8</libraryPath>
+      </libraryPaths>
+    </configuration>
+  </plugin>
+-----
+
+ Or call a script in your project via the <<<script>>> element:
+
+-----
+     <script>src/main/ruby/find_todo.rb</script>
+-----
+
+ But, again, it is usually best to write a plugin:goal.

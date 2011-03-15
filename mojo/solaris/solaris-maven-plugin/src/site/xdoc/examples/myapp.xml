@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!--
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ *
+ -->
+<document>
+  <properties>
+    <title>My Application</title>
+    <author email="trygvis@codehaus.or">Trygve Laugstol</author>
+  </properties>
+  <body>
+    <section name="About">
+      <p>
+        This is a walkthrough of the "myapp" example project. The example project lives with the main
+        <code>solaris-maven-plugin</code> in subversion and you can find the latest version
+        <a href="http://svn.codehaus.org/mojo/trunk/mojo/solaris/solaris-examples">in Subversion</a>.
+      </p>
+    </section>
+    <section name="Overview">
+      <p>
+        The example project consists of four parts:
+      </p>
+      <ul>
+        <li>
+          <code>myapp</code> - The parent POM for all of the modules.
+        </li>
+        <li>
+          <code>myapp-core</code> - The implementation part of the project. This contains a pure Java server.
+        </li>
+        <li>
+          <code>myapp-server</code> - The command line interface part of the server. This build will result in both a
+          JAR file containing the source code and a <code>myapp-server-&lt;version&gt;.tar.gz</code>.
+        </li>
+        <li>
+          <code>myapp-pkg</code> - A System V package that delivers the binary application.
+        </li>
+      </ul>
+      <subsection name="The Parent Project">
+        <p>
+          The parent project is pretty small, it only contains references to the other child modules. As the plugin only
+          works on Solaris the two package modules are placed in a separate profile that is automatically included when
+          running on Solaris.
+        </p>
+      </subsection>
+      <subsection name="The Core Project">
+        <p>
+          The core project is even smaller than the parent project, it does not use anything from the solaris plugin at
+          all. It is simply a normal Maven project that will result in a JAR.
+        </p>
+      </subsection>
+      <subsection name="The Server Project">
+        <p>
+          The server project is a complete distribution of an application. It will result in a tarball that is in
+          itself usable, but it will also be used when packaging the server.
+        </p>
+        <p>
+          The first plugin to run is the <a href="http://mojo.codehaus.org/appassembler">Appassembler</a> plugin. This plugin will generate the shell scripts that are used to launch the application.
+        </p>
+        <p>
+          The second plugin to execute is the assembly plugin. It will copy all the required artifacts and put them into
+          the tarball. In addition to creating the tarball it will also assemble the entire application into a
+          directory. This directory has the exact same layout as the tarball and can be used to test the application
+          directly from a Maven build area.
+        </p>
+        <p>
+          By using the <code>attached-inline</code> goal the assembly will be created and attached to the build when we
+          run <code>mvn install</code>.
+        </p>
+      </subsection>
+      <subsection name="The Package Project">
+        <p>
+          The "pkg" project is the Maven project actually producing the <code>.pkg</code> file. There are two key
+          points required to do this:
+        </p>
+        <ol>
+          <li>
+            Set the <code>packaging</code> element of the POM to <code>solaris</code>
+          </li>
+          <li>
+            Add a reference to the <code>solaris-maven-plugin</code> and tell Maven that the plugin contain
+            extensions.
+          </li>
+        </ol>
+        <p>
+          That is all that is required to create a complete but not very useful package.
+        </p>
+      </subsection>
+    </section>
+  </body>
+</document>

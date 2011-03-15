@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin id="org.codehaus.mojo.sysdeo-tomcat-m2eclipse"
+	name="Sysdeo-tomcat support for m2eclipse"
+    version="1.1"
+    provider-name="CodeHaus">
+
+	<extension point="org.maven.ide.eclipse.projectConfigurators">
+	  <configurator id="org.maven.ide.eclipse.configurator.sysdeo"
+	     class="org.maven.ide.eclipse.project.configurators.MavenConfigurator:org.codehaus.mojo:sysdeo-tomcat-maven-plugin:1.0|sysdeo-tomcat:m2eclipse"
+	     name="SysdeoTomcat" priority="50"/>
+	</extension>
+
+</plugin>

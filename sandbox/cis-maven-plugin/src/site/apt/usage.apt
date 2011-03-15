@@ -1,0 +1,117 @@
+~~
+~~
+~~     Copyright 2007 Apache Software Foundation
+~~
+~~     Licensed under the Apache License, Version 2.0 (the "License");
+~~     you may not use this file except in compliance with the License.
+~~     You may obtain a copy of the License at
+~~
+~~       http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~     Unless required by applicable law or agreed to in writing, software
+~~     distributed under the License is distributed on an "AS IS" BASIS,
+~~     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+~~     See the License for the specific language governing permissions and
+~~     limitations under the License. 
+~~
+~~
+           --------------------------
+           Using the Maven CIS Plugin
+           --------------------------
+
+Using the Maven CIS Plugin
+
+  Using the Maven CIS Plugin typically requires the following steps:
+
+  * {{{#Initializing the repository}Initializing the repository}}
+
+  * {{{#Configuring the project}Configuring the project}}
+
+  * {{{#Configuring applications}Configuring applications}}
+  
+  * {{{#Specifying Servlets, Filters, Resources, or Mappings}Specifying Servlets, Filters, Resources, or Mappings}}
+
+{Initializing the repository}
+
+  Initializing the repository means copying the CIS web application
+  and the CIS jar files to your local Maven repository or to a corporate
+  Maven repository. This step has to be performed once. After you have
+  done it, the plugin is ready for all users of the repository.
+
+  Before initializing the repository, you need valid POM files. Such
+  POM files are available from the default Maven repository under
+  {{{http://repo1.maven.org/maven2/com/softwareag/cis}
+  http://repo1.maven.org/maven2/com/softwareag/cis}}, and
+  {{{http://repo1.maven.org/maven2/com/softwareag/common/lic}
+  http://repo1.maven.org/maven2/com/softwareag/common/lic}}. It's possible
+  that you have to adjust the version number.
+
+  As a convenience, the POM files for the Crossvision Application
+  Designer 2.3 are also included in this plugins jar file below
+  <<<META-INF/poms>>>.
+
+  Once you've got the POM files, you can install the POM and jar files
+  into your local repository by running commands like the following:
+
+-----------------------------------------------------------------------
+    mvn install:install-file -DpomFile=saglic-5.2.3.0.pom
+        -Dfile=saglic.jar
+        -Dpackaging=jar -DgroupId=com.softwareag.common.lic -DartifactId=saglic
+        -Dversion=5.2.3.0
+    mvn install:install-file -DpomFile=cislic-2.3.pom
+        -Dfile=cislic.jar
+        -Dpackaging=jar -DgroupId=com.softwareag.cis -DartifactId=cislic
+        -Dversion=2.3
+    mvn install:install-file -DpomFile=cis-2.3.pom
+        -Dfile=cis.jar
+        -Dpackaging=jar -DgroupId=com.softwareag.cis -DartifactId=cis
+        -Dversion=2.3
+    mvn install:install-file -DgeneratePom=false
+        -Dfile=cis.war
+        -Dpackaging=war -DgroupId=com.softwareag.cis -DartifactId=cis-webapp
+        -Dversion=2.3
+-----------------------------------------------------------------------
+
+  The jar files can be found in your application designers directory
+  <<<tomcat\webapps\cis\WEB-INF\lib>>>. The war file can be found on
+  the installation CD below UNIX\CIT. (In fact, it is <<the>> Unix
+  distribution of the application designer.)
+
+{Configuring the project}
+
+  The Maven CIS plugin is implemented by <<<subclassing>> the Maven
+  WAR plugin. In other words, it is configured much like the
+  Maven WAR plugin: All of the WAR plugins goals like
+  <<<war:war>>>, <<<war:exploded>>>, <<<war:inplace>>>, and <<<war:manifest>>>
+  may be used as <<<cis:war>>>, <<<cis:exploded>>>, <<<cis:inplace>>>,
+  or <<<cis:manifest>>>. Likewise, you may use all of the configuration
+  parameters like <<<webappDirectory>>>, and so on.
+
+  You may even configure your project to have a packaging called <<<cis>>>,
+  rather than <<<war>>>. This is described in {{{examples/cisPackaging.html}
+  this example}}.
+
+{Configuring applications}
+
+  The application designer is based on the concept of so-called
+  applications. Such applications include the <<<cis>>> application
+  (which contains the CIS core), the <<<HTMLBasedGUI>>>, and
+  <<<SWTBasedGUI>>> applications, (which contains the GUI editors),
+  and your custom applications, which contain your project.
+
+  The CIS Maven Plugin allows to configure several applications, although
+  you'll typically have a single application only. See
+  {{{examples/cisApplications.html}this example}} for a sample configuration.
+
+{Specifying Servlets, Filters, Resources, or Mappings}
+
+  The application designer contains and requires its own file
+  <<<WEB-INF/web.xml>>>. To configure your own servlets, filters,
+  resources, or mappings, you may create your own, application
+  specific <<<web.xml>>>. The Maven CIS plugin will detect this
+  file and merge its contents into the actual <<<web.xml>>>.
+
+  In other words, the original <<<web.xml>>> gets replaced by a copy,
+  which includes the contents of your <<<web.xml>>> files.
+
+  See {{{examples/mergingWebXml.html}this example}} for more details.

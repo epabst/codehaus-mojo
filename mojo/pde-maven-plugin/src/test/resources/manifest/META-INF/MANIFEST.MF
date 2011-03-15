@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: net.sourceforge.clearcase
+Bundle-Version: 1.0.5
+Bundle-ClassPath: jacob.jar,
+ ant_launcher.jar,
+ clearcase.jar
+Bundle-Activator: org.eclipse.core.internal.compatibility.PluginActivator
+Bundle-Vendor: %providerName
+Bundle-Localization: plugin
+Export-Package: net.sourceforge.clearcase.comapi,
+ net.sourceforge.clearcase.simple,
+ org.apache.tools.ant.taskdefs,
+ org.apache.tools.ant.taskdefs.condition,
+ org.apache.tools.ant.types,
+ org.apache.tools.ant.util

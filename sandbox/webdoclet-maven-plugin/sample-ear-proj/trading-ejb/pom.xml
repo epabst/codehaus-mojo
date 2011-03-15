@@ -1,0 +1,69 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <parent>
+    <groupId>acme</groupId>
+    <artifactId>trading-proj</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>trading-ejb</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>Trading EJB</name>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>jboss</groupId>
+      <artifactId>jboss-j2ee</artifactId>
+      <version>4.0.2</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>ejbdoclet-maven-plugin</artifactId>
+      <version>1.0-beta-1</version>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>ejbdoclet-maven-plugin</artifactId>
+        <version>1.0-beta-1</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>ejbdoclet</goal>
+            </goals>
+            <phase>generate-sources</phase>
+            <configuration>
+              <task><![CDATA[
+                <ejbdoclet ejbspec="2.1">
+                  <fileset includes="**/*Bean.java"/>
+                  <deploymentdescriptor/>
+                  <remoteinterface/>
+                  <homeinterface/>
+                  <localinterface/>
+                  <localhomeinterface/>
+                  <session/>
+                  <entitycmp/>
+                  <entitypk/>
+                  <utilobject/>
+                  <valueobject>
+                    <packageSubstitution packages="ejb" substituteWith="vo"/>
+                  </valueobject>
+                  <jboss version="4.0"/>
+                </ejbdoclet>
+              ]]></task>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

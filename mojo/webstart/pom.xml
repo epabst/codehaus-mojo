@@ -1,0 +1,118 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>mojo-parent</artifactId>
+    <groupId>org.codehaus.mojo</groupId>
+    <version>24</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.codehaus.mojo.webstart</groupId>
+  <artifactId>webstart</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0-beta-2-SNAPSHOT</version>
+  <name>Webstart Maven Plugin Parent</name>
+  <description>Webstart Maven Plugin and related modules</description>
+  <url>http://mojo.codehaus.org/webstart</url>
+
+  <issueManagement>
+    <system>jira</system>
+    <url>http://jira.codehaus.org/browse/MWEBSTART</url>
+  </issueManagement>
+
+  <inceptionYear>2005</inceptionYear>
+
+  <licenses>
+    <license>
+      <name>Apache License 2</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <scm>
+    <url>https://svn.codehaus.org/mojo/trunk/mojo/webstart</url>
+    <connection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/webstart</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/webstart</developerConnection>
+  </scm>
+
+  <developers>
+    <developer>
+      <name>Jerome Lacoste</name>
+      <email>jerome@coffeebreaks.org</email>
+      <organization>CoffeeBreaks</organization>
+      <organizationUrl>http://www.coffeebreaks.org</organizationUrl>
+      <timezone>+1</timezone>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+    </developer>
+  </developers>
+  <contributors>
+    <contributor>
+      <name>David Boden</name>
+      <email>dave@daveboden.com</email>
+    </contributor>
+    <contributor>
+      <!--<id>ge0ffrey</id>-->
+      <name>Geoffrey De Smet</name>
+      <email>ge0ffrey.spam_AT_gmail.com</email>
+      <roles>
+        <role>Java developer</role>
+      </roles>
+      <timezone>+1</timezone>
+    </contributor>
+    <contributor>
+      <!--<id>ge0ffrey</id>-->
+      <name>Kevin Stembridge</name>
+      <!--email></email-->
+      <roles>
+        <role>Java developer</role>
+      </roles>
+      <!--timezone>+1</timezone-->
+    </contributor>
+  </contributors>
+
+  <modules>
+    <module>webstart-jarsigner-api</module>
+    <module>webstart-maven-plugin</module>
+    <module>webstart-pack200-anttasks</module>
+    <module>webstart-jnlp-servlet</module>
+    <module>webstart-pack200-jdk14</module>
+  </modules>
+
+  <profiles>
+    <profile>
+      <id>jdk15</id>
+      <activation>
+        <jdk>1.5</jdk>
+      </activation>
+
+      <modules>
+        <module>webstart-pack200-jdk15</module>
+      </modules>
+    </profile>
+
+    <profile>
+      <id>jdk16</id>
+      <activation>
+        <jdk>1.6</jdk>
+      </activation>
+
+      <modules>
+        <module>webstart-pack200-jdk15</module>
+      </modules>
+    </profile>
+
+  </profiles>
+
+  <!--reporting>
+    <plugins>
+      <plugin>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>2.0</version>
+         <configuration>
+            <checkoutDirectoryName>webstart-maven-plugin</checkoutDirectoryName>
+          </configuration>
+        </plugin>
+    </plugins>
+  </reporting-->
+</project>

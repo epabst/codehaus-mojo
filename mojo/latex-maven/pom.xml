@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright 2010 INRIA / CITI Laboratory / Amazones Research Team.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>mojo-parent</artifactId>
+    <version>27</version>
+  </parent>
+
+  <prerequisites>
+    <maven>2.0</maven>
+  </prerequisites>
+
+  <artifactId>latex-maven</artifactId>
+
+  <packaging>pom</packaging>
+  <version>1.2-SNAPSHOT</version>
+
+  <modules>
+    <module>latex-maven-plugin</module>
+    <module>latex-maven-archetype</module>
+  </modules>
+
+  <name>LaTeX Maven</name>
+  <description>LaTeX support for Maven projects</description>
+  <inceptionYear>2010</inceptionYear>
+  <url>http://mojo.codehaus.org/latex-maven-plugin</url>
+
+  <developers>
+    <developer>
+      <id>jponge</id>
+      <name>Julien Ponge</name>
+      <email>julien.ponge@insa-lyon.fr</email>
+      <url>http://julien.ponge.info/</url>
+      <organization>INRIA / CITI Laboratory / Amazones Research Team</organization>
+      <roles>
+        <role>Developer</role>
+      </roles>
+    </developer>
+  </developers>
+
+  <organization>
+    <name>INRIA / CITI Laboratory / Amazones Research Team</name>
+    <url>http://amazones.gforge.inria.fr/</url>
+  </organization>
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:svn:http://svn.codehaus.org/mojo/trunk/mojo/latex-maven</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/latex-maven</developerConnection>
+    <url>http://fisheye.codehaus.org/browse/mojo/trunk/mojo/latex-maven</url>
+  </scm>
+
+  <issueManagement>
+    <system>jira</system>
+    <url>http://jira.codehaus.org/browse/MLATEX</url>
+  </issueManagement>
+
+</project>

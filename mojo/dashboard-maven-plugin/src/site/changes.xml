@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+  <properties>
+    <title>Maven Dasboard report plugin</title>
+    <author email="dvicente72@gmail.com">David Vicente</author>
+  </properties>
+  <body>
+  	<release version="1.0.0-beta-1" date="2008-07-29" description="first release">
+      <action dev="dvicente" type="fix" issue="MOJO-828">
+       release of dashboard maven plugin as 1.0.0-beta-1 .
+      </action>
+  	</release>
+  	<release version="1.0-SNAPSHOT" date="2008-07-21" description="fifteenth snapshot release">
+  		<action dev="dvicente" type="fix" issue="MOJO-1176" due-to="Duncan Doyle" due-to-email="Duncan.Doyle@gmail.com">
+        Correction of PeriodUtils.getDateFromPattern which returns wrong Date for "Endof_thisweek" on IBM 1.4.2 JVM under AIX/Linux machine.
+      </action>
+      <action dev="dvicente" type="update">
+       change JDepend dependency from 2.0-SNAPSHOT to 2.0-beta-2 version
+      </action>
+      <action dev="dvicente" type="fix" issue="MOJO-1173">
+  			Correction of date labels on historic graph to avoid overlapping labels
+  		</action>
+  	</release>
+  	<release version="1.0-SNAPSHOT" date="2008-06-25" description="fourteenth snapshot release">
+  		<action dev="dvicente" type="add" issue="MOJO-1104">
+  			Add a new parameter <![CDATA[&lt;generateGraphs&gt;]]> to disable graphics generation on Linux/Unix machine without an installed XWindow server.
+  		</action>
+  		<action dev="dvicente" type="fix" issue="MOJO-932">
+        Adding ("Maven 1 like" dashboard) an expand/collapse function to hide or not each plugin section and small graph in the cell for percent value (Cobertura and Surefire).
+      </action>
+      <action dev="dvicente" type="fix" issue="MOJO-1101">
+        Adding an entry in the FAQ file about dashboard's errors with Maven 2.0.9 due to incompatible version of dependancies.
+      </action>
+  	</release>
+  	<release version="1.0-SNAPSHOT" date="2008-04-05" description="thirteenth snapshot release">
+  		<action dev="dvicente" type="add" issue="MOJO-1071">
+  			Adding an entry in the site on dashboard's errors under unix environment without X11 window server.
+  		</action>
+  		<action dev="dvicente" type="fix" issue="MOJO-1033">
+            The new parameter <![CDATA[&lt;keepVersionAsDiscriminantCriteria&gt;]]> works at querying data and no at storing data.
+        </action>
+        <action dev="dvicente" type="fix" issue="MOJO-1075">
+            Correction of inconsistent data in parent report for "Checkstyle Violations" chart (percentages per checkstyle's categories).
+        </action>
+        <action dev="dvicente" type="add" issue="MOJO-922">
+            Add success rate in Surefire historical chart.
+        </action>
+        <action dev="dvicente" type="add" issue="MOJO-974" due-to="Henrik Lynggaard" due-to-email="henrik.lynggaard@gmail.com">
+            Addition of  TagList support.
+        </action>
+  	</release>
+  	<release version="1.0-SNAPSHOT" date="2008-03-10" description="	Twelfth snapshot release">
+  		<action dev="dvicente" type="add" issue="MOJO-1033">
+  			Add a new parameter <![CDATA[&lt;keepVersionAsDiscriminantCriteria&gt;]]> to avoid "loosing the history" after changing a project's version.
+  		</action>
+  		<action dev="dvicente" type="add" issue="MOJO-1025">
+  			Fix of "Empty historical charts" in the maven dashboard plugin after changing the project version (this issue depends upon MOJO-1033 issue).
+  		</action>
+  	</release>
+  	<release version="1.0-SNAPSHOT" date="2008-02-10" description="eleventh snapshot release">
+      <action dev="dvicente" type="fix" issue="MOJO-1015">
+        Correction of NPE with 2.4 Surefire reports.Upgrade to 2.4.1 Surefire-report dependency.
+      </action>
+      <action dev="dvicente" type="fix" due-to="Christoph Ewerlin" issue="MOJO-1012">
+        Correction of broken links with module which artifactId contains dot character.
+      </action>
+      <action dev="dvicente" type="fix" issue="MOJO-971">
+        Correction of HibernateException whith JDepend during persist goal.
+      </action>
+      <action dev="dvicente" type="fix" issue="MOJO-910">
+        Correction of Cobertura 1.9 compatibility problem.Upgrade to 1.9 Cobertura dependency.
+      </action>
+    </release>
+    <release version="1.0-SNAPSHOT" date="2007-09-07" description="tenth snapshot release">
+   	  <action dev="dvicente" type="fix" issue="MOJO-891">
+        Correction of NPE due to CPD SAXParseException.
+      </action>
+      <action dev="dvicente" type="fix" issue="MOJO-907">
+        Correction of Clover Historic graph generation (empty graph even if datas exist in database).
+      </action>
+    </release>
+  	<release version="1.0-SNAPSHOT" date="2007-08-09" description="ninth snapshot release">
+  	  <action dev="dvicente" type="add" issue="MOJO-877" due-to="Denis Cabasson" due-to-email="denis.cabasson.oss@gmail.com">
+        addition of French Translation for Dashboard.
+      </action>
+  	  <action dev="dvicente" type="fix" issue="MOJO-876" due-to="Denis Cabasson" due-to-email="denis.cabasson.oss@gmail.com">
+        Correction of dashboard system output to maven's log.
+      </action>
+      <action dev="dvicente" type="fix" issue="MOJO-873">
+        Correction of wrong UTF-8 support in generated graphs.
+      </action>
+      <action dev="dvicente" type="add" issue="MOJO-847">
+        Addition of the "Maven 1.x like" global dashboard.
+      </action>
+  	  <action dev="dvicente" type="fix" issue="MOJO-825">
+        unused report plugins won't be part of the dashboard.
+      </action>
+      <action dev="dvicente" type="add" issue="MOJO-824">
+        addition of Total count for each table in detailled report.
+      </action>
+      <action dev="dvicente" type="add" issue="MOJO-732">
+        addition of Database support and Historic's restitution.
+        Thanks to the
+        <![CDATA[<a href="http://www.laposte.fr">French Postal Service
+				<img src="./images/laposte.jpg" border="0" width="100" height="25"></img></a>]]> for the donation of all sources code to the community.
+      </action>
+      <action dev="dvicente" type="add" issue=" MOJO-677">
+        addition of FindBugs support.
+      </action>
+    </release>
+    <release version="1.0-SNAPSHOT" date="In SCM">
+      <action dev="aheritier" type="update">
+       replace the non-public dependency javax.transaction:jta by org.apache.geronimo.specs:geronimo-jta_1.0.1B_spec which is available in public repositories.
+      </action>
+    </release>
+  	<release version="1.0-SNAPSHOT" date="2007-06-09" description="eighth snapshot release">
+      <action dev="dvicente" type="fix" issue="MOJO-801">
+        NPE correction in a particular three level multimodule build.
+      </action>
+      <action dev="dvicente" type="add" issue="MOJO-813" due-to="Matthew Beermann" due-to-email="mbeerman@yahoo.com">
+        addition of Clover support.
+      </action>
+      <action dev="dvicente" type="fix" issue="MOJO-814">
+        Correction of percentage and rendering errors on "Show Checkstyle categories".
+      </action>
+    </release>
+  	<release version="1.0-SNAPSHOT" date="2007-05-11" description="seventh snapshot release">
+      <action dev="dvicente" type="add" issue="MOJO-679" due-to="Sylvain Rivollet" due-to-email="srivollet@objectif-informatique.fr">
+        addition of "Show Checkstyle categories" pie chart as done in Checkstyle Eclipse plugin.
+      </action>
+      <action dev="dvicente" type="fix" issue="MOJO-749">
+        NPE correction if dashboard called on parent project due to cobertura version discovery (DashBoardUtils.getCoberturaDatafile() method).
+      </action>
+    </release>
+  	<release version="1.0-SNAPSHOT" date="2007-03-23" description="sixth snapshot release">
+      <action dev="dvicente" type="fix" issue="MOJO-698">
+        correction of a regression with the report output directory for dashboard. Introduced by MOJO-690 fix.
+      </action>
+    </release>
+  	<release version="1.0-SNAPSHOT" date="2007-03-17" description="Fifth snapshot release">
+      <action dev="dvicente" type="fix" issue="MOJO-690">
+        correction of dashboard-report-details.html missing for multi-modules project with site:stage goal .
+      </action>
+    </release>
+  	<release version="1.0-SNAPSHOT" date="2007-03-09" description="Fourth snapshot release">
+      <action dev="dvicente" type="fix" issue="MOJO-670">
+        correction of PMD/CPD fixed x-axis problem for bar chart. Only Cobertura Bar Chart has a 100D fixed axis .
+      </action>
+      <action dev="dvicente" type="fix" issue="MOJO-669">
+        correction of unreadable bar chart for multi-modules project. use of offset to extend chart height.
+      </action>
+      <action dev="dvicente" type="fix" issue="MOJO-668">
+      	Correction of NPE when running site in non-recursive mode (mvn -N site). For multi-modules project, the dashboard will not be generated, with an error message in Maven log.
+      </action>
+      <action dev="dvicente" type="fix" issue="MOJO-674">
+      	Correction of NumberFormatException in Cobertura plugin version discovery (DashBoardUtils.getCoberturaDatafile() method).
+      	Fixed by use of DefaultArtifactVersion class.
+      </action>
+    </release>
+  	<release version="1.0-SNAPSHOT" date="2007-03-02" description="Third snapshot release">
+      <action dev="dvicente" type="fix" issue="MOJO-623">
+        All forbidden characters as {'\\','/',':','*','?','"','&#60;','&#62;',';'} will be replaced by a '-' character.
+      </action>
+      <action dev="dvicente" type="fix" issue="MOJO-624">
+        use of NumberFormat expression with the default Locale instead of Double.parseDouble expression.
+      </action>
+      <action dev="dvicente" type="fix" issue="MOJO-644">
+        The search of cobertura.ser file must be done in the 2 directories to keep dashboard's compatibility for cobertura-maven-plugin 2.0 and 2.1 .
+      </action>
+      <action dev="dvicente" type="fix" issue="MOJO-662">
+        Correction of LineCoverRate calcul for multi-project summary.
+      </action>
+      <action dev="dvicente" type="update">
+        add Xalan 2.0.7 dependency in pom.xml to keep compatibility with JDK1.5 for Xalan XPath API used in dashboard
+      </action>
+      <action dev="dvicente" type="update">
+        relocation of XStream dependency from xstream to com.thoughtworks.xstream .
+      </action>
+    </release>
+    <release version="1.0-SNAPSHOT" date="2007-02-23" description="Second snapshot release">
+      <action dev="dvicente" type="fix" issue="MOJO-615">
+        support of the change of Surefire's output directory by the configuration's discovery of maven-surefire-plugin.
+      </action>
+      <action dev="dvicente" type="update">
+        Add navigation links to project's name in detailed dashboard report.
+      </action>
+      <action dev="dvicente" type="update">
+        Correction of CheckStyle, PMD and CPD errors.
+      </action>
+      <action dev="dvicente" type="add">
+        addition of a JDepend/Cobertura Xref section with aggregation of the afferent couplings and the cover rate for each package, ordered by descendant afferent couplings.
+      </action>
+    </release>
+		<release version="1.0-SNAPSHOT" date="2006-12-05" description="minor correction of First snapshot release">
+      <action dev="dvicente" type="update" issue="MOJO-577">
+        Correction of dashboard-maven-plugin goalPrefix which must be "dashboard-report".
+      </action>
+    </release>
+    <release version="1.0-SNAPSHOT" date="2006-12-04" description="First snapshot release">
+      <action dev="dvicente" type="add" issue="MOJO-575">
+        Plugin Submission of Maven Dasboard report plugin.
+      </action>
+    </release>
+  </body>
+</document>

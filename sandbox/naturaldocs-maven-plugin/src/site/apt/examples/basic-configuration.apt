@@ -1,0 +1,37 @@
+ ------
+ Maven 2 Natural Docs Plugin - Advanced Configuration
+ ------
+ Tim Astle
+ <timothy.astle@caris.com>
+ ------
+ 2010-10-05
+ ------
+
+
+Basic Configuration Example
+
+ Below is an example in which you would want to generate a report using the default settings.
+
++--
+<project>
+  ...
+  <build>
+  ...
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo.naturaldocs</groupId>
+        <artifactId>naturaldocs-maven-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <configuration>
+          <naturalDocsHome>C:\Program Files\NaturalDocs-1.5</naturalDocsHome>
+          <inputDirectory>src/main/javascript/your-library</inputDirectory>
+          <projectDirectory>src/main/documentation/settings</projectDirectory>
+        </configuration>
+      </plugin>
+      ...
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
++--

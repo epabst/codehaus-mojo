@@ -1,0 +1,63 @@
+ ---
+ Maven 2 Sysdeo Tomcat Eclipse Plugin
+ ---
+Tim O'Brien
+<tobrien@discursive.com>
+ ---
+ February 6, 2007
+
+Introduction
+
+  This plugin provides a mechanism to automatically generate a
+  .tomcatplugin file for use with the
+  {{{http://www.sysdeo.com/eclipse/tomcatplugin}Sysdeo Tomcat Eclipse
+  Plugin}}.  You would use this plugin if you were developing web
+  applications in Maven 2, and you wanted to automatically generate
+  the classpath that is used by the Sysdeo Plugin.
+
+  If you rely on the default classpath resolution mechanism in the
+  Sysdeo Tomcat Eclipse plugin, you'll find that the plugin is going
+  to add all the dependencies listed in a project's <<<pom.xml>>> to the
+  Sysdeo Tomcat classloader.  This causes time consuming and
+  frustrating problems when dependencies with <<<provided>>> scope are added
+  to the Sysdeo Tomcat plugin's classpath.  Using this plugin allows you to build a
+  <<<war>>> packaged project and generate a <<<.tomcatplugin>>> that is going
+  to omit all dependencies marked as <<<provided>>>.
+
+  Another important feature of this plugin is that it allows you to
+  add <<<context.xml>>> information to the <<<.tomcatplugin>>> file
+  automatically.  If your web application references JNDI environment
+  variables, and you are deploying to tomcat, your web application is
+  going to have a <<<context.xml>>> file in
+  <<<src/main/webapp/META-INF>>>.  To use the Sysdeo Tomcat Plugin
+  successfully, you'll need to add this information to the
+  .tomcatplugin file usually by right-clicking on your Eclipse project
+  and adding the information to the "extra context information" under
+  Tomcat.  This plugin will automatically grab the context information
+  from your web application's <<<context.xml>>> and put it in
+  <<<.tomcatplugin>>>.  (Note: The location of your context definition
+  is a configurable property of the generate goal.)
+
+Pre-requisites
+
+  To use this plugin you must be running
+  {{{http://www.eclipse.org}Eclipse 3.1}} or higher, and you should
+  have already installed the
+  {{{http://www.sysdeo.com/eclipse/tomcatplugin}Sysdeo Tomcat
+  Plugin}}.  After installing the Sysdeo Tomcat Plugin, you should
+  follow the directions on the Sysdeo Site to unpack the
+  <<<DevLoader.zip>>> file in your <<<${TOMCAT_HOME}/server/classes>>>
+  directory.
+
+Goals
+
+  This plugin supplies a single goal "generate" which must be run
+  after the eclipse goal. (i.e. <<<mvn eclipse:eclipse
+  sysdeo-tomcat:generate>>>)
+
+  * {{{generate-mojo.html}generate}} - The generate goal
+
+  * {{{m2eclipse-mojo.html}m2eclipse}} - The generate goal adapted to m2eclipse environment
+
+ For more information about how to use and configure this plugin see {{{usage.html}"Using the Maven 2 Sysdeo Tomcat Plugin}}.
+

@@ -1,0 +1,82 @@
+package test.com.tmme.x01;
+
+import java.sql.SQLException;
+
+import org.apache.log4j.Logger;
+
+import sqlj.runtime.ref.DefaultContext;
+
+#sql iterator TestUNICODEIterator ( String COL1, String COL2 );
+
+/**
+ * This is a test for SQLJ processing UNICODE
+ * 
+ * @author whe4841
+ */
+public class TestUNICODE {
+
+	// The context to be used
+	private DefaultContext ctx = null;
+
+	/**
+	 * DAO DB2 implementation : Create SQLJ context
+	 * 
+	 * @return The SQLJ context
+	 * @throws DAOException
+	 *             The SQLJ context can't be retrieved
+	 */
+	private DefaultContext getContext() {
+
+		return ctx;
+
+	}
+
+	/**
+	 * Insert into UNICODE_TBL
+	 */
+	private void insert() {
+
+		try {
+			int key = 1;
+			String value = "abcd\u5B66\uD800\uDF30";
+			System.out.println("Before INSERT INTO UNICODE_TBL (COL1, COL2) values (:key, :value)");
+			#sql [ getContext() ] { INSERT INTO X01D.UNICODE_TBL (COL1, COL2) values (:key, :value) };
+			#sql [ getContext() ] { COMMIT };
+			System.out.println("After INSERT INTO X01D.UNICODE_TBL (COL1, COL2) values (:key, :value)");
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		}
+	}
+
+	/**
+	 * Select from UNICODE_TBL
+	 */
+	private void select() {
+
+		TestUNICODEIterator testUNICODEIterator = null;
+		try {
+			#sql [ getContext() ] testUNICODEIterator = { SELECT COL1, COL2 FROM X01D.UNICODE_TBL };
+			while (testUNICODEIterator.next()) {
+				System.out.println(testUNICODEIterator.COL1() + "/" + testUNICODEIterator.COL2());
+			}
+		} catch (SQLException ex) {
+			ex.printStackTrace();
+		} finally {
+			if (testUNICODEIterator != null) {
+				try {
+					testUNICODEIterator.close();
+				} catch (SQLException ex) {
+					ex.printStackTrace();
+				}
+			}
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		TestUNICODE testUNICODE = new TestUNICODE();
+		testUNICODE.insert();
+		testUNICODE.select();
+	}
+
+}

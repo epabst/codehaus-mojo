@@ -1,0 +1,29 @@
+<assembly>
+  <id>standalone</id>
+  <formats>
+    <format>tar.gz</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <fileSets>
+    <fileSet>
+      <directory>src/main/etc</directory>
+      <outputDirectory>etc</outputDirectory>
+      <lineEnding>unix</lineEnding>
+    </fileSet>
+    <fileSet>
+      <directory>target/generated-resources/assembly/etc</directory>
+      <outputDirectory>etc</outputDirectory>
+      <lineEnding>unix</lineEnding>
+    </fileSet>
+    <fileSet>
+      <directory>target/appassembler/bin</directory>
+      <outputDirectory>bin</outputDirectory>
+      <lineEnding>unix</lineEnding>
+      <fileMode>0755</fileMode>
+    </fileSet>
+    <fileSet>
+      <directory>target/appassembler/repo</directory>
+      <outputDirectory>repo</outputDirectory>
+    </fileSet>
+  </fileSets>
+</assembly>

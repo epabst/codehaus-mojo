@@ -1,0 +1,34 @@
+<assembly>
+  <id>pkg</id>
+  <formats>
+    <format>directory</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <dependencySets>
+    <dependencySet>
+      <includes>
+        <include>org.codehaus.mojo.solaris.example:myapp-server:tar.gz:standalone</include>
+      </includes>
+      <unpack>true</unpack>
+      <outputDirectory>opt/my-app</outputDirectory>
+    </dependencySet>
+  </dependencySets>
+  <fileSets>
+    <fileSet>
+      <directory>src/main/etc</directory>
+      <outputDirectory>opt/my-app/etc</outputDirectory>
+      <includes>
+        <include></include>
+      </includes>
+      <lineEnding>unix</lineEnding>
+    </fileSet>
+    <fileSet>
+      <directory>src/main/etc</directory>
+      <outputDirectory>opt/my-app/logs</outputDirectory>
+      <lineEnding>unix</lineEnding>
+      <includes>
+        <include/>
+      </includes>
+    </fileSet>
+  </fileSets>
+</assembly>

@@ -1,0 +1,121 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>mojo</artifactId>
+    <version>5</version>
+  </parent>
+  <artifactId>jalopy-maven-plugin</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>maven-plugin</packaging>
+  <name>Maven Jalopy Plugin</name>
+  <developers>
+    <developer>
+        <id>jruiz</id>
+        <name>Johnny R. Ruiz III</name>
+        <email>jruiz@exist.com</email>
+    </developer>
+  </developers>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-it-plugin</artifactId>
+        <configuration>
+        <integrationTestsDirectory>${basedir}/../../../MAVEN/M2-Source/maven-core-it</integrationTestsDirectory>
+					<includes>
+						<include>it0*/pom.xml</include>
+					</includes>
+					<excludes>
+						<exclude>it007*/pom.xml</exclude>
+						<exclude>it008*/pom.xml</exclude>
+					</excludes>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>integration-test</phase>
+            <goals>
+              <goal>test</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<configuration>
+							<tasks>
+								<echo>Packaging maven-it-plugin-test</echo>
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+    </plugins>
+  </build>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <version>2.0-beta-1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+
+
+    <dependency>
+      <groupId>jalopy</groupId>
+      <artifactId>jalopy</artifactId>
+      <version>1.0b11</version>
+    </dependency>
+
+    <dependency>
+      <groupId>aelfred</groupId>
+      <artifactId>aelfred</artifactId>
+      <version>1.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xml-apis</groupId>
+      <artifactId>xml-apis</artifactId>
+      <version>1.0.b2</version>
+    </dependency>
+
+     <dependency>
+      <groupId>jdom</groupId>
+      <artifactId>jdom</artifactId>
+      <version>1.0b8</version>
+    </dependency>
+
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.8</version>
+    </dependency>
+
+    <dependency>
+      <groupId>oro</groupId>
+      <artifactId>oro</artifactId>
+      <version>2.0.7</version>
+    </dependency>
+
+    <dependency>
+        <groupId>plexus</groupId>
+        <artifactId>plexus-utils</artifactId>
+        <version>1.0.0</version>
+    </dependency>
+
+  </dependencies>
+
+</project>
+

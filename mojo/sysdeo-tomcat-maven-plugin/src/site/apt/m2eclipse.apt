@@ -1,0 +1,29 @@
+ ---
+ Using the Maven Sysdeo Tomcat Eclipse Plugin with m2eclipse
+ ---
+Nicolas De Loof
+<nicolas@apache.org>
+ ---
+ May 6, 2008
+
+Using m2eclipse 
+
+  0.9.4 and later versions of m2eclipse will execute the sysdeo-tomcat-maven-plugin as part of the Update 
+  Configuration task.
+  A dedicated mojo is used, to support some tiny differences between command line maven and m2eclipse, but the
+  configuration is the same :
+
+  <<Step One:>> Add the plugin to your web application's
+  <<<pom.xml>>> :  
+  
++--- 
+  <plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>sysdeo-tomcat-maven-plugin</artifactId>
+    <version>1.1</version>
+  </plugin>
++---
+
+  <<Step Two:>> After doing this, m2eclipse will configure the eclipse sysdeo tomcat plugin based on the
+  dependencies declared in your project's <<<pom.xml>>> and projects available in the workspace.
+  

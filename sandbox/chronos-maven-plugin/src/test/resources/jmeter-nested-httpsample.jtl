@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<httpSample t="2876" lt="0" ts="1240337349466" s="true" lb="/connect.jsp" rc="200" rm="OK" tn="JIRA Use Case 1-1" dt="text" by="850842">
+  <httpSample t="292" lt="0" ts="1240337349466" s="true" lb="/login.jsp" rc="302" rm="Moved Temporarily" tn="JIRA Use Case 1-1" dt="text" by="0"/>
+  <httpSample t="55" lt="0" ts="1240337349767" s="true" lb="/secure/" rc="302" rm="Moved Temporarily" tn="JIRA Use Case 1-1" dt="text" by="0"/>
+  <httpSample t="2520" lt="1156" ts="1240337349822" s="true" lb="/secure/Dashboard.jspa" rc="200" rm="OK" tn="JIRA Use Case 1-1" dt="text" by="850842"/>
+</httpSample>
+</testResults>

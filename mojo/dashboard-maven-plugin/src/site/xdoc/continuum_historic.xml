@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<document>
+	<properties>
+		<author email="dvicente72@gmail.com">David Vicente</author>
+		<title>
+			Maven Dashboard Report Plugin : Continuum integration with database support
+		</title>
+	</properties>
+	<!-- Optional HEAD element, which is copied as is into the XHTML <head> element -->
+	<head>
+		<meta />
+	</head>
+	<body>
+		<!-- The body of the document contains a number of sections -->
+		<section
+			name="About Continuum integration with database support for Maven Dashboard Report Plugin">
+			<subsection
+				name="Configuring Continuum goals">
+				<p>
+					As described in
+					<a href="usage_historic.html">Standard Usage for historic support</a>
+					, the dashboard report plugin must be running in 3
+					passes.
+				</p>
+				<p>
+					To work fine with
+					<b>Continuum</b>
+					, you must configure the goals as :
+				</p>
+				<ol>
+					<li>
+						<b>first goal</b>
+						:
+						<tt>mvn clean install site</tt>
+					</li>
+					<ol>
+						<li>compile and test all sources.</li>
+						<li>generate the site.</li>
+						<li>
+							let each report plugin generate its xml
+							file.
+						</li>
+					</ol>
+					<li>
+						<b>second goal</b>
+						:
+						<tt>mvn dashboard:persist</tt>
+					</li>
+					<ol>
+						<li>aggregate all results of each report.</li>
+						<li>store aggregated results in database.</li>
+					</ol>
+					<li>
+						<b>third goal</b>
+						:
+						<tt>mvn dashboard:dashboard</tt>
+					</li>
+					<ol>
+						<li>aggregate all results of each report.</li>
+						<li>re-generate the dashboard HTML file.</li>
+						<li>generate the historic dashboard HTML file with stored values in database.</li>
+					</ol>
+					<li><b>fourth goal</b> : <tt>mvn site:deploy</tt></li>
+				</ol>
+			</subsection>
+		</section>
+	</body>
+</document>

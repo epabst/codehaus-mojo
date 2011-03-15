@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+  <properties>
+    <author email="ehsavoie73@gmail.com">Emmanuel Hugonnet</author>
+    <title>Introduction</title>
+  </properties>
+  <head>
+    <meta/>
+      <style>
+        .img.jira { width: 50px;}
+      </style>
+  </head>
+  <body>
+    <!-- The body of the document contains a number of sections -->
+    <section name="SCM Changelog Maven plugin">
+      <!-- Within sections, any XHTML can be used -->
+      <p>This plugin uses the SCM logs to create a changelog for each tagged version of a project.</p>
+      <p>Supported SCM tools:
+        <ul>
+          <li><a href="http://www.selenic.com/mercurial/wiki/"><img src="http://www.selenic.com/hg-logo/logo-droplets-50.png" alt="Mercurial" /></a></li>
+          <li><a href="http://subversion.tigris.org/"><img src="http://svn.collab.net/repos/svn/branches/scheme-bindings/notes/logo/256-colour/subversion_logo_hor-237x32.png" alt="Subversion" /></a></li>
+        </ul>
+      </p>
+      <p>Supported Tracker tools (cf. <a href="usage.html#Advanced_Configuration">usage</a>):
+        <ul>
+          <li><a href="http://www.atlassian.com/software/jira/">JIRA</a></li>
+          <li><a href="http://www.bugzilla.org/">BugZilla</a></li>
+          <li><a href="http://www.xplanner.org/">XPlanner</a></li>
+          <li>sourceforge</li>
+        </ul>
+      </p>
+      
+      <!-- in addition to XHTML, any number of subsections can be within a section -->
+      <subsection name="Goals Overview">
+        <p>
+          General Information about the goals.
+          <ul>
+            <li>
+              <a href="report-mojo.html">scmchangelog:report</a>: Goal which produces a changelog report based on the Subversion logs.
+            </li>
+          </ul>
+        </p>
+      </subsection>     
+      
+      <subsection name="Usage">
+        <p><!--Necessary because of a bug removing p tags--></p>
+          <!-- Within sections, any XHTML can be used -->
+          <p>
+            Instructions on how to use the SCM Changelog Maven plugin can be found on the <a href="usage.html">usage page</a>.
+          </p>
+      </subsection>
+    </section>
+  </body>
+</document>

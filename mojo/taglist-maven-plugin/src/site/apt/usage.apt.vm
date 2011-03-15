@@ -1,0 +1,106 @@
+ ------
+ Usage
+ ------
+ Fabrice Bellingard
+ ------
+
+
+Usage
+
+*Available Configuration Options
+ 
+ You can refer to the {{{taglist-mojo.html}goal documentation}} to discover
+ the different configuration options for this plugin.
+
+*How to Use
+
+  In your <<<pom.xml>>>, insert this segment:
+
+-------------------
+<project>
+  ...
+  <build>
+    ...
+  </build>
+  ...
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>taglist-maven-plugin</artifactId>
+        <version>${project.version}</version>
+      </plugin>
+    </plugins>
+  </reporting>
+  ...
+</project>
+-------------------
+
+  The report will be generated when executing the <<<site>>> life cycle phase,
+  like this:
+
+-------------------
+mvn site
+-------------------
+
+  The TagList plugin allows tags to be found using three matching methods:  exact match, ignore case match, and 
+  regular expression match.  The matched tags are grouped into tag classes.  For instance:
+
+-------------------
+<project>
+  ...
+  <build>
+    ...
+  </build>
+  ...
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>taglist-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <configuration>
+          <tagListOptions>
+            <tagClasses>
+              <tagClass>
+                <displayName>Todo Work</displayName>
+                <tags>
+                  <tag>
+                    <matchString>todo</matchString>
+                    <matchType>ignoreCase</matchType>
+                  </tag>
+                  <tag>
+                    <matchString>FIXME</matchString>
+                    <matchType>exact</matchType>
+                  </tag>
+                </tags>
+              </tagClass>
+            </tagClasses>
+          </tagListOptions>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
+  ...
+</project>
+
+
+-------------------
+
+  For backwards compatibility with versions prior to the 2.4 release, the legacy tags configuration is supported; however, only exact matching
+  is used with legacy configuration.
+
+-------------------
+<project>
+  ...
+        <configuration>
+          <tags>
+            <tag>TODO</tag>
+            <tag>FIXME</tag>
+            <tag>@todo</tag>
+            <tag>@deprecated</tag>
+          </tags>
+        </configuration>
+  ...
+</project>
+-------------------

@@ -1,0 +1,15 @@
+ ------
+ Examples
+ ------
+
+Examples
+
+ These images were generated using argouml-maven-plugin.
+
+* Funny guys
+
+[images/argouml/Funny guys.png] Funny guys
+
+* Creature state diagram
+
+[images/argouml/Hungry.png] Creature state duagram

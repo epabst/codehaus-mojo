@@ -1,0 +1,6 @@
+<plexus>
+  <component>
+    <role>org.apache.maven.project.MavenProjectBuilder</role>
+    <implementation>org.apache.maven.project.DefaultMavenProjectBuilder</implementation>
+  </component>
+</plexus>

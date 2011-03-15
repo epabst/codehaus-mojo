@@ -1,0 +1,8 @@
+<verifications>
+  <files>
+    <file>
+      <location>target/sql/hibernate3/output.sql</location>
+      <contains>^(?!.*name.*\s).*$</contains>
+    </file>
+  </files>
+</verifications>

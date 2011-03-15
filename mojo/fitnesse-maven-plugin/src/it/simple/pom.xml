@@ -1,0 +1,70 @@
+ <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.codehaus.mojo.fitnesse.integration</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>org.codehaus.mojo.fitnesse.integration</groupId>
+    <artifactId>integration-simple</artifactId>
+
+    <packaging>pom</packaging>
+    <name>Maven FitNesse Plugin Simple</name>
+    <description>Maven FitNesse Plugin Simple</description>
+    <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>fitnesse-maven-plugin</artifactId>
+                <version>@pluginVersion@</version>
+                <configuration>
+                    <!-- Fail and Output configuration -->
+                    <failOnError>false</failOnError>
+                   <classPathProvider>fitnesse</classPathProvider>
+                    <!-- Fitnesse servers list -->
+                    <fitnesses>
+                        <fitnesse>
+                            <hostName>localhost</hostName>
+                            <port>@fitnessePort@</port>
+                            <pageName>FitnesseIntegrationTest.SuiteCoverage</pageName>
+                            <type>Suite</type>
+                        </fitnesse>
+                        <fitnesse>
+                            <hostName>localhost</hostName>
+                            <port>@fitnessePort@</port>
+                            <pageName>FitnesseIntegrationTest.SuiteCoverage3</pageName>
+                            <serverId>fitnesseTest</serverId>
+                        </fitnesse>
+                        <fitnesse>
+                            <hostName>localhost</hostName>
+                            <port>@fitnessePort@</port>
+                            <pageName>FitnesseIntegrationTest.CoverageFive</pageName>
+                            <type>Suite</type>
+                        </fitnesse>
+                        <fitnesse>
+                            <hostName>localhost</hostName>
+                            <port>@fitnessePort@</port>
+                            <pageName>FitnesseIntegrationTest.CoverageFive.WithoutConvention</pageName>
+                            <type>test</type>
+                        </fitnesse>
+                    </fitnesses>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>site</id>
+                        <phase>pre-site</phase>
+                        <goals>
+                            <!-- for our integration tests we call the couple of goals, for a 'legal' project you should use 
+                                only one of this goals, depending of the choosen mode (see online documentation). -->
+                            <!-- goal>run</goal-->
+                            <goal>remotecall</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

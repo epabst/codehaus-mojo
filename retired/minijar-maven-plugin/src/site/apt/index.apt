@@ -1,0 +1,15 @@
+  ------
+  Introduction
+  ------
+  
+Minijar Maven Plugin
+
+=====================
+
+  This plugin is deprecated and no longer in active development. The functionality has been included into the maven shade plugin. Please use that instead. See {{http://maven.apache.org/plugins/maven-shade-plugin/}}
+
+=====================
+
+Introduction
+
+ This plugin analysis the (transitive) dependencies of a project on the class level. Quite often you don't need all that classes from dependencies like commons-lang (just to give an example). Maybe you use 1-2 classes. So what to do? Copy-and-past the code you need? Don't! Minijar can create a mini version of your dependencies that just fulfills your needs.

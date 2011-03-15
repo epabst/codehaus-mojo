@@ -1,0 +1,23 @@
+<document>
+    <properties>
+        <title>FreeMarker Maven Plugin</title>
+        <author email="public@jimisola.com">Jimisola Laursen</author>
+    </properties>
+    <body>
+        <!-- valid action types: add, fix, remove, update  -->
+        <release version="0.4" date="2006-11-30" description="0.4 stable release (first codehaus release)">
+            <action dev="jimisola" type="add">
+                ADD
+            </action>
+            <action dev="jimisola" type="fix" issue="1221">
+                FIX
+            </action>
+            <action dev="jimisola" type="remove">
+                REMOVE
+            </action>
+            <action dev="jimisola" type="update" issue="1221">
+                UPDATE
+            </action>
+        </release>
+    </body>
+</document>

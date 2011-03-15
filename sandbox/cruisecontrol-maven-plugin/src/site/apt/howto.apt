@@ -1,0 +1,68 @@
+ ------
+ Maven CruiseControl Plugin
+ ------
+ Jerome Lacoste
+ ------
+ 13 April 2006
+ ------
+
+Maven CruiseControl Plugin - How-to
+
+POM configuration
+
+ In the root pom of the project you want to support,
+
+ * configure the plugin
+
+ * configure your <ciManagement> node
+
+ * configure your <scm> information
+
+
+ In the modules
+
+ * configure your <ciManagement> node.
+
+ * configure your <scm> information
+
+
+pom.xml to config.xml mapping
+
+ * maven notifier/htmlemail is mapped to publishers/htmlemail
+
+ * scm subversion is mapped to
+
+
+CruiseControl Layout
+
+ Only currently supported the official default CC build loop layout
+
+-----------
+config.xml
+checkout/
+logs/
+artifacts/ (currently not used?)
+-----------
+
+Functionning
+
+  mvn cruisecontrol:cruisecontrol
+
+
+Limitations
+
+  No support for
+
+  * connection credentials
+
+  * multiple root pom.xml in one config.xml 
+
+  *
+
+  *
+
+Improvement ideas
+
+  * add a CruiseControl mavenscm sourcecontrols plugin?
+
+  *

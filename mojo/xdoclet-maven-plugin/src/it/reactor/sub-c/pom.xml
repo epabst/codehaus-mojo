@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.codehaus.mojo.xdoclet</groupId>
+  <artifactId>sub-c</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>xdoclet-maven-plugin</artifactId>
+        <version>@project.version@</version>
+        <configuration>
+          <tasks>
+            <webdoclet destdir="${project.build.outputDirectory}">
+              <fileset dir="${basedir}/src/main/java" includes="**/*.java"/>
+              <deploymentdescriptor destDir="${project.build.outputDirectory}/WEB-INF" servletspec="2.3"/>
+            </webdoclet>
+          </tasks>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>xdoclet</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

@@ -1,0 +1,141 @@
+<document>
+  <properties>
+    <title>NSIS Maven Plugin</title>
+  </properties>
+  <body>
+    <section name="NSIS Maven Plugin">
+      <p>
+        The NSIS Maven Plugin, utilizes the NSIS command line installer
+        script compiler to generate a windows installer exe from a
+        setup.nsi script.
+      </p>
+
+      <p>
+        Features of nsis-maven-plugin
+      </p>
+
+      <ul>
+        <li>Generate project.nsh containing variables from project's pom.xml suitable for inclusion in the setup.nsi main script. (see <a href="generate-project-mojo.html">nsis:generate-project</a> goal)</li>
+        <li>Compile setup.nsi into a windows installer EXE. (See <a href="compile-mojo.html">nsis:compile</a> goal)</li>
+        <li>Attach compiled installer EXE to the build deployment plan so that the install and deploy phases of the default lifecycle can process the created exe.</li>
+        <li>Continuous Integration friendly.</li>
+        <li>Maven 2 Repository system friendly.</li>
+      </ul>
+
+      <p>
+        Example flow / usage of the nsis-maven-plugin goals.
+      </p>
+
+      <div class="overview">
+      <table border="0">
+        <tbody>
+          <tr>
+            <td></td>
+            <td></td>
+            <td valign="middle" align="center">
+              <div class="file pom">
+                <h2>Project POM</h2>
+<pre>
+&lt;project&gt;
+  &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+  &lt;groupId&gt;<span class="groupId">com.company.product</span>&lt;/groupId&gt;
+  &lt;artifactId&gt;<span class="artifactId">my-installer</span>&lt;/artifactId&gt;
+  &lt;version&gt;<span class="versionId">1.1</span>&lt;/version&gt;
+  &lt;packaging&gt;pom&lt;/packaging&gt;
+  ...
+&lt;/project&gt;</pre>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td valign="middle" align="center">
+              <img class="arrow_down" alt="arrow down"
+                   src="images/arrow_down.png"
+                   width="50" height="58" />
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td valign="middle" align="center">
+              <div class="goal">
+                <h2>Plugin Goal</h2>
+                <a href="generate-project-mojo.html">nsis:generate-project</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td valign="middle" align="center">
+              <img class="arrow_down" alt="arrow down"
+                   src="images/arrow_down.png" 
+                   width="50" height="58" />
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td valign="middle" align="center">
+              <div class="file">
+                <h2>Generated File</h2>
+                /target/project.nsh
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td valign="middle" align="center">
+              <img class="arrow_down" alt="arrow down"
+                   src="images/arrow_down.png" 
+                   width="50" height="58" />
+            </td>
+          </tr>
+          <tr>
+            <td valign="middle" align="center">
+              <div class="file">
+                <h2>User Created File</h2>
+                /setup.nsi
+              </div>
+            </td>
+            <td valign="middle" align="center">
+              <img class="arrow_right" alt="arrow right"
+                   src="images/arrow_right.png"
+                   width="58" height="50" />
+            </td>
+            <td valign="middle" align="center">
+              <div class="goal">
+                <h2>Plugin Goal</h2>
+                <a href="compile-mojo.html">nsis:compile</a>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td valign="middle" align="center">
+              <img class="arrow_down" alt="arrow down" 
+                   src="images/arrow_down.png"
+                   width="50" height="58" />
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td valign="middle" align="center">
+              <div class="file">
+                <h2>Compile Output</h2>
+                /target/<span class="artifactId">my-installer</span>-<span class="versionId">1.1</span>.exe
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </section>
+  </body>
+</document>
+

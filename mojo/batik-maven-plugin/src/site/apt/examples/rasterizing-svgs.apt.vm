@@ -1,0 +1,39 @@
+ ------
+ Rasterizing SVGs
+ ------
+ Mark Hobson
+ ------
+ 2009-12-03
+ ------
+
+
+Rasterizing SVGs
+
+  To rasterize all SVGs in <<<src/main/svg>>> to PNGs in <<<target/generated-resources/images>>>, add the
+  following to your pom:
+  
+---
+<project>
+  ...
+    <build>
+      ...
+      <plugins>
+        ...
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>batik-maven-plugin</artifactId>
+          <version>${project.version}</version>
+        </plugin>
+        ...
+      </plugins>
+      ...
+    </build>
+  ...
+</project>
+---
+
+  Then execute the following command to run Batik:
+  
+---
+mvn batik:rasterize
+---

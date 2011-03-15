@@ -1,0 +1,43 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>mojo-sandbox</artifactId>
+    <version>2</version>
+  </parent>
+  <artifactId>mojo-was</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+  <name>Codehaus Mojo WAS Parent</name>
+  <modules>
+    <module>was-plugin-anttasks</module>
+    <module>was5-maven-plugin</module>
+  </modules>
+  <developers>
+    <developer>
+      <id>hermod</id>
+      <name>hermod</name>
+      <email>hermod@codehaus.org</email>
+      <roles>
+        <role>Developer</role>
+      </roles>
+      <timezone>+1</timezone>
+    </developer>
+  </developers>
+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>CodeHaus</id>
+      <name>Codehaus Repository</name>
+      <url>http://snapshots.maven.codehaus.org/maven2</url>
+      <layout>default</layout>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+    </pluginRepository>
+  </pluginRepositories>
+
+</project>

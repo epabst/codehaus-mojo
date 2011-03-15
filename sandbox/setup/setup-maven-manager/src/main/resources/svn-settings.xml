@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svn-settings>
+<!--  <configDirectory>your_configuration_directory</configDirectory>-->
+
+      <!-- true in order to use cygwin path /cygdrive/c  -->
+<!--  <useCygwinPath>false</useCygwinPath>-->
+
+<!--  <cygwinMountPath>the mount path to use default is /cygwin</cygwinMountPath>-->
+
+<!-- if false &#150;&#150;non-interactive will not be used in the svn command line-->
+<!--  <useNonInteractive>false</useNonInteractive>-->
+</svn-settings>

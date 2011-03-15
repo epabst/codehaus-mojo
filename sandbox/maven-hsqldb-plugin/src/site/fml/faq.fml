@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<faqs title="FAQs about the maven-hsqldb-plugin">
+
+  <part id="about">
+    <faq>
+      <question> What this plug is for ?</question>
+      <answer>
+        <p>
+          This plugin is for istantiating a full-blown dbms (as HSQLDB) without the need to
+          install it separately from your Maven project, and even more without
+          the need to launch it separately from the life-cycle of your applications.
+        </p>
+      </answer>
+    </faq>
+
+    <faq>
+      <question>Why did you develop this plugin?</question>
+      <answer>
+        <p>
+          I was tired to start/stop HSQLDB outside the standard lifecycle of
+          my application.
+        </p>
+      </answer>
+    </faq>
+  </part>
+</faqs> 

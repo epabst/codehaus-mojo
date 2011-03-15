@@ -1,0 +1,18 @@
+<project>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>pde-maven-plugin</artifactId>
+        <configuration>
+           <project implementation="org.codehaus.mojo.pde.stubs.ProjectStub"/>
+           <eclipseInstall>src/test/resources/baseLocation</eclipseInstall>>
+           <pdeProductFilename>pde-test.product</pdeProductFilename>
+           <pdeBuildConfigDirectory>buildConfiguration</pdeBuildConfigDirectory>
+           <pdeBuildVersion>3.2.0.v20060603</pdeBuildVersion>
+           <pdeBuildTempFolder>target/pdeTemp</pdeBuildTempFolder>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

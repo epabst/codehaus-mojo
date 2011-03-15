@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>mojo-parent</artifactId>
+    <groupId>org.codehaus.mojo</groupId>
+    <version>23</version>
+  </parent>
+
+  <artifactId>ci-aggregator</artifactId>
+  <version>1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>Continous Integration Aggregator</name>
+  <description>
+    An aggregator POM that specifies all the plugins that should participate in the reactor build on the CI grid.
+    Note that this POM is not meant for inheritance, i.e. don't confuse it with the mojo-parent POM!
+  </description>
+  <url>http://grid.sonatype.com/ci/</url>
+  <inceptionYear>2009</inceptionYear>
+
+  <ciManagement>
+    <system>hudson</system>
+    <url>https://grid.sonatype.org/ci/job/mojo/</url>
+  </ciManagement>
+
+  <scm>
+    <connection>scm:svn:http://svn.codehaus.org/mojo/trunk/mojo/ci-aggregator</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/ci-aggregator</developerConnection>
+    <url>http://fisheye.codehaus.org/browse/mojo/trunk/mojo/ci-aggregator</url>
+  </scm>
+
+  <issueManagement>
+    <system>JIRA</system>
+    <url>http://jira.codehaus.org/browse/MOJO</url>
+  </issueManagement>
+
+  <modules>
+    <!-- Plugins that are enabled for the CI build and that inherit from mojo-parent:19+, in alphabetical order -->
+    <!-- fails:
+    <module>../animal-sniffer</module>
+    -->
+    <module>../antlr3-maven-plugin</module>
+    <!-- TODO check why it fail on the grid
+    <module>../apt-maven-plugin</module>
+    -->
+    <module>../aspectj-maven-plugin</module>
+    <module>../axistools-maven-plugin</module>
+    <module>../build-helper-maven-plugin</module>
+    <module>../buildnumber-maven-plugin</module>
+    <module>../clirr-maven-plugin</module>
+    <module>../dbunit-maven-plugin</module>
+    <module>../exec-maven-plugin</module>
+    <!-- excluded due to ongoing failures which prevent other plugiins from building
+    <module>../findbugs-maven-plugin</module>
+    -->
+    <module>../gwt-maven-plugin</module>
+    <module>../hibernate3</module>
+    <module>../ianal-maven-plugin</module>
+    <module>../ideauidesigner-maven-plugin</module>
+    <module>../javacc-maven-plugin</module>
+    <module>../jdepend-maven-plugin</module>
+    <module>../license-maven-plugin</module>
+    <module>../maven-native</module>
+    <module>../mojo-parent</module>
+    <module>../native2ascii-maven-plugin</module>
+    <module>../nbm-maven-plugin</module>
+    <module>../properties-maven-plugin</module>
+    <module>../rmic-maven-plugin</module>
+    <module>../scmchangelog-maven-plugin</module>
+    <!-- stabelize selenium build somewhere else 1st
+    <module>../selenium-maven-plugin</module>
+    -->
+    <module>../springws-maven-plugin</module>
+    <module>../sql-maven-plugin</module>
+    <module>../sqlj-maven-plugin</module>
+    <module>../taglist-maven-plugin</module>
+    <module>../tomcat-maven-plugin</module>
+    <module>../truezip-maven-plugin</module>
+    <module>../virtualization-maven-plugin</module>
+    <module>../was6-maven-plugin</module>
+    <!-- needs weblogic jars 
+    <module>../weblogic-maven-plugin</module>
+    -->
+    <!-- excluded because of ongoing failures that need investigation sometime
+    <module>../webstart</module>
+    -->
+    <module>../xmlbeans-maven-plugin</module>
+    <module>../xml-maven-plugin</module>
+    <module>../emma-maven-plugin</module>
+    <!-- Excluded as a workaround for MNG-3814
+    <module>../cobertura-maven-plugin</module>
+     -->
+    <module>../jaxb2-maven-plugin</module>
+  </modules>
+
+  <profiles>
+    <profile>
+      <id>maven-3</id>
+      <activation>
+        <file>
+          <!--  This employs that the basedir expression is only recognized by Maven 3.x (see MNG-2363) --> 
+          <exists>${basedir}</exists> 
+        </file>
+      </activation>
+      <modules>
+        <module>../cobertura-maven-plugin</module>
+        <module>../sonar-maven-plugin</module>
+      </modules>
+    </profile>  
+  </profiles>
+</project>

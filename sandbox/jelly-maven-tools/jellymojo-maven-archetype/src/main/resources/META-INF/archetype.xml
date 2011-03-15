@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<archetype>
+    <id>jellyplugin</id>
+    <sources>
+        <source>src/main/java/MyMojo.java</source>
+        <source>src/main/java/AbstractMojo.java</source>
+        <source>src/main/scripts/MyMojo.jelly</source>
+    </sources>
+    <resources>
+        <resource>pom.xml</resource>
+    </resources>
+</archetype>

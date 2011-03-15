@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!--
+   Licensed to the Apache Software Foundation (ASF) under one or more
+   contributor license agreements.  See the NOTICE file distributed with
+   this work for additional information regarding copyright ownership.
+   The ASF licenses this file to You under the Apache License, Version 2.0
+   (the "License"); you may not use this file except in compliance with
+   the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<document>
+
+  <properties>
+    <title>Canoo WebTest Maven Plugin</title>
+    <author>Siegfried Goeschl</author>
+  </properties>
+
+  <body>
+    <section name="Introduction">
+      <p> The webtest-maven-plugin allows running <a href="http://webtest.canoo.com">Canoo
+          Webtest</a> within a Maven 2 build but you might have guessed that already. Furthermore
+        the plugin provides some additional syntactic sugar such as <ul>
+          <li>run the tests in a loop</li>
+          <li>force a build error even when errors and failures are explictely ignored</li>
+          <li>check the result file for certain strings and fail if they exists</li>
+        </ul>
+      </p>
+      <subsection name="Plugin Installation">
+        <p> The plugin is currently hosted as sandbox plugin at <a href="http://mojo.codehaus.org">
+          Codehaus Mojo</a> therefore no regular release is currently available. Uptodate
+          snapshots are being deployed on <a href="http://snapshots.repository.codehaus.org">
+          Codehaus Snapshot Repository</a> regulary.
+        </p>
+      </subsection>
+      <subsection name="Getting some examples">
+        <p> The hardest part is making the first successful steps when being new to Canoo Webtest
+          and/or Maven. For some inspiration what you can do (e.g. JavaScript execution, embedding
+          Groovy steps, testing PDF documents) check out the integration tests under
+          ./src/test/itX</p>
+      </subsection>
+      <subsection name="Using Canoo WebTest with M1">
+        <p> A M1 plugin is available at <a href="http://maven-plugins.sourceforge.net"
+            >http://maven-plugins.sourceforge.net</a></p>
+      </subsection>
+      <subsection name="Running tests in a loop">
+        <p> This is quite handy when you do load tests in parallel - in the background you run your
+          webtests to ensure that the functional tests still work under high load. The loop exits
+          after a number of configurable iterations or when encountering the first problem. </p>
+      </subsection>
+      <subsection name="Force a build error">
+        <p> A common problem with Continous Integration is the fact that you want run all tests and
+          not stop after the first problem. Running all tests means also to finish the build (e.g.
+          generating test reports) before you force a build failure - this is implemented in <a
+            href="verify-result-mojo.html"> webtest:verify-result</a>. </p>
+      </subsection>
+      <subsection name="Checking the result files">
+        <p> Another common problem are server processing errors behind a shiny HTTP 200 result code,
+          e.g. "An application error has occured" plus two screen meter of stack trace showing off
+          all your implementation details. So if you fail to detect this magic messages in your test
+          you have a problem while adding those checks to all tests makes them much harder to
+          maintain. Therefore <a href="verify-filecontent-mojo.html">webtest:verify-filecontent</a>
+          is your friend. </p>
+      </subsection>
+    </section>
+  </body>
+</document>

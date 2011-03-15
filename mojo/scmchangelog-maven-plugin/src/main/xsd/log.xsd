@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:include schemaLocation="common.xsd"/>
+  <!--
+    XML RELAX NG schema for Subversion command-line client output
+    For "svn log"
+  -->
+  <xs:element name="log">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="logentry"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="logentry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="author"/>
+        <xs:element minOccurs="0" ref="date"/>
+        <xs:element minOccurs="0" ref="paths"/>
+        <xs:element minOccurs="0" ref="msg"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.logentry"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.logentry">
+    <xs:attribute name="revision" use="required" type="revnum.type"/>
+  </xs:attributeGroup>
+  <xs:element name="paths">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="path"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="path">
+    <xs:complexType mixed="true">
+      <xs:attributeGroup ref="attlist.path"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.path">
+    <xs:attribute name="action" use="required">
+      <xs:annotation>
+        <xs:documentation>"action code": A)dd, D)elete, R)eplace or M)odify</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="A"/>
+          <xs:enumeration value="D"/>
+          <xs:enumeration value="R"/>
+          <xs:enumeration value="M"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="copyfrom-path">
+      <xs:annotation>
+        <xs:documentation>The copyfrom path within repository.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="copyfrom-rev" type="revnum.type">
+      <xs:annotation>
+        <xs:documentation>Copyfrom revision number.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="msg" type="xs:string"/>
+</xs:schema>

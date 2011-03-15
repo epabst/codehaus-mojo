@@ -1,0 +1,5 @@
+@REM Shell script to shutdown jboss
+
+@if "%OS%" == "Windows_NT" setlocal
+@set NOPAUSE=true
+call ${jbossHome}\bin\shutdown.bat -S

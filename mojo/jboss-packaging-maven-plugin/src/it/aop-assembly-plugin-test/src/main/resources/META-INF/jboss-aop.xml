@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<aop xmlns="urn:jboss:aop-beans:1.0">
+  <interceptor name"dummy" class"com.acme.DoesNotMatterForThisTest" />
+  
+  <bind pointcut="execution(void $instanceof{com.acme.HelloWorldService}->printMessage())">
+    <interceptor-ref name"dummy" />
+  </bind>
+</aop>

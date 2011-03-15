@@ -1,0 +1,10 @@
+<verifications>
+  <files>
+    <file>
+      <location>target/sql/hibernate3/test-A.sql</location>
+    </file>
+    <file>
+      <location>target/sql/hibernate3/test-B.sql</location>
+    </file>
+  </files>
+</verifications>

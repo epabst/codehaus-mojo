@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project name="Canoo Webtest Sample" basedir="." xmlns:contrib="antlib:net.sf.antcontrib" default="all">
+    
+  <taskdef resource="webtestTaskdefs.properties" />
+  <taskdef resource="net/sf/antcontrib/antlib.xml" />
+
+  <target name="all" >   
+    <contrib:stopwatch name="timer1"/>
+    <testSpec name="GreenTest" >
+      <config
+        host="${host}"
+        port="${port}"
+        protocol="${protocol}"
+        basepath="${basepath}"
+        summary="${summary}"
+        saveresponse="${saveresponse}"
+        resultpath="${resultpath}"
+        resultfile="${resultfile}"
+        haltonfailure="${haltonfailure}"
+        haltonerror="${haltonerror}"
+        showhtmlparseroutput="${showhtmlparseroutput}"
+        autorefresh="${autorefresh}"
+      />
+      <steps>              
+        <invoke description="Go to JAKARTA home page" url="index.html"/>                            
+      </steps>      
+    </testSpec>        
+    <contrib:stopwatch name="timer1" action="total"/>
+  </target>
+  
+</project>    

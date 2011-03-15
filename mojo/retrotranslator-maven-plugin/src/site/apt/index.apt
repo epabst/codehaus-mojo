@@ -1,0 +1,52 @@
+ ------
+ Introduction
+ ------
+ ------
+ $Rev$ $Date$
+
+~~ 
+~~ Licensed to the Apache Software Foundation (ASF) under one
+~~ or more contributor license agreements.  See the NOTICE file
+~~ distributed with this work for additional information
+~~ regarding copyright ownership.  The ASF licenses this file
+~~ to you under the Apache License, Version 2.0 (the
+~~ "License"); you may not use this file except in compliance
+~~ with the License.  You may obtain a copy of the License at
+~~
+~~  http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~ Unless required by applicable law or agreed to in writing,
+~~ software distributed under the License is distributed on an
+~~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+~~ KIND, either express or implied.  See the License for the
+~~ specific language governing permissions and limitations
+~~ under the License.
+~~
+
+Retrotranslator Maven Plugin
+
+ Provides the features of {{{http://retrotranslator.sourceforge.net}Retrotranslator}}
+ within the Maven 2 environment.
+
+ Retrotranslator is a Java bytecode transformer that translates Java classes 
+ compiled with JDK 5.0 into classes that can be run on JVM 1.4. It is a free, 
+ open-source tool based on the ASM bytecode manipulation framework and 
+ concurrency utilities backported to Java 1.4
+
+* Goals Overview
+
+ * {{{translate-mojo.html}retrotranslator:translate}}: Translate classes and jar files.
+
+ * {{{translate-project-mojo.html}retrotranslator:translate-project}}: Translate Maven projects (and optionally attach).
+ 
+ * {{{translate-war-mojo.html}retrotranslator:translate-war}}: Translate Maven War projects (and optionally attach).
+
+ []
+
+* Examples
+
+ * {{{examples/general-translation.html}Flexible input selection translation}}.
+
+ * {{{examples/project-translation.html}Translation based on Maven project type}}.
+
+ []

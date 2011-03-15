@@ -1,0 +1,97 @@
+ ------
+ Deploy/Undeploy Examples
+ ------
+ Paul Gier <pgier@apache.org>
+ ------
+ November 3, 2009
+ ------
+
+Deploy/Undeploy Examples
+
+* Deploying the files via JMX/HTTP
+
+  The plugin goals {{{../deploy-mojo.html}deploy}}, {{{../undeploy-mojo.html}undeploy}}, 
+  and {{{../redeploy-mojo.html}redeploy}} can be used to deploy and undeploy applications
+  to a JBoss server using JMX.  The first step is to add the appropriate configuration
+  to your plugin configuration in the POM.
+  
+----------
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jboss-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <configuration>
+          <hostName>localhost</hostName>
+          <port>8080</port>
+          <fileNames>
+            <fileName>target/my-project.war</fileName>
+          <fileNames>
+        </configuration>
+      </plugin>
+      ...
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
+----------
+
+  The files listed under the <<<fileNames>>> parameter can be deployed to the 
+  server using the <<<{{{../deploy-mojo.html}deploy}}>>> goal.
+  
++---------
+  mvn jboss:deploy
++---------
+
+  The files can later be redeployed or undeployed using the appropriate goals.
+  
++---------
+  mvn jboss:redeploy
+  mvn jboss:undeploy
++---------
+  
+* Deploying the files by direct copy
+
+  The plugin goals {{{../hard-deploy-mojo.html}hard-deploy}} and 
+  {{{../undeploy-mojo.html}hard-undeploy}} can be used to deploy files or 
+  directories by copying directly to the deploy directory of the server.
+  The first step is to configure the location of the server and the file
+  to be deployed.
+  
+----------
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jboss-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <configuration>
+          <jbossHome>/usr/jboss-4.2.3.GA</jbossHome>
+          <serverName>all</serverName>
+          <fileName>target/my-project.war</fileName>
+        </configuration>
+      </plugin>
+      ...
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
+----------
+  
+  The file can now be deployed and undeployed using the appropriate goals.
+  
++---------
+  mvn jboss:hard-deploy
+  mvn jboss:hard-undeploy
++---------
+  
+  

@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+  <properties>
+    <author email="ehsavoie73@gmail.com">Emmanuel Hugonnet</author>
+    <title>Grammars</title>
+  </properties>
+  <head>
+    <meta/>
+  </head>
+  <body>
+    <section name="Commons">
+      <subsection name="Operations">
+        <p>
+         We support currently 4 grammars:
+          <ul>
+            <li>MANU</li>
+            <li>REMY</li>
+            <li>BUGZILLA</li>
+            <li>ALL</li>
+          </ul>
+          all with the same operations. The operations are <b>NOT</b> case sensitive.
+          <ul>
+            <li>
+              <b>add</b>: when you add a new feature or some code to your projet.
+            </li>
+            <li>
+              <b>remove</b>: when you remove a feature or some code from your projet.
+            </li>
+            <li>
+              <b>update</b>: when you update a feature or some code in your projet.
+            </li>
+            <li>
+              <b>fix</b>: when you fixe a feature or some code in your projet.
+            </li>
+          </ul>
+        </p>
+      </subsection>
+     <subsection name="What about the issue id?">
+        <p>
+          Well it is quite simple, each bug tracker is associated with a pattern.  When an issue id is provided (which is <i>optionnal</i>) we use the pattern to link the entry to the tracker.
+        </p>
+      </subsection>
+      <subsection name="What about comments?">
+        <p><b>You can comment part of the SCM messages using /* my comments */.</b><br/>
+          For instance,  
+          <source>Now /*from version 1.3*/ you can comment some part of the commit message</source>
+          only this message will be added in the Change Log Report. 
+          <source>Now you can comment some part of the commit message</source>
+        </p>
+        <p><b>Comments are not inclusive.</b><br/>
+        For instance
+        <source>Now /*from version 1.3 /*still hidden message but*/ (not hidden message) */ you can comment 
+        some part of the commit message</source>
+        this message will be added in the Change Log Report. 
+        <source>Now (not hidden message) */ you can comment some part of the commit message</source>
+        </p>
+        <p>Look at <a href="http://mojo.codehaus.org/scmchangelog-maven-plugin/xref-test/org/codehaus/mojo/scmchangelog/changelog/log/grammar/RemoveCommentsTest.html">RemoveCommentsTest</a> unit test for further details.</p>
+      </subsection>
+     </section>
+    <section name="Grammars">
+      <subsection name="MANU">
+        <p>
+         The <b>MANU</b> grammar uses the pattern:<source>@operation:${issueId};</source>
+         So for example, to link to the bug MSCMCHGLOG-7 and you would have:</p>
+        <p>
+          <source>@update:MSCMCHGLOG-7;The documentation has been updated.</source>
+        </p>
+        <p>
+         If you don't have a issue id but still want to add an entry you could use the following comment:
+          <source>@fix:;The url to the JIRA tracker has been fixed.</source>
+        </p>
+        <p>
+         It's also possible to add several entries. You just have to add one entry by line as described in the following comment:
+<!-- WARNING : spaces in the source node are visible in the generated html page  -->
+<source>@update:MSCMCHGLOG-7;The documentation has been updated.
+@fix:;The url to the JIRA tracker has been fixed.
+</source>
+        </p>
+      </subsection>
+      <subsection name="REMY">
+        <p>
+         The <b>REMY</b> grammar uses the pattern: <source>[operation:${issueId}]</source>
+         So for example, to link to the bug MSCMCHGLOG-7 and you would have:</p>
+        <p>
+          <source>[update:MSCMCHGLOG-7]The documentation has been updated.</source>
+        </p>
+        <p>
+         If you don't have a issue id but still want to add an entry you could use the following comment:
+          <source>[fix:]The url to the JIRA tracker has been fixed.</source>
+        </p>
+        <p>
+         It's also possible to add several entries. You just have to add one entry by line as described in the following comment:
+<!-- WARNING : spaces in the source node are visible in the generated html page  -->
+<source>[update:MSCMCHGLOG-7]The documentation has been updated.
+[fix:]The url to the JIRA tracker has been fixed.
+</source>
+        </p>
+      </subsection>
+      <subsection name="BUGZILLA">
+        <p>The <b>BUGZILLA</b> grammar implements Bugzilla's <a href="http://www.bugzilla.org/docs/3.2/en/html/hintsandtips.html">autolinkification</a>
+        feature, automatically recognizing bug references of the form:</p>
+        <p>
+          <source>bug 42: The documentation has been updated.</source>
+        </p>
+        <p>This grammar does not allow the plugin to distinguish between the various operations,
+        so they will all be marked in the report as "fix".</p>
+      </subsection>
+      <subsection name="ALL">
+        <p>The <b>ALL</b> grammar implements accept all comments and doesn't recognize bug references of the form:</p>
+        <p>
+          <source>The documentation has been updated.</source>
+        </p>
+        <p>This grammar does not allow the plugin to distinguish between the various operations,
+        so they will all be marked in the report as "fix".</p>
+      </subsection>
+    </section>
+  </body>
+</document>

@@ -1,0 +1,17 @@
+<assembly>
+  <id>pkg</id>
+  <formats>
+    <format>directory</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <dependencySets>
+    <dependencySet>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.codehaus.mojo.solaris:myapp</include>
+      </includes>
+      <unpack>true</unpack>
+      <outputDirectory>/opt/myapp</outputDirectory>
+    </dependencySet>
+  </dependencySets>
+</assembly>

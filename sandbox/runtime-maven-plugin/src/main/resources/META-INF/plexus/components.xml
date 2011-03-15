@@ -1,0 +1,28 @@
+<component-set>
+  <components>
+    <!--
+     | The Runtime Builder
+     |-->
+    <component>
+      <role>org.codehaus.plexus.runtime.builder.MavenRuntimeBuilder</role>
+      <implementation>org.codehaus.mojo.runtime.builder.DefaultMavenRuntimeBuilder</implementation>
+      <requirements>
+        <requirement>
+          <role>org.apache.maven.artifact.resolver.ArtifactResolver</role>
+        </requirement>
+        <requirement>
+          <role>org.apache.maven.artifact.factory.ArtifactFactory</role>
+        </requirement>
+        <requirement>
+          <role>org.codehaus.plexus.velocity.VelocityComponent</role>
+        </requirement>
+        <requirement>
+          <role>org.apache.maven.project.MavenProjectBuilder</role>
+        </requirement>
+        <requirement>
+          <role>org.apache.maven.artifact.metadata.ArtifactMetadataSource</role>
+        </requirement>
+      </requirements>
+    </component>
+  </components>
+</component-set>

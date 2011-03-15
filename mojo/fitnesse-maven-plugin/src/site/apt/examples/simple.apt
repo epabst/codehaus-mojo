@@ -1,0 +1,24 @@
+ ------
+ Simple Example
+ ------
+Philippe Kernevez
+ <pkernevez@octo.com>
+ ------
+ February 12th, 2007
+ ------
+
+{Note on FitNesse server}
+
+  These exemples need a FitNesse server. The sample SubWiki {{{http://svn.codehaus.org/mojo/trunk/mojo/fitnesse-maven-plugin/src/it/fitNessePage}is available there}}
+  
+
+{Simple Example}
+
+  This example use a simple artifact (no reactor / multiproject). 
+  This example use the (See {{{../run-mojo.html"}fitnesse:remote}}) goal. 
+  This goal allows the remote execution of fitnesse, exactlly like you can do it by  pressing a 'Test' or 'Suite' button in a FitNesse page. 
+  See {{{..//faq.html#Difference}}} for more information about this couple of goals.
+
+* {Sources}
+
+  Sources are available {{{http://svn.codehaus.org/mojo/trunk/mojo/fitnesse-maven-plugin/src/it/simple}here}}.

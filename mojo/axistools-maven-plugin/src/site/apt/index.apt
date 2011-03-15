@@ -1,0 +1,34 @@
+ ----------------
+ Introduction
+ ----------------
+ Jesse McConnell
+ ----------------
+ 2010-08-04
+ ----------------
+
+
+Axis Tools Maven Plugin
+
+  This plugin supports the WSDL2Java and Java2WSDL tools from the {{{http://ws.apache.org/axis}Apache Axis project}}.
+
+
+* Usage
+
+  Instructions on how to use the Axis Tools Maven Plugin can be found on the {{{usage.html}usage page}}.
+
+* Goals Overview
+
+  * {{{admin-mojo.html}admin}}
+
+  * {{{java2wsdl-mojo.html}java2wsdl}}
+
+  * {{{wsdl2java-mojo.html}wsdl2java}}
+
+  []
+
+
+* Examples
+
+  * {{{examples/simple.html}Simple Configuration}}.
+
+  []

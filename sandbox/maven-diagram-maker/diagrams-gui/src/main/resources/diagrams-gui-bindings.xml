@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diagrams-gui>
+	<bindings>
+
+		<binding>
+			<name>Diagram of project's classes</name>
+			<graphType>classesGraph</graphType>
+			
+			<connectorClassName>org.apache.maven.diagrams.connectors.classes.ClassesConnector</connectorClassName>
+			<connectorConfigurationPanelClassName>org.apache.maven.diagrams.gui.connector.classes.ClassesConnectorConfigurationPanel</connectorConfigurationPanelClassName>
+			
+			<rendererClassName>org.apache.maven.diagrams.gui.renderers.umlClass.renderer.ClassesUMLRenderer</rendererClassName>
+			<rendererConfigurationClassName>org.apache.maven.diagrams.gui.renderers.umlClass.UmlClassRendererConfiguration</rendererConfigurationClassName>
+			<rendererConfigurationPanelClassName>org.apache.maven.diagrams.gui.renderers.umlClass.UmlClassRendererConfigurationPanel</rendererConfigurationPanelClassName>			
+		</binding>
+		
+		<binding>
+			<name>Diagram of project's dependencies</name>
+			<graphType>dependenciesGraph</graphType>
+			
+			<connectorClassName>org.apache.maven.diagrams.connectors.dependencies.DependenciesConnector</connectorClassName>
+			<connectorConfigurationPanelClassName>org.apache.maven.diagrams.gui.connector.dependencies.DependenciesConnectorConfigurationPanel</connectorConfigurationPanelClassName>
+			
+			<rendererClassName>org.apache.maven.diagrams.gui.renderers.artifact.ArtifactNodeRenderer</rendererClassName>
+			<rendererConfigurationClassName>org.apache.maven.diagrams.gui.renderers.umlClass.UmlClassRendererConfiguration</rendererConfigurationClassName>
+			<rendererConfigurationPanelClassName>org.apache.maven.diagrams.gui.renderers.umlClass.UmlClassRendererConfigurationPanel</rendererConfigurationPanelClassName>			
+		</binding>
+
+	</bindings>
+</diagrams-gui>

@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.DTD">
+<html>
+	<head>
+		<base href="http://localhost:80/"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+		<title>SuiteCoverage</title>
+		<link rel="stylesheet" type="text/css" href="/files/css/fitnesse_print.css" media="screen"/>
+		<script language="javascript">
+function localizeInPageLinks()
+{
+	var base = document.getElementsByTagName('base')[0].href;
+	var inPageBase = base + "#";
+	var baseLength = inPageBase.length
+	var aTags = document.getElementsByTagName('a');
+	for(var i=0; i < aTags.length; i++)
+	{
+		var tag = aTags[i];
+		if(tag.href && tag.href.substring(0, baseLength) == inPageBase)
+			tag.href = location.href + '#' + tag.href.substring(baseLength);
+	}
+}
+</script>
+	</head>
+	<body onload="localizeInPageLinks()">
+		<div class="sidebar">
+			<div class="art_niche" onclick="document.location='/'"></div>
+			<div class="actions"></div>
+		</div>
+		<div class="mainbar">
+			<div class="header">
+				<br/><a href="/SuiteCoverage" class="page_title">SuiteCoverage</a>
+<br/>				<span class="page_type">Command Line Test Results</span>
+			</div>
+			<div class="main"><div id="test-summary">Running Tests ...</div>
+		<div class="alternating_row_2">
+			<span class="test_summary_results fail">4 right, 1 wrong, 0 ignored, 0 exceptions</span>
+			<a href="#TestSimpleClass1" class="test_summary_link">TestSimpleClass1</a>
+		</div>
+<script>document.getElementById("test-summary").innerHTML = "<strong>Test Pages:</strong> 0 right, 1 wrong, 0 ignored, 0 exceptions&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>Assertions:</strong> 4 right, 1 wrong, 0 ignored, 0 exceptions";document.getElementById("test-summary").className = "fail";</script>
+<h2 class="centered">Test Output</h2>
+<div class="test_output_name">
+	<a href="SuiteCoverage.TestSimpleClass1" id="TestSimpleClass1">TestSimpleClass1</a>
+</div>
+<div class="alternating_block_1"><table border="1" cellspacing="0">
+<tr><td>org.apache.maven.plugin.clover.samples.multiproject.Simple1Fixture</td>
+<td>&nbsp;</td>
+</tr>
+<tr><td>value</td>
+<td>check?</td>
+</tr>
+<tr><td>-1</td>
+<td class="pass">false</td>
+</tr>
+<tr><td>0</td>
+<td class="pass">false</td>
+</tr>
+<tr><td>1</td>
+<td class="pass">true</td>
+</tr>
+<tr><td>2</td>
+<td class="pass">true</td>
+</tr>
+<tr><td>-1</td>
+<td class="fail">true <span class="fit_label">expected</span><hr>false <span class="fit_label">actual</span></td>
+</tr>
+</table>
+
+</div>
+</div>
+		</div>
+	</body>
+</html>

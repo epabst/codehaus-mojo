@@ -1,0 +1,181 @@
+ ------
+ Creating a Simple Product
+ ------
+ Barrie Treloar
+ <baerrach@gmail.com>
+ ------
+ November 23, 2006
+ 
+Overview
+
+  The goal of this example is to create a simple Eclipse PDE product and
+  to successfully build it with pde-maven-plugin.
+
+Prequisites
+
+  You have downloaded and installed the RCP target as per the options steps in {{{getting_started.html}Getting Started}}
+  You need the target setup with the delta pack or else the Ant PDE tasks will fail.
+  
+Steps
+
+* Double check your Eclipse Target
+ 
+  Check Window > Preferences > Plug-in Development > Target Platform,
+  is set to the RCP installation (e.g. D:\ide\target\eclipse-rcp-3.2.1)
+
+* Create an Application Project
+
+  To build a product you need it to be based on an Application first.
+  
++---
+  File > New > Project...
+  
+  Plug-in Development > Plug-in Project (Next)
+  
+  Project name: "test.pde_maven_plugin.simple_application"
+  Uncheck "Use default location" and set Location to "<Your Workspace>\PDE_Plugin_Tutorial\plugins\test.pde_maven_plugin.simple_application"
+  Source folder: "src/main/java"
+  Output folder: "target/classes"  
+  (Next)
+
+  TROUBLE SHOOTING: Eclipse will complain that "Project contents cannot be inside workspace directory"
+  which is non-sense since you can import projects within project now. This may be a bug with the validation
+  code of the Project builder.  You can trick Eclipse by typing and deleting a character in "Project name"
+  which will clear the error message allowing you to click Finish.  
+  
+  Choose "Yes" to "Would you like to create a rich client application".
+  The rest of the defaults for "Plug-in Content" are ok.
+  (Next)
+  
+  Choose "Hello RCP" as the template to use.
+  (Next)
+  
+  The defaults for "Basic RCP application" are ok.
+  (Finish)  
++---
+
+* Confirm the Project works
+
+  If the "test.pde_maven_plugin.simple_application" editor is not already open then open "plugin.xml" and 
+  ensure you are on the "Overview" tab.
+  
+  Select "Launch an Eclipse application" from the Testing area of the Overview tab.
+  
+  Verify that "Hello RCP" application starts up.
+  
+  Having run this will automatically create a new launcher for this application.
+  If you click on the drop down arrow on the Run toolbar button and select Run...,
+  you will see the new "Eclipse Application" configuration.  If this is the first
+  time you have clicked "Launch an Eclipse application" the configuration will be called
+  "Eclipse Application".
+ 
+* Create the *.product file
+
++---
+  Right click on the project and select New > Product Configuration.
+  
+  parent folder = "test.pde_maven_plugin.simple_application" (should already be selected)
+  File name = "simple_product.product"
+  Use a launch configuragion = the same as the one used to test the application, most likely "Eclipse Application".
+  (Finish)
+  
+  In the "simple_product.product" editor window:
+  Product Name = "PDE Simple Product Example"
+  Product ID: (New...)
+    Defining Plug-in: (Browse...) and select test.pde_maven_plugin.simple_application
+    Product ID: product
+    Application: test.pde_maven_plugin.simple_application.application
+  (Finish)
+ 
++---
+
+  Verify this product configuration by selecting "Launch the product" from the Testing area of the Overview tab, 
+  te "Hello RCP" application should start up the same as previously.
+  
+* Create pom.xml
+
+  Now that we know the product project works, we can create the pom.xml to get this running in Maven.
+  
+  In this pom we need to indicate that we want a PDE product build by specifying pdeProductFilename
+  and the pdeBuildVersion details.  The pdeBuildVersion does not default to a value and you must 
+  specify it so that the scripts supplied with Eclipse can be located.  Obtain the value by 
+  browsing to ${eclipseInstall}/plugins/org.eclipse.pde.build_{pdeBuildVersion}/scripts/productBuild.
+  On an Eclipse 3.2.1 installation this value is 3.2.0.v20060603.
+  
++---
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>test.pde_maven_plugin</groupId>
+  <artifactId>simple_application</artifactId>
+  <packaging>zip</packaging>
+  <name>Simple Product PDE Example</name>
+  <version>1.0-SNAPSHOT</version>
+  <description>A Simple Product PDE Example</description>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>pde-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <eclipseInstall>D:\eclipse-3.2</eclipseInstall>
+          <pdeProductFilename>simple_product.product</pdeProductFilename>
+          <pdeBuildVersion>3.2.0.v20060603</pdeBuildVersion>          
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
++---
+
+* Create the build configuration
+
+  The Ant PDE installation process requires a properties file that specifies the build configuration.
+  For more information consult {{{http://help.eclipse.org/help32/topic/org.eclipse.pde.doc.user/guide/tasks/pde_product_build.htm}
+  Building an RCP application from a product configuration file}}
+  
+  You can use You can use ${eclipseInstall}/plugins/org.eclipse.pde.build_{pdeBuildVersion}/templates/headless-build/build.properties
+  as a starter file.
+  
+  Copy ${eclipseInstall}/plugins/org.eclipse.pde.build_{pdeBuildVersion}/templates/headless-build/build.properties to
+  PDE_Plugin_Tutorial/plugins/test.pde_maven_plugin.simple_application/buildConfiguration.
+  
+  Right click build.properties and open with Proeprties File Editor.
+  Find and set the following variables:
+
+*-----------------------+----------------------------------------------------------------+
+| <<Variable>>          | <<Value>>                                                      |
+*-----------------------+----------------------------------------------------------------+
+| product               | simple_product.product                                         |
+*-----------------------+----------------------------------------------------------------+
+| base                  | <path/to/parent/of/eclipse target>, e.g. D:/ide/target         |
+*-----------------------+----------------------------------------------------------------+
+| baseLocation          | <the directory containing eclipse>, e.g. eclipse-rcp-3.2.1     |
+*-----------------------+----------------------------------------------------------------+
+| buildDirectory        | Comment out this variable, as this is provided by pde-maven-plugin |
+*-----------------------+----------------------------------------------------------------+
+| configs               | The build architecture, e.g. win32, win32, x86.                |
+|                       | Note: pde-maven-plugin currently only support building one config, it does not support multiple configs. |
+*-----------------------+----------------------------------------------------------------+
+| archivePrefix         | simple_product                                                 |
+*-----------------------+----------------------------------------------------------------+
+<<Variables to set in buildConfiguation/build.properties file.>>
+  
+* Run mvn install
+
+  Everything is setup and ready to go.  Type "mvn install" to build your pde plugin from the command line.
+  
+  When everything is complete you should see that your product zip file "..\..\I.TestBuild\TestBuild-win32.win32.x86.zip"
+  gets installed into your local maven repository as "simple_application-1.0-SNAPSHOT.zip"
+    
+* Test out your application
+
+  Browse to your m2 repository and extract \<Your\ M2\ REPO\>\.m2\repository\test\pde_maven_plugin\simple_application\1.0-SNAPSHOT\simple_application-1.0-SNAPSHOT.zip
+  to the somewhere (e.g. D:\tmp\)
+  
+  Double click the "launcher.exe" and see it run exactly as it did inside Eclipse.
+  
+  
+

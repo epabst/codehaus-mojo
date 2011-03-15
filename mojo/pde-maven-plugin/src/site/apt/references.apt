@@ -1,0 +1,29 @@
+ ------
+ Maven 2 Eclispe PDE Plugin - References
+ ------
+ Dan T. Tran
+ <dantran@gmail.com>
+ Barrie Treloar
+ <baerrach@gmail.com>
+ ------
+ November 23, 2006
+
+References
+
+  * {{{http://help.eclipse.org/help32/index.jsp}Eclipse SDK Help}}
+  
+  * {{{http://help.eclipse.org/help32/topic/org.eclipse.pde.doc.user/guide/intro/pde_overview.htm}Plug-in Development Environment Overview}}
+  
+  * {{{http://help.eclipse.org/help32/topic/org.eclipse.pde.doc.user/guide/tasks/pde_feature_generating_antcommandline.htm}
+    Plug-in Development Environment Guilde}}
+    
+  * {{{http://help.eclipse.org/help32/topic/org.eclipse.pde.doc.user/guide/tasks/pde_product_build.htm} Building an RCP
+   application from a product configuration file}}    
+  
+  []
+  
+Books
+
+  * {{{http://www.amazon.com/Eclipse-Rich-Client-Platform-Applications/dp/0321334612/sr=8-1/qid=1164247713/ref=pd_bbs_sr_1/104-6653436-4223144?ie=UTF8&s=books}  
+  Eclipse Rich Client Platform: Designing, Coding, and Packaging Java(TM) Applications (The Eclipse Series)}}
+  

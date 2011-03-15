@@ -1,0 +1,70 @@
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<faqs id="FAQ" title="Frequently Asked Questions">
+  <part id="general">
+    <title>General</title>
+
+    <faq id="what-4">
+      <question>What does the Mock Repository Maven Plugin do?</question>
+      <answer>
+        <p>
+          The Mock repository maven plugin takes a bag of pom files (an optionally artifacts as well) and packages
+          them up as a
+          <code>http://</code>
+          based repository. The repository will have valid metadata.xml files
+          generated based on all the pom files in your bag of pom files.
+        </p>
+      </answer>
+    </faq>
+
+    <faq id="when">
+      <question>When would you use the Mock Repository Maven Plugin?</question>
+      <answer>
+        <p>
+          The main use for the Mock Repository Maven Plugin is when you are running integration tests using the
+          <a href="http://maven.apache.org/plugins/maven-invoker-plugin/">Maven Invoker Plugin</a>. Often times
+          you need control over what artifacts are available, as some of the tests may depend on specific versions
+          of the artifacts. Previously people would achieve this by hosting a
+          <code>file://</code>
+          based repository,
+          however this requires teadious maintenance of the metadata files by hand.
+        </p>
+      </answer>
+    </faq>
+
+    <faq id="roadmap">
+      <question>What features are on the roadmap for the Mock Repository Maven Plugin?</question>
+      <answer>
+        <p>
+          The main feature on the roadmap is that of providing a transparent repository proxy functionality.
+          This would allow proxying the repositories available from the invoking project through to the invoked project.
+          It would also allow filtering to ensure that only those parts of the repositories available from the invoking
+          project would be exposed to the invoked project thereby ensuring a completely reproducible build that works
+          both when connected directly to the internet and when connected through a http proxy server. (Note: this is
+          currently an issue if you use the
+          <a href="http://maven.apache.org/plugins/maven-invoker-plugin/examples/fast-use.html">Fast Build
+            Configuration
+          </a>
+          mode of the
+          <a href="http://maven.apache.org/plugins/maven-invoker-plugin/">Maven Invoker Plugin</a>.)
+        </p>
+      </answer>
+    </faq>
+  </part>
+</faqs>

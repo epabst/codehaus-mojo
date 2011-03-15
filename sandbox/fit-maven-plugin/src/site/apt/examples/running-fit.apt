@@ -1,0 +1,59 @@
+ ------
+Running Fit tests
+ ------
+ ------
+ ------
+
+Running Fit 
+
+* Configuring your pom.xml
+
+  You can use the following configuration in your pom.xml to run the Fit Maven 
+  Plugin everytime the project is built.
+
++---+
+<project>
+  [...]
+  <build>
+    <plugins>
+      [...]
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>fit-maven-plugin</artifactId>
+		<executions>
+			<execution>
+				<id>fixture</id>
+				<phase>integration-test</phase>
+				<configuration>
+					<sourceDirectory>src/main/fit</sourceDirectory>
+					<caseSensitive>true</caseSensitive>
+					<sourceIncludes>**/*Fixture.html</sourceIncludes>
+					<sourceExcludes>**/Wiki*</sourceExcludes>
+			        <parseTags>
+			        	<parseTag>table</parseTag>
+			        	<parseTag>tr</parseTag>
+			        	<parseTag>td</parseTag>
+			        </parseTags>
+					<outputDirectory>target/fit</outputDirectory>
+					<ignoreFailures>false</ignoreFailures>
+				</configuration>		
+				<goals>
+					<goal>run</goal>
+				</goals>
+			</execution>
+		</executions>
+      </plugin>
+      [...]
+    </plugins>
+  </build>
+  [...]
+</project>
++---+
+
+* From the command-line
+
+  You can use the Fit plugin using:
+
++---+
+mvn integration-test
++---+                                            

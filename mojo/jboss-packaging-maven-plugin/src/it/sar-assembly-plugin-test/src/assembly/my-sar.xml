@@ -1,0 +1,19 @@
+<assembly>
+  <id>my-sar</id>
+  <formats>
+    <format>sar</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <fileSets>
+    <fileSet>
+      <directory>target/classes</directory>
+      <outputDirectory>/</outputDirectory>
+    </fileSet>
+  </fileSets>
+  <dependencySets>
+    <dependencySet>
+      <outputFileNameMapping>${artifact.artifactId}.jar</outputFileNameMapping>
+      <outputDirectory>/lib</outputDirectory>
+    </dependencySet>
+  </dependencySets>
+</assembly>

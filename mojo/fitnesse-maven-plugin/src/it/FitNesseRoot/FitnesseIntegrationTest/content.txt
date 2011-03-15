@@ -1,0 +1,17 @@
+!define repo {C:\m2}
+!define targetPath {target}
+!define fitnesseVersion {20050731}
+#!define fitnesseVersion {20081201}
+!define fitPluginVersion {1.1-beta-1-SNAPSHOT}
+
+
+Relative path to test class
+!path ${targetPath}/test-classes
+Relative path to Fitnesse ressource (the exact version is defined in the test suite than use this page)
+!path ${targetPath}/lib/fitnesse.jar
+
+[[Test Coverage][.FitnesseIntegrationTest.SuiteCoverage]]
+[[Test Coverage2][.FitnesseIntegrationTest.SuiteCoverage2]]
+[[Test Coverage sécurisé][.FitnesseIntegrationTest.SuiteCoverage3]]
+[[Test Coverage UNIX][.FitnesseIntegrationTest.SuiteCoverage4]]
+[[Suite without convention][.FitnesseIntegrationTest.CoverageFive]]

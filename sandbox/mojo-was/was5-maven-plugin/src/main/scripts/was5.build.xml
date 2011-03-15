@@ -1,0 +1,863 @@
+<!--
+	The MIT License
+	
+	Copyright (c) 2004, The Codehaus
+	
+	Permission is hereby granted, free of charge, to any person obtaining a copy of
+	this software and associated documentation files (the "Software"), to deal in
+	the Software without restriction, including without limitation the rights to
+	use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+	of the Software, and to permit persons to whom the Software is furnished to do
+	so, subject to the following conditions:
+	
+	The above copyright notice and this permission notice shall be included in all
+	copies or substantial portions of the Software.
+	
+	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+	SOFTWARE.
+-->
+<project name="was5" default="ServerStatus" xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+
+	<property environment="env" value="" />
+
+	<!--                  Utility Maven/Ant Tasks                      -->
+	<taskdef name="listtopath" classname="org.codehaus.mojo.wasanttasks.ListToPathTask">
+		<classpath>
+			<pathelement location="${env.USERPROFILE}/.m2/repository/org/codehaus/mojo/WAS-Plugin-anttasks/1.0/WAS-Plugin-anttasks-1.0.jar" />
+		</classpath>
+	</taskdef>
+
+	<taskdef name="var" classname="org.codehaus.mojo.wasanttasks.ChangePropertyTask">
+		<classpath>
+			<pathelement location="${env.USERPROFILE}/.m2/repository/org/codehaus/mojo/WAS-Plugin-anttasks/1.0/WAS-Plugin-anttasks-1.0.jar" />
+		</classpath>
+	</taskdef>
+
+	<!-- 
+		<property name="wasHome" value="" />
+		<target name="initWasHome" if="wasHome">
+		<var name="wasHome" value="${wasHome}" />
+		</target>
+	-->
+	<!--                  WebSphere Ant Tasks                    -->
+
+	<target name="makeJavaFromWSDL">
+		<echo>Creating javafiles from ${url}</echo>
+		<taskdef name="WSDL2JavaTask" classname="com.ibm.websphere.ant.tasks.WSDL2Java">
+			<classpath>
+				<pathelement location="${wasHome}/lib/wsanttasks.jar" />
+			</classpath>
+		</taskdef>
+		<WSDL2JavaTask url="${url}" output="${output}" role="${role}" container="${container}" genjava="${genjava}">
+		</WSDL2JavaTask>
+	</target>
+
+	<target name="makeWSDLFromJava">
+		<echo>Creating ${output} from ${className}</echo>
+		<taskdef name="Java2WSDLTask" classname="com.ibm.websphere.ant.tasks.Java2WSDL">
+			<classpath>
+				<pathelement location="${wasHome}/lib/wsanttasks.jar" />
+				<pathelement path="${basedir}/target/classes" />
+			</classpath>
+		</taskdef>
+		<Java2WSDLTask output="${output}" className="${className}" implClass="${implClass}" namespace="${namespace}" location="${location}">
+			<mapping namespace="${mapNamespace}" package="${mapPackage}" />
+		</Java2WSDLTask>
+
+	</target>
+
+	<!--                    Define all the properties             -->
+
+	<property name="gencode" value="" />
+	<target name="initCodegen" if="codegen">
+		<var name="gencode" value="-codegen" />
+		<echo>${gencode}</echo>
+	</target>
+
+	<property name="keep" value="" />
+	<target name="initKeepGenerated" if="keepGenerated">
+		<var name="keep" value="-keep" />
+		<echo>${keep}</echo>
+	</target>
+
+	<property name="rmic" value="" />
+	<property name="rmic1" value="" />
+	<target name="initRmic" if="rmicOptions">
+		<var name="rmic" value="-rmic" />
+		<var name="rmic1" value="${rmicOptions}" />
+		<echo>${rmic} ${rmic1}</echo>
+	</target>
+
+	<property name="dbsch" value="" />
+	<property name="dbschname" value="" />
+	<target name="initDbschema" if="dbschema">
+		<var name="dbsch" value="-dbschema" />
+		<var name="dbschname" value="${dbschema}" />
+		<echo>${dbsch} ${dbschname}</echo>
+	</target>
+
+	<property name="dbvend" value="" />
+	<property name="dbvendname" value="" />
+	<target name="initDbvendor" if="dbvendor">
+		<var name="dbvend" value="-dbvendor" />
+		<var name="dbvendname" value="${dbvendor}" />
+		<echo>${dbvend} ${dbvendname}</echo>
+	</target>
+
+	<property name="dyn" value="" />
+	<target name="initDynamic" if="dynamic">
+		<var name="dyn" value="-dynamic" />
+		<echo>${dyn}</echo>
+	</target>
+
+	<property name="noval" value="" />
+	<target name="initNoValidate" if="-noValidate">
+		<var name="noval" value="-novalidate" />
+		<echo>${noval}</echo>
+	</target>
+
+	<property name="noinfo" value="" />
+	<target name="initNoInform" if="noInform">
+		<var name="noinfo" value="-noinform" />
+		<echo>${noinfo}</echo>
+	</target>
+
+	<property name="dbg" value="" />
+	<target name="initDebug" if="debug">
+		<var name="dbg" value="-debug" />
+		<echo>${dbg}</echo>
+	</target>
+
+	<target name="initprops" depends="initprops2,initCodegen,initKeepGenerated,initRmic,initDbschema,initDbvendor,initDynamic,initNoValidate,initNoInform,initDebug">
+	</target>
+
+	<property name="comp" value="" />
+	<target name="initCompatible" if="compatible">
+		<var name="comp" value="${compatible}" />
+	</target>
+
+	<property name="failerror" value="" />
+	<target name="initFailonerror" if="failonerror">
+		<var name="failerror" value="-failerror" />
+		<echo>${failerror}</echo>
+	</target>
+
+	<property name="trc" value="" />
+	<target name="initTrace" if="trace">
+		<var name="trc" value="-trace" />
+		<echo>${trc}</echo>
+	</target>
+
+	<property name="trgwas" value="" />
+	<property name="trgwasname" value="" />
+	<target name="initTargetWAS" if="targetWAS">
+		<var name="trgwas" value="-target" />
+		<var name="trgwasname" value="${targetWAS}" />
+	</target>
+
+	<property name="srv" value="server1" />
+	<property name="srvparam" value="" />
+	<property name="srvparamname" value="" />
+	<target name="initServer" if="server">
+		<var name="srv" value="${server}" />
+		<var name="srvparam" value="-server" />
+		<var name="srvparamname" value="${server}" />
+	</target>
+
+	<property name="wrkdir" value="${env.HOME}" />
+	<target name="initWorkingDirectory" if="workingDirectory">
+		<var name="wrkdir" value="${workingDirectory}/" />
+		<echo>${wrkdir}</echo>
+	</target>
+
+	<property name="trgdir" value="${basedir}/target" />
+	<target name="initTargetDirectory" if="targetDirectory">
+		<var name="trgdir" value="${targetDirectory}" />
+		<echo>${trgdir}</echo>
+	</target>
+
+	<property name="srcdir" value="${basedir}/target" />
+	<target name="initSourceDirectory" if="sourceDirectory">
+		<var name="srcdir" value="${sourceDirectory}" />
+		<echo>${srcdir}</echo>
+	</target>
+
+	<property name="silent" value="-quiet" />
+	<target name="initQuiet" if="quiet">
+		<var name="silent" value="" />
+		<echo>${silent}</echo>
+	</target>
+
+	<property name="jvmmem" value="-Xmx512m" />
+	<target name="initJvmMaxMemory" if="jvmMaxMemory">
+		<var name="jvmmem" value="${jvmMaxMemory}" />
+		<echo>${jvmmem}</echo>
+	</target>
+
+	<property name="xpath" value="${env.PATH}" />
+	<target name="initxpath" if="mpath">
+		<var name="xpath" value="${mpath}" />
+		<echo>${xpath}</echo>
+	</target>
+
+	<target name="initprops2" depends="initxpath,initJvmMaxMemory,initCompatible,initFailonerror,initTargetWAS,initTrace,initWorkingDirectory,initTargetDirectory,initSourceDirectory,initQuiet,initNode,initCell">
+	</target>
+
+	<target name="EJBDeploy" depends="initprops">
+		<echo>
+			Creating deployable ${targetDirectory}/${outputJar} from
+			${inputJar}
+		</echo>
+		<listtopath targetRef="pom.dependency.classpath" mavenproject="mavenproject" />
+		<pathconvert property="pom.classpath" refid="pom.dependency.classpath" dirsep="/" />
+
+		<path id="was.path">
+			<pathelement location="${wasHome}/java/bin" />
+			<pathelement location="${wasHome}/java/jre/bin" />
+		</path>
+
+		<property name="was.path.os" refid="was.path" />
+
+		<path id="server.path">
+			<pathelement location="${wasHome}/java/bin" />
+			<pathelement location="${wasHome}/java/jre/bin" />
+		</path>
+
+		<property name="server.path.os" refid="server.path" />
+
+		<path id="ws.ext.dirs">
+			<pathelement location="${wasHome}/java/lib" />
+			<pathelement location="${wasHome}/classes" />
+			<pathelement location="${wasHome}/lib" />
+			<pathelement location="${wasHome}/lib/ext" />
+			<pathelement location="${wasHome}/web/help" />
+			<pathelement location="${wasHome}/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime" />
+		</path>
+
+		<property name="ws.ext.dirs.os" refid="ws.ext.dirs" />
+
+		<move file="${srcdir}/${inputJar}" tofile="${srcdir}/Temp${inputJar}" />
+		<java jvm="${wasHome}/java/bin/java" fork="true" jvmargs="${jvmmem}" classname="com.ibm.etools.ejbdeploy.EJBDeploy" newenvironment="true" dir="${wasHome}/deploytool/itp">
+			<classpath>
+				<fileset dir="${wasHome}/deploytool/itp">
+					<include name="batch.jar" />
+					<include name="batch_nl1.jar" />
+				</fileset>
+			</classpath>
+			<env key="JAVA_HOME" value="${wasHome}/java" />
+			<env key="WAS_HOME" value="${wasHome}" />
+			<env key="PATH" value="${server.path.os}" />
+			<env key="WAS_PATH" value="${was.path.os}" />
+			<env key="WINDIR" value="${env.windir}" />
+			<env key="SystemRoot" value="${env.SystemRoot}" />
+			<env key="ITP_LOC" value="${wasHome}/deploytool/itp" />
+			<sysproperty key="websphere.lib.dir" value="${wasHome}/lib" />
+			<sysproperty key="ws.ext.dirs" value="${ws.ext.dirs.os}" />
+			<arg value="${srcdir}/Temp${inputJar}" />
+			<arg value="${wrkdir}" />
+			<arg value="${trgdir}/${outputJar}" />
+			<arg value="-cp" />
+			<arg value="${pom.classpath}" />
+			<arg value="${silent}" />
+			<arg value="${rmic}" />
+			<arg value="${rmic1}" />
+			<arg value="${gencode}" />
+			<arg value="${keep}" />
+			<arg value="${dbsch}" />
+			<arg value="${dbschname}" />
+			<arg value="${dbvend}" />
+			<arg value="${dbvendname}" />
+			<arg value="${dyn}" />
+			<arg value="${noval}" />
+			<arg value="${noinfo}" />
+			<arg value="${dbg}" />
+			<arg value="${comp}" />
+			<arg value="${trgwas}" />
+			<arg value="${trgwasname}" />
+			<arg value="${trc}" />
+			<arg value="${failerror}" />
+		</java>
+		<delete file="${srcdir}/Temp${inputJar}" />
+	</target>
+
+	<property name="dntwt" value="" />
+	<target name="initDontWait" if="dontwait">
+		<var name="dntwt" value="${dontwait}" />
+		<echo>${dntwt}</echo>
+	</target>
+
+	<property name="logFile" value="" />
+	<property name="logFileName" value="" />
+	<target name="initLogfilet" if="logfile">
+		<var name="logFile" value="-logfile" />
+		<var name="logFileName" value="${logfile}" />
+		<echo>${logFile} ${logFileName}</echo>
+	</target>
+
+	<property name="wasnode" value="${env.COMPUTERNAME}" />
+	<target name="initNode" if="wasNode">
+		<var name="wasnode" value="${wasNode}" />
+		<echo>${wasnode}</echo>
+	</target>
+
+	<property name="wascell" value="${env.COMPUTERNAME}" />
+	<target name="initCell" if="wasCell">
+		<var name="wascell" value="${wasCell}" />
+		<echo>${wascell}</echo>
+	</target>
+
+	<property name="repllog" value="" />
+	<target name="initReplaceLog" if="replaceLog">
+		<var name="repllog" value="${replaceLog}" />
+		<echo>${repllog}</echo>
+	</target>
+
+	<property name="scriptSet" value="" />
+	<property name="scriptName" value="" />
+	<target name="initScript" if="script">
+		<property name="scriptSet" value="-script" />
+		<property name="scriptName" value="${script}" />
+		<echo>${scriptSet} ${scriptName}</echo>
+	</target>
+
+	<property name="timeOut" value="" />
+	<property name="timeOutSecs" value="" />
+	<target name="initTimeout" if="timeout">
+		<property name="timeOut" value="-timeout" />
+		<property name="timeOutSecs" value="${timeout}" />
+		<echo>${timeOut} ${timeOutSecs}</echo>
+	</target>
+
+	<property name="statusport" value="" />
+	<property name="statusportNumber" value="" />
+	<target name="initStatusport" if="statusPort">
+		<property name="statusport" value="-statusport" />
+		<property name="statusportNumber" value="${statusPort}" />
+		<echo>${statusport} ${statusportNumber}</echo>
+	</target>
+
+	<property name="usr" value="" />
+	<property name="usrName" value="" />
+	<target name="initUsername" if="user">
+		<var name="usr" value="-user" />
+		<var name="initUsername" value="${user}" />
+		<echo>${usr} ${initUsername}</echo>
+	</target>
+
+	<property name="pwd" value="" />
+	<property name="pwdName" value="" />
+	<target name="initPassword" if="password">
+		<var name="pwd" value="-password" />
+		<var name="pwdName" value="${password}" />
+		<echo>${pwd} *****</echo>
+	</target>
+
+	<property name="hlp" value="" />
+	<target name="initHelp" if="help">
+		<var name="hlp" value="${help}" />
+		<echo>${hlp}</echo>
+	</target>
+
+	<property name="connType" value="" />
+	<property name="connTypeName" value="" />
+	<target name="initConnType" if="password">
+		<var name="connType" value="-conntype" />
+		<var name="connTypeName" value="${password}" />
+		<echo>${connType} ${connTypeName}</echo>
+	</target>
+
+	<target name="initserverprops" depends="initxpath,initConnType,initHelp,initPassword,initUsername,initStatusport,initTimeout,initDontWait,initServer,initTrace,initNode,initCell,initReplaceLog,initScript">
+	</target>
+
+	<target name="StartServer" depends="initserverprops">
+		<echo>Starting ${server} at ${wasHome}</echo>
+		<java jvm="${wasHome}/java/jre/bin/java" fork="true" classname="com.ibm.ws.bootstrap.WSLauncher" newenvironment="true" dir=".">
+			<classpath>
+
+				<pathelement location="${wasHome}/properties" />
+				<fileset dir="${wasHome}/lib">
+					<include name="bootstrap.jar" />
+					<include name="j2ee.jar" />
+					<include name="lmproxy.jar" />
+					<include name="urlprotocols.jar" />
+					<include name="xerces.jar" />
+				</fileset>
+				<fileset dir="${wasHome}/java/jre/lib/ext">
+					<include name="ibmorb.jar" />
+				</fileset>
+
+			</classpath>
+			<env key="JAVA_HOME" value="${wasHome}/java" />
+			<env key="USERPROFILE" value="${env.USERPROFILE}" />
+			<env key="CLIENT_SAS" value="-Dcom.ibm.CORBA.ConfigURL=file:${wasHome}/properties/sas.client.props" />
+			<env key="CONFIG_ROOT" value="${wasHome}/config" />
+			<env key="WAS_HOME" value="${wasHome}" />
+			<env key="WAS_PATH" value="${wasHome}/bin;${wasHome}/java/bin;${wasHome}/java/jre/bin;${env.Path}" />
+			<env key="PATH" value="${wasHome}/bin;${wasHome}/java/bin;${wasHome}/java/jre/bin;.;${env.Path}" />
+			<env key="WAS_EXT_DIRS" value="${wasHome}/java/lib;${wasHome}/classes;${wasHome}/lib;${wasHome}/lib/ext;${wasHome}/web/help;${env.MQ_HOME}/java/lib;${wasHome}/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime" />
+			<env key="WAS_CELL" value="${wascell}" />
+			<env key="WAS_NODE" value="${wasnode}" />
+			<env key="PATH" value="${wasHome}/bin;${env.JAVA_HOME}/bin;${env.JAVA_HOME}/jre/bin;${env.MQ_HOME}/bin;${env.MQ_HOME}/java/bin;${env.MQ_HOME}/WEMPS/bin;${env.PATH};" />
+			<env key="WAS_PATH" value="${wasHome}/bin;${env.JAVA_HOME}/bin;${env.JAVA_HOME}/jre/bin;${env.MQ_HOME}/bin;${env.MQ_HOME}/java/bin;${env.MQ_HOME}/WEMPS/bin;${env.PATH};" />
+			<env key="WAS_BOOTCLASSPATH" value="${wasHome}/java/jre/lib/ext/ibmorb.jar" />
+			<env key="MQ_JAVA_DATA_PATH" value="${env.MQ_HOME}" />
+			<env key="MQ_JAVA_INSTALL_PATH" value="${env.MQ_HOME}/java" />
+			<env key="WINDIR" value="${env.windir}" />
+			<env key="SystemRoot" value="${env.SystemRoot}" />
+			<sysproperty key="was.install.root" value="${wasHome}" />
+			<sysproperty key="ws.output.encoding" value="console" />
+			<sysproperty key="com.ibm.CORBA.ConfigURL" value="file:${wasHome}/properties/sas.client.props" />
+			<sysproperty key="ws.ext.dirs" value="${wasHome}/java/lib;${wasHome}/classes;${wasHome}/lib;${wasHome}/lib/ext;${wasHome}/web/help;${env.MQ_HOME}/java/lib;${wasHome}/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime" />
+			<arg value="com.ibm.ws.management.tools.WsServerLauncher" />
+			<arg value="${wasHome}/config" />
+			<arg value="${wascell}" />
+			<arg value="${wasnode}" />
+			<arg value="${srv}" />
+			<arg value="${dntwt}" />
+			<arg value="${silent}" />
+			<arg value="${logFile}" />
+			<arg value="${logFileName}" />
+			<arg value="${repllog}" />
+			<arg value="${trc}" />
+			<arg value="${scriptSet}" />
+			<arg value="${scriptName}" />
+			<arg value="${timeOut}" />
+			<arg value="${timeOutSecs}" />
+			<arg value="${statusport}" />
+			<arg value="${statusportNumber}" />
+			<arg value="${usr}" />
+			<arg value="${usrName}" />
+			<arg value="${pwd}" />
+			<arg value="${pwdName}" />
+			<arg value="${hlp}" />
+		</java>
+
+	</target>
+
+	<target name="ServerStatus" depends="initserverprops">
+		<echo>Status for ${server} at ${wasHome}</echo>
+		<java jvm="${wasHome}/java/jre/bin/java" fork="true" classname="com.ibm.ws.bootstrap.WSLauncher" newenvironment="true" dir=".">
+			<classpath>
+
+				<pathelement location="${wasHome}/properties" />
+				<fileset dir="${wasHome}/lib/">
+					<include name="bootstrap.jar" />
+					<include name="j2ee.jar" />
+					<include name="lmproxy.jar" />
+					<include name="urlprotocols.jar" />
+					<include name="xerces.jar" />
+				</fileset>
+				<fileset dir="${wasHome}/java/jre/lib/ext">
+					<include name="ibmorb.jar" />
+				</fileset>
+
+			</classpath>
+			<env key="JAVA_HOME" value="${wasHome}/java" />
+			<env key="CLIENT_SAS" value="-Dcom.ibm.CORBA.ConfigURL=file:${wasHome}/properties/sas.client.props" />
+			<env key="CONFIG_ROOT" value="${wasHome}/config" />
+			<env key="WAS_HOME" value="${wasHome}" />
+			<env key="WAS_PATH" value="${wasHome}/bin;${wasHome}/java/bin;${wasHome}/java/jre/bin;${xpath}" />
+			<env key="PATH" value="${wasHome}/bin;${wasHome}/java/bin;${wasHome}/java/jre/bin;${xpath};." />
+			<env key="WAS_EXT_DIRS" value="${wasHome}/java/lib;${wasHome}/classes;${wasHome}/lib;${wasHome}/lib/ext;${wasHome}/web/help;${env.MQ_HOME}/java/lib;${wasHome}/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime" />
+			<env key="WAS_CELL" value="${wascell}" />
+			<env key="WAS_NODE" value="${wasnode}" />
+			<env key="PATH" value="${wasHome}/bin;${env.JAVA_HOME}/bin;${env.JAVA_HOME}/jre/bin;${env.MQ_HOME}/bin;${env.MQ_HOME}/java/bin;${env.MQ_HOME}/WEMPS/bin;${env.PATH};" />
+			<env key="WAS_PATH" value="${wasHome}/bin;${env.JAVA_HOME}/bin;${env.JAVA_HOME}/jre/bin;${env.MQ_HOME}/bin;${env.MQ_HOME}/java/bin;${env.MQ_HOME}/WEMPS/bin;${env.PATH};" />
+			<env key="WAS_BOOTCLASSPATH" value="${wasHome}/java/jre/lib/ext/ibmorb.jar" />
+			<env key="MQ_JAVA_DATA_PATH" value="${env.MQ_HOME}" />
+			<env key="MQ_JAVA_INSTALL_PATH" value="${env.MQ_HOME}/java" />
+			<env key="WINDIR" value="${env.windir}" />
+			<env key="SystemRoot" value="${env.SystemRoot}" />
+			<sysproperty key="was.install.root" value="${wasHome}" />
+			<sysproperty key="ws.output.encoding" value="console" />
+			<sysproperty key="com.ibm.CORBA.ConfigURL" value="file:${wasHome}/properties/sas.client.props" />
+			<sysproperty key="ws.ext.dirs" value="${wasHome}/java/lib;${wasHome}/classes;${wasHome}/lib;${wasHome}/lib/ext;${wasHome}/web/help;${env.MQ_HOME}/java/lib;${wasHome}/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime" />
+			<arg value="com.ibm.ws.management.tools.ServerStatus" />
+			<arg value="${wasHome}/config" />
+			<arg value="${wascell}" />
+			<arg value="${wasnode}" />
+			<arg value="${srv}" />
+			<arg value="${logFile}" />
+			<arg value="${logFileName}" />
+			<arg value="${repllog}" />
+			<arg value="${trc}" />
+			<arg value="${usr}" />
+			<arg value="${usrName}" />
+			<arg value="${pwd}" />
+			<arg value="${pwdName}" />
+			<arg value="${hlp}" />
+		</java>
+
+	</target>
+
+	<target name="StopServer" depends="initserverprops">
+		<echo>Stopping ${server} at ${wasHome}</echo>
+		<java jvm="${wasHome}/java/jre/bin/java" fork="true" classname="com.ibm.ws.bootstrap.WSLauncher" newenvironment="true" dir=".">
+			<classpath>
+
+				<pathelement location="${wasHome}/properties" />
+				<fileset dir="${wasHome}/lib">
+					<include name="bootstrap.jar" />
+					<include name="j2ee.jar" />
+					<include name="lmproxy.jar" />
+					<include name="urlprotocols.jar" />
+					<include name="xerces.jar" />
+				</fileset>
+				<fileset dir="${wasHome}/java/jre/lib/ext">
+					<include name="ibmorb.jar" />
+				</fileset>
+
+			</classpath>
+			<env key="JAVA_HOME" value="${wasHome}/java" />
+			<env key="CLIENT_SAS" value="-Dcom.ibm.CORBA.ConfigURL=file:${wasHome}/properties/sas.client.props" />
+			<env key="CONFIG_ROOT" value="${wasHome}/config" />
+			<env key="WAS_HOME" value="${wasHome}" />
+			<env key="WAS_PATH" value="${wasHome}/bin;${wasHome}/java/bin;${wasHome}/java/jre/bin;${env.Path}" />
+			<env key="PATH" value="${wasHome}/bin;${wasHome}/java/bin;${wasHome}/java/jre/bin;.;${env.Path}" />
+			<env key="WAS_EXT_DIRS" value="${wasHome}/java/lib;${wasHome}/classes;${wasHome}/lib;${wasHome}/lib/ext;${wasHome}/web/help;${env.MQ_HOME}/java/lib;${wasHome}/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime" />
+			<env key="WAS_CELL" value="${wascell}" />
+			<env key="WAS_NODE" value="${wasnode}" />
+			<env key="PATH" value="${wasHome}/bin;${env.JAVA_HOME}/bin;${env.JAVA_HOME}/jre/bin;${env.MQ_HOME}/bin;${env.MQ_HOME}/java/bin;${env.MQ_HOME}/WEMPS/bin;${env.PATH};" />
+			<env key="WAS_PATH" value="${wasHome}/bin;${env.JAVA_HOME}/bin;${env.JAVA_HOME}/jre/bin;${env.MQ_HOME}/bin;${env.MQ_HOME}/java/bin;${env.MQ_HOME}/WEMPS/bin;${env.PATH};" />
+			<env key="WAS_BOOTCLASSPATH" value="${wasHome}/java/jre/lib/ext/ibmorb.jar" />
+			<env key="MQ_JAVA_DATA_PATH" value="${env.MQ_HOME}" />
+			<env key="MQ_JAVA_INSTALL_PATH" value="${env.MQ_HOME}/java" />
+			<env key="WINDIR" value="${env.windir}" />
+			<env key="SystemRoot" value="${env.SystemRoot}" />
+			<sysproperty key="was.install.root" value="${wasHome}" />
+			<sysproperty key="ws.output.encoding" value="console" />
+			<sysproperty key="com.ibm.CORBA.ConfigURL" value="file:${wasHome}/properties/sas.client.props" />
+			<sysproperty key="ws.ext.dirs" value="${wasHome}/java/lib;${wasHome}/classes;${wasHome}/lib;${wasHome}/lib/ext;${wasHome}/web/help;${env.MQ_HOME}/java/lib;${wasHome}/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime" />
+			<arg value="com.ibm.ws.management.tools.WsServerStop" />
+			<arg value="${wasHome}/config" />
+			<arg value="${wascell}" />
+			<arg value="${wasnode}" />
+			<arg value="${srv}" />
+			<arg value="${dntwt}" />
+			<arg value="${silent}" />
+			<arg value="${logFile}" />
+			<arg value="${logFileName}" />
+			<arg value="${repllog}" />
+			<arg value="${trc}" />
+			<arg value="${scriptSet}" />
+			<arg value="${scriptName}" />
+			<arg value="${timeOut}" />
+			<arg value="${timeOutSecs}" />
+			<arg value="${statusport}" />
+			<arg value="${statusportNumber}" />
+			<arg value="${connType}" />
+			<arg value="${connTypeName}" />
+			<arg value="${usr}" />
+			<arg value="${usrName}" />
+			<arg value="${pwd}" />
+			<arg value="${pwdName}" />
+			<arg value="${hlp}" />
+		</java>
+
+	</target>
+
+	<target name="StartApplication" depends="initserverprops">
+		<echo>
+			Starting application ${ear} on ${server} at ${wasHome}
+		</echo>
+		<java jvm="${wasHome}/java/jre/bin/java" fork="true" classname="com.ibm.ws.bootstrap.WSLauncher" newenvironment="true" dir=".">
+			<classpath>
+
+				<pathelement location="${wasHome}/properties" />
+				<fileset dir="${wasHome}/lib">
+					<include name="bootstrap.jar" />
+					<include name="j2ee.jar" />
+					<include name="lmproxy.jar" />
+					<include name="urlprotocols.jar" />
+					<include name="xerces.jar" />
+				</fileset>
+				<fileset dir="${wasHome}/java/jre/lib/ext">
+					<include name="ibmorb.jar" />
+				</fileset>
+
+			</classpath>
+			<env key="WAS_HOME" value="${wasHome}" />
+			<env key="JAVA_HOME" value="${wasHome}/java" />
+			<env key="WAS_CELL" value="${wascell}" />
+			<env key="WAS_NODE" value="${wasnode}" />
+			<env key="ITP_LOC" value="${wasHome}/deploytool/itp" />
+			<env key="CONFIG_ROOT" value="${wasHome}/config" />
+			<env key="CLIENT_SAS" value="-Dcom.ibm.CORBA.ConfigURL=file:${wasHome}/properties/sas.client.props" />
+			<env key="CLIENT_SOAP" value="-Dcom.ibm.CORBA.ConfigURL=file:${wasHome}/properties/soap.client.props" />
+			<env key="WAS_EXT_DIRS" value="${wasHome}/java/lib;${wasHome}/classes;${wasHome}/lib;${wasHome}/lib/ext;${wasHome}/web/help;${env.MQ_HOME}/java/lib;${wasHome}/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime" />
+			<env key="WAS_BOOTCLASSPATH" value="${wasHome}/java/jre/lib/ext/ibmorb.jar" />
+			<env key="WAS_CLASSPATH" value="${wasclpath}" />
+			<env key="WAS_PATH" value="${wasHome}/bin;${wasHome}/java/bin;${wasHome}/java/jre/bin;${env.Path}" />
+			<env key="QUALIFYNAMES" value="" />
+			<env key="CONSOLE_ENCODING" value="-Dws.output.encoding=console" />
+			<env key="USER_INSTALL_ROOT" value="${wasHome}" />
+			<env key="PATH" value="${env.windir};${env.SystemRoot};." />
+			<env key="MQ_JAVA_DATA_PATH" value="${env.MQ_HOME}" />
+			<env key="MQ_JAVA_INSTALL_PATH" value="${env.MQ_HOME}/java" />
+			<env key="WINDIR" value="${env.windir}" />
+			<env key="SystemRoot" value="${env.SystemRoot}" />
+			<sysproperty key="ws.output.encoding" value="console" />
+			<sysproperty key="com.ibm.SOAP.ConfigURL" value="file:${wasHome}/properties/soap.client.props" />
+			<sysproperty key="com.ibm.CORBA.ConfigURL" value="file:${wasHome}/properties/sas.client.props" />
+			<sysproperty key="com.ibm.ws.scripting.wsadminprops" value="" />
+			<sysproperty key="com.ibm.ws.management.standalone" value="true" />
+			<sysproperty key="user.install.root" value="${wasHome}" />
+			<sysproperty key="was.install.root" value="${wasHome}/config" />
+			<sysproperty key="was.repository.root" value="${wasHome}" />
+			<sysproperty key="server.root" value="${wasHome}" />
+			<sysproperty key="local.cell" value="${wascell}" />
+			<sysproperty key="local.node" value="${wasnode}" />
+			<sysproperty key="ws.ext.dirs" value="${wasHome}/java/lib;${wasHome}/classes;${wasHome}/lib;${wasHome}/lib/ext;${wasHome}/web/help;${env.MQ_HOME}/java/lib;${wasHome}/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime" />
+			<sysproperty key="com.ibm.itp.location" value="${wasHome}/deploytool/itp" />
+			<arg value="com.ibm.ws.scripting.WasxShell" />
+			<arg value='-c' />
+			<arg value='$AdminControl invoke [$AdminControl queryNames \"WebSphere:*,type=ApplicationManager,process=${server},node=${wasnode}\"] startApplication ${ear}' />
+		</java>
+
+	</target>
+
+	<target name="ListApplications" depends="initserverprops">
+		<echo>Listing applications for ${srv} at ${wasHome}</echo>
+		<java jvm="${wasHome}/java/jre/bin/java" fork="true" classname="com.ibm.ws.bootstrap.WSLauncher" newenvironment="true" dir=".">
+			<classpath>
+
+				<pathelement location="${wasHome}/properties" />
+				<fileset dir="${wasHome}/lib">
+					<include name="bootstrap.jar" />
+					<include name="j2ee.jar" />
+					<include name="lmproxy.jar" />
+					<include name="urlprotocols.jar" />
+					<include name="xerces.jar" />
+				</fileset>
+				<fileset dir="${wasHome}/java/jre/lib/ext">
+					<include name="ibmorb.jar" />
+				</fileset>
+
+			</classpath>
+			<env key="WAS_HOME" value="${wasHome}" />
+			<env key="JAVA_HOME" value="${wasHome}/java" />
+			<env key="WAS_CELL" value="${wascell}" />
+			<env key="WAS_NODE" value="${wasnode}" />
+			<env key="ITP_LOC" value="${wasHome}/deploytool/itp" />
+			<env key="CONFIG_ROOT" value="${wasHome}/config" />
+			<env key="CLIENT_SAS" value="-Dcom.ibm.CORBA.ConfigURL=file:${wasHome}/properties/sas.client.props" />
+			<env key="CLIENT_SOAP" value="-Dcom.ibm.CORBA.ConfigURL=file:${wasHome}/properties/soap.client.props" />
+			<env key="WAS_EXT_DIRS" value="${wasHome}/java/lib;${wasHome}/classes;${wasHome}/lib;${wasHome}/lib/ext;${wasHome}/web/help;${env.MQ_HOME}/java/lib;${wasHome}/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime" />
+			<env key="WAS_BOOTCLASSPATH" value="${wasHome}/java/jre/lib/ext/ibmorb.jar" />
+			<env key="WAS_CLASSPATH" value="${wasclpath}" />
+			<env key="WAS_PATH" value="${wasHome}/bin;${wasHome}/java/bin;${wasHome}/java/jre/bin;${env.Path}" />
+			<env key="QUALIFYNAMES" value="" />
+			<env key="CONSOLE_ENCODING" value="-Dws.output.encoding=console" />
+			<env key="USER_INSTALL_ROOT" value="${wasHome}" />
+			<env key="PATH" value="${env.windir};${env.SystemRoot};." />
+			<env key="MQ_JAVA_DATA_PATH" value="${env.MQ_HOME}" />
+			<env key="MQ_JAVA_INSTALL_PATH" value="${env.MQ_HOME}/java" />
+			<env key="WINDIR" value="${env.windir}" />
+			<env key="SystemRoot" value="${env.SystemRoot}" />
+			<sysproperty key="ws.output.encoding" value="console" />
+			<sysproperty key="com.ibm.SOAP.ConfigURL" value="file:${wasHome}/properties/soap.client.props" />
+			<sysproperty key="com.ibm.CORBA.ConfigURL" value="file:${wasHome}/properties/sas.client.props" />
+			<sysproperty key="com.ibm.ws.scripting.wsadminprops" value="" />
+			<sysproperty key="com.ibm.ws.management.standalone" value="true" />
+			<sysproperty key="user.install.root" value="${wasHome}" />
+			<sysproperty key="was.install.root" value="${wasHome}/config" />
+			<sysproperty key="was.repository.root" value="${wasHome}" />
+			<sysproperty key="server.root" value="${wasHome}" />
+			<sysproperty key="local.cell" value="${wascell}" />
+			<sysproperty key="local.node" value="${wasnode}" />
+			<sysproperty key="ws.ext.dirs" value="${wasHome}/java/lib;${wasHome}/classes;${wasHome}/lib;${wasHome}/lib/ext;${wasHome}/web/help;${env.MQ_HOME}/java/lib;${wasHome}/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime" />
+			<sysproperty key="com.ibm.itp.location" value="${wasHome}/deploytool/itp" />
+			<arg value="com.ibm.ws.scripting.WasxShell" />
+			<arg value='-c' />
+			<arg value='$AdminApp list ${srvparam} ${srvparamname}' />
+		</java>
+
+	</target>
+
+	<target name="StopApplication" depends="initserverprops">
+		<echo>
+			Stopping application ${ear} on ${server} at ${wasHome}
+		</echo>
+		<java jvm="${wasHome}/java/jre/bin/java" fork="true" classname="com.ibm.ws.bootstrap.WSLauncher" newenvironment="true" dir=".">
+			<classpath>
+
+				<pathelement location="${wasHome}/properties" />
+				<fileset dir="${wasHome}/lib">
+					<include name="bootstrap.jar" />
+					<include name="j2ee.jar" />
+					<include name="lmproxy.jar" />
+					<include name="urlprotocols.jar" />
+					<include name="xerces.jar" />
+				</fileset>
+				<fileset dir="${wasHome}/java/jre/lib/ext">
+					<include name="ibmorb.jar" />
+				</fileset>
+
+			</classpath>
+			<env key="WAS_HOME" value="${wasHome}" />
+			<env key="JAVA_HOME" value="${wasHome}/java" />
+			<env key="WAS_CELL" value="${wasCell}" />
+			<env key="WAS_NODE" value="${wasnode}" />
+			<env key="ITP_LOC" value="${wasHome}/deploytool/itp" />
+			<env key="CONFIG_ROOT" value="${wasHome}/config" />
+			<env key="CLIENT_SAS" value="-Dcom.ibm.CORBA.ConfigURL=file:${wasHome}/properties/sas.client.props" />
+			<env key="CLIENT_SOAP" value="-Dcom.ibm.CORBA.ConfigURL=file:${wasHome}/properties/soap.client.props" />
+			<env key="WAS_EXT_DIRS" value="${wasHome}/java/lib;${wasHome}/classes;${wasHome}/lib;${wasHome}/lib/ext;${wasHome}/web/help;${env.MQ_HOME}/java/lib;${wasHome}/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime" />
+			<env key="WAS_BOOTCLASSPATH" value="${wasHome}/java/jre/lib/ext/ibmorb.jar" />
+			<env key="WAS_CLASSPATH" value="${wasclpath}" />
+			<env key="WAS_PATH" value="${wasHome}/bin;${wasHome}/java/bin;${wasHome}/java/jre/bin;${env.Path}" />
+			<env key="QUALIFYNAMES" value="" />
+			<env key="CONSOLE_ENCODING" value="-Dws.output.encoding=console" />
+			<env key="USER_INSTALL_ROOT" value="${wasHome}" />
+			<env key="PATH" value="${env.windir};${env.SystemRoot};." />
+			<env key="MQ_JAVA_DATA_PATH" value="${env.MQ_HOME}" />
+			<env key="MQ_JAVA_INSTALL_PATH" value="${env.MQ_HOME}/java" />
+			<env key="WINDIR" value="${env.windir}" />
+			<env key="SystemRoot" value="${env.SystemRoot}" />
+			<sysproperty key="ws.output.encoding" value="console" />
+			<sysproperty key="com.ibm.SOAP.ConfigURL" value="file:${wasHome}/properties/soap.client.props" />
+			<sysproperty key="com.ibm.CORBA.ConfigURL" value="file:${wasHome}/properties/sas.client.props" />
+			<sysproperty key="com.ibm.ws.scripting.wsadminprops" value="" />
+			<sysproperty key="com.ibm.ws.management.standalone" value="true" />
+			<sysproperty key="user.install.root" value="${wasHome}" />
+			<sysproperty key="was.install.root" value="${wasHome}/config" />
+			<sysproperty key="was.repository.root" value="${wasHome}" />
+			<sysproperty key="server.root" value="${wasHome}" />
+			<sysproperty key="local.cell" value="${wascell}" />
+			<sysproperty key="local.node" value="${wasnode}" />
+			<sysproperty key="ws.ext.dirs" value="${wasHome}/java/lib;${wasHome}/classes;${wasHome}/lib;${wasHome}/lib/ext;${wasHome}/web/help;${env.MQ_HOME}/java/lib;${wasHome}/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime" />
+			<sysproperty key="com.ibm.itp.location" value="${wasHome}/deploytool/itp" />
+			<arg value="com.ibm.ws.scripting.WasxShell" />
+			<arg value='-c' />
+			<arg value='$AdminControl invoke [$AdminControl queryNames \"WebSphere:*,type=ApplicationManager,process=${server},node=${wasnode}\"] stopApplication ${ear}' />
+		</java>
+
+	</target>
+
+	<target name="InstallApplication" depends="initserverprops, initTargetDirectory">
+		<echo>
+			Installing application ${trgdir}/${ear} on ${srv} at
+			${wasHome}
+		</echo>
+		<java jvm="${wasHome}/java/jre/bin/java" fork="true" classname="com.ibm.ws.bootstrap.WSLauncher" newenvironment="true" dir="${trgdir}">
+			<classpath>
+
+				<pathelement location="${wasHome}/properties" />
+				<fileset dir="${wasHome}/lib">
+					<include name="bootstrap.jar" />
+					<include name="j2ee.jar" />
+					<include name="lmproxy.jar" />
+					<include name="urlprotocols.jar" />
+					<include name="xerces.jar" />
+				</fileset>
+				<fileset dir="${wasHome}/java/jre/lib/ext">
+					<include name="ibmorb.jar" />
+				</fileset>
+
+			</classpath>
+			<env key="WAS_HOME" value="${wasHome}" />
+			<env key="JAVA_HOME" value="${wasHome}/java" />
+			<env key="WAS_CELL" value="${wascell}" />
+			<env key="WAS_NODE" value="${wasnode}" />
+			<env key="ITP_LOC" value="${wasHome}/deploytool/itp" />
+			<env key="CONFIG_ROOT" value="${wasHome}/config" />
+			<env key="CLIENT_SAS" value="-Dcom.ibm.CORBA.ConfigURL=file:${wasHome}/properties/sas.client.props" />
+			<env key="CLIENT_SOAP" value="-Dcom.ibm.CORBA.ConfigURL=file:${wasHome}/properties/soap.client.props" />
+			<env key="WAS_EXT_DIRS" value="${wasHome}/java/lib;${wasHome}/classes;${wasHome}/lib;${wasHome}/lib/ext;${wasHome}/web/help;${env.MQ_HOME}/java/lib;${wasHome}/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime" />
+			<env key="WAS_BOOTCLASSPATH" value="${wasHome}/java/jre/lib/ext/ibmorb.jar" />
+			<env key="WAS_CLASSPATH" value="${wasclpath}" />
+			<env key="WAS_PATH" value="${wasHome}/bin;${wasHome}/java/bin;${wasHome}/java/jre/bin;${env.Path}" />
+			<env key="QUALIFYNAMES" value="" />
+			<env key="CONSOLE_ENCODING" value="-Dws.output.encoding=console" />
+			<env key="USER_INSTALL_ROOT" value="${wasHome}" />
+			<env key="PATH" value="${env.windir};${env.SystemRoot};." />
+			<env key="MQ_JAVA_DATA_PATH" value="${env.MQ_HOME}" />
+			<env key="MQ_JAVA_INSTALL_PATH" value="${env.MQ_HOME}/java" />
+			<env key="WINDIR" value="${env.windir}" />
+			<env key="SystemRoot" value="${env.SystemRoot}" />
+			<sysproperty key="ws.output.encoding" value="console" />
+			<sysproperty key="com.ibm.SOAP.ConfigURL" value="file:${wasHome}/properties/soap.client.props" />
+			<sysproperty key="com.ibm.CORBA.ConfigURL" value="file:${wasHome}/properties/sas.client.props" />
+			<sysproperty key="com.ibm.ws.scripting.wsadminprops" value="" />
+			<sysproperty key="com.ibm.ws.management.standalone" value="true" />
+			<sysproperty key="user.install.root" value="${wasHome}" />
+			<sysproperty key="was.install.root" value="${wasHome}/config" />
+			<sysproperty key="was.repository.root" value="${wasHome}" />
+			<sysproperty key="server.root" value="${wasHome}" />
+			<sysproperty key="local.cell" value="${wascell}" />
+			<sysproperty key="local.node" value="${wasnode}" />
+			<sysproperty key="ws.ext.dirs" value="${wasHome}/java/lib;${wasHome}/classes;${wasHome}/lib;${wasHome}/lib/ext;${wasHome}/web/help;${env.MQ_HOME}/java/lib;${wasHome}/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime" />
+			<sysproperty key="com.ibm.itp.location" value="${wasHome}/deploytool/itp" />
+			<arg value="com.ibm.ws.scripting.WasxShell" />
+			<arg value='-c' />
+			<arg value='$AdminControl invoke [$AdminApp install ${ear}] invoke [$AdminConfig save]' />
+		</java>
+
+	</target>
+
+	<target name="UninstallApplication" depends="initserverprops">
+		<echo>
+			Uninstalling application ${ear} on ${srv} at ${wasHome}
+		</echo>
+		<java jvm="${wasHome}/java/jre/bin/java" fork="true" classname="com.ibm.ws.bootstrap.WSLauncher" newenvironment="true" dir=".">
+			<classpath>
+
+				<pathelement location="${wasHome}/properties" />
+				<fileset dir="${wasHome}/lib">
+					<include name="bootstrap.jar" />
+					<include name="j2ee.jar" />
+					<include name="lmproxy.jar" />
+					<include name="urlprotocols.jar" />
+					<include name="xerces.jar" />
+				</fileset>
+				<fileset dir="${wasHome}/java/jre/lib/ext">
+					<include name="ibmorb.jar" />
+				</fileset>
+
+			</classpath>
+			<env key="WAS_HOME" value="${wasHome}" />
+			<env key="JAVA_HOME" value="${wasHome}/java" />
+			<env key="WAS_CELL" value="${wascell}" />
+			<env key="WAS_NODE" value="${wasnode}" />
+			<env key="ITP_LOC" value="${wasHome}/deploytool/itp" />
+			<env key="CONFIG_ROOT" value="${wasHome}/config" />
+			<env key="CLIENT_SAS" value="-Dcom.ibm.CORBA.ConfigURL=file:${wasHome}/properties/sas.client.props" />
+			<env key="CLIENT_SOAP" value="-Dcom.ibm.CORBA.ConfigURL=file:${wasHome}/properties/soap.client.props" />
+			<env key="WAS_EXT_DIRS" value="${wasHome}/java/lib;${wasHome}/classes;${wasHome}/lib;${wasHome}/lib/ext;${wasHome}/web/help;${env.MQ_HOME}/java/lib;${wasHome}/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime" />
+			<env key="WAS_BOOTCLASSPATH" value="${wasHome}/java/jre/lib/ext/ibmorb.jar" />
+			<env key="WAS_CLASSPATH" value="${wasclpath}" />
+			<env key="WAS_PATH" value="${wasHome}/bin;${wasHome}/java/bin;${wasHome}/java/jre/bin;${env.Path}" />
+			<env key="QUALIFYNAMES" value="" />
+			<env key="CONSOLE_ENCODING" value="-Dws.output.encoding=console" />
+			<env key="USER_INSTALL_ROOT" value="${wasHome}" />
+			<env key="PATH" value="${env.windir};${env.SystemRoot};." />
+			<env key="MQ_JAVA_DATA_PATH" value="${env.MQ_HOME}" />
+			<env key="MQ_JAVA_INSTALL_PATH" value="${env.MQ_HOME}/java" />
+			<env key="WINDIR" value="${env.windir}" />
+			<env key="SystemRoot" value="${env.SystemRoot}" />
+			<sysproperty key="ws.output.encoding" value="console" />
+			<sysproperty key="com.ibm.SOAP.ConfigURL" value="file:${wasHome}/properties/soap.client.props" />
+			<sysproperty key="com.ibm.CORBA.ConfigURL" value="file:${wasHome}/properties/sas.client.props" />
+			<sysproperty key="com.ibm.ws.scripting.wsadminprops" value="" />
+			<sysproperty key="com.ibm.ws.management.standalone" value="true" />
+			<sysproperty key="user.install.root" value="${wasHome}" />
+			<sysproperty key="was.install.root" value="${wasHome}/config" />
+			<sysproperty key="was.repository.root" value="${wasHome}" />
+			<sysproperty key="server.root" value="${wasHome}" />
+			<sysproperty key="local.cell" value="${wascell}" />
+			<sysproperty key="local.node" value="${wasnode}" />
+			<sysproperty key="ws.ext.dirs" value="${wasHome}/java/lib;${wasHome}/classes;${wasHome}/lib;${wasHome}/lib/ext;${wasHome}/web/help;${env.MQ_HOME}/java/lib;${wasHome}/deploytool/itp/plugins/com.ibm.etools.ejbdeploy/runtime" />
+			<sysproperty key="com.ibm.itp.location" value="${wasHome}/deploytool/itp" />
+			<arg value="com.ibm.ws.scripting.WasxShell" />
+			<arg value='-c' />
+			<arg value='$AdminControl invoke [$AdminApp uninstall ${ear}] invoke [$AdminConfig save]' />
+		</java>
+
+	</target>
+
+</project>

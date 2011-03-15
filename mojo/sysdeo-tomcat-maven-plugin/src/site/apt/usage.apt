@@ -1,0 +1,43 @@
+ ---
+ Using the Maven Sysdeo Tomcat Eclipse Plugin
+ ---
+Tim O'Brien
+<tobrien@discursive.com>
+ ---
+ January 5, 2008
+
+Usage
+
+  <<Step Zero:>> Install the System Tomcat Plugin, and configure your Eclipse preferences to point to an instance of Tomcat which has been configured with the DevLoader.zip classes.  You can find instructions for this {{{http://www.sysdeo.com/eclipse/tomcatplugin}here}}.
+
+  <<Step One:>> Add the plugin to your web application's
+  <<<pom.xml>>>.  This will include the sysdeo-tomcat-plugin, which
+  will produce a <<<.tomcatplugin>>> file if your application is of
+  "war" packaging type. This will also automatically add the tomcat 
+  nature to your eclipse <<<.project>>> file to enable the Tomcat menu
+  for this project in Eclipse:
+
+---
+  <plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>sysdeo-tomcat-maven-plugin</artifactId>
+    <version>1.1</version>
+  </plugin>
+---
+
+  <<Step Two:>> After doing this, you should then take note of the <<<.tomcatplugin>>> file which
+  should be generated when you run:
+
++---  
+    mvn sysdeo-tomcat:generate
++---
+    
+  You can run this plugin's <<<generate goal>>> at the top-level of a large
+  multimodule project that contains projects of different packaging
+  type.  This plugin is configured to skip a project that does not
+  have <<<war>>> packaging.
+  
+  You can optionaly configure the <<<eclipse.workspace>>> property in your <<<settings.xml>>> to
+  point to your eclipse workspace. This will allow the sysdeo-tomcat plugin to discover available 
+  projects in the workspace and use them as projects references (not as jars).
+  

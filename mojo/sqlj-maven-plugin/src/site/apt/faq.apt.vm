@@ -1,0 +1,11 @@
+  ------
+  SQLJ maven plugin
+  ------
+
+
+FAQs
+
+* What is SQLJ?
+
+  SQLJ is an ISO standard for embedding SQL in Java. 
+{{{http://en.wikipedia.org/wiki/SQLJ}See Wikipedia}}.

@@ -1,0 +1,41 @@
+o generate-prototype: Ability to set a "root" directory that tells where to start searching for files.
+ - Can be implemented by setting the basedir when scanning for resources
+
+This will remove the need for the user to list "/opt" as a "? ? ?" directory.
+
+o <prototypeEntryCollections>: create lots of examples!
+
+o Set PSTAMP
+o Resolve the SNAPSHOT part of the version to a timestamp
+
+o Implement entry sets: Lists of entried with common class, mode, user and group:
+
+ Current:
+  <generatePrototype>
+    <directoryEntry>
+      <mode>0755</mode>
+      <user>jetty</user>
+      <group>jetty</group>
+      <path>opt/myapp/db</path>
+    </directoryEntry>
+    <directoryEntry>
+      <mode>0755</mode>
+      <user>jetty</user>
+      <group>jetty</group>
+      <path>opt/myapp/logs</path>
+    </directoryEntry>
+  </generatePrototype>
+
+ Should be:
+  <generatePrototype>
+    <directoryEntrySet>
+      <mode>0755</mode>
+      <user>jetty</user>
+      <group>jetty</group>
+      <paths>
+        <path>opt/myapp/db</path>
+        <path>opt/myapp/logs</path>
+      </paths>
+      </directoryEntry>
+    </directoryEntrySet>
+  </generatePrototype>

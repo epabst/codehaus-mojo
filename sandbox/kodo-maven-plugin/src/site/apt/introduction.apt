@@ -1,0 +1,10 @@
+ ------
+ Maven 2 Kodo Plugin
+ ------
+
+Maven 2 Kodo Plugin
+
+  This plugin provides the capability to enhance files using Solarmetric's Kodo-JDO.
+
+  To learn how to use the plugin, click {{{howto.html}here}}.
+

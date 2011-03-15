@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!--
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ -->
+<document>
+  <properties>
+    <title>Prototype Generation Reference</title>
+    <author email="trygvis@codehaus.org">Trygve Laugstol</author>
+  </properties>
+  <body>
+    <section name="Prototype Generation Reference">
+      <subsection name="Introduction">
+        <p>
+          When the plugin is generating the prototype file it goes through the <code>generatedPrototype</code> list
+          and expand any collection found into a set of files and any entry elements will be copied in directly. If a
+          file is included twice the second declaration will override the first.
+        </p>
+        <p>
+          An "object collection" is similar to a
+          <a href="http://maven.apache.org/ref/current/maven-model/maven.html#class_resource">resources element</a>
+          from Maven and a
+          <a href="http://maven.apache.org/plugins/maven-assembly-plugin/assembly.html#class_fileSet">file set</a>
+          in the assembly plugin. It specifies object settings for any object that will be matched with the
+          include/exclude settings. All include/exclude patterns are relative to the root of the package.
+        </p>
+        <p>
+          An "object entry" will result in a single line in the prototype file with the specified object.
+        </p>
+        <p>
+          If an "object collection" or an "object entry" doesn't specify a class, mode, user or group setting the
+          default values will be used.
+        </p>
+      </subsection>
+      <subsection name="Collection Types">
+        <p>
+          There are three kinds of collections:
+        </p>
+        <ul>
+          <li><code>&lt;directoryCollection&gt;</code> - generate "d" entries.</li>
+          <li><code>&lt;fileCollection&gt;</code> - generate "f" entries.</li>
+          <li><code>&lt;editableCollection&gt;</code> - generate "e" entries.</li>
+        </ul>
+        <p>
+          All the collection types have the same fields:
+        </p>
+        <ul>
+          <li>
+            <code>&lt;class&gt;</code> - sets the object class for the object.
+          </li>
+          <li>
+            <code>&lt;mode&gt;</code> - sets the file mode for the object when installed.
+          </li>
+          <li>
+            <code>&lt;user&gt;</code> and <code>&lt;group&gt;</code> - sets the file owner and group for the object.
+          </li>
+          <li>
+            <code>&lt;includes&gt;</code> and <code>&lt;excludes&gt;</code> - sets the include/exclude patterns for the
+            collection.
+          </li>
+        </ul>
+      </subsection>
+      <subsection name="Entry Types">
+        <p>
+          The following four entry types are supported:
+        </p>
+        <ul>
+          <li><code>&lt;directoryEntry&gt;</code> - generate "d" entries.</li>
+          <li><code>&lt;fileEntry&gt;</code> - generate "f" entries.</li>
+          <li><code>&lt;editableEntry&gt;</code> - generate "e" entries.</li>
+          <li><code>&lt;iEntry&gt;</code> - generate "i" entries.</li>
+        </ul>
+        <p>
+        All the entry types have the same fields:
+        </p>
+        <ul>
+          <li>
+            <code>&lt;class&gt;</code> - sets the object class for the object.
+          </li>
+          <li>
+            <code>&lt;mode&gt;</code> - sets the file mode for the object when installed.
+          </li>
+          <li>
+            <code>&lt;user&gt;</code> and <code>&lt;group&gt;</code> - sets the file owner and group for the object.
+          </li>
+          <li>
+            <code>&lt;path&gt;</code> - sets the path to the object.
+          </li>
+          <li>
+            <code>&lt;realPath&gt;</code> - sets the real path to the object. Useful when sucking in files from
+            outside of the assembly area.
+          </li>
+        </ul>
+      </subsection>
+    </section>
+  </body>
+</document>

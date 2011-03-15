@@ -1,0 +1,44 @@
+ ------
+ Maven 2 VisiBroker Plugin
+ ------
+ Dan T. Tran
+ <dantran@gmail.com>
+ ------
+ September 29, 2005
+
+idl2cpp Example
+
+  This example shows how to generete native cpp source files from a set of VisiBroker IDL files.
+
+---------------------------
+
+      <plugin>
+        <groupId>org.codehause.mojo</groupId>
+        <artifactId>visibroker-maven-plugin</artifactId>
+        <dependencies>
+          <!--Your VisiBroker's runtime tool jars: vbdev.jar, vbjorb.jar, and vbcdev.jar -->
+        </dependencies>
+        
+          <executions>
+          <execution>
+            <id>idl2cpp</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>idl2cpp</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>src/main/idl/ReqProcessor.idl</source>
+              </sources>
+              <includePaths>
+                <includePath>src/main/idl/include</includePath>
+              </includePaths>
+              <options>
+                <option>-list_files -hdr_suffix h -src_suffix cpp</option>
+              </options>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    
+--------------------------

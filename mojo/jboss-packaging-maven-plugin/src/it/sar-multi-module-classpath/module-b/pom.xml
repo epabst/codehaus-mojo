@@ -1,0 +1,34 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.codehaus.mojo.tests</groupId>
+    <artifactId>sar-multi-module-classpath</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>module-b</artifactId>
+  <packaging>jboss-sar</packaging>
+
+  <name>SAR B (consumer)</name>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jboss-packaging-maven-plugin</artifactId>
+        <extensions>true</extensions>
+      </plugin>
+    </plugins>
+  </build>
+  
+  <dependencies>
+    <dependency>
+      <groupId>org.codehaus.mojo.tests</groupId>
+      <artifactId>module-a</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>jboss-sar</type>
+    </dependency>
+  </dependencies>
+
+</project>

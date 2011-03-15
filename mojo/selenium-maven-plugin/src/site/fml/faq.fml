@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!-- $Id$ -->
+
+<faqs id="FAQ" title="Frequently Asked Questions">
+
+    <part id="General">
+        <faq id="recommended-maven-integration">
+            <question>
+                What is the recommended method for integrating Selenium into a Maven build?
+            </question>
+            <answer>
+                <p>
+                    For most use-cases, the recommended method for integrating Selenium into a Maven build is to 
+                    create TestNG (or JUnit) test-cases written in Java (or Groovy) and use the Selenium-RC API
+                    to send browser requests to a Selenium server previously started with the <tt>selenium:start-server</tt> goal.
+                </p>
+                <p>
+                    One significant advantage to this technique is that the existing
+                    <a href="http://maven.apache.org/plugins/maven-surefire-plugin">maven-surefire-plugin</a> can be
+                    used to integrate the test invocation and generate a nice report.  Java-based (or Groovy-based) tests also
+                    provide significantly more options to validate results.  And you can still use
+                    the <a href="http://openqa.org/selenium-ide">Selenium IDE</a> to generate the basic code, you just need to
+                    change the format language (<tt>Options :: Format :: Java</tt>) to Java and then cut and paste into a typical
+                    JUnit/TestNG test.
+                </p>
+            </answer>
+        </faq>
+    </part>
+
+</faqs>

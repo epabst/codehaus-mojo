@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<antlib>
+  <!-- Tasks -->
+  <taskdef name="write" classname="org.codehaus.mojo.buildinfo.ant.WriteBuildInfoTask"/>
+
+  <!-- Types -->
+  <!-- typedef name="localRepository" classname="org.apache.maven.artifact.ant.LocalRepository"/ -->
+
+  <!-- Tasks that are also types -->
+  <!-- taskdef name="pom" classname="org.apache.maven.artifact.ant.Pom"/ -->
+</antlib>

@@ -1,0 +1,123 @@
+ ------
+ Creating a Simple Feature
+ ------
+ Barrie Treloar
+ <baerrach@gmail.com>
+ ------
+ November 23, 2006
+ 
+Overview
+
+  The goal of this example is to create a simple Eclipse PDE feature and
+  to successfully build it with pde-maven-plugin.
+
+Prerequisites
+
+  Have run the {{{simple_plugin.html}Create a Simple Plugin}} example, as a feature
+  needs some plugins to work.
+
+Steps
+
+* Create the Project
+
++---
+  File > New > Project...
+  
+  Plug-in Development > Feature Project (Next)
+  
+  Project name: "test.pde_maven_plugin.simple_feature"
+  Uncheck "Use default location" and set Location to "<Your Workspace>\PDE_Plugin_Tutorial\features\test.pde_maven_plugin.simple_feature"
+  (Finish)
+
+  TROUBLE SHOOTING: Eclipse will complain that "Project contents cannot be inside workspace directory"
+  which is non-sense since you can import projects within project now. This may be a bug with the validation
+  code of the Feature Project builder.  You can trick Eclipse by typing and deleting a character in "Project name"
+  which will clear the error message allowing you to click Finish.   
++---
+  
+  If you have never started Plug-in Development before then the "Open Associated Perspective" 
+  popup will appear.  Click "Remember my decision" and "Yes" to always change to the 
+  "Plug-in Development perspective"
+  
+* Confirm the Project can be exported via Eclipse
+
+  On the "test.pde_maven_plugin.simple_feature" editor Overview page, 
+  click the "Export Wizard" link in the Exporting section.
+  
+  Ensure that "test.pde_maven_plugin.simple_feature" is checked in the "Deployable features" pop-up.
+  Choose archive file and specify a destination someone (e.g. D:\tmp\test.pde_maven_plugin.simple_feature.zip)
+  
+  Open the archive and confirm that it contains "features/test.pde_maven_plugin.simple_feature_1.0.0/" 
+  and "plugins/test.pde_maven_plugin.simple_plugin_1.0.0.jar"
+  
+* Create pom.xml
+
+  Now that we know the feature project can be exported via Eclipse, we can create the pom.xml to get 
+  this running in Maven.
+  
++---
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>test.pde_maven_plugin</groupId>
+  <artifactId>simple_feature</artifactId>
+  <packaging>zip</packaging>
+  <name>Simple Feature PDE Example</name>
+  <version>1.0-SNAPSHOT</version>
+  <description>A Simple Feature PDE Example</description>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>pde-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <eclipseInstall>D:\eclipse-3.2</eclipseInstall>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
++---
+  
+* Run mvn install
+
+  Everything is setup and ready to go.  Type "mvn install" to build your pde feature from the command line.
+  
+  When everything is complete you should see that your feature zip file "test.pde_maven_plugin.simple_feature_1.0.0.bin.dist.zip"
+  gets installed into your local maven repository as "simple_feature-1.0-SNAPSHOT.zip"
+  
++---
+[INFO] Installing <Your Workspace>\PDE_Plugin_Tutorial\features\test.pde_maven_plugin.simple_feature\test.pde_maven_plugin.simple_feature_1.0.0.bin.dist.zip 
+ to <Your M2 REPO>\.m2\repository\test\pde_maven_plugin\simple_feature\1.0-SNAPSHOT\simple_feature-1.0-SNAPSHOT.zip
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 16 seconds
+[INFO] Finished at: Fri Nov 24 10:29:01 CST 2006
+[INFO] Final Memory: 5M/9M
+[INFO] ------------------------------------------------------------------------
++---
+
+* Test out your plugin
+
+  If you are feeling really brave, make a copy of your eclipse installation (D:\Copy of eclipse-3.2 will do) and
+  run this new version to see that it works and does not include your plugin.
+
+  Browse to your m2 repository and extract \<Your\ M2\ REPO\>\.m2\repository\test\pde_maven_plugin\simple_feature\1.0-SNAPSHOT\simple_feature-1.0-SNAPSHOT.zip
+  to the root of your Eclipse copy (e.g. D:\Copy of eclipse-3.2\)
+  
+  You now need to run Eclipse with the "-clean" option to force it to reload its plugin cache. The easiest way
+  is to edit the "eclipse.ini" file and add "-clean" on a line by itself before the "-vm" argument. e.g:
+  
++---
+-clean
+-vm
+D:\Programs\Java\jdk1.5.0_08\bin\javaw.exe
+-vmargs
+-Xms80m
+-Xmx1000m
++---  
+  
+  Run Eclipse and see your "Sample Menu" is available.

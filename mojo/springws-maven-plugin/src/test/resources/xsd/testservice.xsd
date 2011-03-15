@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/testservice" xmlns:tns="http://www.example.org/testservice"
+  elementFormDefault="qualified">
+  
+  <element name="testRequest">
+    <complexType>
+      <sequence>
+        <element name="someRequestElement" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+  
+  <element name="testResponse">
+    <complexType>
+      <sequence>
+        <element name="someResponseElement" type="string" />
+      </sequence>
+    </complexType>
+  </element>
+</schema>

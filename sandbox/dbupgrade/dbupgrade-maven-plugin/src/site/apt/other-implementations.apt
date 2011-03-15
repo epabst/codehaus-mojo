@@ -1,0 +1,21 @@
+ ------
+ Other Implementations
+ ------
+ Dan T. Tran
+ ------
+ 2009-01-15
+ ------
+
+
+Other Implementations
+
+   * {{{http://dbmigrate.googlecode.com}dbmigrate}} 
+   
+   * {{{http://code.google.com/p/agimatec-tools}agimatec-dbmigrate}}
+   
+   * {{{http://www.liquibase.org}liquibase}}
+   
+   * {{{http://code.google.com/p/c5-db-migration}c5-db-migration}}
+   
+   []
+

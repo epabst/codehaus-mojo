@@ -1,0 +1,73 @@
+ ------
+ Getting Started
+ ------
+ Barrie Treloar
+ <baerrach@gmail.com>
+ ------
+ November 23, 2006
+
+Prerequisites
+
+  You will need a properly configured Eclipse RCP development environment before
+  you can make use of the PDE plugin.
+  
+  You will need:
+  
+  * Eclipse 3.2 SDK {{http://www.eclipse.org/downloads/}}
+  
+  * (Optional - RCP applications only) RCP Runtime Binary for your target platform (e.g. at {{{http://download.eclipse.org/eclipse/downloads/drops/R-3.2.1-200609210945/}Eclipse 3.2.1 Drops}}
+  download the {{{http://download.eclipse.org/eclipse/downloads/drops/R-3.2.1-200609210945/download.php?dropFile=eclipse-RCP-3.2.1-win32.zip}eclipse-RCP-3.2.1-win32.zip}}
+  file.
+  
+  * (Optional - RCP applications only) RCP Delta Pack (e.g. {{{http://download.eclipse.org/eclipse/downloads/drops/R-3.2.1-200609210945/download.php?dropFile=eclipse-RCP-3.2.1-delta-pack.zip}eclipse-RCP-3.2.1-delta-pack.zip}})
+  
+  []
+  
+Installation
+
+* Install Eclipse
+
+  Install Eclipse as per normal (this guide will not cover this topic)
+  
+* (Optional - RCP applications only) Create Eclipse RCP Target Location
+
+  If you are building an RCP application then it is recommended best practice by the book {{{../references.html#EclipseRichClientPlatform}Eclipse Rich Client Platform}}
+  to create a target setup.  This keeps the Eclipse IDE plugins separate from your RCP applications runtime plugins.
+  Otherwise when you run your application the Eclipse menus like Project > Clean will appear.
+  
+  Extract the RCP Runtime Binary into a directory (e.g. D:\ide\target\eclipse-rcp-3.2.1).  This will be used as the location of "eclipseInstall".
+
+  Extract the RCP Delta pack into your target directory (e.g. D:\ide\target\eclipse-rcp-3.2.1)
+  
+  Define the target platform in Eclipse, under the preferences Window > Preferences > Plug-in Development > Target Platform,
+  browse to the location of your installed target (e.g. D:\ide\target\eclipse-rcp-3.2.1)
+  
+Eclipse Project Creation
+
+  All PDE Projects that are to be built by pde-maven-plugin need to follow
+  the directory layout convention as specified in {{{../usage.html}Source Structure}}
+  
+  If you wish to follow along with the Examples provided then follow the instructions below to setup your project area:
+  
+  File > New Project... > General > Project (Next)
+  
+  Project name = "PDE_Plugin_Tutorial" (Finish)
+  
+  Create two folders for "features" and "plugins" in the project.
+  Select the project "PDE_Plugin_Tutorial" and right click New > Folder. 
+  
+Start Building!
+
+  Now that you have configured your environment you can start writing Eclipse PDE projects and get Maven to build them.
+  
+  For further information see the {{{index.html}examples}} provided.
+  
+Download the tutorials
+
+  The pde projects and their completed poms are available by downloading the tutorial
+  archive from the maven repository, it has a "tutorials" classifer.
+  
+  The same sets of files are available from the "tutorials" directory from the pde-maven-plugin source repository.
+  Browse around in {http://snapshots.repository.codehaus.org/org/codehaus/mojo/pde-maven-plugin/} to find them.
+  
+  

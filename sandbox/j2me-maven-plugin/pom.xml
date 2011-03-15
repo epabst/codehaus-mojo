@@ -1,0 +1,111 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>mojo-sandbox</artifactId>
+    <version>2</version>
+  </parent>
+  
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>j2me-maven-plugin</artifactId>
+  <packaging>maven-plugin</packaging>
+  <name>Maven J2ME Plugin</name>
+  <version>0.1.0-alpha-SNAPSHOT</version>
+  <description> The Maven J2ME Plugin will enable maven 2.x users to develop applications for
+    the Java Platform, Micro Edition. For further details see the plugin documentation.
+  </description>
+  <url>http://mojo.codehaus.org/j2me-maven-plugin/</url>
+  <inceptionYear>2006</inceptionYear>
+  
+  <developers>
+    <developer>
+      <name>Frank Seidinger</name>
+      <email>frank.seidinger@novity.de</email>
+      <organization>novity Software-Consulting</organization>
+      <organizationUrl>http://www.novity.de</organizationUrl>
+      <timezone>+1</timezone>
+    </developer>
+  </developers>
+  
+  <licenses>
+    <license>
+      <name>MIT license</name>
+      <url>LICENSE.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  
+  <organization>
+    <name>novity Software-Consulting</name>
+    <url>http://www.novity.de</url>
+  </organization>
+  
+  <build>
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-webdav</artifactId>
+        <version>1.0-beta-1-SNAPSHOT</version>
+      </extension>
+    </extensions>
+    
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <configuration>
+          <locales>en,de</locales>
+          <outputEncoding>utf-8</outputEncoding>
+          <inputEncoding>utf-8</inputEncoding>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  
+  <distributionManagement>
+    <repository>
+      <id>mojo</id>
+      <name>Mojo Central Repository</name>
+      <url>dav:https://dav.codehaus.org/repository/mojo/</url>
+    </repository>
+    
+    <snapshotRepository>
+      <id>mojo-snapshots</id>
+      <name>Mojo Central Development Repository</name>
+      <url>dav:https://dav.codehaus.org/snapshots.repository/mojo/</url>
+    </snapshotRepository>
+    
+    <!-- force official and sandbox plugins to appear at the same level -->
+    <site>
+      <id>mojo-site</id>
+      <name>Mojo Website</name>
+      <url>dav:https://dav.codehaus.org/mojo/j2me-maven-plugin</url>
+    </site>
+  </distributionManagement>
+  
+	<repositories>
+    <repository>
+      <id>apache-snapshots</id>
+      <name>Snapshot repository</name>
+      <url>http://people.apache.org/maven-snapshot-repository/</url>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <version>2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-project</artifactId>
+      <version>2.0</version>
+    </dependency>
+  </dependencies>
+</project>

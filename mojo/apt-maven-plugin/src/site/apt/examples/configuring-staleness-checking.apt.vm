@@ -1,0 +1,118 @@
+ ------
+ Configuring staleness checking
+ ------
+ Mark Hobson
+ <markhobson@gmail.com>
+ ------
+ 23 April 2008
+ ------
+
+
+Configuring staleness checking
+
+ By default, the Apt Maven Plugin only processes source files that are deemed to be <stale>.  The definition of 
+ staleness depends on the relationship between the source files and the generated resources, which is determined by the
+ annotation processor factory implementation used.
+ 
+* One-to-one factories
+  
+ An annotation processor factory that generates a unique resource for each unique source file is called a <one-to-one>
+ factory.  It is assumed that one-to-one factories will generate a resource with the same name as the source file 
+ except with a different file extension.  For example, a factory might generate a <<<com/acme/Main.xml>>> resource for 
+ the source file <<<com/acme/Main.java>>>.
+  
+ To configure staleness checking for this type of factory, use the <<<outputFileEndings>>> configuration parameter as 
+ follows:
+  
+---
+<project>
+  ...
+    <build>
+      ...
+      <plugins>
+        ...
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>apt-maven-plugin</artifactId>
+          <version>${project.version}</version>
+          <configuration>
+            <outputFileEndings>
+              <outputFileEnding>.xml</outputFileEnding>
+            </outputFileEndings>
+          </configuration>
+        </plugin>
+        ...
+      </plugins>
+      ...
+    </build>
+  ...
+</project>
+---
+
+ This tells the Apt Maven Plugin to only process a source file if its last modified timestamp is later than the last
+ modified timestamp of its corresponding generated resource.
+
+* Many-to-one factories
+
+ An annotation processor factory that generates a single resource from all source files is called a <many-to-one>
+ factory.  For example, a factory might generate a <<<persistence.xml>>> resource after processing all source files.
+ 
+ To configure staleness checking for this type of factory, use the <<<outputFiles>>> configuration parameter as follows:
+  
+---
+<project>
+  ...
+    <build>
+      ...
+      <plugins>
+        ...
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>apt-maven-plugin</artifactId>
+          <version>${project.version}</version>
+          <configuration>
+            <outputFiles>
+              <outputFile>persistence.xml</outputFile>
+            </outputFiles>
+          </configuration>
+        </plugin>
+        ...
+      </plugins>
+      ...
+    </build>
+  ...
+</project>
+---
+
+ This tells the Apt Maven Plugin to only process the source files if at least one source file has a last modified 
+ timestamp that is later than the last modified timestamp of the generated resource.
+
+* Disabling staleness checking
+
+ If the above scenarios are not compatible with your annotation processor factory then you may wish to disable staleness
+ checking altogether.  To disable staleness checking, use the <<<force>>> configuration parameter as follows:
+ 
+---
+<project>
+  ...
+    <build>
+      ...
+      <plugins>
+        ...
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>apt-maven-plugin</artifactId>
+          <version>${project.version}</version>
+          <configuration>
+            <force>true</force>
+          </configuration>
+        </plugin>
+        ...
+      </plugins>
+      ...
+    </build>
+  ...
+</project>
+---
+
+ This tells the Apt Maven Plugin to process all source files every time it is invoked.

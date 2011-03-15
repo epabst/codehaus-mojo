@@ -1,0 +1,9 @@
+<!DOCTYPE jboss-app PUBLIC "-//JBoss//DTD J2EE Application 1.4//EN"
+         "http://www.jboss.org/j2ee/dtd/jboss-app_4_0.dtd">
+	 
+<jboss-app>
+  <loader-repository>${groupId}:loader=${artifactId}-ear
+    <loader-repository-config>java2ParentDelegation=false</loader-repository-config>
+  </loader-repository>
+  <jmx-name>${groupId}:loader=${artifactId}-ear</jmx-name>
+</jboss-app> 

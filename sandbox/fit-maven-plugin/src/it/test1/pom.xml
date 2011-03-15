@@ -1,0 +1,51 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.codehaus.mojo</groupId>
+	<artifactId>fit-maven-plugin-it-test1</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>Fit Maven Plugin Integration Test 1</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.c2.fit</groupId>
+			<artifactId>fit</artifactId>
+			<version>1.1</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<sourceDirectory>${basedir}/src/main</sourceDirectory>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>fit-maven-plugin</artifactId>
+				<executions>				
+					<execution>
+						<id>fixture</id>
+						<phase>integration-test</phase>
+						<configuration>
+							<sourceDirectory>${project.build.sourceDirectory}/fit</sourceDirectory>
+							<caseSensitive>true</caseSensitive>
+							<sourceIncludes>**/*Fixture.html</sourceIncludes>
+							<sourceExcludes>**/Wiki*,**/Failed*</sourceExcludes>
+					        <parseTags>
+					        	<parseTag>table</parseTag>
+					        	<parseTag>tr</parseTag>
+					        	<parseTag>td</parseTag>
+					        </parseTags>
+							<outputDirectory>${project.build.outputDirectory}/fit</outputDirectory>
+						</configuration>		
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>				
+		</plugins>
+	</build>
+
+</project>

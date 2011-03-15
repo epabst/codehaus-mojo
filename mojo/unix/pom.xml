@@ -1,0 +1,244 @@
+<!--
+  ~ The MIT License
+  ~
+  ~ Copyright 2009 The Codehaus.
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of
+  ~ this software and associated documentation files (the "Software"), to deal in
+  ~ the Software without restriction, including without limitation the rights to
+  ~ use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+  ~ of the Software, and to permit persons to whom the Software is furnished to do
+  ~ so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>mojo-parent</artifactId>
+    <groupId>org.codehaus.mojo</groupId>
+    <version>21</version>
+  </parent>
+  <groupId>org.codehaus.mojo.unix</groupId>
+  <artifactId>unix</artifactId>
+  <version>1.0-alpha-5-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Maven Unix Support</name>
+  <inceptionYear>2008</inceptionYear>
+  <description>Supporting tools for writing software for the UNIX platform</description>
+  <properties>
+    <functionaljava.version>2.19</functionaljava.version>
+  </properties>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-project</artifactId>
+        <version>2.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-plugin-api</artifactId>
+        <version>2.0</version>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.plexus</groupId>
+        <artifactId>plexus-container-default</artifactId>
+        <version>1.0-alpha-9-stable-1</version>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.plexus</groupId>
+        <artifactId>plexus-archiver</artifactId>
+        <version>1.0-alpha-7</version>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.plexus</groupId>
+        <artifactId>plexus-utils</artifactId>
+        <version>1.5.6</version>
+      </dependency>
+      <dependency>
+        <groupId>org.functionaljava</groupId>
+        <artifactId>fj</artifactId>
+        <version>${functionaljava.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <developers>
+    <developer>
+      <id>trygvis</id>
+      <name>Trygve Laugstol</name>
+      <email>trygvis@codehaus.org</email>
+      <url>http://blogs.codehaus.org/people/trygvis</url>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+      <timezone>+1</timezone>
+    </developer>
+  </developers>
+  <contributors>
+    <contributor>
+      <name>Erik Drolshammer</name>
+      <email>erik-dev@fjas.no</email>
+    </contributor>
+  </contributors>
+  <issueManagement>
+    <system>jira</system>
+    <url>http://jira.codehaus.org/browse/MUNIX</url>
+  </issueManagement>
+  <licenses>
+    <license>
+      <name>Apache License 2</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <scm>
+    <url>https://svn.codehaus.org/mojo/trunk/mojo/unix</url>
+    <connection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/unix</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/unix</developerConnection>
+  </scm>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.2</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>retrotranslator-maven-plugin</artifactId>
+        <version>1.0-alpha-4</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>translate-project</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <classifier>jdk14</classifier>
+          <attach>true</attach>
+        </configuration>
+      </plugin>
+<!--
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>2.0</version>
+        <configuration>
+          <outputEncoding>${project.reporting.outputEncoding}</outputEncoding>
+        </configuration>
+      </plugin>
+-->
+    </plugins>
+  </build>
+  <repositories>
+    <repository>
+      <id>java.net</id>
+      <url>http://download.java.net/maven/2</url>
+    </repository>
+    <repository>
+      <id>functionaljava</id>
+      <url>http://functionaljava.googlecode.com/svn/maven/</url>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+  </repositories>
+  <modules>
+    <module>unix-ar</module>
+    <module>unix-common</module>
+    <module>unix-core</module>
+    <module>unix-deb</module>
+    <module>unix-maven-plugin</module>
+    <module>unix-sysv-pkg</module>
+    <module>unix-rpm</module>
+  </modules>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <links>
+            <link>http://java.sun.com/j2se/1.4.2/docs/api</link>
+            <link>http://java.sun.com/j2ee/1.4/docs/api</link>
+            <link>http://java.sun.com/j2se/1.5.0/docs/api</link>
+            <link>http://junit.sourceforge.net/javadoc/</link>
+            <link>http://functionaljava.googlecode.com/svn/artifacts/${functionaljava.version}/javadoc</link>
+          </links>
+          <source>1.5</source>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+        <configuration>
+          <targetJdk>1.5</targetJdk>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
+  <profiles>
+    <profile>
+      <id>handbook</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <modules>
+        <module>unix-handbook</module>
+      </modules>
+    </profile>
+    <profile>
+      <id>reporting-aggregate</id>
+      <!-- To generate aggregate reports -->
+      <!-- To deploy both aggregate reports for top-level project and standalone reports for modules, call
+           mvn site -Preporting
+           mvn site:deploy
+           mvn site -Preporting-aggregate
+           mvn -N site:deploy
+
+           All in one:
+           time mvn site -Preporting && time mvn site:deploy && time mvn site -Preporting-aggregate && time mvn -N site:deploy
+      -->
+      <reporting>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <configuration>
+              <aggregate>true</aggregate>
+            </configuration>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jxr-plugin</artifactId>
+            <configuration>
+              <aggregate>true</aggregate>
+            </configuration>
+          </plugin>
+        </plugins>
+      </reporting>
+    </profile>
+  </profiles>
+</project>

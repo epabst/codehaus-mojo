@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<process-definition  xmlns="urn:jbpm.org:jpdl-3.2"  name="par-basic-test">
+
+
+	<start-state name="start-state1">
+		<transition to="state1"></transition>
+	</start-state>
+
+
+	<state name="state1">
+		<transition to="state2"></transition>
+	</state>
+
+	<state name="state2">
+		<transition to="state2"></transition>
+		<transition to="end-state1" name="to end-state1"></transition>
+	</state>
+
+
+	<end-state name="end-state1"></end-state>
+
+
+</process-definition>

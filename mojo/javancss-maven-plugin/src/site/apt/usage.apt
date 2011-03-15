@@ -1,0 +1,91 @@
+ ------
+ Usage
+ ------
+ Jean-Laurent de Morlhon
+ <jeanlaurent@NOSPAMgmail.com>
+ ------
+
+Usage
+
+  In your project's pom.xml, add the JavaNCSS plugin in the <reporting> section.
+
+-------------------
+<project>
+  ...
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>javancss-maven-plugin</artifactId>
+        <version>2.0-beta-2</version>
+      </plugin>
+    </plugins>
+  </reporting>
+  ...
+</project>
+-------------------    
+
+  Execute the site plugin to generate the report distribution:
+
+-------------------
+  mvn site
+-------------------  
+
+  Alternatively if you want only the javancss to be reported you can use:
+
+-------------------  
+  mvn javancss:report
+-------------------  
+  
+
+*Aggregate Reporting
+
+  When running against a project which has no source but has child modules, the JavaNCSS plugin will attempt to aggregate
+  any child JavaNCSS reports into an aggregate report.  Unfortunately Maven's internal support for report aggregation
+  is rather poor so it does have a number of limitations.  Foremost the aggregate report is generated <<before>> the child
+  reports so you must re-run the JavaNCSS report after the children have generated, like this:
+
+-------------------
+  mvn clean site (generate the site for every module recursively)
+  mvn javancss:report (re-run the JavaNCSS report recursively so the aggregate report works)
+-------------------
+
+
+*Available Configuration Options
+ 
+*-------------------------+--------------*-----------------------------------------------------------------------------------------------------+
+ <<Parameter>>            | <<Optional>> | <<Description>>                                                                                     
+*-------------------------+----------*--------------------------------------------------------------------------------------------------------------+
+ lineThreshold            | Yes      | Number of lines to keep for objects & functions report. Defaults to 30.
+*-------------------------+----------*--------------------------------------------------------------------------------------------------------------+
+ xmlOutputDirectory       | Yes      | Location where the temporary raw xml output from JavaNCSS will be written. Defaults to ${project.build.directory}
+*-------------------------+----------*---------------------------------------------------------------------------------------------------------------+ 
+ tempFileName             | Yes      | Filename for the temporary raw xml output from JavaNCSS. Defaults to javancss-raw-report.xml
+*-------------------------+----------*---------------------------------------------------------------------------------------------------------------+ 
+
+
+Checking your build for ccn or ncss limits
+
+  You can use this plugin to check wether or not your code has reached a ccn or ncss limit.
+  Setup is the same when used for reporting.
+  You can execute this mojo with the following command line:
+  
+-------------------
+  mvn javancss:check
+------------------- 
+
+
+Available Configuration Options specific of javancss:check
+
+  javancss:check mojo has the same configuration options of the reporting mojos plus the following:
+ 
+*-------------------------+--------------*-----------------------------------------------------------------------------------------------------+
+ <<Parameter>>            | <<Optional>> | <<Description>>                                                                                     
+*-------------------------+----------*--------------------------------------------------------------------------------------------------------------+
+ failOnViolation          | Yes      | When either ccnLimit or ncssLimit is reached, will fail the build when set to true. It will display a warning on the console in any case. Defaults to true.
+*-------------------------+----------*--------------------------------------------------------------------------------------------------------------+
+ ccnLimit                 | Yes      | The limit for the CCN metric. Defaults to 10
+*-------------------------+----------*---------------------------------------------------------------------------------------------------------------+ 
+ ncssLimit                | Yes      | The limit for the NCSS metric. Defaults to 100
+*-------------------------+----------*---------------------------------------------------------------------------------------------------------------+ 
+

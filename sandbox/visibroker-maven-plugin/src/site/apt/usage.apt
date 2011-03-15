@@ -1,0 +1,14 @@
+ ------
+ Maven 2 VisiBroker Plugin
+ ------
+ Dan T. Tran
+ <dantran@gmail.com>
+ ------
+ September 29, 2005
+
+Usage
+
+  In order to use this plugin, you will need to upload your VisiBroker runtime
+  jar files: vbdev.jar, vbjdev.jar/vbcdev.jar, and vbjorb.jar to your local/remote maven repository 
+  and reference them in this plugin's configuration. See examples for details
+

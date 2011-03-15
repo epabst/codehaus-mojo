@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faqs title="Frequently Asked Questions" toplink="false">
+ <part id="general">
+    <title>General</title>
+    <faq id="What scm">
+      <question>
+        Which SCM are supported?
+      </question>
+      <answer>
+        <p>Well, we only support Subversion and Mercurial currently. We need a BetterChangeSet for each SCM that is not provided by Maven SCM.</p>
+        <p>To support another scm should be quite easy, it involves modifying the maven scm command and maven scm consumer to get a list of BetterChangeSet instead of a list of ChangeSet.</p>
+      </answer>
+    </faq>
+    <faq id="What scm">
+      <question>
+        Which trackers are supported?
+      </question>
+      <answer>
+        <p>
+            We support JIRA, Bugzilla, and SourceForge trackers. But since we use a trackerUrlPattern you could well set another tracker with its url
+            writing :
+            <source><trackerUrlPattern>my_tracker_url?bugIdParam={0}</trackerUrlPattern></source>
+            Also if you don't have a tracker you can use :
+            <source><trackerUrlPattern>#</trackerUrlPattern></source>
+        </p>
+      </answer>
+    </faq>
+  </part>
+  <part id="comparison">
+    <title>Comparison with existing plugins</title>
+    <faq id="maven-changes-plugin">
+      <question>
+        What is the difference beetwen maven-changes-plugin and  our scm-changelog-plugin?
+      </question>
+      <answer>
+        <p>We wanted a changelog report like the one produced by the <a href="http://maven.apache.org/plugins/maven-changes-plugin">maven-changes-plugin</a>
+ but we thought that it is better (and DRYer) to generate the reports from the scm comments rather than a <a href="http://maven.apache.org/plugins/maven-changes-plugin/changes.html">changes.xml file</a>.</p>
+        <p>We tried our best in order to improve the maven-changes-plugin by adding a new goal, but unfortunately this was rejected
+(cf. <a href="http://jira.codehaus.org/browse/MCHANGES-78">MCHANGES-78</a> and <a href="http://www.nabble.com/maven2-jira-plugin--td15993843.html#a16009622">maven2 jira plugin?</a>).</p>
+        <p>So we decided to create this plugin (cf. <a href="http://jira.codehaus.org/browse/MOJO-1026">MOJO-1026</a>).</p>
+      </answer>
+    </faq>
+    <faq id="maven-changelog-plugin">
+      <question>
+        What is the difference beetwen maven-changelog-plugin and our scm-changelog-plugin?
+      </question>
+      <answer>
+        <p>The <a href="http://maven.apache.org/plugins/maven-changelog-plugin/">maven-changelog-plugin</a> generates reports regarding the recent changes in the SCM.</p>
+        <p>The scm-changelog-plugin is used to display the changes that have occured between different releases of a project while the
+        <a href="http://maven.apache.org/plugins/maven-changelog-plugin/">maven-changelog-plugin</a> reports each revision of the project.</p>
+      </answer>
+    </faq>
+</part>
+</faqs>

@@ -1,0 +1,56 @@
+                                    ------
+                             Weblogic plugin FAQ
+                                    ------
+                                   Scott Ryan
+                                   Jon Osborn
+                                    ------
+                                 Jan 1, 2006
+                                 Updated Mar 31, 2008
+                                 Updated June 15, 2009
+                                 Updated Dec 07, 2009
+
+Maven 2 Weblogic Plugin FAQ
+
+  This page will show some of the common questions we get when using the Weblogic plugin.
+
+
+* Weblogic Plugin FAQ's.
+
+  Some common FAQ's for the plugin.
+
+-------------------
+  * How do I get the Maven Weblogic Plugin.
+   Follow the instructions on the following page http://mojo.codehaus.org/using-sandbox-plugins.html
+   as well as the installation and usage instructions for this mojo.
+
+  * Why am I getting the error Unrecognized option or flag, -sourcerootforupload ?
+   In order to maintain compatibility between the 8.1 and 9.0 version of the plugin I used a new flag on the deployment engine.
+   The flag was added with service pack 4 on 8.1.  If you are not on service pack 4 or later you will see this error.  If you send a note
+   to the mojo mailing list I can create a special version for service pack 3 and earlier.
+
+  * Why does the appc mojo fail looking for the tools.jar?
+   Please see the appc-use page.  The tools.jar is included in some java installations by default such as on the mac however if you
+   are not on such a platform you will need to add the tools.jar as a dependency in you pom or in a profile.  Please see the appc-use
+   page for more details.
+
+  * Why does my mojo fail with an obscure error with a message of ' and '?
+   On some machines, particualarly Windows machines, the path to Weblogic and/or the user's home directory path may have spaces in it.
+   Due to a mis-handling of the classpath, maven has a difficult time setting up a quoted classpath. As a workaround for this bug
+   change your maven repository to be located in a directory without spaces and/or install Weblogic in a directory path
+   without spaces.
+
+  * How do I execute an exploded deployment?
+   Set jvm parameter -Dweblogic.exploded=true or configure the exploded property. This has the effect of using the
+   target artifact directory as the value for the -source parameter.
+
+  * How do I attach multiple file descriptors to the JWSC task?
+   Set the <descriptor/> property to a comma separated list of fully qualified file names. File names that do not
+   actually exist on disk will be igored with a warning message.
+
+  * There seems to be a problem with error messages indicating file version 49 is not compatable with version 50?
+   A bug appears to happen in certain classloaders when executing the build using the tools.jar for java 1.6 and some
+   java 1.5 installations. The mojo has been updated to manually stick the tools.jar on the classpath of the
+   maven mojo process if it does not already exist. Upgrade to the newest mojo version.
+
+-------------------
+

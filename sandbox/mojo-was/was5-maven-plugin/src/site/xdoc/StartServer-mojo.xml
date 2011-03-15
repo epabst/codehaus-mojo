@@ -1,0 +1,266 @@
+<document>
+  <properties>
+    <title>was5-plugin - was5:StartServer</title>
+    </properties>
+  <body>
+    <section name="was5:StartServer">
+      <p>This task enables you to start a standalone server
+				instance. This is not used to start a server controlled
+				by DeploymentManager. Therefore, this task is useful for
+				the Base Application Server, and to start the Node Agent
+				and/or DeploymentManager. If you wish to start a server
+				managed by the Deployment Manager, use the wsadmin task
+				to execute a scripting command</p>
+      <p>Parameters for the goal: </p>
+      <table>
+        <tr>
+          <th>Parameter</th>
+          <th>Type</th>
+          <th>Expression</th>
+          <th>Default Value</th>
+          <th>Description</th>
+          </tr>
+        <tr>
+          <td>
+            <code>wasHome</code>
+            </td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${wasHome}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Location of WebSphere installation (normally the
+						WAS_HOME environment variable). [path to
+						WebSphere]</td>
+          </tr>
+        <tr>
+          <td>
+            <code>server</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${server}</code>
+            </td>
+          <td>
+            <code>server1</code>
+            </td>
+          <td>Contains the name of the server you wish to
+						start. Defaults to server1. [servername]</td>
+          </tr>
+        <tr>
+          <td>
+            <code>wasCell</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${wasCell}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Contains the name of the server you wish to
+						start. Defaults to name of server. [cellname]</td>
+          </tr>
+        <tr>
+          <td>
+            <code>wasNode</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${wasNode}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Contains the name of the server you wish to
+						start. Defaults to name of server. [nodename]</td>
+          </tr>
+        <tr>
+          <td>
+            <code>noWait</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${noWait}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>If set, the task with return immediately without
+						waiting for the server to start. [-nowait]</td>
+          </tr>
+        <tr>
+          <td>
+            <code>quiet</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${quiet}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>If true, the task will not print any status
+						information. [-quiet]</td>
+          </tr>
+        <tr>
+          <td>
+            <code>logFile</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${logFile}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Specifies the name of the file to log the server
+						start information to. [name of logfile]</td>
+          </tr>
+        <tr>
+          <td>
+            <code>replaceLog</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${replaceLog}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>If true, the task with erase an existing log
+						file, instead of appending. [-replacelog]</td>
+          </tr>
+        <tr>
+          <td>
+            <code>trace</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${trace}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>If true, the task with print trace information.
+						[-trace]</td>
+          </tr>
+        <tr>
+          <td>
+            <code>script</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${script}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>The name of a script file to execute during
+						server startup. [name of scriptfile]</td>
+          </tr>
+        <tr>
+          <td>
+            <code>timeout</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${timeout}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Amount of time to wait for the server to start.
+						[seconds to wait]</td>
+          </tr>
+        <tr>
+          <td>
+            <code>statusPort</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${statusPort}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Port for the server to send status messages to.
+						[port number]</td>
+          </tr>
+        <tr>
+          <td>
+            <code>user</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${user}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>User ID to authenticate with if security is
+						turned on. [username]</td>
+          </tr>
+        <tr>
+          <td>
+            <code>password</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${password}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Password to authenticate with. [password]</td>
+          </tr>
+        <tr>
+          <td>
+            <code>ant.basedir</code>
+            </td>
+          <td>
+            <code title="java.io.File">File</code>
+            </td>
+          <td>
+            <code>${antBasedir}</code>
+            </td>
+          <td>
+            <code>${basedir}</code>
+            </td>
+          <td>The base directory from which to execute the Ant script.</td>
+          </tr>
+        <tr>
+          <td>
+            <code>ant.messageLevel</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${antMessageLevel}</code>
+            </td>
+          <td>
+            <code>info</code>
+            </td>
+          <td>The message-level used to tune the verbosity of Ant logging.</td>
+          </tr>
+        </table>
+      </section>
+    </body>
+  </document>

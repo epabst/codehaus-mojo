@@ -1,0 +1,18 @@
+ ------
+ Maven 2 VisiBroker Plugin - References
+ ------
+ Dan T. Tran
+ <dantran@gmail.com>
+ ------
+ September 29, 2005
+
+References
+
+  * {{{http://info.borland.com/techpubs/visibroker/visibroker70/EN/vb_javadg-R1.pdf}
+    VisiBroker For Java Developer Guide}}
+  
+  * {{{http://info.borland.com/techpubs/visibroker/visibroker70/EN/vb_cppdg-R1.pdf}
+    VisiBroker For C++ Developer Guide}}
+    
+  []
+  

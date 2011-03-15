@@ -1,0 +1,24 @@
+ ------
+ Introduction
+ ------
+ carlos@apache.org
+ ------
+ March 15 2006
+ ------
+
+Commons Attributes Maven Plugin
+
+ Provides the {{{http://commons.apache.org/attributes/}Apache Commons Attributes}} compiler.
+ It generates the sources required to support the use of the Commons Attributes API.
+ 
+* Goals Overview
+
+  * {{{compile-mojo.html}commons-attributes:compile}} Commons-attributes compiler.
+
+  * {{{test-compile-mojo.html}commons-attributes:test-compile}} Commons-attributes compiler for tests.
+
+  []
+
+* Usage
+
+  Instructions on how to use the Commons Attributes Maven Plugin can be found on the {{{usage.html}usage page}}.

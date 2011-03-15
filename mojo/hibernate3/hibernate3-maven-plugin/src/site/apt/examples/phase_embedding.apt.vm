@@ -1,0 +1,37 @@
+  ------
+ Maven 2 Hibernate3 Plugin - Phase Embedding
+ ------
+ Johann Reyes
+ <jreyes@hiberforum.org>
+ ------
+ February 05, 2007
+
+Overview
+
+  This example would run the <<hbm2ddl>> goal whenever the <<process-classes>> phase gets invoked.
+
+Example
+
++---
+<project>
+...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>hibernate3-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <executions>
+          <execution>
+            <phase>process-classes</phase>
+            <goals>
+              <goal>hbm2ddl</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+...
+</project>
++---

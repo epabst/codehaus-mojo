@@ -1,0 +1,13 @@
+File emmaIndex = new File(basedir, "target/site/emma/index.html");
+if(!emmaIndex.exists() || emmaIndex.length() == 0) {
+	System.out.println("Missing 'index.html'");
+	return false;
+}
+
+File emmaFiles = new File(basedir, "target/site/emma/_files");
+if(!emmaFiles.exists() || emmaFiles.list().length == 0) {
+	System.out.println("Missing or empty directory '_files'");
+	return false;
+}
+
+return true;

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.codehaus.mojo.xfire-maven-plugin.test</groupId>
+  <artifactId>test1</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>XFire maven plugin test project #1</name>
+
+  <dependencies>
+  </dependencies>
+
+  <repositories>
+    <repository>
+      <id>codehaus-legacy</id>
+      <layout>legacy</layout>
+      <url>http://dist.codehaus.org</url>
+    </repository>
+  </repositories>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>xfire-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>generate-sources</phase>
+            <configuration>
+              <outputDirectory>${project.build.directory}/client</outputDirectory>
+              <package>org.codehaus.mojo.xfire.test</package>
+              <wsdls>
+                <wsdl>${basedir}/src/wsdl/globalweather.wsdl</wsdl>
+                <wsdl>http://soap.amazon.com/schemas2/AmazonWebServices.wsdl</wsdl>
+              </wsdls>
+            </configuration>
+            <goals>
+              <goal>wsgen</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!--plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin-->
+    </plugins>
+  </build>
+
+</project>

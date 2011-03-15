@@ -1,0 +1,68 @@
+ ------
+ Introduction
+ ------
+ Johann Reyes (jreyes@vaporwarecorp.com)
+ ------
+ 2010-11-30
+
+~~ Licensed to the Apache Software Foundation (ASF) under one
+~~ or more contributor license agreements.  See the NOTICE file
+~~ distributed with this work for additional information
+~~ regarding copyright ownership.  The ASF licenses this file
+~~ to you under the Apache License, Version 2.0 (the
+~~ "License"); you may not use this file except in compliance
+~~ with the License.  You may obtain a copy of the License at
+~~
+~~   http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~ Unless required by applicable law or agreed to in writing,
+~~ software distributed under the License is distributed on an
+~~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+~~ KIND, either express or implied.  See the License for the
+~~ specific language governing permissions and limitations
+~~ under the License.
+
+~~ NOTE: For help with the syntax of this file, see:
+~~ http://maven.apache.org/doxia/references/apt-format.html
+
+Hibernate3 Maven Plugin
+
+  This plugin provides easy integration with Hibernate 3.x for your project.
+
+
+* Goals Overview
+
+  * {{{hbm2cfgxml-mojo.html}hibernate3:hbm2cfgxml}}: Generates hibernate.cfg.xml
+
+  * {{{hbm2dao-mojo.html}hibernate3:hbm2dao}}: Generates a set of DAOs.
+
+  * {{{hbm2ddl-mojo.html}hibernate3:hbm2ddl}}: Generates database schema.
+
+  * {{{hbm2doc-mojo.html}hibernate3:hbm2doc}}: Generates HTML documentation for the database schema.
+
+  * {{{hbm2hbmxml-mojo.html}hibernate3:hbm2hbmxml}}: Generates a set of hbm.xml files
+
+  * {{{hbm2java-mojo.html}hibernate3:hbm2java}}: Generates Java classes from set of *.hbm.xml files
+
+  * {{{hbmlint-mojo.html}hibernate3:hbmlint}}: Scans mappings for errors.
+
+  * {{{help-mojo.html}hibernate3:help}}:
+
+  * {{{query-mojo.html}hibernate3:query}}: Executes a HQL query statements and optionally send the output to a file.
+  Can be used for verifying the mappings and for basic data extraction.
+
+  * {{{run-mojo.html}hibernate3:run}}: Runs all the goals specified in the hibernatetool configuration.
+
+
+* Usage
+
+  Instructions on how to use the Hibernate3 Maven Plugin can be found on the {{{usage.html}usage page}}.
+
+
+* Examples
+
+  * {{{./examples/simple-example.html}Simple example}}
+
+  * {{{./examples/run-multiple-goals.html}Running multiple goals at once}}
+
+  * {{{./examples/using-envers.html}Using Hibernate Envers}}

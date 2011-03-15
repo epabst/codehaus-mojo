@@ -1,0 +1,6 @@
+<archetype>
+  <id>rubyarchetype-maven-quickstart</id>
+  <resources>
+    <resource>src/main/ruby/my_mojo.rb</resource>
+  </resources>
+</archetype>

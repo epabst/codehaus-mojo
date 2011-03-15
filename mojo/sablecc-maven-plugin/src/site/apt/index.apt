@@ -1,0 +1,56 @@
+ ------
+ Maven 2 SableCC plugin
+ ------
+ Jesse McConnell <jesse.mcconnell@gmail.com>
+ ------
+ Mon Aug 1 2005
+ ------
+
+Maven 2 SableCC plugin
+
+ This plugin is for processing grammar files into java sources.
+
+ SableCC is a great mechanism for specifying a grammar and then generating the
+ supporting implementation of java classes.  See http://www.sablecc.org for
+ more information about SableCC itself.
+
+ This plugin will process all *.grammar files in the sourceDirectory into a
+ common generated sources output directory.  This will occur during the
+ generate-resources phase and the sources directory will be added to the project
+ for the compile phase.
+
+Available Configuration Options:
+
+ * sourceDirectory - src/main/sablecc
+
+ * outputDirectory - target/generated-sources/sablecc
+
+ * timestampDirectory - target (used so grammars are not constantly regenerated)
+
+ []
+
+Usage:
+
+-------------------
+<project>
+   ...
+      <build>
+         <plugins>
+            <plugin>
+               <groupId>org.codehaus.mojo</groupId>
+               <artifactId>sablecc-maven-plugin</artifactId>
+               <executions>
+                 <execution>
+                   <phase>generate-sources</phase>
+                   <goals>
+                     <goal>generate</goal>
+                   </goals>
+                 </execution>
+               </executions>
+            </plugin>
+         </plugins>
+         ...
+      </build>
+   ...
+</project>
+-------------------

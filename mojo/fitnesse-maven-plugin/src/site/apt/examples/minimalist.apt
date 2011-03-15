@@ -1,0 +1,24 @@
+ ------
+ Minimalist Example
+ ------
+Philippe Kernevez
+ <pkernevez@octo.com>
+ ------
+ February 12th, 2007
+ ------
+
+{Note on FitNesse server}
+
+  These exemples need a FitNesse server. The sample SubWiki {{{http://svn.codehaus.org/mojo/trunk/mojo/fitnesse-maven-plugin/src/it/fitNessePage}is available there}}
+  
+
+{Minimalist Example}
+  
+  This project is an exemple for a non Maven2 user that want to run locally a FitNesse remote test or suite.
+
+  You only have to configure your pom with the accurate FitNesse server and page, configure the classpath String 
+  substitution (See {{{../run-mojo.html"}fitnesse:run}}) and then run <<<mvn fitnesse:run>>>.
+
+* {Sources}
+
+  Sources are available {{{http://svn.codehaus.org/mojo/trunk/mojo/fitnesse-maven-plugin/src/it/minimalist}here}}.

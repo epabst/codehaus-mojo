@@ -1,0 +1,30 @@
+body {
+  font-size 10pt;
+}
+
+a {
+  font-size: 10pt;
+}
+
+h2 {
+  font-size: 13pt;
+}
+
+h3 {
+  font-size: 12pt;
+}
+
+td.toolbar1 {
+  background: lightblue;
+  font-size: 12pt;
+}
+
+td.toolbar2 {
+  background: red;
+  font-size: 12pt;
+}
+
+td.toolbar3 {
+  background: lightblue;
+  font-size: 12pt;
+}

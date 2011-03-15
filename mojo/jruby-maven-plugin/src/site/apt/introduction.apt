@@ -1,0 +1,69 @@
+ -----
+ Ruby on Maven
+ -----
+ Eric Redmond
+ -----
+
+Ruby on Maven
+
+* Ruby
+
+ Ruby has quickly grown from an academic curiosity to a script-writer's dream for many reasons.
+ But the following are some of the more obvious ones:
+
+ * <Simple object oriented design and easy to understand syntax>.
+   A common shortcoming of scripting languages are their lack of maintainability. Have you ever
+   dug up a year-old Perl script you were certain you wrote? It may have been written by
+   someone else. With Ruby, it is easy to decode and extend that hack.
+
+ * <Powerful Perl-like expressiveness (yet understandable)>.
+   It combines the power of Perl with the clean syntax of Python or Smalltalk. The bane
+   of powerful scripting languages has long been their esoteric commands. Despite Rubys
+   relatively low lines per non-trivial action, it is easy on the eyes.
+
+ * <Out-of-the-box utility>.
+   Much like PHP, Ruby just kind of works. RubyGems are a little extra bonus in adding functionality
+   from a common repository. Sound familiar? Yeah, that's right, just like Maven. You're so smart.
+
+ []
+
+ But I don't need to sell you on Ruby. Chances are you know and love it; that's why you are here. 
+
+* Maven
+
+ Maven has been around for at least a couple years, like Ruby (and potatoes), it has been
+ flourishing underground. But there have been a couple issues stopping Maven from reaching its
+ full potential:
+
+ * <Jelly> 
+   Jelly is an XML-based scripting language that is also an abomination of nature. If you
+   have been fortunate enough to have never had to do seemingly simple operations with 50 lines
+   of Jelly script, then take my word for it: it likely responsible for any lackluster response toward Maven 1.
+
+ []
+
+ In my opinion, that is all. Maven 2 on the other hand, is simple, componentized, extensible. All
+ plugins are written in Java. Although a huge step up from Jelly, Java is ill-suited for operations
+ generally required in build systems. Namely: file manipulations, parsing, document generation. It
+ is a wonderful core, but no one wants to write, compile, test and package a Maven Java class
+ (dubbed a Mojo) containing akwards Java parsing code to do something simple like extracting
+ file annotations. Enter Ruby Mojo support.
+
+* Ruby Mojo Support
+
+ Unfortunately, Maven does not come with every task you could ever want done already available
+ from ibiblio. Fortunately, the developers have added hooks into the very core of Maven 2, making
+ extension of the build-lifecycle relatively painless. My goal is to make it even more painless
+ by adding support for a language that is more suited for the majority of tasks one will encounter
+ when extending their build system with whatever hacks the developer likes. Ruby is such a language.
+ You can {{{http://mojo.codehaus.org/rubyscript-maven-plugin/howto.html}download}} and install the
+ code or use it correctly include the projects into your plugin.
+
+ It is still very much in alpha phase. So much so, that the todo list may seem
+ shocking, but its not that bad:
+
+ * Expand paremeter support to encompass lists, integers, booleans, and whatever else
+
+ * Clean up the rubyscript-maven-plugin to be of a more general purpose Ruby support
+
+ []

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<clearcase-settings>
+  <!-- By default, when creating a view, the -vws parameter of the mkview command is used to specify the location of the view store. 
+       In many environments, however, the -vws parameter can be omitted, and ClearCase uses appropriate defaults. 
+       To turn off the usage of the -vws parameter, configure it in the clearcase-settings.xml file: 
+  -->
+  <!--  <useVWSParameter>false</useVWSParameter>-->
+  
+  <!-- By default, the ClearCase SCM provider uses commands appropriate for the full ClearCase version. 
+       If you are using ClearCase LT or ClearCase UCM instead, you must specify this fact in the clearcase-settings.xml file.
+  -->
+  <!--<clearcaseType>UCM</clearcaseType>-->
+  
+  <!-- This setting is only relevant if and when useVWSParameter has been left or set to the default value of true. 
+       By default the viewstore location \\$hostname\viewstore is used. 
+       To define another viewstore location, use the following setting: 
+  -->
+  <!--<viewstore>\\mymachine\myvwstore</viewstore>-->
+  
+</clearcase-settings>

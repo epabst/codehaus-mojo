@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<!--
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ -->
+<document>
+  <properties>
+    <title>Usage</title>
+    <author email="trygvis@codehaus.org">Trygve Laugstol</author>
+    <author email="hohwille@users.sourceforge.net">J&#246;rg Hohwiller</author>
+  </properties>
+  <body>
+    <section name="Usage">
+      <p>
+        <i>
+          See also the <a href="best-practice-and-examples.html">Best Practices and Examples</a> document.
+        </i>
+      </p>
+      <p>
+        When building a "solaris" artifact the plugin will perform these operations:
+      </p>
+      <ul>
+        <li><a href="#Copy_Resources">Copy resources</a></li>
+        <li><a href="#Generate_Prototype">Generate the prototype file</a></li>
+        <li><a href="#Create_and_Package">Create the package and transform it to a <code>.pkg</code> file</a></li>
+        <li><a href="#Install">Install the <code>.pkg</code> file</a></li>
+        <li><a href="#Deploy">Deploy the <code>.pkg</code> file</a></li>
+      </ul>
+      <subsection name="Copy Resources">
+        <p>
+          The plugin will copy all the resources specified as resources in the POM into the
+          <a href="resources-mojo.html#packageRoot">packageRoot</a> directory. Thus the plugin will by default copy
+          anything from <code>src/main/resources</code> into the root of the assembled pkg.
+        </p>
+        <p>
+          In addition to copying the normal resources it supports a special <code>src/main/resources-solaris</code>
+          directory which is copied in a similar fasion to the normal resources. Having two separate directories make
+          it easier for the developer to separate the Solaris specific files from the files shared between all
+          packaging formats (like RPM and dpkg). Most builds should have the <code>pkginfo</code> and
+          <code>prototype</code> files in this directory.
+        </p>
+        <p>
+          The special file <code>pkginfo</code> from <code>src/main/resources-solaris</code> will be filtered
+          with the following values:
+        </p>
+        <ul>
+          <li>${project.artifactId}</li>
+          <li>${project.version}</li>
+          <li>${project.name}</li>
+          <li>${project.description}</li>
+        </ul>
+        <p>
+          Note that the plugin does not offer special support for encodings nor filtering of the resources.
+        </p>
+      </subsection>
+      <subsection name="Generate Prototype">
+        <p>
+          The <code>generatePrototype</code> configuration element in addition to the <code>default*</code> control
+          the generation of the prototype file. See the
+          <a href="best-practice-and-examples.html#Prototype_Generation">Prototype Generation Example</a> section in
+          the examples document for an example and
+          <a href="prototype-generation-reference.html">Prototype Generation Reference</a> document for the complete
+          reference.
+        </p>
+        <p>
+          Note that the ordering in the <code>generatePrototype</code> element is significant. If an object (file,
+          directory etc.) is included in more than one collection or listed explicitly in an entry the last listing of
+          the object will win and be included in the generated prototype. 
+        </p>
+      </subsection>
+      <subsection name="Create and Package">
+        <p>
+          <!-- TODO: An empty section? If nothing to say, maybe just delete? -->
+        </p>
+      </subsection>
+      <subsection name="Install">
+        <p>
+          The standard <a href="http://maven.apache.org/plugins/maven-install-plugin">Install plugin</a> will install
+          the <code>.pkg</code> file into the local repository just like any JAR file.
+        </p>
+      </subsection>
+      <subsection name="Deploy">
+        <p>
+          The standard <a href="http://maven.apache.org/plugins/maven-deploy-plugin">Deploy plugin</a> will deploy the
+          <code>.pkg</code> file into the remote repository just like any JAR file.
+        </p>
+      </subsection>
+    </section>
+  </body>
+</document>

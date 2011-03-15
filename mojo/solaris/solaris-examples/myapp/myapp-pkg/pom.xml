@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.codehaus.mojo.solaris.example</groupId>
+    <artifactId>myapp</artifactId>
+    <version>1.0-alpha-2-SNAPSHOT</version>
+  </parent>
+  <artifactId>myapp-pkg</artifactId>
+  <packaging>solaris</packaging>
+  <name>My App :: Solaris Package</name>
+  <description>Solaris package for myapp</description>
+  <dependencies>
+    <dependency>
+      <groupId>${groupId}</groupId>
+      <artifactId>myapp-server</artifactId>
+      <version>${version}</version>
+      <classifier>standalone</classifier>
+      <type>tar.gz</type>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.1</version>
+        <executions>
+          <!--
+          This will download and unpack all the artifacts specified in pkg.xml.
+          In addition extra files can be installed, like configuration files under /opt/my-app/etc/
+           -->
+          <execution>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>directory-inline</goal>
+            </goals>
+            <configuration>
+              <finalName>solaris/assembled</finalName>
+              <descriptors>
+                <descriptor>src/main/assembly/pkg.xml</descriptor>
+              </descriptors>
+            </configuration>
+          </execution>
+          <!-- Use this if you want to deliver a JAR file, WAR file or similar type objects
+          <execution>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy</goal>
+            </goals>
+            <configuration>
+              <artifactItems>
+                <artifactItem>
+                <groupId>${groupId}</groupId>
+                <artifactId>myapp-server</artifactId>
+                <version>1.0-SNAPSHOT</version>
+               </artifactItem>
+             </artifactItems>
+             <outputDirectory>${project.build.directory}/solaris/assembled-pkg/opt/</outputDirectory>
+           </configuration>
+          </execution>
+          -->
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>solaris-maven-plugin</artifactId>
+        <!-- IMPORTANT: the extensions flag is required to activate the 'solaris' packaging -->
+        <extensions>true</extensions>
+        <configuration>
+          <defaultUser>myapp</defaultUser>
+          <defaultGroup>myapp</defaultGroup>
+          <prototypeEntryCollections>
+            <prototypeEntryCollection>
+              <type>dir</type>
+              <mode>?</mode>
+              <user>?</user>
+              <group>?</group>
+              <includes>
+                <include>opt</include>
+              </includes>
+            </prototypeEntryCollection>
+            <prototypeEntryCollection>
+              <type>file</type>
+              <mode>0755</mode>
+              <includes>
+                <include>opt/myapp/bin/*</include>
+              </includes>
+            </prototypeEntryCollection>
+          </prototypeEntryCollections>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

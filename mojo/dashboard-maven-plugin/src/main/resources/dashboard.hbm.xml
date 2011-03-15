@@ -1,0 +1,399 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping
+	package="org.codehaus.mojo.dashboard.report.plugin.beans">
+	<!-- org.codehaus.mojo.dashboard.report.plugin.beans.DashBoardMultiReportBean root -->
+	<class name="DashBoardMavenProject" table="MavenProject">
+		<id name="id" type="long" column="MAVENPROJECT_ID">
+			<generator class="native" />
+		</id>
+		<property name="groupId" column="groupId" type="string" />
+		<property name="artifactId" column="artifactId" type="string" />
+		<property name="version" column="version" type="string" />
+		<property name="projectName" column="projectName" type="string" />
+		<set name="modules" cascade="save-update">
+			<key column="PARENT_ID" />
+			<one-to-many class="DashBoardMavenProject" />
+		</set>
+		<set name="reports" inverse="true" cascade="save-update">
+			<key column="MAVENPROJECT_ID" not-null="true" />
+			<one-to-many class="AbstractReportBean" />
+		</set>
+		<query name="getDashBoardMavenProjectID">
+			<![CDATA[
+			select m.id from DashBoardMavenProject m where m.artifactId = :artifactid and m.groupId = :groupid and m.version = :version
+			]]>
+		</query>
+		<query name="getDashBoardMavenProjectIDWithoutVersion">
+			<![CDATA[
+			select max(m.id) from DashBoardMavenProject m where m.artifactId = :artifactid and m.groupId = :groupid
+			]]>
+		</query>
+	</class>
+	<class name="AbstractReportBean" abstract="true">
+		<id name="id" type="long" column="report_id">
+			<generator class="hilo" />
+		</id>
+		<many-to-one name="mavenProject" column="MAVENPROJECT_ID"
+			class="DashBoardMavenProject" />
+		<property name="dateGeneration" column="dateGeneration"
+			type="timestamp" />
+	</class>
+	<!-- org.codehaus.mojo.dashboard.report.plugin.beans.CheckstyleReportBean root -->
+	<!-- table="CheckstyleReportBean"  -->
+	<union-subclass name="CheckstyleReportBean"
+		table="CheckstyleReportBean" extends="AbstractReportBean">
+		<property name="nbClasses" column="nbClasses" type="int" />
+		<property name="nbInfos" column="nbInfos" type="int" />
+		<property name="nbErrors" column="nbErrors" type="int" />
+		<property name="nbWarnings" column="nbWarnings" type="int" />
+		<property name="nbTotal" column="nbTotal" type="int" />
+		<query name="getCheckstyleByDashBoardMavenProjectID">
+			<![CDATA[
+		select c from CheckstyleReportBean c,DashBoardMavenProject m where c.mavenProject = m and m.id = :id
+		]]>
+		</query>
+		<query name="getCheckstyleByPeriodByVersion">
+			<![CDATA[
+		select c from CheckstyleReportBean c,DashBoardMavenProject m where c.mavenProject = m and m.id = :id and c.dateGeneration >= :startdate and c.dateGeneration <= :enddate
+		]]>
+		</query>
+		<query name="getCheckstyleByPeriod">
+			<![CDATA[
+        select c from CheckstyleReportBean c, DashBoardMavenProject m, DashBoardMavenProject m2 where c.mavenProject = m and m2.id = :id and m2.groupId = m.groupId and m2.artifactId = m.artifactId and c.dateGeneration >= :startdate and c.dateGeneration <= :enddate
+        ]]>
+		</query>
+		<query name="getMarkerVersionByDate">
+			<![CDATA[
+        select c.mavenProject.version, min(c.dateGeneration) from CheckstyleReportBean c
+        where c.mavenProject.id in (
+		   select
+		    m.id   
+		   from
+		    DashBoardMavenProject m,
+		    DashBoardMavenProject m2   
+		   where
+		    m2.id = :id    
+		    and m2.groupId = m.groupId    
+		    and m2.artifactId = m.artifactId
+		  )
+		  group by c.mavenProject.version 
+		  having min(c.dateGeneration) between :startdate and :enddate
+        ]]>
+		</query>
+	</union-subclass>
+	<!-- org.codehaus.mojo.dashboard.report.plugin.beans.CoberturaReportBean root -->
+	<!-- table="CoberturaReportBean"  -->
+	<union-subclass name="CoberturaReportBean"
+		table="CoberturaReportBean" extends="AbstractReportBean">
+		<property name="nbClasses" column="nbClasses" type="int" />
+		<property name="lineCoverRate" column="lineCoverRate"
+			type="double" />
+		<property name="numberOfValidLines" column="numberOfValidLines"
+			type="int" />
+		<property name="numberOfCoveredLines"
+			column="numberOfCoveredLines" type="int" />
+		<property name="branchCoverRate" column="branchCoverRate"
+			type="double" />
+		<property name="numberOfValidBranches"
+			column="numberOfValidBranches" type="int" />
+		<property name="numberOfCoveredBranches"
+			column="numberOfCoveredBranches" type="int" />
+		<query name="getCoberturaByDashBoardMavenProjectID">
+			<![CDATA[
+		select c from CoberturaReportBean c,DashBoardMavenProject m where c.mavenProject = m and m.id = :id
+		]]>
+		</query>
+		<query name="getCoberturaByPeriodByVersion">
+			<![CDATA[
+		select c from CoberturaReportBean c,DashBoardMavenProject m where c.mavenProject = m and m.id = :id and c.dateGeneration >= :startdate and c.dateGeneration <= :enddate
+		]]>
+		</query>
+		<query name="getCoberturaByPeriod">
+			<![CDATA[
+        select c from CoberturaReportBean c, DashBoardMavenProject m, DashBoardMavenProject m2 where c.mavenProject = m and m2.id = :id and m2.groupId = m.groupId and m2.artifactId = m.artifactId and c.dateGeneration >= :startdate and c.dateGeneration <= :enddate
+        ]]>
+		</query>
+		<query name="getMarkerVersionByDate">
+			<!-- 
+				select c.mavenProject.version, min(c.dateGeneration) from CoberturaReportBean c, DashBoardMavenProject m , DashBoardMavenProject m2 where c.mavenProject = m and m2.id = :id and m2.groupId = m.groupId and m2.artifactId = m.artifactId and c.dateGeneration >= :startdate and c.dateGeneration <= :enddate group by c.mavenProject.version
+			-->
+			<![CDATA[
+        select c.mavenProject.version, min(c.dateGeneration) from CoberturaReportBean c
+        where c.mavenProject.id in (
+		   select
+		    m.id   
+		   from
+		    DashBoardMavenProject m,
+		    DashBoardMavenProject m2   
+		   where
+		    m2.id = :id    
+		    and m2.groupId = m.groupId    
+		    and m2.artifactId = m.artifactId
+		  )
+		  group by c.mavenProject.version 
+		  having min(c.dateGeneration) between :startdate and :enddate
+        ]]>
+		</query>
+		<!--  select c.mavenProject.version, min(c.dateGeneration) from CoberturaReportBean c, DashBoardMavenProject m , DashBoardMavenProject m2 where c.mavenProject = m and m2.id = 37 and m2.groupId = m.groupId and m2.artifactId = m.artifactId and c.dateGeneration >= '2008-03-15' and c.dateGeneration <= '2008-04-15' group by c.mavenProject.version -->
+	</union-subclass>
+	<!-- org.codehaus.mojo.dashboard.report.plugin.beans.CloverReportBean root -->
+	<!-- table="CloverReportBean"  -->
+	<union-subclass name="CloverReportBean" table="CloverReportBean"
+		extends="AbstractReportBean">
+		<property name="elements" column="elements" type="int" />
+		<property name="conditionals" column="conditionals" type="int" />
+		<property name="statements" column="statements" type="int" />
+		<property name="methods" column="methods" type="int" />
+		<property name="coveredElements" column="coveredElements"
+			type="int" />
+		<property name="coveredConditionals"
+			column="coveredConditionals" type="int" />
+		<property name="coveredStatements" column="coveredStatements"
+			type="int" />
+		<property name="coveredMethods" column="coveredMethods"
+			type="int" />
+		<query name="getCloverByDashBoardMavenProjectID">
+			<![CDATA[
+		select c from CloverReportBean c,DashBoardMavenProject m where c.mavenProject = m and m.id = :id
+		]]>
+		</query>
+		<query name="getCloverByPeriodByVersion">
+			<![CDATA[
+		select c from CloverReportBean c,DashBoardMavenProject m where c.mavenProject = m and m.id = :id and c.dateGeneration >= :startdate and c.dateGeneration <= :enddate
+		]]>
+		</query>
+		<query name="getCloverByPeriod">
+			<![CDATA[
+        select c from CloverReportBean c, DashBoardMavenProject m, DashBoardMavenProject m2 where c.mavenProject = m and m2.id = :id and m2.groupId = m.groupId and m2.artifactId = m.artifactId and c.dateGeneration >= :startdate and c.dateGeneration <= :enddate
+        ]]>
+		</query>
+		<query name="getMarkerVersionByDate">
+			<![CDATA[
+        select c.mavenProject.version, min(c.dateGeneration) from CloverReportBean c
+        where c.mavenProject.id in (
+		   select
+		    m.id   
+		   from
+		    DashBoardMavenProject m,
+		    DashBoardMavenProject m2   
+		   where
+		    m2.id = :id    
+		    and m2.groupId = m.groupId    
+		    and m2.artifactId = m.artifactId
+		  )
+		  group by c.mavenProject.version 
+		  having min(c.dateGeneration) between :startdate and :enddate
+        ]]>
+		</query>
+	</union-subclass>
+	<!-- org.codehaus.mojo.dashboard.report.plugin.beans.CpdReportBean root -->
+	<!-- table="CpdReportBean"  -->
+	<union-subclass name="CpdReportBean" table="CpdReportBean"
+		extends="AbstractReportBean">
+		<property name="nbClasses" column="nbClasses" type="int" />
+		<property name="nbDuplicate" column="nbDuplicate" type="int" />
+		<query name="getCpdByDashBoardMavenProjectID">
+			<![CDATA[
+		select c from CpdReportBean c,DashBoardMavenProject m where c.mavenProject = m and m.id = :id
+		]]>
+		</query>
+		<query name="getCpdByPeriodByVersion">
+			<![CDATA[
+		select c from CpdReportBean c,DashBoardMavenProject m where c.mavenProject = m and m.id = :id and c.dateGeneration >= :startdate and c.dateGeneration <= :enddate
+		]]>
+		</query>
+		<query name="getCpdByPeriod">
+			<![CDATA[
+        select c from CpdReportBean c, DashBoardMavenProject m, DashBoardMavenProject m2 where c.mavenProject = m and m2.id = :id and m2.groupId = m.groupId and m2.artifactId = m.artifactId and c.dateGeneration >= :startdate and c.dateGeneration <= :enddate
+        ]]>
+		</query>
+		<query name="getMarkerVersionByDate">
+			<![CDATA[
+        select c.mavenProject.version, min(c.dateGeneration) from CpdReportBean c
+        where c.mavenProject.id in (
+		   select
+		    m.id   
+		   from
+		    DashBoardMavenProject m,
+		    DashBoardMavenProject m2   
+		   where
+		    m2.id = :id    
+		    and m2.groupId = m.groupId    
+		    and m2.artifactId = m.artifactId
+		  )
+		  group by c.mavenProject.version 
+		  having min(c.dateGeneration) between :startdate and :enddate
+        ]]>
+		</query>
+	</union-subclass>
+	<!-- org.codehaus.mojo.dashboard.report.plugin.beans.PmdReportBean root -->
+	<!-- table="PmdReportBean"  -->
+	<union-subclass name="PmdReportBean" table="PmdReportBean"
+		extends="AbstractReportBean">
+		<property name="nbClasses" column="nbClasses" type="int" />
+		<property name="nbViolations" column="nbViolations" type="int" />
+		<query name="getPmdByDashBoardMavenProjectID">
+			<![CDATA[
+		select c from PmdReportBean c,DashBoardMavenProject m where c.mavenProject = m and m.id = :id
+		]]>
+		</query>
+		<query name="getPmdByPeriodByVersion">
+			<![CDATA[
+		select c from PmdReportBean c,DashBoardMavenProject m where c.mavenProject = m and m.id = :id and c.dateGeneration >= :startdate and c.dateGeneration <= :enddate
+		]]>
+		</query>
+		<query name="getPmdByPeriod">
+			<![CDATA[
+        select c from PmdReportBean c, DashBoardMavenProject m, DashBoardMavenProject m2 where c.mavenProject = m and m2.id = :id and m2.groupId = m.groupId and m2.artifactId = m.artifactId and c.dateGeneration >= :startdate and c.dateGeneration <= :enddate
+        ]]>
+		</query>
+		<query name="getMarkerVersionByDate">
+			<![CDATA[
+        select c.mavenProject.version, min(c.dateGeneration) from PmdReportBean c
+        where c.mavenProject.id in (
+		   select
+		    m.id   
+		   from
+		    DashBoardMavenProject m,
+		    DashBoardMavenProject m2   
+		   where
+		    m2.id = :id    
+		    and m2.groupId = m.groupId    
+		    and m2.artifactId = m.artifactId
+		  )
+		  group by c.mavenProject.version 
+		  having min(c.dateGeneration) between :startdate and :enddate
+        ]]>
+		</query>
+	</union-subclass>
+	<!-- org.codehaus.mojo.dashboard.report.plugin.beans.SurefireReportBean root -->
+	<!-- table="SurefireReportBean"  -->
+	<union-subclass name="SurefireReportBean" table="SurefireReportBean"
+		extends="AbstractReportBean">
+		<property name="nbTests" column="nbTests" type="int" />
+		<property name="nbErrors" column="nbErrors" type="int" />
+		<property name="nbFailures" column="nbFailures" type="int" />
+		<property name="nbSkipped" column="nbSkipped" type="int" />
+		<property name="sucessRate" column="sucessRate" type="double" />
+		<property name="elapsedTime" column="elapsedTime" type="double" />
+		<query name="getSurefireByDashBoardMavenProjectID">
+			<![CDATA[
+		select c from SurefireReportBean c,DashBoardMavenProject m where c.mavenProject = m and m.id = :id
+		]]>
+		</query>
+		<query name="getSurefireByPeriodByVersion">
+			<![CDATA[
+		select c from SurefireReportBean c,DashBoardMavenProject m where c.mavenProject = m and m.id = :id and c.dateGeneration >= :startdate and c.dateGeneration <= :enddate
+		]]>
+		</query>
+		<query name="getSurefireByPeriod">
+			<![CDATA[
+        select c from SurefireReportBean c, DashBoardMavenProject m, DashBoardMavenProject m2 where c.mavenProject = m and m2.id = :id and m2.groupId = m.groupId and m2.artifactId = m.artifactId and c.dateGeneration >= :startdate and c.dateGeneration <= :enddate
+        ]]>
+		</query>
+		<query name="getMarkerVersionByDate">
+			<![CDATA[
+        select c.mavenProject.version, min(c.dateGeneration) from SurefireReportBean c
+        where c.mavenProject.id in (
+		   select
+		    m.id   
+		   from
+		    DashBoardMavenProject m,
+		    DashBoardMavenProject m2   
+		   where
+		    m2.id = :id    
+		    and m2.groupId = m.groupId    
+		    and m2.artifactId = m.artifactId
+		  )
+		  group by c.mavenProject.version 
+		  having min(c.dateGeneration) between :startdate and :enddate
+        ]]>
+		</query>
+	</union-subclass>
+	<!-- org.codehaus.mojo.dashboard.report.plugin.beans.FindBugsReportBean root -->
+	<!-- table="FindBugsReportBean"  -->
+	<union-subclass name="FindBugsReportBean" table="FindBugsReportBean"
+		extends="AbstractReportBean">
+		<property name="nbClasses" column="nbClasses" type="int" />
+		<property name="nbBugs" column="nbBugs" type="int" />
+		<property name="nbErrors" column="nbErrors" type="int" />
+		<property name="nbMissingClasses" column="nbMissingClasses"
+			type="int" />
+		<query name="getFindBugsByDashBoardMavenProjectID">
+			<![CDATA[
+		select c from FindBugsReportBean c,DashBoardMavenProject m where c.mavenProject = m and m.id = :id
+		]]>
+		</query>
+		<query name="getFindBugsByPeriodByVersion">
+			<![CDATA[
+		select c from FindBugsReportBean c,DashBoardMavenProject m where c.mavenProject = m and m.id = :id and c.dateGeneration >= :startdate and c.dateGeneration <= :enddate
+		]]>
+		</query>
+		<query name="getFindBugsByPeriod">
+			<![CDATA[
+        select c from FindBugsReportBean c, DashBoardMavenProject m, DashBoardMavenProject m2 where c.mavenProject = m and m2.id = :id and m2.groupId = m.groupId and m2.artifactId = m.artifactId and c.dateGeneration >= :startdate and c.dateGeneration <= :enddate
+        ]]>
+		</query>
+		<query name="getMarkerVersionByDate">
+			<![CDATA[
+        select c.mavenProject.version, min(c.dateGeneration) from FindBugsReportBean c
+        where c.mavenProject.id in (
+		   select
+		    m.id   
+		   from
+		    DashBoardMavenProject m,
+		    DashBoardMavenProject m2   
+		   where
+		    m2.id = :id    
+		    and m2.groupId = m.groupId    
+		    and m2.artifactId = m.artifactId
+		  )
+		  group by c.mavenProject.version 
+		  having min(c.dateGeneration) between :startdate and :enddate
+        ]]>
+		</query>
+	</union-subclass>
+	<!-- org.codehaus.mojo.dashboard.report.plugin.beans.TagListReportBean root -->
+	<!-- table="TagListReportBean"  -->
+	<union-subclass name="TagListReportBean" table="TagListReportBean"
+		extends="AbstractReportBean">
+		<property name="nbClasses" column="nbClasses" type="int" />
+		<property name="nbTotal" column="nbTotal" type="int" />
+		<query name="getTagListByDashBoardMavenProjectID">
+			<![CDATA[
+		select c from TagListReportBean c,DashBoardMavenProject m where c.mavenProject = m and m.id = :id
+		]]>
+		</query>
+		<query name="getTagListByPeriodByVersion">
+			<![CDATA[
+		select c from TagListReportBean c,DashBoardMavenProject m where c.mavenProject = m and m.id = :id and c.dateGeneration >= :startdate and c.dateGeneration <= :enddate
+		]]>
+		</query>
+		<query name="getTagListByPeriod">
+			<![CDATA[
+        select c from TagListReportBean c, DashBoardMavenProject m, DashBoardMavenProject m2 where c.mavenProject = m and m2.id = :id and m2.groupId = m.groupId and m2.artifactId = m.artifactId and c.dateGeneration >= :startdate and c.dateGeneration <= :enddate
+        ]]>
+		</query>
+		<query name="getMarkerVersionByDate">
+			<![CDATA[
+        select c.mavenProject.version, min(c.dateGeneration) from TagListReportBean c
+        where c.mavenProject.id in (
+		   select
+		    m.id   
+		   from
+		    DashBoardMavenProject m,
+		    DashBoardMavenProject m2   
+		   where
+		    m2.id = :id    
+		    and m2.groupId = m.groupId    
+		    and m2.artifactId = m.artifactId
+		  )
+		  group by c.mavenProject.version 
+		  having min(c.dateGeneration) between :startdate and :enddate
+        ]]>
+		</query>
+	</union-subclass>
+</hibernate-mapping>

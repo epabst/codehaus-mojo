@@ -1,0 +1,71 @@
+<document>
+	<properties>
+		<author email="hermod.opstvedt@dnbnor.no">Hermod Opstvedt</author>
+		<title>WAS 5 Plugin for Maven 2</title>
+	</properties>
+	<body>
+		<section>
+			<h2>About StartApplication</h2>
+			<p>
+				The StartApplication task is used to start the WebSphere server.
+			</p>
+			<h2>Running StartApplication from commandline</h2>
+			<p>
+				Running the StartServer task from the commandline is done
+				using the following syntax (start the server first, optional parameters omitted):
+				<pre>
+	mvn was5:StartApplication -DwasHome=&lt;path to WAS&gt; -Dear=&lt;name of application to start&gt;
+				</pre>
+			</p>
+			<h2>Running StartApplication with definition in pom</h2>
+			<p>
+				Running the StartApplication task with the definition defined
+				in the build section of the pom (start the server first, optional parameters omitted):
+			<pre>
+	&lt;dependencies&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
+			&lt;artifactId&gt;was5-plugin&lt;/artifactId&gt;
+			&lt;version&gt;1.0&lt;/version&gt;
+			&lt;scope&gt;runtime&lt;/scope&gt;
+		&lt;/dependency&gt;
+	&lt;/dependencies&gt;
+
+	&lt;build&gt;
+		&lt;plugins&gt;
+			&lt;plugin&gt;
+				&lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
+				&lt;artifactId&gt;was5-plugin&lt;/artifactId&gt;
+				&lt;version&gt;1.0&lt;/version&gt;
+				&lt;executions&gt;
+					&lt;execution&gt;
+						&lt;id&gt;start server&lt;/id&gt;
+						&lt;phase&gt;validate&lt;/phase&gt;
+						&lt;goals&gt;
+							&lt;goal&gt;StartServer&lt;/goal&gt;
+						&lt;/goals&gt;
+					&lt;/execution&gt;
+					&lt;execution&gt;
+						&lt;id&gt;start application&lt;/id&gt;
+						&lt;phase&gt;pre-integration-test&lt;/phase&gt;
+						&lt;goals&gt;
+							&lt;goal&gt;StartApplication&lt;/goal&gt;
+						&lt;/goals&gt;
+					&lt;/execution&gt;
+				&lt;/executions&gt;
+				&lt;configuration&gt;
+					&lt;ear&gt;
+						${artifactId}-${project.version}.ear
+					&lt;/ear&gt;
+					&lt;wasHome&gt;
+						C:/Programfiles/WebSphere/AppServer
+					&lt;/wasHome&gt;
+				&lt;/configuration&gt;
+			&lt;/plugin&gt;
+		&lt;/plugins&gt;
+	&lt;/build&gt;
+				</pre>
+			</p>
+		</section>
+	</body>
+</document>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<document>
+	<properties>
+		<author email="dvicente72@gmail.com">David Vicente</author>
+		<title>Maven Dashboard Report Plugin : Unix Environment</title>
+	</properties>
+	<!-- Optional HEAD element, which is copied as is into the XHTML <head> element -->
+	<head>
+		<meta />
+	</head>
+	<body>
+		<!-- The body of the document contains a number of sections -->
+		<section
+			name="About Unix Environment with Maven Dashboard Report Plugin">
+
+			<p>
+				As Dashboard Report Plugin generates graphics with
+				JFreeChart, a graphic environnement must exist.
+			</p>
+			<p>
+				This is a Java (AWT/Java2D) issue, not something that is specific to JFreeChart. see <a href="http://www.jfree.org/jfreechart/faq.html#FAQ10">JFreeChart FAQ</a>.
+			</p>
+			<p>
+			To take advantage of graphics or Historic report, you must install a minimum XWindow server on your unix machine.
+			</p>
+			<p>If it is not possible ,
+			<ul>
+			<li>try to execute the dashboard with "-Djava.awt.headless=true" option : mvn -Djava.awt.headless=true dashboard:dashboard</li>
+			<li>or disable graphics generator with "<![CDATA[<generateGraphs/>]]>" config option as</li>
+			</ul>
+			<source>
+<![CDATA[
+<project>
+	[...]
+	<build>
+		[...]
+		<plugins>
+			[...]
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>dashboard-maven-plugin</artifactId>
+				<version>1.0-SNAPSHOT</version>
+
+				<!-- common configurations -->
+				<configuration>
+					<!-- disable the graphics generation -->
+					]]>
+					<b><![CDATA[<generateGraphs>]]><font color="red">
+							false
+					</font>
+						<![CDATA[<generateGraphs>]]></b>
+					<![CDATA[
+					[...]
+				</configuration>
+			</plugin>
+			[...]
+		</plugins>
+		[...]
+	</build>
+	[...]
+</project>
+     ]]>
+				</source>
+			</p>
+		</section>
+	</body>
+</document>

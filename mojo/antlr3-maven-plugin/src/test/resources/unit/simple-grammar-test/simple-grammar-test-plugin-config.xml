@@ -1,0 +1,25 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>java-grammar.test</groupId>
+  <artifactId>java-grammar-test</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <inceptionYear>2006</inceptionYear>
+  <name>Maven Antlr3 Plugin Simple-grammar Test</name>
+  <url>http://mojo.codehaus.org</url>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>antlr3-maven-plugin</artifactId>
+        <configuration>
+          <!--project implementation="org.apache.maven.plugin.antlr3.stubs.SimpleGrammarTestMavenProjectStub"/-->
+          <outputDirectory>${basedir}/target/test/unit/simple-grammar-test/target/generated-sources/antlr</outputDirectory>
+          <sourceDirectory>${basedir}/src/test/resources/unit/simple-grammar-test/src/main/antlr</sourceDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

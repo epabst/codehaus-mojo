@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	
+	<description>pom for testing properties data model loader</description>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>freemarker-maven-plugin</artifactId>
+				<configuration>
+					<templateDirectories>
+						<templateDirectory>
+							target/test-classes/org/codehaus/mojo/freemarker
+						</templateDirectory>
+					</templateDirectories>
+
+					<inputs>
+						<!-- properties loader -->
+						<input>
+							<inputFile>
+								target/test-classes/org/codehaus/mojo/freemarker/test-stdout.properties
+							</inputFile>
+							<loaderType>properties</loaderType>
+							<contextVariable>java</contextVariable>
+						</input>
+					</inputs>
+					<output>
+						<outputFile>stdout</outputFile>
+						<templateFile>
+							test-stdout.ftl
+						</templateFile>
+					</output>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

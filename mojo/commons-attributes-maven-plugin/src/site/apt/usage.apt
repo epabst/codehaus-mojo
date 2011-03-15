@@ -1,0 +1,36 @@
+ ------
+ Usage 
+ ------
+ carlos@apache.org
+ ------
+ January 25 2006
+ ------
+
+Usage
+
+ To process the attributes from both main and test classes just add the following to your POM.
+ You can remove the <<<test-compile>>> goal if you don't use attributes in your tests.
+
+-------------------
+<project>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>commons-attributes-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile</goal>
+              <goal>test-compile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
+-------------------

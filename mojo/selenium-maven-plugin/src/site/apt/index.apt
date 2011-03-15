@@ -1,0 +1,62 @@
+ ---
+ Introduction
+ ---
+ Olivier Lamy
+ <olamy@apache.org>
+ ---
+ 2010-10-13
+
+~~ 
+~~ Licensed to the Apache Software Foundation (ASF) under one
+~~ or more contributor license agreements.  See the NOTICE file
+~~ distributed with this work for additional information
+~~ regarding copyright ownership.  The ASF licenses this file
+~~ to you under the Apache License, Version 2.0 (the
+~~ "License"); you may not use this file except in compliance
+~~ with the License.  You may obtain a copy of the License at
+~~
+~~  http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~ Unless required by applicable law or agreed to in writing,
+~~ software distributed under the License is distributed on an
+~~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+~~ KIND, either express or implied.  See the License for the
+~~ specific language governing permissions and limitations
+~~ under the License.
+~~ 
+
+Selenium Maven Plugin
+
+ Provides support for using {{{http://seleniumhq.org/}Selenium}} with Maven 2.
+ 
+ Use this plugin to start a Selenium {{{http://seleniumhq.org/projects/remote-control/}Remote Control}}
+ server to support automated web-application testing.
+ 
+ This plugin is intended to support usage of the
+ {{{http://seleniumhq.org/projects/remote-control/languages/java.html}Selenium Java Client Driver}}
+ when running <regular Surefire tests>.  Use {{{http://seleniumhq.org/projects/ide/}Selenium IDE}}
+ to help generate the initial Java code for the tests, and then augment as needed.
+
+* Goals Overview
+
+ * {{{./start-server-mojo.html}selenium:start-server}}: Start the Selenium server.
+ 
+ * {{{./stop-server-mojo.html}selenium:stop-server}}: Stop the Selenium server.
+ 
+ * {{{./selenese-mojo.html}selenium:selenese}}: Run a suite of HTML Selenese tests.
+ 
+ * {{{./xvfb-mojo.html}selenium:xvfb}}: Starts an Xvfb instance suitable for handling X11 displays for headless systems.
+ 
+ []
+
+* Usage
+
+ Instructions on how to use the Selenium Maven Plugin can be found on the {{{./usage.html}usage page}}.
+
+* Examples
+
+ * {{{./examples/using-with-surefire.html}An example with Surefire.}}
+ 
+ * {{{./examples/headless-with-xvfb.html}Headless X11 with Xvfb.}}
+ 
+ []

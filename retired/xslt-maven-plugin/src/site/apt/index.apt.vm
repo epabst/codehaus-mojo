@@ -1,0 +1,7 @@
+
+Xslt-maven-plugin (retired)
+
+ Users of the xslt-maven-plugin are encouraged to use the {{{http://mojo.codehaus.org/xml-maven-plugin}xml-maven-plugin}}. 
+ To migrate from the xslt-maven-plugin to the xml-maven-plugin read the {{{./migrate_to_xml-maven-plugin.html}migrate_to_xml-maven-plugin}} page.
+ 
+ The xslt-maven-plugin has been moved to the {{{http://fisheye.codehaus.org/browse/mojo/trunk/retired/}graveyard}}.

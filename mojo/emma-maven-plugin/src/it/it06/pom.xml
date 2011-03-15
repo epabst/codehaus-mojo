@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>emma.test</groupId>
+  <artifactId>it06</artifactId>
+  <version>1.0</version>
+  <name>EMMA plugin :: Integration test 06</name>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.5</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>emma-maven-plugin</artifactId>
+        <version>@project.version@</version>
+        <configuration>
+          <check>
+            <classRate>100</classRate>
+            <blockRate>80</blockRate>
+            <lineRate>85</lineRate>
+            <methodRate>90</methodRate>
+            <haltOnFailure>true</haltOnFailure>
+          </check>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>clean</goal>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>@sitePluginVersion@</version>
+      </plugin>
+    </plugins>
+  </build>
+</project>

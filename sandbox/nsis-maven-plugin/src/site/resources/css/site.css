@@ -1,0 +1,64 @@
+
+div.overview table {
+  border: 0px;
+  width: auto;
+  margin-top: 20px;
+}
+
+div.overview table tr.a,
+div.overview table tr.b {
+  background-color: white;
+}
+
+div.overview table td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+div.overview div.file {
+  padding: 10px;
+  background-color: #dddddd;
+  border: 1px solid #777777;
+}
+
+div.overview div.goal h2,
+div.overview div.file h2 {
+  background-color: transparent;
+  font-size: 10pt;
+  text-align: left;
+  font-weight: normal;
+  font-style: italic;
+  color: gray;
+  margin: 0px;
+  margin-left: -10px;
+  margin-top: -10px;
+  border: 0px;
+}
+
+div.overview div.file pre {
+  text-align: left;
+}
+
+div.overview div.goal {
+  padding: 10px;
+  background-color: #ddddff;
+  border: 2px solid #0022ff;
+  font-weight: bold;
+}
+
+div.overview div.goal a {
+  color: #0022ff;
+}
+
+span.artifactId {
+  color: blue;
+}
+
+span.groupId {
+  color: green;
+}
+
+span.versionId {
+  color: red;
+}
+

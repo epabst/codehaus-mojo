@@ -1,0 +1,20 @@
+To run diagrams: 
+
+
+1. Build and install the maven-diagram-maker project
+
+mvn install
+
+2. Go to the project (packaging .jar/.war/... - not "pom") you want diagram. 
+
+for GUI with diagram of project's classes run: 
+
+	mvn -o install org.codehaus.mojo.maven-diagram-maker:maven-diagrams-plugin:gui -Dconnector=connector-classes
+
+for GUI with diagram of project's dependencies run (pending): 
+
+	mvn -o install org.codehaus.mojo.maven-diagram-maker:maven-diagrams-plugin:gui -Dconnector=connector-dependencies
+
+3. On the tab "Connector" (in GUI) change parameters and/or press "Apply" 
+
+4. Good luck...

@@ -1,0 +1,277 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>mojo-parent</artifactId>
+    <version>27</version>
+  </parent>
+
+  <artifactId>emma-maven-plugin</artifactId>
+  <version>1.0-alpha-4-SNAPSHOT</version>
+  <packaging>maven-plugin</packaging>
+
+  <name>Emma Maven Plugin</name>
+  <description>EMMA plugin for Maven 2. Measures test code coverage using EMMA.</description>
+  <url>http://mojo.codehaus.org/emma-maven-plugin</url>
+  <inceptionYear>2007</inceptionYear>
+  <licenses>
+    <license>
+      <name>The MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <issueManagement>
+    <system>JIRA</system>
+    <url>http://jira.codehaus.org/browse/MEMMA</url>
+  </issueManagement>
+
+  <scm>
+    <connection>scm:svn:http://svn.codehaus.org/mojo/trunk/mojo/emma-maven-plugin</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/emma-maven-plugin</developerConnection>
+    <url>http://fisheye.codehaus.org/browse/mojo/trunk/mojo/emma-maven-plugin</url>
+  </scm>
+
+  <developers>
+    <developer>
+      <id>romale</id>
+      <name>Alexandre ROMAN</name>
+      <email>alexandre.roman@gmail.com</email>
+      <url>http://code.google.com/u/alexandre.roman</url>
+      <roles>
+        <role>Project owner</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>stephenconnolly</id>
+      <name>Stephen Connolly</name>
+      <email>stephen.alan.connolly@gmail.com</email>
+    </developer>
+    <developer>
+      <id>brett</id>
+      <email>brett@apache.org</email>
+    </developer>
+  </developers>
+
+  <contributors>
+    <contributor>
+      <name>Maxim GORDIENKO</name>
+      <roles>
+        <role>fix for MOJO-1068</role>
+      </roles>
+    </contributor>
+  </contributors>
+
+  <prerequisites>
+    <maven>2.0.8</maven>
+  </prerequisites>
+
+  <dependencies>
+    <dependency>
+      <groupId>emma</groupId>
+      <artifactId>emma</artifactId>
+      <version>2.1.5320</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-artifact</artifactId>
+      <version>2.0.8</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-model</artifactId>
+      <version>2.0.8</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-project</artifactId>
+      <version>2.0.8</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.maven.doxia</groupId>
+      <artifactId>doxia-site-renderer</artifactId>
+      <version>1.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.maven.reporting</groupId>
+      <artifactId>maven-reporting-api</artifactId>
+      <version>2.0.8</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.maven.reporting</groupId>
+      <artifactId>maven-reporting-impl</artifactId>
+      <version>2.0.4.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-utils</artifactId>
+      <version>1.4.5</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xom</groupId>
+      <artifactId>xom</artifactId>
+      <version>1.1</version>
+      <exclusions>
+        <exclusion>
+          <!-- unnecessary: http://xom.nu/install.xhtml -->
+          <groupId>xalan</groupId>
+          <artifactId>xalan</artifactId>
+        </exclusion>
+        <exclusion>
+          <!-- unnecessary (from jaxen) -->
+          <groupId>dom4j</groupId>
+          <artifactId>dom4j</artifactId>
+        </exclusion>
+        <exclusion>
+          <!-- unnecessary (from jaxen) -->
+          <groupId>jdom</groupId>
+          <artifactId>jdom</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.4</source>
+          <target>1.4</target>
+          <encoding>UTF-8</encoding>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <configuration>
+          <attach>true</attach>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <attach>true</attach>
+          <minmemory>64m</minmemory>
+          <maxmemory>128m</maxmemory>
+          <links>
+            <link>
+              http://java.sun.com/j2se/1.4.2/docs/api
+            </link>
+          </links>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-antrun-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>copymetainf</id>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <phase>package</phase>
+            <configuration>
+              <tasks>
+                <copy todir="${project.build.outputDirectory}/META-INF">
+                  <fileset dir="${basedir}">
+                    <include name="AUTHORS.txt" />
+                    <include name="LICENSE.txt" />
+                    <include name="NOTICE.txt" />
+                  </fileset>
+                </copy>
+              </tasks>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <artifactId>maven-changes-plugin</artifactId>
+        <version>2.0</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>changes-report</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+        <configuration>
+          <issueLinkTemplate>http://jira.codehaus.org/browse/%ISSUE%</issueLinkTemplate>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
+
+  <profiles>
+    <profile>
+      <!-- Run integration tests. -->
+      <!-- To use this profile: -->
+      <!--  o run integration tests: mvn -Prun-its integration-test -->
+      <id>run-its</id>
+      <properties>
+        <sitePluginVersion>2.0.1</sitePluginVersion>
+      </properties>
+      <build>
+        <defaultGoal>integration-test</defaultGoal>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-invoker-plugin</artifactId>
+            <version>1.4</version>
+            <configuration>
+              <projectsDirectory>src/it</projectsDirectory>
+              <cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
+              <localRepositoryPath>${project.build.directory}/local-repo</localRepositoryPath>
+              <settingsFile>src/it/settings.xml</settingsFile>
+              <goals>
+                <goal>site</goal>
+                <goal>verify</goal>
+              </goals>
+              <showErrors>true</showErrors>
+              <streamLogs>true</streamLogs>
+              <pomIncludes>
+                <pomInclude>*/pom.xml</pomInclude>
+              </pomIncludes>
+              <postBuildHookScript>verify.bsh</postBuildHookScript>
+            </configuration>
+            <executions>
+              <execution>
+                <id>integration-test</id>
+                <goals>
+                  <goal>install</goal>
+                  <goal>run</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+</project>

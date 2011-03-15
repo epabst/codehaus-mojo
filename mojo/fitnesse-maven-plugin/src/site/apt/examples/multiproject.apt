@@ -1,0 +1,32 @@
+ ------
+ Multiproject Example
+ ------
+Philippe Kernevez
+ <pkernevez@octo.com>
+ ------
+ February 12th, 2007
+ ------
+
+
+{Note on FitNesse server}
+
+  These exemples need a FitNesse server. The sample SubWiki {{{http://svn.codehaus.org/mojo/trunk/mojo/fitnesse-maven-plugin/src/it/fitNessePage}is available there}}
+  
+
+{Multiproject Example}
+
+  This example use a reactor multiproject. 
+  This example use the (See {{{../run-mojo.html"}fitnesse:run}}) goal.
+  See {{{..//faq.html#Difference}}} for more information about this couple of goals. 
+  This goal allows the local execution of fitnesse. It download the test, then run it locally using classpath transformations.
+
+
+  This sample is configured for downloading the classpath from fitnesse, but you can easily use Maven classpath  instead.
+  You only need to replace <<< <classPathProvider>fitnesse</classPathProvider> >>> with  <<< <classPathProvider>maven</classPathProvider> >>> in the parent <<<pom.xml>>>.
+
+
+
+* {Sources}
+
+  Sources are available {{{http://svn.codehaus.org/mojo/trunk/mojo/fitnesse-maven-plugin/src/it/multiproject}here}}.
+

@@ -1,0 +1,79 @@
+ ------
+ Introduction
+ ------
+ Paul Gier <pgier@apache.org>
+ ------
+ November 3, 2009
+ ------
+
+${project.name}
+
+  This plugin manages the ability to start/stop the JBoss Application Server
+  and to deploy/undeploy files to the JBoss Application Server.
+
+  The plugin requires an existing installation of the 
+  {{{http://www.jboss.org/jbossas/}JBoss AS}}.  If one is not already available,
+  it can be downloaded from the 
+  {{{http://www.jboss.org/jbossas/downloads/}JBoss AS downloads page}}.
+
+* Goals Overview
+  
+  The following goals are available in this plugin.
+  
+  * <<<{{{./configure-mojo.html}jboss:configure}}>>>\
+    Configure a JBoss Server.
+
+  * <<<{{{./start-mojo.html}jboss:start}}>>>\
+    Start a JBoss Server.
+
+  * <<<{{{./start-and-wait-mojo.html}jboss:start-and-wait}}>>>\
+    Start a JBoss Server and wait for startup to complete.
+
+  * <<<{{{./stop-mojo.html}jboss:stop}}>>>\
+    Shutdown a running JBoss Server.
+
+  * <<<{{{./deploy-mojo.html}jboss:deploy}}>>>\
+    Deploy a file or directory to JBoss using JMX.
+
+  * <<<{{{./undeploy-mojo.html}jboss:undeploy}}>>>\
+    Undeploy a file or directory to JBoss using JMX.
+
+  * <<<{{{./redeploy-mojo.html}jboss:redeploy}}>>>\
+    Redeploy a file or directory to JBoss using JMX.
+
+  * <<<{{{./hard-deploy-mojo.html}jboss:hard-deploy}}>>>\
+    Deploy a file or directory to JBoss by copying files directly to the server deployment directory.
+
+  * <<<{{{./hard-undeploy-mojo.html}jboss:hard-undeploy}}>>>\
+    Undeploy a file or directory to JBoss by removing files from the server deployment directory.
+
+* Usage
+
+  General instructions on how to use the Plugin Name can be found on the {{{./usage.html}usage page}}. Some more
+  specific use cases are described in the examples given below. Last but not least, users occasionally contribute
+  additional examples, tips or errata to the
+  {{{http://docs.codehaus.org/display/MAVENUSER/JBoss+Maven+Plugin}plugin's wiki page}}.
+
+  In case you still have questions regarding the plugin's usage, please have a look at the {{{./faq.html}FAQ}} and feel
+  free to contact the {{{./mail-lists.html}user mailing list}}. The posts to the mailing list are archived and could
+  already contain the answer to your question as part of an older thread. Hence, it is also worth browsing/searching
+  the {{{./mail-lists.html}mail archive}}.
+
+  If you feel like the plugin is missing a feature or has a defect, you can fill a feature request or bug report in our
+  {{{./issue-tracking.html}issue tracker}}. When creating a new issue, please provide a comprehensive description of your
+  concern. Especially for fixing bugs it is crucial that the developers can reproduce your problem. For this reason,
+  entire debug logs, POMs or most preferably little demo projects attached to the issue are very much appreciated.
+  Of course, patches are welcome, too. Contributors can check out the project from our
+  {{{./source-repository.html}source repository}} and will find supplementary information in the
+  {{{http://maven.apache.org/guides/development/guide-helping.html}guide to helping with Maven}}. 
+
+* Examples
+
+  To provide you with better understanding of some usages of the ${project.name},
+  you can take a look into the following examples:
+
+  * {{{./examples/start-stop-examples.html}Start/Stop Examples}}
+
+  * {{{./examples/deploy-undeploy-examples.html}Deploy/Undeploy Examples}}
+ 
+

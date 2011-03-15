@@ -1,0 +1,105 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>${groupId}</groupId>
+  <artifactId>${artifactId}</artifactId>
+  <version>${version}</version>
+  <packaging>automvn</packaging>
+
+  <name>${artifactId} - a maven enhanced autoconf project</name>
+
+  <properties>
+    <!-- Define our lifecycle plugin group version -->
+    <cbuildPluginsVersion>1.0-beta-1</cbuildPluginsVersion>
+
+    <!-- main package name - do not override; static -->
+    <pkgName>${symbol_dollar}{project.artifactId}-${symbol_dollar}{project.version}</pkgName>
+
+    <!-- package Prefixes -->
+    <basePrefix>/usr/local/automvn</basePrefix>
+    <prefix>${symbol_dollar}{basePrefix}</prefix>
+    <sharePrefix>${symbol_dollar}{basePrefix}/share/${symbol_dollar}{project.artifactId}</sharePrefix>
+
+    <!-- Common subdirs -->
+    <manPrefix>${symbol_dollar}{prefix}/share/man</manPrefix>
+    <docPrefix>${symbol_dollar}{prefix}/share/doc</docPrefix>
+    <srcBase>${symbol_dollar}{pkgName}</srcBase>
+    <workDir>${symbol_dollar}{project.build.directory}/${symbol_dollar}{srcBase}</workDir>
+
+    <!-- tarball variables -->
+    <srcURLSuffix>tar.gz</srcURLSuffix>
+    <srcRepoArtifact>${symbol_dollar}{pkgName}.${symbol_dollar}{srcURLSuffix}</srcRepoArtifact>
+
+    <!-- set up some variables for the installation target DESTDIR -->
+    <pkgBasedir>${symbol_dollar}{project.build.directory}/rpm-basedir</pkgBasedir>
+    <pkgTarget>${symbol_dollar}{pkgBasedir}${symbol_dollar}{prefix}</pkgTarget>
+    <manTarget>${symbol_dollar}{pkgBasedir}${symbol_dollar}{manPrefix}</manTarget>
+    <docTarget>${symbol_dollar}{pkgBasedir}${symbol_dollar}{docPrefix}</docTarget>
+    <shareTarget>${symbol_dollar}{pkgBasedir}${symbol_dollar}{sharePrefix}</shareTarget>
+
+  </properties>
+
+  <build>
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>patch-maven-plugin</artifactId>
+          <version>${symbol_dollar}{cbuildPluginsVersion}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>make-maven-plugin</artifactId>
+          <version>1.0-beta-2-SNAPSHOT</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>shell-maven-plugin</artifactId>
+          <version>${symbol_dollar}{cbuildPluginsVersion}</version>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>build-on-demand-maven-plugin</artifactId>
+          <version>${symbol_dollar}{cbuildPluginsVersion}</version>
+        </plugin>
+        <!-- This one needs maven 3.0
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>cbuild-profile-activators</artifactId>
+          <version>${symbol_dollar}{cbuildPluginsVersion}</version>
+        </plugin-->
+        <plugin>
+          <!-- if your project has a symbolic link, you need version 2.3 -->
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>2.3</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>cbuild-lifecycles</artifactId>
+        <!-- extension plugins must specify version or bad stuff happens -->
+        <version>${symbol_dollar}{cbuildPluginsVersion}</version>
+        <extensions>true</extensions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>make-maven-plugin</artifactId>
+        <configuration>
+          <workDir>${symbol_dollar}{workDir}</workDir>
+          <prefix>${symbol_dollar}{prefix}</prefix>
+          <destDir>${symbol_dollar}{pkgBasedir}</destDir>
+        </configuration>
+      </plugin>
+    </plugins>
+
+  </build>
+</project>

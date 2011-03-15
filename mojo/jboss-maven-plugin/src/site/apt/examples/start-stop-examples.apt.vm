@@ -1,0 +1,98 @@
+ ------
+ Start/Stop Examples
+ ------
+ Paul Gier <pgier@apache.org>
+ ------
+ November 3, 2009
+ ------
+
+Start/Stop Examples
+
+  To control starting and stopping an instance of JBossAS, the installation must be 
+  available via the local file system.  The location of the server can be configured
+  via the JBOSS_HOME environment variable, a command line parameter env.JBOSS_HOME,
+  or by configuring the location in the plugin configuration in the POM.
+  
+----------
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jboss-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <configuration>
+          <jbossHome>/usr/jboss-4.2.3.GA</jbossHome>
+        </configuration>
+      </plugin>
+      ...
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
+----------
+
+  The server can be started using the <<<{{{../start-mojo.html}start}}>>> goal.
+  
++---------
+  mvn jboss:start
++---------
+
+  To start the server with a profile other than "default", a profile can be selected 
+  using the command line property <<<jboss.serverName>>>, or using the plugin parameter
+  <<<serverName>>>.
+  
++---------
+  mvn jboss:start -Djboss.serverName=all
++---------
+
+  This goal will call the server startup script.  However, it should be noted that this command 
+  will not wait for the startup process to be completed.  So a second option is to use the
+  <<<{{{../start-and-wait-mojo.html}start-and-wait}}>>> goal.
+  
++---------
+  mvn jboss:start-and-wait
++---------
+  
+  To shutdown a running server, the <<<{{{../stop-mojo.html}stop}}>>> goal can be used.
+  
++---------
+  mvn jboss:stop
++---------
+
+* More About Start-and-Wait
+
+  The <<<{{{../start-and-wait-mojo.html}start-and-wait}}>>> goal has two parts to it.  The 
+  first part tries to obtain a JMX connection to the server.  Several attempts will be made 
+  to make a connection before the operation fails.  The number of retries and wait period 
+  can be configured using command line or plugin parameters.
+  
++---------
+  mvn jboss:start-and-wait -Djboss.retry=5 -Djboss.retryWait=10000
++---------
+  
+  Once the JMX connection is sucessful, the plugin will wait until the server responds that 
+  startup is complete.
+  
+** Issue related to the local Maven repository path
+  
+  Due to a classpath {{{http://jira.codehaus.org/browse/MNG-3607}issue}} in versions of Maven 
+  prior to 3.0, the RMI classloader necessary for the JMX connection to the server will not
+  work properly if the local Maven repository path contains one or more spaces.  This 
+  issue is often relevant to Windows users because the default local Maven repository is under
+  the directory "Documents and Settings".  There are two ways to get around this problem.
+  
+  [[1]] Use Maven 3 or later.
+  
+  [[2]] Change the path to the local Maven repository so that it does not include any spaces.
+  
++---------
+   mvn jboss:start-and-wait -Dmaven.repo.local=C:\maven-repo
++---------
+  
+  Also note that the <<<start-and-wait>>> goal will call the JBoss startup script and will usually 
+  successfully launch the server even when it is not able to create a JMX connection.
+  

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<document>
+  <properties>
+    <author email="dvicente72@gmail.com">David Vicente</author>
+    <title>Maven Dashboard Report Plugin : Clover support</title>
+  </properties>
+  <!-- Optional HEAD element, which is copied as is into the XHTML <head> element -->
+  <head>
+    <meta/>
+  </head>
+  <body>
+    <!-- The body of the document contains a number of sections -->
+    <section name="About Clover Support in Maven Dashboard Report Plugin">
+
+			<p>Unlike most Maven plug-ins, Clover is a proprietary tool that stores its data in a proprietary format.</p>
+			<p>In order for the Dashboard to be able to extract Clover's results, you'll need to update the Clover report in the reporting section of your POM as follows:</p>
+			<source>
+       <![CDATA[
+<reporting>
+  <plugins>
+     ...
+      <plugin>
+         <groupId>org.apache.maven.plugins</groupId>
+         <artifactId>maven-clover-plugin</artifactId>
+         <configuration>
+            <generateXml>true</generateXml>
+         </configuration>
+      </plugin>
+     ...
+  </plugins>
+</reporting>
+       ]]>
+      	</source>
+    </section>
+  </body>
+</document>

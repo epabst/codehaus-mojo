@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+-->
+
+<faqs id="FAQ" title="Frequently Asked Questions">
+  <part id="General">
+    <faq id="google-code-maven-license-plugin">
+      <question>What is the difference between this plugin (the Codehaus license-maven-plugin) and the maven-license-plugin hosted at Google Code?</question>
+      <answer>
+        <p>
+          The Codehaus plugin and the <a href="">Google Code</a> plugin were developed separately but with similar goals.  
+          The two plugins have several overlapping features including verifying and updating license information in 
+          source files.  The Codehaus plugin also provides the ability to download the licenses of thirdparty dependencies 
+          and create and XML report listing each project dependency and its license.  If you are not sure which one to use
+          you should try both to see which one better fits your needs.
+        </p>
+      </answer>
+    </faq>
+    <faq id="code-lutin-maven-license-plugin">
+      <question>What is the difference between this plugin (the Codehaus license-maven-plugin) and the maven-license-plugin hosted at Code Lutin?</question>
+      <answer>
+        <p>
+          The <a href="http://maven-site.nuiton.org/maven-license-plugin/">Code Lutin maven-license-plugin</a> is an older version of the Codehaus license-maven-plugin.  The source code 
+          of the Code Lutin plugin was donated to Codehaus and merged with some existing license plugin code.
+          His original creator joined then the Codehaus team to continue the project developement.
+        </p>
+      </answer>
+    </faq>
+  </part>
+</faqs>

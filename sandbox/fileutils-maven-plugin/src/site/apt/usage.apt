@@ -1,0 +1,61 @@
+File Utilities Plugin
+
+  fileutils-maven-plugin is a Maven 2 plugin for simple file operations. It's main objective is to become the tool of
+choice in migrating Ant or Maven 1 directory structures to Maven 2 standard directory structure in builds by providing:
+ * a familiar and easy to use scripts
+ * templates and examples in migrating Ant and Maven 1 directory structures to Maven 2 standard directory structures
+ * the ability to automate copying of directories to Maven 2 format until project team is comfortable with the migration
+
+Available Configuration Options: (param - default value)
+ 
+ * scripts - empty string
+
+Usage:
+
+-------------------
+<project>
+   ...
+      <build>
+         <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>bash-maven-plugin</artifactId>
+                <version>1.0-SNAPSHOT</version>
+	            <executions>
+	               <execution>
+	                  <goals>
+	                     <goal>fileutils</goal>
+	                  </goals>
+	                  <configuration>
+	                     <scripts>
+	                       cp sample1.txt sample2.txt;
+	                       cp sample2.txt sample3.txt;
+	                       rm sample2.txt;
+	                       mkdir samples;
+	                     </scripts>
+	                  <configuration>
+	              </execution>
+                </executions>
+          </plugin>
+       </plugins>
+       ...
+     </build>
+   ...
+</project>
+-------------------
+
+To Dos:
+
+  Recursive copying of directories
+
+    * Move
+
+    * Synchronize
+
+    * Report unrecognized commands
+
+    * Support wildcards
+
+    * Use Maven 2 built-in filtering
+    
+    * Add exclusions in dependency of example conversion project

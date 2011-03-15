@@ -1,0 +1,140 @@
+  ------
+  Usage 
+  ------
+  Raphaël Piéroni
+  ------
+  Mon Aug 9 2005
+  ------
+
+Usage
+
+    To use this plugin, do the following steps:
+
+        * Open a shell
+   
+        * Change the shell directory to the project directory
+
+        * Call Maven with the goal <<<netbeans-freeform:generate-netbeans-project>>>
+
+        * Open your Netbeans IDE
+
+        * Open the directory of the project using Open Project and selecting the
+        directory of the project
+
+    When the Netbeans project for your Maven project is opened, you have
+    access to the project view that shows:
+
+        * The <<<pom.xml>>> of your project
+
+        * The Ant script used by Netbeans to call Maven
+
+        * The source packages of your project
+
+    With a right click on the project name in the project view to call the basic 
+    goals. By default:
+
+        * "Build Project" is mapped to "package"
+        
+        * "Clean Project" is mapped to "clean:clean"
+
+        * "Clean and Build Project" is mapped to " clean:clean" then "package"
+
+        * "Generate Javadoc for Project" is mapped to "site:site"
+
+        * "Run Project" is mapped to "install"
+
+        * "Test Project" is mapped to "test"
+
+    Then some custom goals are visible:
+
+        * "jalopy" is mapped to "jalopy" anticipating the creation of the Jalopy plugin
+
+        * "assembly" is mapped to "assembly:assembly"
+
+        * "refresh-project" is mapped to "netbeans-freeform:generate-netbeans-project"
+
+    Configure the <<<pom.xml>>> file as follow if needed :
+    
+    <<Note:>> none of the following property configuration is required. Even the 
+    plugin configuration may be omitted.
+
+-------------------
+<project>
+  ...
+    <build>
+      ...
+      <plugins>
+        ...
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>netbeans-freeform-maven-plugin</artifactId>
+          <configuration>
+            <outputDirectory>/path/to/output/directory</outputDirectory>
+            <additionalGoals>plugin:xdoc site:site, projecthelp:active-profiles</additionalGoals>
+            <additionalFiles>src/main/mdo/FreeformProject.mdo</additionalFiles>
+            <additionalFolders>src/test/projects, src/site, target</additionalFolders>
+          </configuration>
+        </plugin>
+        ...
+      </plugins>
+      ...
+    </build>
+  ...
+</project>
+-------------------
+
+    As an alternative and if all your projects have common goals files or 
+    folders, you can add the following in your <<<settings.xml>>>:
+
+-------------------
+<settings>
+  ...
+  <profiles>
+    ...
+    <profile>
+      <id>freeform-commons</id>
+      <properties>
+        <freeform.outputDirectory>/path/to/output/directory</freeform.outputDirectory>
+        <freeform.additionalGoals>plugin:xdoc site:site, projecthelp:active-profiles</freeform.additionalGoals>
+        <freeform.additionalFiles>src/main/mdo/FreeformProject.mdo</freeform.additionalFiles>
+        <freeform.additionalFolders>src/test/projects, src/site, target</freeform.additionalFolders>
+      </properties>
+    </profile>
+    ...
+  </profiles>
+  ...
+  <activeProfiles>
+    ...
+    <activeProfile>freeform-commons</activeProfile>
+    ...
+  </activeProfiles>
+  ...
+</settings>
+
+-------------------
+
+    The explaination of the configuration or properties is:
+
+        * <<<additionalGoals>>> or <<<freeform.additionalGoals>>> is a list of goals to add
+        in the project context menu in Netbeans and in the <<<mavencall.xml>>> file.
+        The list is a String using ',' as the separator. Multiple Maven
+        goals or lifecycle phases may be called with a space character between
+        them. "plugin:xdoc site:site,projecthelp:activate-profiles" will add 2
+        menu items/Ant targets. The first call Maven with the goals
+        "plugin:xdoc site:site" and the second with the goal
+        "projecthelp:activate-profiles".
+
+        * <<<additionalFiles>>> or <<<freeform.additionalFiles>>> is a list of files to add
+        in the project view in Netbeans. The list is a String using ',' as the
+        seperator. "src/main/mdo/FreeformProject.mdo" will add one file named
+        "FreeformProject.mdo".
+
+        * <<<additionalFolders>>> or <<<freeform.additionalFolders>>> is a list of folders
+        to add in the project view int Netbeans after any additional file. The
+        list is a String using ',' as the separator. "src/test/projects, 
+        src/site" will add two folders named "projects" and "site".
+
+        * <<<outputDirectory>>> or <<<freeform.outputDirectory>>> is the absolute path to
+        the directory where the 'nbproject' folder will be created. The 
+        Netbeans' project view will see the files and folder by using an Ant
+        property.

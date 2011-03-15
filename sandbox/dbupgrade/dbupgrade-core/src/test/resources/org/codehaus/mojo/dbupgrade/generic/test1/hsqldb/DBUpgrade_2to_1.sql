@@ -1,0 +1,1 @@
+update version set version = -1;

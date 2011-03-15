@@ -1,0 +1,1 @@
+ create table table12 ( column1 varchar(256) );

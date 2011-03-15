@@ -1,0 +1,11 @@
+h1. Maven JSLint Plugin
+
+This plugin brings [JSLint|http://www.JSLint.com/lint.html] capabilities to the Maven project lifecycle with the goal of assuring JavaScript code quality.
+
+The Maven JSLint Plugin operates quickly and efficiently on modified JavaScript source code. When used with IDE's such as Eclipse and its Maven integration, developers can rapidly see JSLint problems reported in the IDE's console as a JavaScript source file is saved.
+
+!images/benefit.png!
+
+{note}
+Please note that this project is presently in the Codehaus MOJO Sandbox and therefore requires you to check it out from source code and build it locally. Once the project migrates from the sandbox it will become available from a repository.
+{note}

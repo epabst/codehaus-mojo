@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faqs id="FAQ" title="Frequently Asked Questions">
+
+  <part id="General">
+  
+    <faq id="question1">
+      <question>
+        Is this plugin anything to do with Doxia's Almost Plain Text (APT) format?
+      </question>
+      <answer>
+        <p>
+          No.  This plugin is concerned with Java's
+          <a href="http://java.sun.com/j2se/1.5.0/docs/guide/apt/GettingStarted.html">Annotation Processing Tool
+          (apt)</a>, not Doxia's <a href="http://maven.apache.org/doxia/references/apt-format.html">Almost Plain Text 
+          (APT)</a> format. 
+        </p>
+      </answer>
+    </faq>
+    
+    <faq id="question2">
+      <question>
+        Why can't the Apt Maven Plugin compile my project's sources?
+      </question>
+      <answer>
+        <p>
+          By design, the Apt Maven Plugin always passes the <code>-nocompile</code> argument to apt.  This was decided
+          upon since the <a href="http://maven.apache.org/plugins/maven-compiler-plugin/">Maven Compiler Plugin</a> 
+          should be used to perform all compilation tasks.
+        </p>
+      </answer>
+    </faq>
+    
+    <faq id="question3">
+      <question>
+        Why do my generated test resources not appear in Eclipse?
+      </question>
+      <answer>
+        <p>
+          This is because the <code>eclipse:eclipse</code> goal only executes up to the <code>generate-resources</code>
+          phase, and hence the generated test resources are not added to the project.  See
+          <a href="http://jira.codehaus.org/browse/MECLIPSE-37">MECLIPSE-37</a> for more information.
+        </p>
+        <p>
+          A workaround is to manually add <code>target/generated-test-sources/apt</code> as a source folder with an
+          output folder of <code>target/test-classes</code> to Eclipse after running <code>eclipse:eclipse</code>.
+        </p>
+      </answer>
+    </faq>
+    
+    <faq id="question4">
+      <question>
+        Can I use this plugin with JSR 269 annotation processors?
+      </question>
+      <answer>
+        <p>
+          Not yet.  See <a href="http://jira.codehaus.org/browse/MOJO-1137">MOJO-1137</a> for more information.
+        </p>
+      </answer>
+    </faq>
+    
+    <faq id="question5">
+      <question>
+        Hasn't <code>apt</code> been merged into <code>javac</code> in Java 6?  Can't I process sources using the Maven 
+        Compiler Plugin?
+      </question>
+      <answer>
+        <p>
+          Yes it has.  Hopefully this functionality will be added to the Maven Compiler Plugin in a future release.  See
+          <a href="http://jira.codehaus.org/browse/MCOMPILER-75">MCOMPILER-75</a> for more information.
+        </p>
+      </answer>
+    </faq>
+    
+  </part>
+  
+</faqs>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         id="application"
+         point="org.eclipse.core.runtime.applications">
+      <application>
+         <run
+               class="test.pde_maven_plugin.simple_application.Application">
+         </run>
+      </application>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="Simple_application Perspective"
+            class="test.pde_maven_plugin.simple_application.Perspective"
+            id="test.pde_maven_plugin.simple_application.perspective">
+      </perspective>
+   </extension>
+   <extension
+         id="product"
+         point="org.eclipse.core.runtime.products">
+      <product
+            application="test.pde_maven_plugin.simple_application.application"
+            name="PDE Simple Product Example"/>
+   </extension>
+
+</plugin>

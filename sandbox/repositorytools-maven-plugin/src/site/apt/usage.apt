@@ -1,0 +1,57 @@
+                                    ------
+                             Repository Tools Usage
+                                    ------
+                                tom@codehaus.org
+                                    ------
+                                 Dec 11, 2006
+
+Repository Tools
+
+  This plugin provides tools to manage repositories. More specifically, adding new artifacts to repositories
+  by copying from other repositories, using artifact bundles, ...
+
+
+1. Merging repositories
+
+	This plugin copies artifacts by resolving them from a source repo to a temporary local repo,
+	and then deploying the artifacts in that local repo to the target repo. There are a few ways
+	to do this:
+
+	* In two steps: 
+
+	** Build a local repo: <repositorytools:add-artifact> downloads a specific artifact to the local repo. This
+	can be repeated for more than one artifact. <repositorytools:add-plugin-group> resolves an entire plugin group
+	(e.g. org.apache.maven.plugins). 
+
+	** Deploy the local repo: <repositorytools:deploy-repository>  can be used to upload an entire local repository.
+
+	* In one step: <repositorytools:copy-artifact> directly copies artifacts from a source to a target repo.
+	Behind the screens, a temporary local repo is used - by default a subdirectory 'local' of the current directory.
+	Make sure it is empty before using the goal.
+
+2. Deploying bundles
+
+	To upload artifact bundles like the ones created by the repository-plugin, use the <repositorytools:deploy-bundle> goal.
+	This type of bundle contains the main artifact and attached artifacts in the root of the bundle jar. Apart from that,
+	the goal also supports using a zipped up repository as a bundle containing multiple artifacts.
+	
+	<Note: only the zipped up repository is currently implemented.>
+	
+3. Validating bundles
+
+	<repositorytools:validate-artifact> performes some validation on an artifact in a local or remote
+	repository. 
+	
+4. Scenario's
+
+	* Staging repositories:
+	Before a release vote, artifacts are deployed to a staging repo. If the vote passes,
+	the entire repository is deployed to the target repo.
+
+	* Upload requests: 
+	Users upload a bundle to some kind of ticketing system. The repository administrator validates
+	the POM and deploys it to the repository.
+
+	* Copy requests for corporate repo's:
+	A corporate repo is not automatically synced with central. Only artifacts that are approved are
+	put into the repo by copying them from their original repo, or by uploading bundles.

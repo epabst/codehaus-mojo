@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>$class.name</title>
+  <link rel="stylesheet" type="text/css" href="$rootPage/style.css" title="Style"/>
+</head>
+<body>
+
+<table>
+<tr>
+ <td colspan="2" class="toolbar1">
+  <a>Overview</a>
+  <a>Package</a>
+  <a>Class</a>
+  <a>Use</a>
+  <a>Tree</a>
+  <a>Deprecated</a>
+  <a>Index</a>
+  <a>Help</a>
+ </td>
+ <td rowspan="3">$title</td>
+</tr>
+<tr>
+ <td class="toolbar2">
+  <a>PREV CLASS</a>
+  <a>NEXT CLASS</a>
+ </td>
+ <td class="toolbar2">
+  <a href="">FRAMES</a>
+  <a href="">NO FRAMES</a>
+  <a href="$rootPage/all-classes.html">All Classes</a>
+ </td>
+</tr>
+<tr>
+ <td class="toolbar3">
+  SUMMARY: <a href="#field_summary">NESTED</a> |
+           <a href="#field_summary">FIELD</a> |
+           <a href="#constructor_summary">CONSTR</a> |
+           <a href="#method_summary">METHOD</a>
+ </td>
+ <td class="toolbar3">
+  DETAIL: <a href="#field_summary">FIELD</a> |
+          <a href="#constructor_summary">CONSTR</a> |
+          <a href="#method_summary">METHOD</a>
+ </td>
+</tr>
+</table>
+
+<h3>$class.package</h3>
+<h2>Class $class.fullName</h2>
+<p>
+#foreach( $parent in $class.parentsReversed )
+$parent.fullName<br/>
+#end
+</p>
+
+#if( $class.interfaces.size() > 0 )
+<h3>All Implemented Interfaces</h3>
+<p>
+&nbsp;&nbsp; $class.interfacesAsString
+#end
+
+<hr/>
+#if( $class.public ) public #end
+#if( $class.interface ) interface #else class #end
+$class.name<br/>
+#if( $class.superClassName )
+extends $class.superClassName<br/>
+#end
+#if( $class.interfaces.size() > 0 )
+implements $class.interfacesAsString
+#end
+</p>
+
+#if( $class.authorsAsString != "" )
+<h3>Authors:</h3>
+<p>
+&nbsp;&nbsp;$class.authorsAsString
+</p>
+#end
+
+#if( $class.seeAlsoAsString != "" )
+<h3>See also:</h3>
+<p>
+&nbsp;&nbsp;$class.seeAlsoAsString
+</p>
+#end
+
+<hr/>
+
+<a name="field_summary"/>
+<h2>Field Summary</h2>
+<p>
+#foreach( $field in $class.fields )
+$field.getName()#if($velocityCount < $class.fields.size()), #else
+
+#end
+#end
+</p>
+
+#foreach( $parent in $class.parents )
+<h3>Fields inherited from class $parent.fullName:</h3>
+<p>
+#foreach( $field in $parent.fields )
+$field.getName()#if($velocityCount < $parent.fields.size()), #else
+
+#end
+#end
+</p>
+#end
+
+<a name="constructor_summary"/>
+<h2>Constructor Summary</h2>
+#foreach( $constructor in $class.constructors )
+#set( $count = $velocityCount )
+${constructor.name}(#foreach( $parameter in $constructor.parameters )
+$parameter.type ${parameter.name}#if($velocityCount < $constructor.parameters.size()), #end
+#end
+)
+
+#set( $velocityCount = $count )
+#end
+
+<a name="method_summary"/>
+<h2>Method Summary</h2>
+<table>
+#foreach( $method in $class.methods )
+ <tr>
+#set( $count = $velocityCount )
+  <td>$method.accessLevel</td>
+  <td>${method.name}(#foreach( $parameter in $method.parameters )
+$parameter.type ${parameter.name}#if($velocityCount < $method.parameters.size()), #end
+#end
+)</td>
+ </tr>
+#set( $velocityCount = $count )
+#end
+</table>
+
+#foreach( $parent in $class.parents )
+<h3>Methods inherited from class $parent.fullName</h3>
+#foreach( $method in $parent.methods )
+$method.accessLevel $method.getName()#if($velocityCount < $parent.methods.size()), #else
+
+#end
+#end
+
+#end
+
+</body>
+</html>

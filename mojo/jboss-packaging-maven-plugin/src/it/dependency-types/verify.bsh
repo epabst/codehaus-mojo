@@ -1,0 +1,91 @@
+import java.io.*;
+import java.util.*;
+
+try
+{
+    File depsDir1 = new File( basedir, "use-artifacts-1/target/dependency" );
+    
+    File esbFile = new File( depsDir1, "create-artifacts-1.0-SNAPSHOT.esb" );
+    if ( !esbFile.exists() || esbFile.isDirectory() )
+    {
+        System.err.println( "Could not find esb: " + esbFile );
+        return false;
+    }
+    File harFile = new File( depsDir1, "create-artifacts-1.0-SNAPSHOT.har" );
+    if ( !harFile.exists() || harFile.isDirectory() )
+    {
+        System.err.println( "Could not find har: " + harFile );
+        return false;
+    }
+    File parFile = new File( depsDir1, "create-artifacts-1.0-SNAPSHOT.par" );
+    if ( !parFile.exists() || parFile.isDirectory() )
+    {
+        System.err.println( "Could not find par: " + parFile );
+        return false;
+    }
+    File sarFile = new File( depsDir1, "create-artifacts-1.0-SNAPSHOT.sar" );
+    if ( !sarFile.exists() || sarFile.isDirectory() )
+    {
+        System.err.println( "Could not find sar: " + sarFile );
+        return false;
+    }
+    File springFile = new File( depsDir1, "create-artifacts-1.0-SNAPSHOT.spring" );
+    if ( !springFile.exists() || springFile.isDirectory() )
+    {
+        System.err.println( "Could not find spring: " + springFile );
+        return false;
+    }
+    File aopFile = new File( depsDir1, "create-artifacts-1.0-SNAPSHOT.aop" );
+    if ( !aopFile.exists() || aopFile.isDirectory() )
+    {
+        System.err.println( "Could not find aop: " + aopFile );
+        return false;
+    }
+    
+    File depsDir2 = new File( basedir, "use-artifacts-2/target/dependency" );
+    
+    File esbFile = new File( depsDir2, "create-artifacts-1.0-SNAPSHOT.esb" );
+    if ( !esbFile.exists() || esbFile.isDirectory() )
+    {
+        System.err.println( "Could not find esb: " + esbFile );
+        return false;
+    }
+    File harFile = new File( depsDir2, "create-artifacts-1.0-SNAPSHOT.har" );
+    if ( !harFile.exists() || harFile.isDirectory() )
+    {
+        System.err.println( "Could not find har: " + harFile );
+        return false;
+    }
+    File parFile = new File( depsDir2, "create-artifacts-1.0-SNAPSHOT.par" );
+    if ( !parFile.exists() || parFile.isDirectory() )
+    {
+        System.err.println( "Could not find par: " + parFile );
+        return false;
+    }
+    File sarFile = new File( depsDir2, "create-artifacts-1.0-SNAPSHOT.sar" );
+    if ( !sarFile.exists() || sarFile.isDirectory() )
+    {
+        System.err.println( "Could not find sar: " + sarFile );
+        return false;
+    }
+    File springFile = new File( depsDir2, "create-artifacts-1.0-SNAPSHOT.spring" );
+    if ( !springFile.exists() || springFile.isDirectory() )
+    {
+        System.err.println( "Could not find spring: " + springFile );
+        return false;
+    }
+    File aopFile = new File( depsDir2, "create-artifacts-1.0-SNAPSHOT.aop" );
+    if ( !aopFile.exists() || aopFile.isDirectory() )
+    {
+        System.err.println( "Could not find aop: " + aopFile );
+        return false;
+    }
+    
+}
+catch( Throwable t )
+{
+    t.printStackTrace();
+    return false;
+}
+
+return true;

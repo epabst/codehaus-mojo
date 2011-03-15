@@ -1,0 +1,52 @@
+ ------
+ Maven 2 Eclipse PDE Plugin
+ ------
+ Dan T. Tran
+ <dantran@gmail.com>
+ Barrie Treloar
+ <baerrach@gmail.com>
+ ------
+ November 23, 2006
+
+Eclipse PDE Maven Plugin
+
+  This plugin is a Maven adapter of Eclipse PDE headless build automation.
+  It generates and invokes PDE Ant build files to produce the final artifacts
+  which can be installed/deployed to Maven local/remote repositories respectively.
+
+* Goals Overview
+  
+  * {{{pde-mojo.html}pde:pde}}: Build PDE artifact on the command line ( ie mvn pde:pde )
+  
+  * {{{attach-mojo.html}pde:attach}}: Build PDE artifact with Maven default build lifecycle, 
+    must be configured via a POM.
+  
+  * {{{ext-mojo.html}pde:ext}}: Build PDE artifact with {{{lifecycle.html}custom build life cycle.}}
+
+  * {{{test-mojo.html}pde:test}}: Invoke test.xml Ant file if available at test phase
+  
+  * {{{clean-mojo.html}pde:clean}}: Clean the generated PDE files
+  
+  []
+
+* Usage
+  
+  Instructions on how to use the Eclipse PDE Maven Plugin can be found on the {{{usage.html}usage page}}.
+ 
+   
+* Examples
+
+  * {{{examples/getting_started.html}Getting Started with PDE plugin}}
+  
+  * {{{examples/simple_plugin.html}Create a simple plugin}}
+  
+  * {{{examples/simple_feature.html}Creating a simple feature}}
+  
+  * {{{examples/simple_product.html}Creating a simple product}}
+
+  * {{{examples/m2eclipse.html}M2Eclipse}}: Build M2Eclipse's feature distribution from source.
+  
+  []
+  
+
+

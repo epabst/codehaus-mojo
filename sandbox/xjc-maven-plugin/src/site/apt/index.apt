@@ -1,0 +1,29 @@
+ ----
+Introduction
+ ----
+Carlos Sanchez
+ ----
+2010-02-16
+ ----
+
+XJC Maven Plugin
+
+  This plugin is used to generate Java classes from a given XML
+  schema document using the Sun XJC task.
+
+  <<Note:>> The previous
+  functionality that used the Jaxme implementation is no longer
+  available, since a Jaxme Maven Plugin has been created as part of
+  the Jaxme project.
+
+* Obtaining
+
+  To download and build from source issue the following commands:
+
+------
+> svn co https://svn.codehaus.org/mojo/trunk
+> cd trunk/sandbox/xjc-maven-plugin
+> mvn clean install
+------
+
+

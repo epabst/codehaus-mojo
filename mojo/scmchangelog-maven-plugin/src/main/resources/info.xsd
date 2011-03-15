@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:include schemaLocation="common.xsd"/>
+  <!--
+    XML RELAX NG schema for Subversion command-line client output
+    For "svn info"
+  -->
+  <xs:element name="info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="entry"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="entry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="url"/>
+        <xs:element minOccurs="0" ref="repository"/>
+        <xs:element minOccurs="0" ref="wc-info"/>
+        <xs:element minOccurs="0" ref="commit"/>
+        <xs:element minOccurs="0" ref="lock"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.entry"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.entry">
+    <xs:attribute name="path" use="required" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>Local path.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="kind" use="required">
+      <xs:annotation>
+        <xs:documentation>Path type.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="file"/>
+          <xs:enumeration value="dir"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="revision" use="required" type="revnum.type">
+      <xs:annotation>
+        <xs:documentation>Revision number of path/URL.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="url" type="xs:anyURI"/>
+  <xs:element name="repository">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="root"/>
+        <xs:element minOccurs="0" ref="uuid"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="root" type="xs:anyURI"/>
+  <xs:element name="uuid" type="uuid.type"/>
+  <xs:element name="wc-info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="schedule"/>
+        <xs:element minOccurs="0" ref="copy-from-url"/>
+        <xs:element minOccurs="0" ref="copy-from-rev"/>
+        <xs:element minOccurs="0" ref="text-updated"/>
+        <xs:element minOccurs="0" ref="prop-updated"/>
+        <xs:element minOccurs="0" ref="checksum"/>
+        <xs:element minOccurs="0" ref="conflict"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="schedule">
+    <xs:simpleType>
+      <xs:restriction base="xs:token">
+        <xs:enumeration value="normal"/>
+        <xs:enumeration value="add"/>
+        <xs:enumeration value="delete"/>
+        <xs:enumeration value="replace"/>
+        <xs:enumeration value="none"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="copy-from-url" type="xs:anyURI"/>
+  <xs:element name="copy-from-rev" type="revnum.type"/>
+  <!-- Date when text was last updated. -->
+  <xs:element name="text-updated" type="xs:dateTime"/>
+  <!-- Date when properties were last updated. -->
+  <xs:element name="prop-updated" type="xs:dateTime"/>
+  <xs:element name="checksum" type="md5sum.type"/>
+  <xs:element name="conflict">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="prev-base-file"/>
+        <xs:element minOccurs="0" ref="prev-wc-file"/>
+        <xs:element ref="cur-base-file"/>
+        <xs:element minOccurs="0" ref="prop-file"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="prev-base-file" type="xs:string"/>
+  <xs:element name="prev-wc-file" type="xs:string"/>
+  <xs:element name="cur-base-file" type="xs:string"/>
+  <xs:element name="prop-file" type="xs:string"/>
+</xs:schema>

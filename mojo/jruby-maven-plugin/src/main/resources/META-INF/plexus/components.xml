@@ -1,0 +1,33 @@
+<component-set>
+  <components>
+    <component>
+      <role>org.codehaus.plexus.component.configurator.ComponentConfigurator</role>
+      <implementation>org.codehaus.mojo.ruby.plexus.component.configurator.RubyComponentConfigurator</implementation>
+      <role-hint>jruby</role-hint>
+    </component>
+
+    <component>
+      <role>org.apache.maven.tools.plugin.extractor.MojoDescriptorExtractor</role>
+      <implementation>org.codehaus.mojo.ruby.extractor.RDocExtractor</implementation>
+      <role-hint>jruby</role-hint>
+    </component>
+
+    <component>
+      <role>org.codehaus.plexus.component.factory.ComponentFactory</role>
+      <implementation>org.codehaus.mojo.ruby.JRubyMojoComponentFactory</implementation>
+      <role-hint>jruby-mojo</role-hint>
+	  <requirements>
+	  	<requirement>
+	        <role>java.lang.String</role>
+	        <role-hint>java.lang.String</role-hint>
+	        <field-name>inputs</field-name>
+	  	</requirement>
+	  </requirements>
+	  <configuration>
+	    <requires>
+	    	<require>mojo_require.rb</require>
+	    </requires>
+	  </configuration>
+    </component>
+  </components>
+</component-set>

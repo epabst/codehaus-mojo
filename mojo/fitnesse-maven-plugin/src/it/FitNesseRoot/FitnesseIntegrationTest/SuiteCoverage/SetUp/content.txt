@@ -1,0 +1,3 @@
+Couverture de test...
+
+!define repoBis {D:\maven\m2_repository}

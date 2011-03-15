@@ -1,0 +1,20 @@
+<faqs xmlns="http://maven.apache.org/FML/1.0.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/FML/1.0.1 http://maven.apache.org/xsd/fml-1.0.1.xsd"
+  id="FAQ" title="Frequently Asked Questions">
+ <part id="General">
+   <faq id="How do I avoid OutOfMemory errors">
+     <question>How do I avoid OutOfMemory errors?</question>
+       <answer>
+         <p>
+         When running CodeNarc on a project, the default heap size might not be enough
+         to complete the build. The following system variable will allow you
+         to increase the Java Heap size for Maven:
+         <p>
+         <code>export MAVEN_OPTS=-Xmx384M</code>
+         </p>
+         </p>
+       </answer>
+     </faq>
+  </part>
+</faqs>

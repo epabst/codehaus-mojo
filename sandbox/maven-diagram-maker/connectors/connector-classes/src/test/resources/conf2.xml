@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <includes>
+    <include>org\.apache\.*</include>
+    <include>org\.codehaus\.*</include>
+  </includes>
+  <excludes>
+    <exclude>
+      <pattern>org\.apache\.maven\.*</pattern>
+      <keepEdges>true</keepEdges>
+    </exclude>
+    <exclude>
+      <pattern>org\.apache\.commons\.*</pattern>
+      <keepEdges>false</keepEdges>
+    </exclude>
+  </excludes>
+  <nodes>
+    <compressJavaBeanProperties>true</compressJavaBeanProperties>
+    <propagateInheritedMethods>false</propagateInheritedMethods>
+    <propagateInheritedFields>false</propagateInheritedFields>
+  </nodes>
+  <edges>
+    <aggregating/>
+    <implemmenting/>
+    <inheritance/>
+  </edges>
+</configuration>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<plugin
+	name="Eclipse Hello World Example"
+	id="org.eclipse.examples.helloworld"
+	version="0.0.0"
+	provider-name="OTI">
+	
+
+    <runtime>
+	<library name="helloworld.jar"/>
+    </runtime>
+	
+    <requires>
+	<import plugin="org.eclipse.core.resources"/>
+        <import plugin="org.eclipse.ui"/>
+    </requires>
+	
+    <extension point = "org.eclipse.ui.actionSets">
+        <actionSet
+            id="org.eclipse.examples.helloworld.HelloWorldActionSet"
+            label="Hello World"
+	    visible="true"
+	    description="The action set for the Eclipse Hello World example">
+	    <menu
+		id="org.eclipse.examples.helloworld.HelloWorldMenu"
+		label="Samples">
+		<separator name="samples"/>
+	    </menu>
+	    <action id="org.eclipse.examples.helloworld.actions.HelloWorldAction"
+		menubarPath="org.eclipse.examples.helloworld.HelloWorldMenu/samples"
+		toolbarPath="Normal"			
+		label="Hello World"
+		tooltip="Press to see a message"
+		icon="icons/helloworld.gif"
+		class="org.eclipse.examples.helloworld.HelloWorldAction"/>
+        </actionSet>
+    </extension>
+</plugin>

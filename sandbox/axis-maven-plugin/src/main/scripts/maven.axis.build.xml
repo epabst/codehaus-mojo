@@ -1,0 +1,610 @@
+<project name="axis" basedir="." default="process-wsdls-with-axis" >
+
+<!-- FIXME 
+
+*) Multiple WSDL dirs
+*) Process HTTP based WSDLs in their HTTP location
+*) Add Axis "deploy" using Axis AdminClient
+-->
+ 
+
+<!-- 
+axis.client.jars.dir location="${my.WEBINF.lib}"  
+axis.build.client.jars=true/false to build into individual JARs
+
+TO SPECIFY A WSDL
+Read a axis.wsdl.properties file from the basedir.
+Use axis.wsdl.properties.file to override
+
+This file should prescribe::
+
+axis.wsdl.files              WSDL files. Comma separated list. 
+axis.wsdl.dir                The WSDL dir. NOTE: every WSDL file here will get processed !!!!
+axis.http.url.wsdls          A list of HTTP URLs that will be fetched (via HTTP GET) 
+
+where axis.url and axis.wsdl.dir are mutually exclusive. 
+axis.http.url.wsdls may be used with either or alone. 
+
+
+OPTIONAL PROPS (Not shown below)
+axis.wsdl2java.namespaceMappings    A comma separated list of mappings 
+                                    (e.g "FooService=my.services.foo,EchoService=my.services.echo")
+axis.server.wsdl                    The "server side" WSDL (i.e the one to generate a BindingImpl for)
+axis.excludes                       Files to exclude in the copy (e.g. "**/*BindingImpl.java" )
+
+axis.fixed.src.dir
+
+And, of course, the full list shown below can be over-ridden
+--> 
+
+
+  <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+  <!--                   paths & taskdefs      -->
+  <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+  <!-- NOTE:: no ${} is required for maven.plugin.classpath !!!!! --> 
+  <!-- NOTE:: maven.plugin.classpath is always used as a refid !!!!! --> 
+
+  <target name="init-tasks">
+    <taskdef resource="net/sf/antcontrib/antlib.xml" >
+      <classpath refid="maven.plugin.classpath"/>
+    </taskdef>
+    
+    <taskdef resource="axis-tasks.properties" >
+      <classpath refid="maven.plugin.classpath"/>
+    </taskdef>
+
+    <path id="axis.classpath.compile" >
+      <path refid="maven.plugin.classpath"/>
+    </path>
+  </target>
+
+  <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+  <!--                   properties     -->
+  <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+  <!-- disable system classpath so that there are no conflicts -->
+  <property name="build.sysclasspath" value="ignore"/> 
+
+  <property name="axis.base" location="${basedir}" />
+
+  <!-- read local axis properties --> 
+  <property name="axis.wsdl.properties.file" location="${basedir}/axis.wsdl.properties" />
+  <property file="${axis.wsdl.properties.file}" />
+
+  <!-- ,,,,,,,,,,,,,,, --> 
+  <property name="axis.print.incoming.props" value="true" />
+ 
+  <property name="build.dir" location="${basedir}/target" />
+
+  <property name="axis.client.jars.dir" location="${build.dir}" />
+
+  <property name="axis.webservices.wsdl.dir" location="${some.dir}/webservices/wsdl/services" />
+
+  <!-- ,,,,,,,,,,,,,,, --> 
+  <property name="axis.project.dir" location="${build.dir}/axis" />
+
+  <property name="axis.generated.dir" location="${axis.project.dir}/src" />
+  <property name="axis.build.dir" location="${axis.project.dir}/build" />
+  <property name="axis.test.dir" location="${axis.project.dir}/test" />
+
+  <!--  OVERRIDE IF REQ'D --> 
+  <property name="axis.all" value="true" />
+  <property name="axis.testcase" value="false" />
+  <property name="axis.verbose" value="true" />
+  <property name="axis.deployscope" value="request" />
+  <property name="axis.skeletondeploy" value="false" />
+  <property name="axis.noimports" value="no" />
+  <property name="axis.typemappingversion" value="1.1" />
+  <property name="axis.serverside" value="false" />
+  <property name="axis.noWrapped" value="true" />
+  <property name="axis.allow.rpc" value="false" />
+  <property name="axis.wrapArrays" value="false" />
+
+  <property name="axis.timeout" value="60000" />
+  <property name="axis.debug" value="false" />
+
+  <property name="target.dir" location="${axis.project.dir}" />
+  <property name="nsToPkg.file" location="${target.dir}/NStoPkg.properties" />
+  <property name="excludes.file" location="${target.dir}/axis.excludes" />
+
+
+  <property name="axis.javac.includes" value="com/**,org/**" />
+
+  <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+  <!--                      targets     -->
+  <!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+
+  <!-- ================================================================== -->
+  <!-- PROCESS-AXIS       -->
+  <!-- ================================================================== -->
+
+  <target name="process-wsdls-with-axis"
+          depends="init-tasks,prepare-filesystem, copy-http-url-wslds, process-namespace-mappings, 
+                   process-wsdls" />
+
+  <!-- ================================================================== -->
+  <!-- PREPARE-FILESYSTEM       -->
+  <!-- ================================================================== -->
+  <target name="prepare-filesystem"
+          description="Create the directory structure needed." 
+          depends="print-incoming-props">
+
+    <mkdir dir="${axis.build.dir}"/>
+    <mkdir dir="${axis.generated.dir}" />
+    <if>
+      <istrue value="${axis.testcase}" />
+      <then>
+        <mkdir dir="${axis.test.dir}"/>
+      </then>
+    </if>
+  </target>
+
+  <!-- ================================================================== -->
+  <!-- PRINT-INCOMING-PROPS     -->
+  <!-- ================================================================== -->
+  <target name="print-incoming-props" >
+    <if>
+      <isset property="axis.print.incoming.props" />
+      <then>
+        <echo>axis.wsdl.properties.file= ${axis.wsdl.properties.file}</echo>
+
+        <echo>axis.generated.dir= ${axis.generated.dir}</echo>
+        <echo>axis.build.dir= ${axis.build.dir}</echo>
+
+        <echo>axis.client.jars.dir= ${axis.client.jars.dir}</echo>
+        <echo>axis.build.client.jars= ${axis.build.client.jars}</echo>
+        
+        <echo>axis.all= ${axis.all}</echo>
+        <echo>axis.testcase= ${axis.testcase}</echo>
+        <echo>axis.verbose= ${axis.verbose}</echo>
+        <echo>axis.deployscope= ${axis.deployscope}</echo>
+        <echo>axis.skeletondeploy= ${axis.skeletondeploy}</echo>
+        <echo>axis.noimports= ${axis.noimports}</echo>
+        <echo>axis.typemappingversion= ${axis.typemappingversion}</echo>
+        <echo>axis.serverside= ${axis.serverside}</echo>
+        <echo>axis.noWrapped= ${axis.noWrapped}</echo>
+        <echo>axis.wrapArrays= ${axis.wrapArrays}</echo>
+
+        <echo>axis.timeout= ${axis.timeout}</echo>
+        <echo>axis.debug= ${axis.debug}</echo>
+       
+        <echo>wsdl2java.namespaceMappings= ${axis.wsdl2java.namespaceMappings}</echo>
+        <echo>axis.allow.rpc= ${axis.allow.rpc}</echo>
+        
+        <echo>axis.server.wsdl= ${axis.server.wsdl}</echo>
+        <echo>axis.excludes= ${axis.excludes}</echo>
+        <echo>axis.http.url.wsdls= ${axis.http.url.wsdls}</echo>
+        
+        <echo>wsdlSource= ${wsdlSource}</echo>
+        <echo>wsdlDir= ${wsdlDir}</echo>
+
+        <echo>axis.is.cleaning= ${axis.is.cleaning} </echo>
+      </then>
+    </if>
+  </target>
+
+  <!-- ================================================================== -->
+  <!-- CLEAN --> 
+  <!-- ================================================================== -->
+  <target name="clean" >
+    <property name="axis.is.cleaning" value="true" />
+    <runtarget target="process-wsdls" />
+
+    <delete dir="${axis.project.dir}" quiet="true" />
+  </target>
+
+  <!-- ================================================================== -->
+  <!-- COPY-HTTP-URL-WSDLS --> 
+  <!-- ================================================================== -->
+  <target name="copy-http-url-wslds" >
+    <!-- copy http.url wsdls (from http.url.wsdls) into target/axis/wsdl 
+         NOTE: these must be http URLs -->
+
+    <var  name="wsdlFlist" value="${axis.http.url.wsdls}" />
+    <echo> wsdlFlist= ${wsdlFlist} </echo>
+    <mkdir dir="${axis.build.dir}/wsdl"/>
+    <if>
+      <isset property="axis.http.url.wsdls" />
+      <then>
+        <foreach list="${wsdlFlist}"
+                 delimiter=","
+                 target="get-wsdl-url"
+                 param="wsdl.url"
+                 inheritall="true" inheritrefs="true"
+                 />
+      </then>
+    </if>
+  </target>
+
+  <target name="get-wsdl-url" >
+    <echo>wsdl.url = ${wsdl.url} </echo>
+
+    <var name="wsdlVar" value="fname${wsdl.url}"/>
+    <basename property="${wsdlVar}" file="${wsdl.url}"/>
+    <propertycopy name="wsdlbase" from="${wsdlVar}" override="true" />
+    <echo> wsdlbase= ${wsdlbase} </echo>
+    
+    <get src="${wsdl.url}" dest="${axis.build.dir}/wsdl/${wsdlbase}" usetimestamp="true"  /> 
+    
+  </target>
+
+  <!-- ================================================================== -->
+  <!-- PROCESS-WSDLS          --> 
+  <!-- ================================================================== -->
+  <target name="process-wsdls" >
+
+    <if>
+      <isset property="axis.wsdl.dir" />
+      <then>
+        <property name="axis.wsdl.dir.to.process" location="${axis.wsdl.dir}" />
+      </then>
+      <else>
+        <property name="axis.wsdl.dir.to.process" location="${axis.webservices.wsdl.dir}" />
+      </else>
+    </if>
+
+    <if>
+      <isset property="axis.wsdl.files" />
+        
+      <then>
+        <!-- Process LIST OF WSDLs --> 
+        <foreach list="${axis.wsdl.files}"
+                 delimiter=","
+                 target="process-single-wsdl-relative"
+                 param="wsdlFileRelative" 
+                 inheritall="true" inheritrefs="true" >
+        </foreach>
+      </then>
+      
+      <elseif>
+        <isset property="axis.wsdl.dir" />
+        <then>
+          <echo>Processing ALL WSDLs from ${axis.wsdl.dir} </echo>
+          <foreach param="wsdlFile"  target="process-single-wsdl" 
+                   inheritall="true" inheritrefs="true" >
+            <path>
+              <fileset dir="${axis.wsdl.dir}" >
+                <include name="*.wsdl"/>
+                <exclude  name="**/*_defs.wsdl" />
+              </fileset>
+            </path>   
+          </foreach>
+        </then>
+      </elseif>
+      
+      <else>
+        <if>
+          <available file="${axis.wsdl.properties.file}" />
+          <then>
+            <echo>****************************************************************************</echo>
+            <echo>FAIL:: You MUST specify either axis.wsdl.files AND/OR axis.wsdl.dir </echo>
+            <echo>****************************************************************************</echo>
+            <fail/>
+          </then>
+          <else>
+            <echo>NO WSDLS TO PROCESS</echo>
+          </else>
+        </if>
+      </else> 
+      
+    </if>  
+    
+    <!-- Move generated test cases to the axis.test.dir -->
+    <if>
+      <istrue value="${axis.testcase}" />
+      <then>
+        <echo>**** move the generated testcases to folder ${axis.test.dir}</echo>
+      
+        <move todir="${axis.test.dir}">
+          <fileset dir="${axis.generated.dir}">
+            <include name="**/*TestCase*"/>
+          </fileset>
+        </move>
+      </then>
+    </if>
+  </target>
+
+  <!-- ================================================================== -->
+  <!-- PROCESS-NAMESPACE-MAPPINGS       -->
+  <!-- ================================================================== -->
+  <target name="process-namespace-mappings" >
+    <delete file="${nsToPkg.file}" />
+    <touch file="${nsToPkg.file}" />
+
+    <if>
+      <isset property="axis.wsdl2java.namespaceMappings" />
+      <then>
+        <foreach list="${axis.wsdl2java.namespaceMappings}"
+                 delimiter=","
+                 target="process-indiv-namespace-mapping"
+                 param="key.value"
+                 inheritall="true" inheritrefs="true" 
+                 />
+      </then>
+    </if>
+  </target>
+
+  <target name="process-indiv-namespace-mapping" >
+    <echo>key.value = ${key.value} </echo>
+    <concat destfile="${nsToPkg.file}" append="true" >
+      ${key.value}
+    </concat>  
+  </target>
+
+  <!-- ================================================================== -->
+  <!-- PROCESS-SINGLE-WSDL    --> 
+  <!-- ================================================================== -->
+
+  <target name="process-single-wsdl-relative" > 
+    <echo>Processing (${axis.wsdl.dir.to.process}/${wsdlFileRelative}) </echo>
+    <var name="wsdlFile" value="${axis.wsdl.dir.to.process}/${wsdlFileRelative}" />   
+    <runtarget target="process-single-wsdl" />
+  </target>
+
+
+  <target name="generate-baseName" > 
+    <basename property="wsdlBaseName" file="${wsdlFile}" suffix=".wsdl" />
+    <echo>wsdlBaseName= ${wsdlBaseName}</echo>
+  </target>
+
+  <target name="generate-jar-filename" > 
+    <!-- ,,,,,,,,,,,,,,, --> 
+    <!-- generate the JAR filename --> 
+    <var name="axis.jarfile" value="${axis.client.jars.dir}/${wsdlBaseName}-client.jar"/>
+    <echo>axis.jarfile= ${axis.jarfile}</echo>
+  </target>
+
+  <target name="process-single-wsdl" > 
+    <runtarget target="generate-baseName" />
+    <if>
+      <isset property="axis.is.cleaning" />
+      <then>
+        <if>
+          <istrue value="${axis.build.client.jars}" />
+          <then>
+            <runtarget target="generate-jar-filename" />
+            <delete file="${axis.jarfile}" quiet="true" /> 
+          </then>
+        </if>
+      </then>
+
+      <else>
+        <runtarget target="process-single-wsdl-to-java" />
+      </else>
+    </if>
+  </target>
+
+  <target name="process-single-wsdl-to-java" > 
+
+    <!-- ,,,,,,,,,,,,,,, --> 
+    <!-- If server.wsdl is set, then generate serverside stuff  
+         NOTE: server.wsdl is the base file name, not the full path --> 
+
+    <property name="serverWSDL" value="${axis.server.wsdl}" />
+    <var name="thisWSDL" value="xxname${wsdlFile}" />
+    <basename property="${thisWSDL}" file="${wsdlFile}"/>
+    <propertycopy name="wsdlbase" from="${thisWSDL}" override="true" />
+    <var name="axis.serverside" value="false" />   
+    <var name="axis.skeletondeploy" value="false" /> 
+    <echo>wsdlbase= ${wsdlbase}  .VS. serverWSDL=${serverWSDL}</echo>
+    <if>
+      <equals arg1="${wsdlbase}" arg2="${serverWSDL}" casesensitive="true" trim="true" />
+      <then>
+        <echo>!!!! ${serverWSDL} is the serverside WSDL !!!!</echo>
+        <var name="axis.serverside" value="true" />   
+        <var name="axis.skeletondeploy" value="true" /> 
+      </then>
+    </if> 
+    <echo>axis.skeletondeploy= ${axis.skeletondeploy}</echo>
+    <echo>axis.serverside= ${axis.serverside}</echo>
+    
+    <!-- ,,,,,,,,,,,,,,, --> 
+    <!-- !!!! Do NOT allow RPC style by default !!!! --> 
+    <if>
+      <istrue value="${axis.allow.rpc}" />
+      <then>
+        <echo>RPC style WSDL is ALLOWED !!!!!!!!!!!! </echo>
+      </then>
+      <else>
+        <loadfile property="wsdl" srcFile="${wsdlFile}"/>
+        <condition property="isRPC" value="true">
+          <contains string="${wsdl}" substring="rpc" casesensitive="false" />
+        </condition> 
+        <echo>isRPC= ${isRPC}</echo>
+        <if>
+          <istrue value="${isRPC}" />
+          <then>
+            <fail>RPC style WSDL is NOT allowed</fail>
+          </then>
+        </if>
+      </else>
+    </if>
+
+    <!-- ,,,,,,,,,,,,,,, --> 
+    <!-- generate the JAR filename --> 
+
+     <if>
+      <istrue value="${axis.build.client.jars}" />
+      <then>
+        <runtarget target="generate-jar-filename" />
+      </then>
+    </if>
+
+    <!-- ,,,,,,,,,,,,,,, --> 
+    <!-- Check if the WSDL file is up-to-date --> 
+
+    <echo>Check if ${wsdlFile} is up-to-date </echo>
+    <var name="uptodateVar" value="${wsdlbase}.uptodate"/>
+
+    <echo>wsdlFile.uptodate= ${wsdlbase}.uptodate</echo>
+
+    <if>
+      <istrue value="${axis.build.client.jars}" />
+      <then>
+        <uptodate property="${uptodateVar}" 
+                  srcfile="${wsdlFile}" targetfile="${axis.jarfile}" />
+      </then>
+      <else>
+        <uptodate property="${uptodateVar}" 
+                  srcfile="${wsdlFile}" targetfile="${axis.build.dir}/${wsdlbase}.touchfile" />
+      </else>
+    </if>
+    <echo>uptodateVar= ${uptodateVar}</echo>
+
+    <if>
+      <isset property="${uptodateVar}" />
+      <then>
+        <propertycopy name="uptodate" from="${uptodateVar}" override="true" />
+      </then>
+    </if>
+    <echo>thisWsdlIsUpToDate= ${uptodate} </echo>
+
+    <!-- ,,,,,,,,,,,,,,, --> 
+    <!-- Process the WSDL file --> 
+
+    <if>
+      <isset property="uptodate" />
+      <then>
+        <echo>${wsdlFile} is UP-TO-DATE with ${axis.jarfile}</echo>
+      </then>
+      <else>
+        <delete dir="${axis.generated.dir}" quiet="true" /> 
+        <mkdir dir="${axis.generated.dir}" /> 
+
+        <delete dir="${axis.build.dir}/src" quiet="true" />
+        <delete dir="${axis.build.dir}/classes" quiet="true" />
+
+        <echo>Generate .java files from ${wsdlFile}</echo>
+        <axis-wsdl2java all="${axis.all}"
+                        output="${axis.generated.dir}"
+                        testcase="${axis.testcase}"
+                        verbose="${axis.verbose}"
+                        deployscope="${axis.deployscope}"
+                        skeletondeploy="${axis.skeletondeploy}"
+                        noimports="${axis.noimports}"
+                        typemappingVersion="${axis.typemappingversion}"
+                        serverside="${axis.serverside}"
+                        noWrapped="${axis.noWrapped}"
+                        namespacemappingfile="${nsToPkg.file}"
+                        wrapArrays="${axis.wrapArrays}"
+                        timeout="${axis.timeout}"
+                        debug="${axis.debug}"
+                        url="${wsdlFile}">
+        </axis-wsdl2java> 
+
+        <runtarget target="copy-gen-java-files" /> 
+
+        <if>
+          <istrue value="${axis.build.client.jars}" />
+          <then>
+            <runtarget target="axis-compile" /> 
+            <runtarget target="axis-jar" /> 
+          </then>
+        </if>
+
+        <!-- Touch a file which keeps us from building unless we have too --> 
+        <touch file="${axis.build.dir}/${wsdlbase}.touchfile" />
+      </else>
+    </if>
+  </target>
+
+  <!-- ================================================================== -->
+  <!-- COPY-GEN-JAVA-FILES             -->
+  <!-- ================================================================== -->
+
+  <target name="process-excludes" >
+    <mkdir dir="${axis.build.dir}/src" /> 
+
+    <delete file="${excludes.file}" />
+    <touch file="${excludes.file}" />
+    <if>
+      <isset property="axis.excludes" />
+      <then>
+        <foreach list="${axis.excludes}"
+                 delimiter=";"
+                 target="process-indiv-exclude"
+                 param="exclude.pattern"
+                 inheritall="true" inheritrefs="true"
+                 />
+      </then>
+    </if>
+  </target>
+
+  <target name="process-indiv-exclude" >
+    <echo>exclude.pattern = ${exclude.pattern} </echo>
+    <concat destfile="${excludes.file}" append="true" >${exclude.pattern}${line.separator}</concat>  
+  </target>
+
+  <target name="copy-gen-java-files"
+          description="Copies the generated java files into a separate build directory."
+          depends="process-excludes" >
+    
+    <copy todir="${axis.build.dir}/src">
+      <fileset dir="${axis.generated.dir}"
+               excludesfile="${excludes.file}" />
+    </copy>
+  </target>
+
+  <!-- ================================================================== -->
+  <!-- C O M P I L E                                                      -->
+  <!-- ================================================================== -->
+
+  <target name="axis-compile" >
+    <mkdir dir="${axis.build.dir}/classes" /> 
+    <if>
+      <isset property="axis.fixed.src.dir" />
+      <then>
+        <javac  destdir="${axis.build.dir}/classes"   
+                fork="yes" memoryMaximumSize="128m" includeAntRuntime="no"
+                nowarn="on"
+                includes="${axis.javac.includes}" 
+                listfiles="on"
+                verbose="off" 
+                depend="off" 
+                debug="on">
+
+          <classpath refid="axis.classpath.compile" />
+         
+          <src path="${axis.build.dir}/src"/>
+          <src path="${axis.fixed.src.dir}"/>
+        </javac>
+      </then>
+      <else>
+        <javac  destdir="${axis.build.dir}/classes"   
+                fork="yes" memoryMaximumSize="128m" includeAntRuntime="no"
+                nowarn="on"
+                includes="${axis.javac.includes}" 
+                listfiles="on"
+                verbose="off" 
+                depend="off" 
+                debug="on">
+          
+          <classpath refid="axis.classpath.compile" />
+         
+          <src path="${axis.build.dir}/src"/>
+        </javac>
+      </else>
+    </if>
+ </target>
+
+  <!-- ================================================================== -->
+  <!-- J A R                                                              --> 
+  <!-- ================================================================== -->
+
+  <target name="axis-jar" >
+
+    <tstamp prefix="axis"/>
+
+    <jar destfile="${axis.jarfile}" >
+      <zipfileset dir="${axis.build.dir}/classes" />
+      
+      <manifest>
+        <attribute name="Built-By" value="${user.name}"/>
+        <attribute name="Built-On" value="${axis.TODAY} ${axis.TSTAMP}"/>
+      </manifest>
+    </jar>
+  </target>
+
+  
+</project>
+

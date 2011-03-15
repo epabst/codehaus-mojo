@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+  <properties>
+    <author email="ehsavoie73@gmail.com">Emmanuel Hugonnet</author>
+    <title>Example</title>
+  </properties>
+  <head>
+    <meta/>
+  </head>
+  <body>
+      <section name="Example">
+        <p><!--Necessary because of a bug removing p tags--></p>
+          <!-- Within sections, any XHTML can be used -->
+          <p>
+            This is an example of a report by the Scm Changelog Report:
+          </p>
+          <br/>
+          <img src="../images/changelog_sample.png" />
+      </section>
+      <section name="Eat your own dog food">
+        <p><!--Necessary because of a bug removing p tags--></p>
+          <!-- Within sections, any XHTML can be used -->
+          <p>
+            We use our plugin for the its development. 
+            <br/>
+            You will found the report at the page <a href="../changelog.html">Eat your own dog food</a>
+          </p>
+      </section>
+  </body>
+</document>

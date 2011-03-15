@@ -1,0 +1,36 @@
+Usage
+
+* UserSettings (setup:user-settings) and GlobalSettings (setup:global-settings)
+
+ These goals will try to set your settings, which means writing a settings.xml to your $\{user.home\}/.m2 -directory in case of user-settings or $\{maven.home\}/conf -directory in case of global-settings.\
+ This plugin has one extra feature: it can encrypt the passwords of every server if you add '-DencryptPasswords=true'. This requires a settings-security.xml file with an encrypted master-password.\
+ See setup:settings-security to achieve this.
+ 
+* ScmSettings
+
+ Some Source Control Management Settingsfiles might be stored in $\{user.home\}/.scm -directory
+ 
+ Right now we can create settingsfiles for the following scm-systems:
+
+ * Cleascase
+
+ * CVS
+
+ * GIT
+
+ * Starteam
+
+ * SVN
+
+ * VSS 
+
+* SettingsSecurity (setup:settings-security)
+
+ With this plugin a settings-security.xml file will be placed in the $\{user.hom\}/.m2 -directory.\
+ This plugin doesn't require a template, it will also work if you provide a password property, like '-Dpassword=mypassword'.
+
+* Toolchains (setup:toolchains)
+
+ Based on a template you can configure the toolchains.xml.\
+ Note that this goal does NOT support merging.
+  

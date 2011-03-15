@@ -1,0 +1,331 @@
+ ~~ Licensed to the Apache Software Foundation (ASF) under one
+ ~~ or more contributor license agreements.  See the NOTICE file
+ ~~ distributed with this work for additional information
+ ~~ regarding copyright ownership.  The ASF licenses this file
+ ~~ to you under the Apache License, Version 2.0 (the
+ ~~ "License"); you may not use this file except in compliance
+ ~~ with the License.  You may obtain a copy of the License at
+ ~~
+ ~~   http://www.apache.org/licenses/LICENSE-2.0
+ ~~
+ ~~ Unless required by applicable law or agreed to in writing,
+ ~~ software distributed under the License is distributed on an
+ ~~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ ~~ KIND, either express or implied.  See the License for the
+ ~~ specific language governing permissions and limitations
+ ~~ under the License.
+
+ -----
+ Update Properties
+ -----
+ Stephen Connolly
+ ------
+ 2009-03-27
+ ------
+
+Update Properties
+
+  This goal is useful when you define dependency versions using properties. For example if you have a suite of projects
+  and you want to ensure that you use the same version of each dependency in the suite, you might have a dependency
+  section that looks like this:
+
+---
+<project>
+  ...
+  <dependencies>
+    ...
+    <dependency>
+      <groupId>com.foo.bar</groupId>
+      <artifactId>manchu-core</artifactId>
+      <version>[${manchu.version}]</version>
+    </dependency>
+    ...
+    <dependency>
+      <groupId>com.foo.bar</groupId>
+      <artifactId>manchu-extra</artifactId>
+      <version>[${manchu.version}]</version>
+    </dependency>
+    ...
+  </dependencies>
+  ...
+  <properties>
+    ...
+    <manchu.version>1.5.0</manchu.version>
+    ...
+  </properties>
+  ...
+</project>
+---
+
+  The aim being to allow updating the version of all the suite components in one go.  The versions-maven-plugin can help
+  you to automate these updates.
+
+  By default, the versions-maven-plugin will look at the dependencies in your POM.  If any dependencies declare a version
+  which depends on evaluating a single property that is defined in the POM, for example:
+
+---
+    <!-- strongly recommend this version -->
+    <dependency>
+      <groupId>com.foo.bar</groupId>
+      <artifactId>manchu-core</artifactId>
+      <version>${manchu.version}</version>
+    </dependency>
+
+    <!-- force this version -->
+    <dependency>
+      <groupId>com.foo.bar</groupId>
+      <artifactId>manchu-core</artifactId>
+      <version>[${manchu.version}]</version>
+    </dependency>
+
+    <!-- any version between this version and 2.0.0, excluding 2.0.0 and 2.0.0-SNAPSHOT -->
+    <dependency>
+      <groupId>com.foo.bar</groupId>
+      <artifactId>manchu-core</artifactId>
+      <version>[${manchu.version},2.0.0-!)</version>
+    </dependency>
+
+    <!-- any version between version 1.0.0 and this version inclusive -->
+    <dependency>
+      <groupId>com.foo.bar</groupId>
+      <artifactId>manchu-core</artifactId>
+      <version>[1.0.0,${manchu.version}]</version>
+    </dependency>
+---
+
+  If multiple dependencies use the property to define the version, then the all dependencies will be used to determine
+  what versions are available (and consequently what version to update the property to).  The version chosen in such 
+  cases must be available for all associated dependencies.
+
+  The automatic detection can be assisted by adding a version-maven-plugin configuration section to the POM,
+  for example if we add the following to the POM:
+
+---
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      ...
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <version>${pluginVersion}</version>
+        <configuration>
+          ...
+          <properties>
+            ...
+            <property>
+              <name>manchu.version</name>
+              ...
+              <dependencies>
+                <dependency>
+                  <groupId>com.foo.bar</groupId>
+                  <artifactId>manchu-wibble</artifactId>
+                </dependency>
+                ...
+              </dependencies>
+              ...
+            </property>
+          </properties>
+          ...
+        </configuration>
+      </plugin>
+      ...
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
+---
+
+  Then executing the <<<update-properties>>> goal will update the <<<manchu.version>>> property to the latest common 
+  version of both manchu-core and manchu-wibble available to  you (i.e. based on your local repository and all 
+  currently active remote repositories).
+
+  If you want to restrict updates to within a specific range, for example, suppose we only want the 1.5 stream of
+  manchu:
+
+---
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      ...
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <version>${pluginVersion}</version>
+        <configuration>
+          ...
+          <properties>
+            ...
+            <property>
+              <name>manchu.version</name>
+              ...
+              <version>[1.5.0,1.6.0-!)</version>
+              ...
+            </property>
+            ...
+          </properties>
+          ...
+        </configuration>
+      </plugin>
+      ...
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
+---
+
+  Additionally, if you want to disable the automatic detection of properties set the autoLinkItemDependencies to false
+
+---
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      ...
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <version>${pluginVersion}</version>
+        <configuration>
+          ...
+          <properties>
+            ...
+            <property>
+              <name>manchu.version</name>
+              ...
+              <autoLinkDependencies>false</autoLinkDependencies>
+              ...
+            </property>
+            ...
+          </properties>
+          ...
+        </configuration>
+      </plugin>
+      ...
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
+---
+
+
+  By default, the reactor will also be searched to see if it can satisfy the property's associated dependencies.
+  If you want to disable the preference given to the reactor (i.e. stop the reactor version always winning)
+
+---
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      ...
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <version>${pluginVersion}</version>
+        <configuration>
+          ...
+          <properties>
+            ...
+            <property>
+              <name>manchu.version</name>
+              ...
+              <preferReactor>false</preferReactor>
+              ...
+            </property>
+            ...
+          </properties>
+          ...
+        </configuration>
+      </plugin>
+      ...
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
+---
+
+  If you want to disable the searching the reactor at all:
+
+---
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      ...
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <version>${pluginVersion}</version>
+        <configuration>
+          ...
+          <properties>
+            ...
+            <property>
+              <name>manchu.version</name>
+              ...
+              <searchReactor>false</searchReactor>
+              ...
+            </property>
+            ...
+          </properties>
+          ...
+        </configuration>
+      </plugin>
+      ...
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
+---
+
+  The allowSnapshots property and configuration option allow the inclusion of snapshots, if you want to ensure that
+  snapshots are never resolved,
+
+---
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      ...
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>versions-maven-plugin</artifactId>
+        <version>${pluginVersion}</version>
+        <configuration>
+          ...
+          <allowSnapshots>true</allowSnapshots> <!-- in general allow them -->          
+          ...
+          <properties>
+            ...
+            <property>
+              <name>manchu.version</name>
+              ...
+              <banSnapshots>true</banSnapshots> <!-- but never for this property -->
+              ...
+            </property>
+            ...
+          </properties>
+          ...
+        </configuration>
+      </plugin>
+      ...
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
+---
+

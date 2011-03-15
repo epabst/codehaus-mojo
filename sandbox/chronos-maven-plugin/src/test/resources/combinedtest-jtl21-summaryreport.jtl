@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<httpSample t="628" lt="626" ts="1197019238540" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<httpSample t="1229" lt="804" ts="1197019237933" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<httpSample t="1217" lt="798" ts="1197019237733" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<httpSample t="1211" lt="815" ts="1197019238135" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<httpSample t="1202" lt="831" ts="1197019238338" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<httpSample t="515" lt="361" ts="1197019239649" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<httpSample t="670" lt="514" ts="1197019239495" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<httpSample t="671" lt="516" ts="1197019239495" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<httpSample t="671" lt="515" ts="1197019239495" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<httpSample t="505" lt="317" ts="1197019239843" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<sample t="28" lt="0" ts="1197019240472" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="45" lt="0" ts="1197019240468" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="63" lt="0" ts="1197019240472" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="94" lt="0" ts="1197019240472" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="91" lt="0" ts="1197019240652" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="1" lt="0" ts="1197019240838" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="46" lt="0" ts="1197019240815" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="22" lt="0" ts="1197019240868" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="95" lt="0" ts="1197019240802" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="38" lt="0" ts="1197019241045" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="948" lt="570" ts="1197019241141" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<httpSample t="1005" lt="594" ts="1197019241192" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<httpSample t="1001" lt="593" ts="1197019241199" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<httpSample t="1040" lt="631" ts="1197019241162" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<httpSample t="1206" lt="819" ts="1197019241385" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<httpSample t="311" lt="151" ts="1197019242392" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<httpSample t="296" lt="158" ts="1197019242500" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<httpSample t="296" lt="157" ts="1197019242502" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<httpSample t="311" lt="156" ts="1197019242504" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<sample t="48" lt="0" ts="1197019243005" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="53" lt="0" ts="1197019243099" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="66" lt="0" ts="1197019243102" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="54" lt="0" ts="1197019243118" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="299" lt="146" ts="1197019242894" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<sample t="93" lt="0" ts="1197019243354" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="7" lt="0" ts="1197019243454" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="39" lt="0" ts="1197019243469" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="65" lt="0" ts="1197019243496" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="104" lt="0" ts="1197019243473" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="43" lt="0" ts="1197019243863" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="412" lt="408" ts="1197019243749" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<httpSample t="973" lt="593" ts="1197019243762" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<httpSample t="968" lt="594" ts="1197019243810" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<httpSample t="326" lt="191" ts="1197019244463" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<httpSample t="1022" lt="605" ts="1197019243882" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<sample t="0" lt="0" ts="1197019245091" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="948" lt="578" ts="1197019244207" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<httpSample t="293" lt="156" ts="1197019245038" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<httpSample t="326" lt="156" ts="1197019245080" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<sample t="39" lt="0" ts="1197019245394" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="336" lt="200" ts="1197019245207" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<sample t="82" lt="0" ts="1197019245633" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="40" lt="0" ts="1197019245709" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="332" lt="197" ts="1197019245458" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<sample t="24" lt="0" ts="1197019245846" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="6" lt="0" ts="1197019246051" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="60" lt="0" ts="1197019246016" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="27" lt="0" ts="1197019246093" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="428" lt="423" ts="1197019245735" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<sample t="15" lt="0" ts="1197019246172" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="99" lt="0" ts="1197019246421" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="287" lt="147" ts="1197019246466" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<sample t="63" lt="0" ts="1197019247055" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="980" lt="586" ts="1197019246359" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<httpSample t="1027" lt="609" ts="1197019246378" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<httpSample t="973" lt="606" ts="1197019246489" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<sample t="95" lt="0" ts="1197019247419" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="306" lt="147" ts="1197019247642" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<httpSample t="1167" lt="772" ts="1197019246821" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<httpSample t="297" lt="161" ts="1197019247708" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<httpSample t="282" lt="144" ts="1197019247764" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<httpSample t="383" lt="380" ts="1197019247816" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<sample t="2" lt="0" ts="1197019248250" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="51" lt="0" ts="1197019248307" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="74" lt="0" ts="1197019248348" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="46" lt="0" ts="1197019248554" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="321" lt="154" ts="1197019248291" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<sample t="69" lt="0" ts="1197019248660" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="8" lt="0" ts="1197019248724" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="291" lt="154" ts="1197019248502" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<sample t="93" lt="0" ts="1197019248914" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="11" lt="0" ts="1197019249096" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="16" lt="0" ts="1197019249308" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="23" lt="0" ts="1197019249409" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="1004" lt="587" ts="1197019248902" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<httpSample t="928" lt="562" ts="1197019249031" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<httpSample t="995" lt="623" ts="1197019249033" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<httpSample t="616" lt="613" ts="1197019249625" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<httpSample t="616" lt="611" ts="1197019249733" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<httpSample t="333" lt="197" ts="1197019250208" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<httpSample t="282" lt="144" ts="1197019250262" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<httpSample t="290" lt="154" ts="1197019250331" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<httpSample t="291" lt="153" ts="1197019250544" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<sample t="21" lt="0" ts="1197019250845" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="49" lt="0" ts="1197019250843" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="289" lt="144" ts="1197019250652" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<sample t="91" lt="0" ts="1197019250923" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="80" lt="0" ts="1197019251138" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="67" lt="0" ts="1197019251168" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="20" lt="0" ts="1197019251244" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="99" lt="0" ts="1197019251193" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="27" lt="0" ts="1197019251316" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="58" lt="0" ts="1197019251520" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="75" lt="0" ts="1197019251565" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="932" lt="568" ts="1197019251536" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<httpSample t="995" lt="604" ts="1197019251593" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<httpSample t="1000" lt="622" ts="1197019251655" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<httpSample t="1145" lt="779" ts="1197019251879" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<httpSample t="310" lt="172" ts="1197019252771" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<httpSample t="1217" lt="796" ts="1197019251942" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<httpSample t="309" lt="148" ts="1197019252891" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<httpSample t="297" lt="163" ts="1197019252958" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<sample t="93" lt="0" ts="1197019253383" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="37" lt="0" ts="1197019253502" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="53" lt="0" ts="1197019253557" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="294" lt="156" ts="1197019253326" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<httpSample t="293" lt="158" ts="1197019253461" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<sample t="73" lt="0" ts="1197019253778" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="40" lt="0" ts="1197019253841" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="45" lt="0" ts="1197019253912" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="73" lt="0" ts="1197019253922" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="54" lt="0" ts="1197019254056" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="71" lt="0" ts="1197019254297" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="65" lt="0" ts="1197019254412" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="375" lt="370" ts="1197019254153" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<httpSample t="591" lt="409" ts="1197019254183" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<httpSample t="289" lt="151" ts="1197019254831" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<httpSample t="976" lt="585" ts="1197019254259" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<httpSample t="328" lt="160" ts="1197019255076" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<sample t="27" lt="0" ts="1197019255422" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="1025" lt="601" ts="1197019254670" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<sample t="42" lt="0" ts="1197019255706" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="30" lt="0" ts="1197019255751" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="290" lt="157" ts="1197019255538" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<httpSample t="1246" lt="876" ts="1197019254778" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<sample t="62" lt="0" ts="1197019256050" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="20" lt="0" ts="1197019256130" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="159" lt="158" ts="1197019255997" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<httpSample t="374" lt="369" ts="1197019256083" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<httpSample t="138" lt="136" ts="1197019256327" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<sample t="37" lt="0" ts="1197019256457" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="59" lt="0" ts="1197019256451" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="8" lt="0" ts="1197019256768" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="439" lt="433" ts="1197019256414" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<sample t="63" lt="0" ts="1197019256795" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="146" lt="146" ts="1197019256760" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<sample t="58" lt="0" ts="1197019257077" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="59" lt="0" ts="1197019257209" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="145" lt="142" ts="1197019257155" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<sample t="86" lt="0" ts="1197019257569" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="56" lt="0" ts="1197019257602" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="1155" lt="786" ts="1197019256811" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<sample t="13" lt="0" ts="1197019257959" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="997" lt="626" ts="1197019257159" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<httpSample t="276" lt="140" ts="1197019258269" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<httpSample t="1222" lt="797" ts="1197019257436" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<httpSample t="782" lt="578" ts="1197019257956" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<httpSample t="335" lt="199" ts="1197019258458" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<sample t="37" lt="0" ts="1197019258848" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="42" lt="0" ts="1197019259096" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="269" lt="137" ts="1197019258961" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<sample t="59" lt="0" ts="1197019259186" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="999" lt="632" ts="1197019258273" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<httpSample t="286" lt="151" ts="1197019259041" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<sample t="45" lt="0" ts="1197019259439" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="51" lt="0" ts="1197019259533" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="29" lt="0" ts="1197019259629" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="267" lt="135" ts="1197019259575" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<httpSample t="400" lt="397" ts="1197019259547" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<sample t="66" lt="0" ts="1197019259885" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="23" lt="0" ts="1197019259960" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="413" lt="411" ts="1197019259785" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<sample t="71" lt="0" ts="1197019260144" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="293" lt="158" ts="1197019260249" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<sample t="46" lt="0" ts="1197019260516" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="292" lt="155" ts="1197019260501" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<sample t="41" lt="0" ts="1197019260844" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="51" lt="0" ts="1197019261096" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="12" lt="0" ts="1197019261187" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="959" lt="591" ts="1197019260254" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<httpSample t="1118" lt="747" ts="1197019260286" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<httpSample t="588" lt="584" ts="1197019260864" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<sample t="49" lt="0" ts="1197019261448" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="278" lt="139" ts="1197019261515" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<httpSample t="338" lt="201" ts="1197019261707" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<httpSample t="293" lt="157" ts="1197019261755" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<sample t="61" lt="0" ts="1197019262095" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="55" lt="0" ts="1197019262348" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="84" lt="0" ts="1197019262349" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="73" lt="0" ts="1197019262457" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="34" lt="0" ts="1197019262734" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="82" lt="0" ts="1197019262704" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="1166" lt="797" ts="1197019261799" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<httpSample t="1729" lt="410" ts="1197019261500" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<httpSample t="273" lt="138" ts="1197019263267" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<httpSample t="304" lt="168" ts="1197019263532" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<httpSample t="1009" lt="614" ts="1197019262832" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<sample t="48" lt="0" ts="1197019263843" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="958" lt="588" ts="1197019263070" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<sample t="68" lt="0" ts="1197019264138" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="1143" lt="762" ts="1197019263086" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<sample t="70" lt="0" ts="1197019264192" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="300" lt="145" ts="1197019264144" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<sample t="78" lt="0" ts="1197019264508" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="272" lt="136" ts="1197019264331" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<sample t="15" lt="0" ts="1197019264746" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="292" lt="159" ts="1197019264532" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<httpSample t="385" lt="381" ts="1197019264564" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<sample t="78" lt="0" ts="1197019264906" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="94" lt="0" ts="1197019265063" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="92" lt="0" ts="1197019265126" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="394" lt="388" ts="1197019264888" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<sample t="45" lt="0" ts="1197019265285" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="288" lt="153" ts="1197019265252" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<sample t="28" lt="0" ts="1197019265519" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="3" lt="0" ts="1197019265842" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="321" lt="149" ts="1197019265585" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<sample t="76" lt="0" ts="1197019266146" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="44" lt="0" ts="1197019266208" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="1028" lt="643" ts="1197019265459" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<sample t="45" lt="0" ts="1197019266554" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="1141" lt="774" ts="1197019265632" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<httpSample t="1111" lt="748" ts="1197019265848" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<httpSample t="292" lt="155" ts="1197019266789" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<httpSample t="385" lt="380" ts="1197019266900" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<httpSample t="294" lt="158" ts="1197019267076" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<sample t="26" lt="0" ts="1197019267383" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="137" lt="135" ts="1197019267588" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<httpSample t="279" lt="147" ts="1197019267262" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<httpSample t="1003" lt="632" ts="1197019266524" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<sample t="78" lt="0" ts="1197019268230" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="85" lt="0" ts="1197019268238" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="95" lt="0" ts="1197019268230" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="90" lt="0" ts="1197019268238" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="21" lt="0" ts="1197019268626" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="37" lt="0" ts="1197019268624" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="38" lt="0" ts="1197019268629" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="380" lt="376" ts="1197019268610" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<httpSample t="1132" lt="166" ts="1197019268239" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<httpSample t="303" lt="161" ts="1197019269293" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<httpSample t="663" lt="660" ts="1197019268949" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<sample t="26" lt="0" ts="1197019269673" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="13" lt="0" ts="1197019269898" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="50" lt="0" ts="1197019270001" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="1220" lt="827" ts="1197019268974" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<httpSample t="1231" lt="836" ts="1197019268963" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<httpSample t="289" lt="153" ts="1197019269925" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<sample t="26" lt="0" ts="1197019270213" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="93" lt="0" ts="1197019270516" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="390" lt="386" ts="1197019270352" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<httpSample t="298" lt="160" ts="1197019270498" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<sample t="6" lt="0" ts="1197019270910" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="450" lt="160" ts="1197019270498" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<httpSample t="409" lt="407" ts="1197019270541" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<sample t="6" lt="0" ts="1197019271098" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="68" lt="0" ts="1197019271250" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="287" lt="149" ts="1197019271044" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<sample t="96" lt="0" ts="1197019271405" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="287" lt="152" ts="1197019271253" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<sample t="85" lt="0" ts="1197019271620" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="87" lt="0" ts="1197019271633" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="99" lt="0" ts="1197019271842" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="86" lt="0" ts="1197019272022" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="1015" lt="635" ts="1197019271217" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<sample t="22" lt="0" ts="1197019272243" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="600" lt="595" ts="1197019272006" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<httpSample t="297" lt="161" ts="1197019272534" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<httpSample t="1182" lt="797" ts="1197019271802" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<httpSample t="580" lt="576" ts="1197019272409" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<sample t="59" lt="0" ts="1197019273133" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="326" lt="167" ts="1197019272908" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<httpSample t="164" lt="163" ts="1197019273287" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<sample t="33" lt="0" ts="1197019273494" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="21" lt="0" ts="1197019273536" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="298" lt="161" ts="1197019273291" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<httpSample t="1166" lt="779" ts="1197019272567" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<sample t="13" lt="0" ts="1197019273754" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="60" lt="0" ts="1197019273858" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="28" lt="0" ts="1197019273891" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="40" lt="0" ts="1197019274068" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="376" lt="371" ts="1197019273828" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<sample t="68" lt="0" ts="1197019274220" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="300" lt="159" ts="1197019274036" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<sample t="29" lt="0" ts="1197019274638" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="557" lt="374" ts="1197019274220" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<httpSample t="284" lt="148" ts="1197019274507" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<httpSample t="634" lt="628" ts="1197019274409" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<sample t="89" lt="0" ts="1197019274968" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="40" lt="0" ts="1197019275093" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="290" lt="156" ts="1197019275080" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<sample t="92" lt="0" ts="1197019275435" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="311" lt="143" ts="1197019275345" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<httpSample t="1148" lt="759" ts="1197019274589" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<sample t="75" lt="0" ts="1197019275672" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="67" lt="0" ts="1197019275958" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="87" lt="0" ts="1197019276048" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="295" lt="159" ts="1197019276039" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<httpSample t="983" lt="587" ts="1197019275358" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<sample t="83" lt="0" ts="1197019276326" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="50" lt="0" ts="1197019276636" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="952" lt="579" ts="1197019275828" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<httpSample t="303" lt="148" ts="1197019276643" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<sample t="48" lt="0" ts="1197019276988" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="156" lt="155" ts="1197019277083" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<httpSample t="575" lt="569" ts="1197019276711" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<sample t="51" lt="0" ts="1197019277248" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="1007" lt="590" ts="1197019276437" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<sample t="62" lt="0" ts="1197019277541" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="65" lt="0" ts="1197019277600" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="405" lt="402" ts="1197019277337" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<httpSample t="322" lt="155" ts="1197019277588" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<sample t="59" lt="0" ts="1197019277904" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="299" lt="164" ts="1197019277747" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<sample t="20" lt="0" ts="1197019278213" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="293" lt="159" ts="1197019278045" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<sample t="62" lt="0" ts="1197019278348" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="49" lt="0" ts="1197019278535" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="35" lt="0" ts="1197019278640" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="71" lt="0" ts="1197019278711" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="1014" lt="629" ts="1197019277967" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<sample t="78" lt="0" ts="1197019278976" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="1140" lt="763" ts="1197019278265" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<httpSample t="294" lt="160" ts="1197019279284" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<sample t="5" lt="0" ts="1197019279880" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="951" lt="576" ts="1197019279084" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<httpSample t="1148" lt="772" ts="1197019278886" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<httpSample t="333" lt="200" ts="1197019279708" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<httpSample t="798" lt="595" ts="1197019279356" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<sample t="36" lt="0" ts="1197019280187" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="56" lt="0" ts="1197019280343" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="283" lt="144" ts="1197019280338" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<httpSample t="284" lt="145" ts="1197019280338" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<sample t="5" lt="0" ts="1197019280700" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="453" lt="298" ts="1197019280456" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<httpSample t="393" lt="387" ts="1197019280524" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<sample t="1" lt="0" ts="1197019280923" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="15" lt="0" ts="1197019280924" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="31" lt="0" ts="1197019281225" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="82" lt="0" ts="1197019281211" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="79" lt="0" ts="1197019281241" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="377" lt="370" ts="1197019281007" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<httpSample t="283" lt="146" ts="1197019281219" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<sample t="82" lt="0" ts="1197019281595" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="141" lt="139" ts="1197019281687" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<sample t="26" lt="0" ts="1197019281804" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="10" lt="0" ts="1197019282132" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="27" lt="0" ts="1197019282130" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="965" lt="597" ts="1197019281558" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<sample t="88" lt="0" ts="1197019282458" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="1221" lt="829" ts="1197019281621" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<httpSample t="593" lt="587" ts="1197019282444" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<httpSample t="294" lt="156" ts="1197019282826" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<httpSample t="383" lt="377" ts="1197019282847" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<httpSample t="302" lt="149" ts="1197019283144" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<sample t="93" lt="0" ts="1197019283423" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="1609" lt="1428" ts="1197019281978" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<httpSample t="314" lt="148" ts="1197019283342" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<httpSample t="166" lt="165" ts="1197019283533" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<sample t="50" lt="0" ts="1197019283749" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="10" lt="0" ts="1197019283817" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="16" lt="0" ts="1197019284001" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="76" lt="0" ts="1197019283958" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="156" lt="154" ts="1197019283890" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<sample t="33" lt="0" ts="1197019284100" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="25" lt="0" ts="1197019284335" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="87" lt="0" ts="1197019284319" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="89" lt="0" ts="1197019284348" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="403" lt="398" ts="1197019284128" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<sample t="79" lt="0" ts="1197019284739" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="322" lt="154" ts="1197019284834" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<sample t="26" lt="0" ts="1197019285458" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="1223" lt="801" ts="1197019284434" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<httpSample t="1039" lt="617" ts="1197019284661" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<sample t="81" lt="0" ts="1197019285785" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="1199" lt="784" ts="1197019284708" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<httpSample t="1160" lt="788" ts="1197019285119" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<httpSample t="292" lt="158" ts="1197019286002" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<httpSample t="334" lt="198" ts="1197019286209" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<sample t="71" lt="0" ts="1197019286597" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="798" lt="161" ts="1197019285959" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<httpSample t="617" lt="432" ts="1197019286168" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<sample t="97" lt="0" ts="1197019286846" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="59" lt="0" ts="1197019286970" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="78" lt="0" ts="1197019287060" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="86" lt="0" ts="1197019287244" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="17" lt="0" ts="1197019287439" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="410" lt="407" ts="1197019287330" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<httpSample t="1160" lt="1019" ts="1197019286582" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<httpSample t="703" lt="512" ts="1197019287087" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<sample t="10" lt="0" ts="1197019288044" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="58" lt="0" ts="1197019288092" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="291" lt="155" ts="1197019288043" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<sample t="47" lt="0" ts="1197019288356" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="92" lt="0" ts="1197019288451" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="1025" lt="606" ts="1197019287631" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<sample t="29" lt="0" ts="1197019288636" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="975" lt="599" ts="1197019287758" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<sample t="97" lt="0" ts="1197019288966" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="279" lt="140" ts="1197019288959" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<httpSample t="298" lt="162" ts="1197019289036" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<sample t="63" lt="0" ts="1197019289540" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="42" lt="0" ts="1197019289636" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="1009" lt="644" ts="1197019288704" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<httpSample t="995" lt="598" ts="1197019288845" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<httpSample t="586" lt="581" ts="1197019289365" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<sample t="78" lt="0" ts="1197019289905" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="91" lt="0" ts="1197019289979" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="280" lt="142" ts="1197019290015" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<httpSample t="307" lt="153" ts="1197019290143" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<httpSample t="289" lt="153" ts="1197019290254" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<sample t="60" lt="0" ts="1197019290597" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="70" lt="0" ts="1197019290753" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="69" lt="0" ts="1197019290845" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="13" lt="0" ts="1197019290959" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="929" lt="564" ts="1197019290285" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<sample t="92" lt="0" ts="1197019291124" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="78" lt="0" ts="1197019291216" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="1034" lt="616" ts="1197019290372" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<httpSample t="431" lt="428" ts="1197019291274" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<httpSample t="276" lt="141" ts="1197019291515" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<httpSample t="268" lt="135" ts="1197019291708" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<httpSample t="583" lt="576" ts="1197019291517" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<sample t="46" lt="0" ts="1197019292093" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="283" lt="150" ts="1197019292007" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<sample t="96" lt="0" ts="1197019292279" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="76" lt="0" ts="1197019292440" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="144" lt="142" ts="1197019292403" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<sample t="12" lt="0" ts="1197019292592" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="25" lt="0" ts="1197019292677" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="1140" lt="752" ts="1197019291595" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<sample t="2" lt="0" ts="1197019292849" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="44" lt="0" ts="1197019292906" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="386" lt="383" ts="1197019292818" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<sample t="78" lt="0" ts="1197019293152" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="297" lt="161" ts="1197019293038" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<sample t="24" lt="0" ts="1197019293638" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="293" lt="152" ts="1197019293507" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<sample t="11" lt="0" ts="1197019293964" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="45" lt="0" ts="1197019294102" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="1192" lt="774" ts="1197019293004" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<httpSample t="986" lt="598" ts="1197019293251" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<sample t="56" lt="0" ts="1197019294448" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="1134" lt="750" ts="1197019293532" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<httpSample t="393" lt="391" ts="1197019294276" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<httpSample t="299" lt="163" ts="1197019294498" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<httpSample t="306" lt="170" ts="1197019294539" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<sample t="43" lt="0" ts="1197019295099" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="29" lt="0" ts="1197019295147" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="286" lt="151" ts="1197019294971" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<httpSample t="289" lt="148" ts="1197019294968" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<sample t="64" lt="0" ts="1197019295444" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="4" lt="0" ts="1197019295560" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="99" lt="0" ts="1197019295477" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="24" lt="0" ts="1197019295560" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="63" lt="0" ts="1197019295865" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="1143" lt="1140" ts="1197019294806" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<sample t="98" lt="0" ts="1197019295886" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="604" lt="599" ts="1197019295810" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<httpSample t="404" lt="241" ts="1197019296251" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<httpSample t="574" lt="567" ts="1197019296229" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<httpSample t="289" lt="157" ts="1197019296716" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<sample t="80" lt="0" ts="1197019296958" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="1218" lt="817" ts="1197019295878" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<httpSample t="138" lt="136" ts="1197019297105" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<sample t="26" lt="0" ts="1197019297307" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="40" lt="0" ts="1197019297339" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="1198" lt="824" ts="1197019296285" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<httpSample t="149" lt="146" ts="1197019297398" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<sample t="37" lt="0" ts="1197019297545" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="73" lt="0" ts="1197019297635" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="20" lt="0" ts="1197019297883" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="59" lt="0" ts="1197019297849" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="163" lt="162" ts="1197019297786" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<httpSample t="422" lt="417" ts="1197019297681" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<sample t="23" lt="0" ts="1197019298209" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="29" lt="0" ts="1197019298251" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="405" lt="400" ts="1197019298010" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<sample t="63" lt="0" ts="1197019298581" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="290" lt="142" ts="1197019298405" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<sample t="7" lt="0" ts="1197019298997" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="287" lt="155" ts="1197019298717" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<sample t="15" lt="0" ts="1197019299306" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="63" lt="0" ts="1197019299306" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="1203" lt="786" ts="1197019298204" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<httpSample t="994" lt="624" ts="1197019298534" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<sample t="7" lt="0" ts="1197019299671" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="412" lt="406" ts="1197019299623" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<httpSample t="333" lt="197" ts="1197019299710" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<httpSample t="327" lt="160" ts="1197019299831" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<httpSample t="1215" lt="790" ts="1197019298945" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<sample t="68" lt="0" ts="1197019300345" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="96" lt="0" ts="1197019300460" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="620" lt="614" ts="1197019299980" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<httpSample t="320" lt="152" ts="1197019300337" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<sample t="80" lt="0" ts="1197019300714" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="332" lt="197" ts="1197019300461" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<sample t="3" lt="0" ts="1197019300857" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="65" lt="0" ts="1197019300960" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="64" lt="0" ts="1197019301096" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="293" lt="139" ts="1197019300903" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<sample t="91" lt="0" ts="1197019301326" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="20" lt="0" ts="1197019301461" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="16" lt="0" ts="1197019301498" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="49" lt="0" ts="1197019301816" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="995" lt="600" ts="1197019301096" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<httpSample t="1035" lt="617" ts="1197019301162" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<httpSample t="569" lt="564" ts="1197019301719" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<httpSample t="633" lt="629" ts="1197019301782" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<httpSample t="305" lt="156" ts="1197019302394" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<httpSample t="627" lt="621" ts="1197019302167" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<httpSample t="296" lt="157" ts="1197019302500" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<httpSample t="269" lt="136" ts="1197019302591" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<httpSample t="268" lt="136" ts="1197019302717" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<sample t="14" lt="0" ts="1197019303001" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="73" lt="0" ts="1197019303098" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="142" lt="140" ts="1197019303097" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<sample t="87" lt="0" ts="1197019303162" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="21" lt="0" ts="1197019303288" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="67" lt="0" ts="1197019303317" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="81" lt="0" ts="1197019303473" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="5" lt="0" ts="1197019303551" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="37" lt="0" ts="1197019303541" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="70" lt="0" ts="1197019303610" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="83" lt="0" ts="1197019303880" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="975" lt="589" ts="1197019303685" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<httpSample t="987" lt="592" ts="1197019303855" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<httpSample t="590" lt="586" ts="1197019304265" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<httpSample t="1182" lt="804" ts="1197019303857" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<httpSample t="1175" lt="800" ts="1197019303982" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<httpSample t="274" lt="141" ts="1197019304963" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<httpSample t="298" lt="147" ts="1197019305145" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<httpSample t="326" lt="170" ts="1197019305159" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<sample t="69" lt="0" ts="1197019305539" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="315" lt="144" ts="1197019305342" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<sample t="37" lt="0" ts="1197019305745" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="332" lt="198" ts="1197019305459" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<sample t="87" lt="0" ts="1197019305787" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="22" lt="0" ts="1197019305910" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="37" lt="0" ts="1197019305959" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="56" lt="0" ts="1197019306084" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="53" lt="0" ts="1197019306093" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="54" lt="0" ts="1197019306175" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="34" lt="0" ts="1197019306298" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="94" lt="0" ts="1197019306447" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="434" lt="430" ts="1197019306233" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<httpSample t="383" lt="379" ts="1197019306531" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<httpSample t="610" lt="606" ts="1197019306634" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<httpSample t="323" lt="188" ts="1197019306969" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<httpSample t="1014" lt="599" ts="1197019306442" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<httpSample t="616" lt="613" ts="1197019306843" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<httpSample t="326" lt="189" ts="1197019307216" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<sample t="96" lt="0" ts="1197019307594" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="286" lt="151" ts="1197019307546" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<sample t="48" lt="0" ts="1197019307844" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="42" lt="0" ts="1197019307992" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="286" lt="150" ts="1197019307758" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<httpSample t="286" lt="148" ts="1197019307761" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<sample t="81" lt="0" ts="1197019308135" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="78" lt="0" ts="1197019308193" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="63" lt="0" ts="1197019308347" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="91" lt="0" ts="1197019308348" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="38" lt="0" ts="1197019308517" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="13" lt="0" ts="1197019308712" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="407" lt="403" ts="1197019308335" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<sample t="20" lt="0" ts="1197019308740" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<httpSample t="291" lt="154" ts="1197019309045" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<sample t="77" lt="0" ts="1197019309638" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="921" lt="556" ts="1197019308857" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="11745"/>
+<httpSample t="1373" lt="775" ts="1197019308573" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<sample t="55" lt="0" ts="1197019310017" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="1131" lt="754" ts="1197019309026" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<httpSample t="1175" lt="788" ts="1197019309062" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="11745"/>
+<httpSample t="328" lt="156" ts="1197019310081" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-2" dt="text" by="5746"/>
+<httpSample t="298" lt="161" ts="1197019310248" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<sample t="51" lt="0" ts="1197019310711" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<httpSample t="413" lt="407" ts="1197019310374" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="11745"/>
+<httpSample t="333" lt="198" ts="1197019310460" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<httpSample t="296" lt="159" ts="1197019310540" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-5" dt="text" by="5746"/>
+<sample t="13" lt="0" ts="1197019310848" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="10" lt="0" ts="1197019311064" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-2" dt="Not Applicable" by="14"/>
+<sample t="0" lt="0" ts="1197019311095" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="62" lt="0" ts="1197019311138" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="81" lt="0" ts="1197019311163" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<httpSample t="281" lt="143" ts="1197019311090" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-1" dt="text" by="5746"/>
+<sample t="54" lt="0" ts="1197019311396" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="97" lt="0" ts="1197019311501" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-5" dt="Not Applicable" by="14"/>
+<sample t="39" lt="0" ts="1197019311673" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<sample t="70" lt="0" ts="1197019312014" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-1" dt="Not Applicable" by="14"/>
+<httpSample t="798" lt="400" ts="1197019311545" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="11745"/>
+<httpSample t="978" lt="600" ts="1197019311751" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<httpSample t="296" lt="144" ts="1197019312646" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-3" dt="text" by="5746"/>
+<httpSample t="294" lt="161" ts="1197019313032" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<sample t="89" lt="0" ts="1197019313245" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="33" lt="0" ts="1197019313635" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-3" dt="Not Applicable" by="14"/>
+<sample t="53" lt="0" ts="1197019313628" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="0" lt="0" ts="1197019313982" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<httpSample t="806" lt="412" ts="1197019314284" s="true" lb="jmeter site" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="11745"/>
+<httpSample t="301" lt="147" ts="1197019315393" s="true" lb="mojo codehaus" rc="200" rm="OK" tn="Performance Test Group 1-4" dt="text" by="5746"/>
+<sample t="97" lt="0" ts="1197019315997" s="true" lb="Junit nr1" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+<sample t="67" lt="0" ts="1197019316395" s="true" lb="Junit nr 2" rc="1000" rm="Test successful" tn="Performance Test Group 1-4" dt="Not Applicable" by="14"/>
+
+</testResults>

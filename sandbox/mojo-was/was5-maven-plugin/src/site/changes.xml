@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<document>
+	<properties>
+		<title>Maven 2 WAS 5 Plugin</title>
+		<author email="hermod.opstvedt@dnbnor.no">
+			Hermod Opstvedt, DnB NOR ITU
+		</author>
+	</properties>
+	<body>
+		<release version="1.0.1" description="Official version">
+			<action dev="Hermod Opstvedt" type="add">
+				InstallApplication.
+			</action>
+		</release>
+		<release version="0.1" date="15-03-2006"
+			description="First release">
+			<action dev="Hermod Opstvedt" type="add">
+				Added Wsdl2Java.
+			</action>
+		</release>
+	</body>
+</document>
+

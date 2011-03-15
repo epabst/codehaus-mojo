@@ -1,0 +1,14 @@
+<project>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-simple-plugin</artifactId>
+        <configuration>
+          <keyOne>valueOne</keyOne>
+          <keyTwo>valueTwo</keyTwo>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+

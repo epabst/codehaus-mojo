@@ -1,0 +1,257 @@
+<project>
+	
+	<target name="wsEjbDeploy">
+		<taskdef name="wsEjbDeploy" classname="com.ibm.websphere.ant.tasks.WsEjbDeploy" />
+		<wsEjbDeploy 
+			inputJar="" 
+			outputJar=""
+			wasHome="" 
+			workingDirectory="" 
+			codegen="false" 
+			keepGenerated="true" 
+			classpath=""
+			trace=""
+			jdkComplianceLevel=""
+			failonerror=""
+			noValidate=""
+			noWarnings=""
+			noInform=""
+            dbname=""
+            dbschema=""
+            dbvendor=""
+            dynamic=""
+            compatible35=""
+            sqlj=""
+		/>
+	</target>
+	
+	<target name="wsStartServer">
+		<taskdef name="wsStartServer" classname="com.ibm.websphere.ant.tasks.StartServer" />
+		<wsStartServer
+            server=""
+            profileName=""
+            noWait=""
+            quiet=""
+            logFile=""
+            replaceLog=""
+            trace=""
+            script=""
+            timeout=""
+            statusPort=""
+            username=""
+            password=""
+            wasHome=""
+            failonerror="" 
+        />
+	</target>
+	
+	<target name="wsStopServer">
+		<taskdef name="wsStopServer" classname="com.ibm.websphere.ant.tasks.StopServer" />
+				<!-- fileEncoding="UTF8" 
+			script="${script}"
+		-->
+		<wsStopServer
+			server=""
+			profileName=""
+            noWait=""
+            quiet=""
+            logFile=""
+            replaceLog=""
+            trace=""
+            timeout=""
+            statusPort=""
+            wasHome=""
+            failonerror=""
+            port=""
+            conntype=""
+            username=""
+            password=""
+		/>
+	</target>
+	
+	<target name="wsInstallApp">
+		<taskdef name="wsInstallApp" classname="com.ibm.websphere.ant.tasks.InstallApplication" />
+	 	<wsInstallApp
+	 		wasHome=""
+	 		options=""
+	 		ear=""
+	 		profile=""
+	 		properties=""
+            profileName=""
+            conntype=""
+            host=""
+            port=""
+            user=""
+            password=""
+            failonerror=""
+        />
+	</target>
+	
+	<target name="wsUninstallApp">
+		<taskdef name="wsUninstallApp" classname="com.ibm.websphere.ant.tasks.UninstallApplication" />
+		<wsUninstallApp
+			wasHome=""
+			application=""
+			options=""
+            properties=""
+            profile=""
+            profileName=""
+            conntype=""
+            host=""
+            port=""
+            user=""
+            password=""
+            failonerror=""
+		/>
+	</target>
+	
+	<target name="wsDefaultBindings">
+		<taskdef name="wsDefaultBindings" classname="com.ibm.websphere.ant.tasks.DefaultBindings" />
+    	<wsDefaultBindings
+	        ear=""
+	        outputFile=""
+	        defaultDataSource=""
+	        dbUser=""
+	        dbPassword=""
+	        defaultConnectionFactory=""
+	        resAuth=""
+	        ejbJndiPrefix=""
+	        virtualHost=""
+	        forceBindings=""
+	        strategy=""
+	        failonerror=""
+	        exportFile=""
+       	/>
+	</target>
+	
+	<target name="wsStopApp">
+		<taskdef name="wsStopApp" classname="com.ibm.websphere.ant.tasks.StopApplication" />
+		<wsStopApp 
+			wasHome=""
+			server=""
+			node=""
+			application=""
+			properties=""
+			profile=""
+			profileName=""
+			conntype=""
+			host=""
+			port=""
+			user=""
+			password=""
+			failonerror=""
+		/>
+	</target>
+	
+	<target name="wsStartApp">
+		<taskdef name="wsStartApp" classname="com.ibm.websphere.ant.tasks.StartApplication" />
+		<wsStartApp
+			wasHome=""
+            server=""
+            node=""
+            application=""
+            properties=""
+            profile=""
+            profileName=""
+            conntype=""
+            host=""
+            port=""
+            user=""
+            password=""
+            failonerror=""
+        />
+	</target>
+	
+	<target name="wsAdmin">
+		<taskdef name="wsAdmin" classname="com.ibm.websphere.ant.tasks.WsAdmin" />
+		<!-- 
+		fileEncoding=""
+		 -->
+		<wsAdmin
+			wasHome=""
+ 			command=""
+ 			properties=""
+			profile=""
+			profileName=""
+ 			script=""
+ 			lang=""
+ 			conntype=""
+ 			host=""
+ 			port=""
+ 			user=""
+ 			password=""
+ 			jvmMaxMemory=""
+ 			failonerror=""
+		/>
+	</target>
+	
+	<target name="wsListApps">
+		<taskdef name="wsListApps" classname="com.ibm.websphere.ant.tasks.ListApplications" />
+		<wsListApps
+			wasHome=""
+			properties=""
+			profile=""
+			profileName=""
+			conntype=""
+			host=""
+			port=""
+			user=""
+			password=""
+		/>
+	</target>
+
+	<!--
+	See reference documentation:
+	http://publib.boulder.ibm.com/infocenter/dmndhelp/v6r1mx/index.jsp?topic=/com.ibm.websphere.wbpmcore.javadoc.610.doc/web/apidocs/com/ibm/websphere/ant/tasks/ServiceDeployTask.html
+	-->
+    <target name="servicedeploy">
+    	<taskdef name="servicedeploy" classname="com.ibm.websphere.ant.tasks.ServiceDeployTask"/>
+        <servicedeploy
+        	scaModule=""
+        	wasHome=""
+        	workingDirectory=""
+        	outputApplication=""
+        	noJ2EEDeploy=""
+        	freeForm=""
+        	cleanStagingModules=""
+        	keep=""
+        	ignoreErrors=""
+        	classPath=""
+        	progressMonitor=""
+        	fileEncoding=""
+        	vmArgs=""
+        	debug=""
+        	javaDebug=""
+        	clean=""
+        />	
+   	</target>
+	
+	<target name="wsEndpointEnabler">
+	    <taskdef name="wsEndpointEnabler" classname="com.ibm.websphere.ant.tasks.endptEnabler" />
+		<wsEndpointEnabler earFile="" />
+	</target>
+	
+	<target name="wsdl2java">
+	    <taskdef name="wsdl2java" classname="com.ibm.websphere.ant.tasks.WSDL2Java" />
+		<wsdl2java 
+		  url="" 
+		  genEquals=""
+		  container=""
+		  deployScope=""
+		  generateResolver=""
+		  genImplSer=""
+		  genJava=""
+		  genXML=""
+		  inputMappingFile=""
+		  noDataBinding=""
+		  noWrappedArrays=""
+		  fileNStoPkg=""
+		  scenario=""
+		  noWrappedOperations=""
+		  role="" 
+		  output=""
+		  classpath=""
+		/>   
+	</target>
+
+</project>

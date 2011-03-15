@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!-- $Id$ -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    
+    <modelVersion>4.0.0</modelVersion>
+    
+    <parent>
+        <artifactId>mojo-parent</artifactId>
+        <groupId>org.codehaus.mojo</groupId>
+        <version>24</version>
+    </parent>
+    
+    <artifactId>xmlbeans-maven-plugin</artifactId>
+    <packaging>maven-plugin</packaging>
+    <name>Maven XML Beans Plugin</name>
+    <version>2.3.4-SNAPSHOT</version>
+    <ciManagement>
+      <system>hudson</system>
+      <url>http://davidkarlsen.com/hudson/job/xmlbeans-maven-plugin/</url>
+      <notifiers>
+        <notifier>
+          <sendOnError>true</sendOnError>
+          <sendOnFailure>true</sendOnFailure>
+          <sendOnSuccess>true</sendOnSuccess>
+          <sendOnWarning>true</sendOnWarning>
+          <type>email</type>
+        </notifier>
+      </notifiers>
+    </ciManagement>
+    <description>
+        Runs the xmlbeans parser/code generator against schemas in files and dependent jars.
+    </description>
+    
+    <licenses>
+        <license>
+            <name>The Apache Software License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+    
+    <prerequisites>
+        <maven>2.0.6</maven>
+    </prerequisites>
+    
+    <inceptionYear>2005</inceptionYear>
+
+    <scm>
+        <connection>scm:svn:http://svn.codehaus.org/mojo/trunk/mojo/xmlbeans-maven-plugin</connection>
+        <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/xmlbeans-maven-plugin</developerConnection>
+        <url>http://fisheye.codehaus.org/browse/mojo/trunk/mojo/xmlbeans-maven-plugin</url>
+    </scm>
+
+    <issueManagement>
+        <system>jira</system>
+        <url>http://jira.codehaus.org/browse/MXMLBEANS</url>
+    </issueManagement>
+
+    <developers>
+        <developer>
+            <id>djencks</id>
+            <name>David Jencks</name>
+            <email>david_jencks@yahoo.com</email>
+            <organization>Apache Geronimo Project</organization>
+            <organizationUrl>http://geronimo.apache.org</organizationUrl>
+            <roles>
+                <role>Maintainer</role>
+            </roles>
+            <timezone>EST</timezone>
+        </developer>
+        <developer>
+            <id>brett</id>
+            <name>Brett Porter</name>
+            <organization>Apache Maven Project</organization>
+            <organizationUrl>http://maven.apache.org</organizationUrl>
+            <roles>
+                <role>Port of Original Code</role>
+            </roles>
+        </developer>
+        <developer>
+          <id>david</id>
+          <name>David J. M. Karlsen</name>
+          <email>david@codehaus.org</email>
+          <organization>codehaus.org</organization>
+          <organizationUrl>http://www.codehaus.org</organizationUrl>
+          <timezone>+1</timezone>
+          <url>http://www.davidkarlsen.com</url>
+          <roles>
+            <role>Maintainer</role>
+          </roles>
+        </developer>
+    </developers>
+
+    <contributors>
+        <contributor>
+            <name>Terence Haddock</name>
+            <email>protected</email>
+            <roles>
+                <role>Patch Contributor</role>
+            </roles>
+        </contributor>
+        <contributor>
+            <name>Nathan Sowatskey</name>
+            <email>protected</email>
+            <roles>
+                <role>Active User</role>
+            </roles>
+        </contributor>
+        <contributor>
+            <name>Dan Allen</name>
+            <email>protected</email>
+            <roles>
+                <role>Patch Contributor</role>
+            </roles>
+        </contributor>
+        <contributor>
+            <name>Brian Bonner</name>
+            <email>protected</email>
+            <roles>
+                <role>Active User</role>
+            </roles>
+        </contributor>
+        <contributor>
+            <name>Piotr Burdylo</name>
+            <email>protected</email>
+            <roles>
+                <role>Active User</role>
+            </roles>
+        </contributor>
+        <contributor>
+            <name>Mike Perham</name>
+            <email>protected</email>
+            <roles>
+                <role>Active User</role>
+            </roles>
+        </contributor>
+        <contributor>
+            <name>Martin Desruisseaux</name>
+            <email>protected</email>
+            <roles>
+                <role>Active User</role>
+            </roles>
+        </contributor>
+        <contributor>
+            <name>Rafal Rusin</name>
+            <email>protected</email>
+            <roles>
+                <role>Patch Contributor</role>
+            </roles>
+        </contributor>
+        <contributor>
+            <name>Christian Domsch</name>
+            <email>protected</email>
+            <roles>
+                <role>Active User</role>
+            </roles>
+        </contributor>
+        <contributor>
+            <name>Anita Kulshreshtha</name>
+            <email>protected</email>
+            <roles>
+                <role>Active User</role>
+            </roles>
+        </contributor>
+    </contributors>
+
+    <dependencies>
+        <dependency>
+            <groupId>xml-resolver</groupId>
+            <artifactId>xml-resolver</artifactId>
+            <version>1.2</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-model</artifactId>
+            <version>2.0.6</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-artifact</artifactId>
+            <version>2.0.6</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-project</artifactId>
+            <version>2.0.6</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.maven</groupId>
+            <artifactId>maven-plugin-api</artifactId>
+            <version>2.0.6</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.xmlbeans</groupId>
+            <artifactId>xmlbeans</artifactId>
+            <version>2.4.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.plexus</groupId>
+            <artifactId>plexus-utils</artifactId>
+            <version>1.5.6</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+    
+    <build>
+        <defaultGoal>install</defaultGoal>
+    </build>
+    
+    <profiles>
+        <profile>
+            <id>run-its</id>
+              <build>
+                <plugins>
+                  <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-invoker-plugin</artifactId>
+                    <configuration>
+                      <debug>true</debug>
+                      <postBuildHookScript>validate</postBuildHookScript>
+                      <localRepositoryPath>${project.build.directory}/local-repo</localRepositoryPath>
+                      <goals>
+                        <goal>clean</goal>
+                        <goal>package</goal>
+                      </goals>
+                      <settingsFile>src/it/settings.xml</settingsFile>
+                      <cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
+                    </configuration>
+                    <executions>
+                      <execution>
+                        <id>integration-test</id>
+                        <goals>
+                          <goal>install</goal>
+                          <goal>run</goal>
+                        </goals>
+                      </execution>
+                    </executions>
+                  </plugin>
+                </plugins>
+              </build> 
+         </profile>
+        
+        <profile>
+            <id>stage-distribution</id>
+            
+            <activation>
+                <property>
+                    <name>stage.distributionUrl</name>
+                </property>
+            </activation>
+            
+            <distributionManagement>
+                <repository>
+                    <id>stage-repository</id>
+                    <url>${stage.distributionUrl}/repository</url>
+                </repository>
+                <snapshotRepository>
+                    <id>stage-snapshot-repository</id>
+                    <url>${stage.distributionUrl}/snapshot-repository</url>
+                </snapshotRepository>
+                <site>
+                    <id>stage-site</id>
+                    <url>${stage.distributionUrl}/site</url>
+                </site>
+            </distributionManagement>
+        </profile>
+    </profiles>
+    
+    <reporting>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-changes-plugin</artifactId>
+          <version>2.1</version>
+          <configuration>
+            <columnNames>Key,Summary,Status,Resolution,Assignee,Type,Version,Fix Version</columnNames>
+            <sortColumnNames>Fix Version</sortColumnNames>
+            <urlDownload>${project.url}</urlDownload>
+            <generateJiraAnnouncement>true</generateJiraAnnouncement>
+            <toAddresses>
+              <toAddress>dev@mojo.codehaus.org</toAddress>
+              <toAddress>user@mojo.codehaus.org</toAddress>
+              <toAddress>users@maven.apache.org</toAddress>
+            </toAddresses>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>findbugs-maven-plugin</artifactId>
+          <version>1.2</version>
+          <configuration>
+            <threshold>Normal</threshold>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>jdepend-maven-plugin</artifactId>
+          <version>2.0-beta-2</version>
+        </plugin>
+      </plugins>
+    </reporting>
+
+</project>

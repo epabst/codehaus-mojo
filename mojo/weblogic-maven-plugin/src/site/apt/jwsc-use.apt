@@ -1,0 +1,42 @@
+                                   ------
+                             Weblogic plugin JWSC Special Instructions
+                                    ------
+                                   Jon Osborn
+                                    ------
+                                 Mar 31, 2008
+
+Maven 2 Weblogic Plugin Jwsc Special Instructions
+
+  This page will discuss some considerations when using the jwsc mojo in the Weblogic plugin.
+
+
+* Weblogic Plugin Jwsc Special Instructions
+
+-------------------
+
+
+A sample configuration might be:
+
+...
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>weblogic-maven-plugin</artifactId>
+            <executions>
+                <execution>
+                    <phase>compile</phase>
+                    <goals>
+                        <goal>jwsc</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>
+    </plugins>
+</build>
+...	
+
+
+
+
+-------------------

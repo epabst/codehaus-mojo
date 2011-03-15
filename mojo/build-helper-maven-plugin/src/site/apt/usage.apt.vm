@@ -1,0 +1,395 @@
+ ------
+ Usage
+ ------
+ Dan Tran
+ Dennis Lundberg
+ ------
+ 2010-02-12
+ ------
+
+~~ The MIT License
+~~
+~~ Copyright (c) 2004, The Codehaus
+~~
+~~ Permission is hereby granted, free of charge, to any person obtaining a copy of
+~~ this software and associated documentation files (the "Software"), to deal in
+~~ the Software without restriction, including without limitation the rights to
+~~ use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+~~ of the Software, and to permit persons to whom the Software is furnished to do
+~~ so, subject to the following conditions:
+~~
+~~ The above copyright notice and this permission notice shall be included in all
+~~ copies or substantial portions of the Software.
+~~
+~~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+~~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+~~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+~~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+~~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+~~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+~~ SOFTWARE.
+
+
+Usage
+
+  Brief examples on how to use the Build Helper Maven Plugin's goals.
+
+* Add more source directories to your project
+
+  Use this example to add more source directories to your project, since
+  <<<pom.xml>>> only allows one source directory.
+
+-------------------
+<project>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <executions>
+          <execution>
+            <id>add-source</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>some directory</source>
+                ...
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+-------------------
+
+* Add more test source directories to your project
+
+  The same as the previous example, but this time we add more test source
+  directories to your project.
+
+-------------------
+<project>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <executions>
+          <execution>
+            <id>add-test-source</id>
+            <phase>generate-test-sources</phase>
+            <goals>
+              <goal>add-test-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>some directory</source>
+                ...
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+-------------------
+
+* Add more resource directories to your project
+
+  This example shows how to add additional resource directories to your project.
+  Another goal called <<<add-test-resource>>> can be used in a similar way to
+  add test resources to the project.
+
+-------------------
+<project>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <executions>
+          <execution>
+            <id>add-resource</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>add-resource</goal>
+            </goals>
+            <configuration>
+              <resources>
+                <resource>
+                  <directory>src/my-resources</directory>
+                  <targetPath>my-resources</targetPath>
+                  <excludes>
+                    <exclude>**/junk/**</exclude>
+                  </excludes>
+                </resource>
+              </resources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+-------------------
+
+* Attach additional artifacts to your project
+
+  Typically run after <<<antrun:run>>>, or another plugin, that produces files
+  that you want to attach to the project for install and deploy.
+
+-------------------
+<project>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <!-- add configuration for antrun or another plugin here -->
+      </plugin>
+      ...
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <executions>
+          <execution>
+            <id>attach-artifacts</id>
+            <phase>package</phase>
+            <goals>
+              <goal>attach-artifact</goal>
+            </goals>
+            <configuration>
+              <artifacts>
+                <artifact>
+                  <file>some file</file>
+                  <type>extension of your file </type>
+                  <classifier>optional</classifier>
+                </artifact>
+                ...
+              </artifacts>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+-------------------
+
+* Set the current version of Maven in a property
+
+  This can be used to keep track of what version of Maven was used to build a particular artifact.
+  For example, the following POM sets the property and then uses the property to save the Maven version
+  to the project JAR's manifest.
+
+-------------------
+<project>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <executions>
+          <execution>
+            <id>maven-version</id>
+            <goals>
+              <goal>maven-version</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.2</version>
+        <configuration>
+          <archive>
+            <manifestEntries>
+              <Maven-Version>${maven.version}</Maven-Version>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  ...
+</project>
+-------------------
+
+* Access the parsed components of a project version
+
+  The <<<parse-versions>>> goal can be used to access the component parts of a version string.  For example,
+  the major version or the qualifier by themselves.  Executing the following plugin configuration
+  will parse the version of the current project and set several properties.
+
+-------------------
+<project>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <executions>
+          <execution>
+            <id>parse-version</id>
+            <goals>
+              <goal>parse-version</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  ...
+</project>
+-------------------
+
+  After the goal executes (by default during the <<<validate>>> phase) the following
+  properties will contain the components of the current project version.
+
+-------------------
+parsedVersion.majorVersion
+parsedVersion.minorVersion
+parsedVersion.incrementalVersion
+parsedVersion.qualifier
+parsedVersion.buildNumber
+-------------------
+
+  The property prefix "parsedVersion" can be configured using the <<<propertyPrefix>>> parameter.
+
+  <<Note:>> the behaviour of the parsing is determined by <<<org.apache.maven.artifact.versioning.DefaultArtifactVersion>>>.
+
+  An OSGi compatible version will also be created and made available through the property:
+
+-------------------
+parsedVersion.osgiVersion
+-------------------
+
+  This property contains the original version string with the first instance of '-' replaced by '.'
+  For example, <<<1.0.2-beta-1>>> will be converted to <<<1.0.2.beta-1>>>.
+
+* Remove a project's artifacts from local repository
+
+  Mainly used to remove previously installed large project artifacts in the local repository before the <<<install>>> phase starts.
+  The example below removes all the project's artifacts including all versions from the local repository
+  at the implicit <<<package>>> phase. To remove only the current version, set the \<<<<removeAll\>>>> configuration
+  element to <<<false>>>.
+
+-------------------
+<project>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <executions>
+          <execution>
+            <id>remove-old-installers</id>
+            <goals>
+              <goal>remove-project-artifact</goal>
+            </goals>
+            <configuration>
+              <removeAll>true</removeAll>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+-------------------
+
+* Reserve a list of random and unused network ports
+
+  Use this plugin to reserve a set of available unused network ports to be placed in a given property
+  set, so that they can be inserted into other plugin configurations.
+
+  The example below shows how one can pass in random ports to Selenium server port and Tomcat http port.
+  Useful for running multiple tests concurrently.
+
+-------------------
+<project>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <executions>
+          <execution>
+            <id>reserve-network-port</id>
+            <goals>
+              <goal>reserve-network-port</goal>
+            </goals>
+            <phase>process-resources</phase>
+            <configuration>
+              <portNames>
+                <portName>selenium.server.port</portName>
+                <portName>tomcat.http.port</portName>
+              </portNames>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>selenium-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>start-selenium</id>
+            <phase>test</phase>
+            <goals>
+              <goal>start-server</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <port>${selenium.server.port}</port>
+          [...]
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>tomcat-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>run-tomcat</id>
+            <phase>test</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <port>${tomcat.http.port}</port>
+          [...]
+        </configuration>
+      </plugin>
+
+      [...]
+
+    </plugins>
+  </build>
+</project>
+-------------------

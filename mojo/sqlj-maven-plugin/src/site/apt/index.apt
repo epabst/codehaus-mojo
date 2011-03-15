@@ -1,0 +1,27 @@
+ ------
+ Introduction
+ ------
+ David J. M. Karlsen <david@codehaus.org>
+ ------
+ 11 Nov 2008
+ ------
+
+
+SQLJ maven plugin
+
+  This plugin can be used to generate classes from .sqlj files.
+  
+* Goals Overview
+
+  General Information about the goals.
+
+  * {{{sqlj-mojo.html}sqlj:sqlj}} Generate .java from .sqlj files.
+
+  * {{{help-mojo.html}sqlj:help}} Usage help.
+  
+  * {{{clean-mojo.html}sqlj:clean}} Cleanout generated sources.
+  
+* Usage
+
+  Instructions on how to use the SQLJ maven plugin can be found on the {{{usage.html}usage page}}.
+

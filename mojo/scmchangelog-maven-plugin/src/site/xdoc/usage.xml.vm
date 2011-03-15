@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+  <properties>
+    <author email="ehsavoie73@gmail.com">Emmanuel Hugonnet</author>
+    <title>Usage</title>
+  </properties>
+  <head>
+    <meta/>
+  </head>
+  <body>
+    <!-- The body of the document contains a number of sections -->
+    <section name="Usage">
+      
+      <p>
+        This plugin sends svn commands to list all existing tags, then parses the logs for each of them and publishes the resulting report.<br/>
+        It uses the scm configuration from the pom.xml to access the scm repository, so this <b>must</b> be set.<br/>
+        It is a reporting plugin and as such should be declared in the reporting section of the <i>pom.xml</i>
+      </p>
+      
+       <subsection name="Goals">
+        <p>
+         There is just one simple goal for this report: <i>report</i>.<br/>
+         You should not have to call it specifically.
+        </p>
+      </subsection>     
+      
+      <subsection name="Pre-requisite">
+        <p>
+          There are some requisite for using this plugin:
+          <ul>
+            <li>
+              As this plugin uses the SCM commands, <b>it is necessary to have the svn or hg command line executable in your path</b>.
+            </li>
+            <li>
+              This plugins needs Java 1.4 or more to run correctly.
+            </li>
+          </ul>
+        </p>
+      </subsection>   
+      
+      <subsection name="Basic Example">
+      <p>Here we have a basic configuration example. We suppose that the &lt;issueManagement&gt; and &lt;scm&gt; 
+      elements are configured</p>
+      <p>
+        <source>
+ &lt;reporting&gt;
+   &lt;plugins&gt;
+     &lt;plugin&gt;
+       &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
+       &lt;artifactId&gt;scmchangelog-maven-plugin&lt;/artifactId&gt;
+       &lt;version&gt;${currentVersion}&lt;/version&gt;
+     &lt;/plugin&gt;
+         ...
+    &lt;/plugins&gt;
+ &lt;/reporting&gt;
+        </source>
+      </p>
+    </subsection>
+    
+    <subsection  name="Advanced Configuration">
+      <p>Here we have configured the plugin overriding the &lt;issueManagement&gt; and &lt;scm&gt; elements. <br/>
+        We have specified:
+        <ul>
+            <li>trackerUrlPattern: this allows you to specify a pattern to link an issue to any tracker.</li>
+            <li>trackerType: this allows you to specify the issue tracker used. <br/>
+             Currently it supports three trackers: <br/>
+              <ul>
+                <li>sourceforge</li>
+                <li>jira</li>
+                <li>xplanner</li>
+                <li>bugzilla</li>
+              </ul>
+            </li>
+            <li>grammar: this allows you to specify the grammar used to parse the svn logs. <br/>
+              Currently it supports <a href="examples/grammars.html">four grammars</a>: <br/>
+              <ul>
+                <li>"MANU" which uses <code>@operation:issue;comments</code></li>
+                <li>"REMY" which uses <code>[operation:issue]comments</code></li>
+                <li>"BUGZILLA" which uses <code>bug issue: comments</code></li>
+                <li>"ALL" which uses <code>comments</code></li>
+              </ul>
+            </li>
+            <li>connectionUrl: the same as the &lt;connectionUrl&gt; element in the&lt;scm&gt; element.</li>
+            <li>tagBase: the url to the tags directory.</li>
+            <li>filter: a regexp used to filter tags by their name. Only tags matching the specified regexp are used to produce the report</li>
+            <li>releasesOrder: to order releases historically or alphabetically.</li>
+        </ul>
+      </p>
+      <p>
+        <source>
+ &lt;reporting&gt;
+   &lt;plugins&gt;
+     &lt;plugin&gt;
+       &lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
+       &lt;artifactId&gt;scmchangelog-maven-plugin&lt;/artifactId&gt;
+       &lt;version&gt;${currentVersion}&lt;/version&gt;
+       &lt;configuration&gt;
+         &lt;trackerUrlPattern&gt;http://sourceforge.net/tracker/?atid=637380&amp;group_id=104240&amp;func=browse&lt;/trackerUrlPattern&gt;
+         &lt;trackerType&gt;sourceforge&lt;/trackerType&gt;
+         &lt;grammar&gt;REMY&lt;/grammar&gt;
+         &lt;connectionUrl&gt;scm:svn:https://retroweaver.svn.sourceforge.net/svnroot/retroweaver/trunk&lt;/connectionUrl&gt;
+         &lt;tagBase&gt;https://retroweaver.svn.sourceforge.net/svnroot/retroweaver/tags/&lt;/tagBase&gt;
+         &lt;filter&gt;.*&lt;/filter&gt;
+       &lt;/configuration&gt;
+     &lt;/plugin&gt;
+   &lt;/plugins&gt;
+ &lt;/reporting&gt;
+        </source>
+      </p>
+    </subsection>
+    </section>
+  </body>
+</document>

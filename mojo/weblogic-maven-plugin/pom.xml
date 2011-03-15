@@ -1,0 +1,136 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>mojo-parent</artifactId>
+    <groupId>org.codehaus.mojo</groupId>
+    <version>28</version>
+  </parent>
+  <prerequisites>
+    <maven>2.0</maven>
+  </prerequisites>
+  <artifactId>weblogic-maven-plugin</artifactId>
+  <packaging>maven-plugin</packaging>
+  <name>Mojo's Maven plugin for WebLogic</name>
+  <version>2.9.2-SNAPSHOT</version>
+  <inceptionYear>2005</inceptionYear>
+  <description>
+    This plugin will support various tasks within the Weblogic 8.1
+    and 9.x environment. This version starts to support weblogic 10 and
+    11. The mojo supports such tasks as deploy,
+    undeploy,clientgen,servicegen, and appc are supported as well as
+    many others. The plugin uses exposed API's that are subject to
+    change but have been tested in 8.1 SP 4-6 and 9.0 - 9.2 MP3.
+    There are two versions of the plugin to support the two
+    environments based on differences in the JDK. The 9.x version is
+    currently being refactored to support the standard JSR supported
+    deployment interface. The code used in the plugin has been
+    contributed to the Cargo project however to date has not be
+    integrated into the codebase. Please feel free to suggest
+    improvements or help support this plugin effort.
+  </description>
+  <scm>
+    <connection>scm:svn:svn://svn.codehaus.org/mojo/scm/trunk/mojo/weblogic-maven-plugin</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/weblogic-maven-plugin</developerConnection>
+    <url>https://svn.codehaus.org/mojo/trunk/mojo/weblogic-maven-plugin/</url>
+  </scm>
+  <licenses>
+    <license>
+      <name>Apache License 2</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <developers>
+    <developer>
+      <id>scryan</id>
+      <name>Scott Ryan</name>
+      <email>scott@theryansplace.com</email>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+      <timezone>-7</timezone>
+    </developer>
+    <developer>
+      <id>jonnio</id>
+      <name>Jon Osborn</name>
+      <email>josborn@belltracy.com</email>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+      <timezone>-5</timezone>
+    </developer>
+  </developers>
+  <contributors>
+    <contributor>
+      <name>Willie Vu</name>
+      <email>willievu@dev.java.net</email>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+      <timezone>+8</timezone>
+    </contributor>
+  </contributors>
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <version>2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-artifact</artifactId>
+      <version>2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>ant</groupId>
+      <artifactId>ant</artifactId>
+      <version>1.6.5</version>
+    </dependency>
+    <dependency>
+      <groupId>weblogic</groupId>
+      <artifactId>weblogic</artifactId>
+      <version>[9.0,11.0)</version>
+    </dependency>
+    <dependency>
+      <groupId>weblogic</groupId>
+      <artifactId>webservices</artifactId>
+      <version>[9.0,11.0)</version>
+    </dependency>
+    <dependency>
+      <groupId>weblogic</groupId>
+      <artifactId>webserviceclient</artifactId>
+      <version>[9.0,11.0)</version>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.shared</groupId>
+      <artifactId>maven-plugin-testing-harness</artifactId>
+      <version>1.1</version>
+      <scope>test</scope>
+    </dependency>
+    <!--
+       <dependency>
+       <groupId>sun.jdk</groupId>
+       <artifactId>tools</artifactId>
+       <version>jdk150_04</version>
+       <scope>system</scope>
+       <systemPath>${java.home}/../lib/tools.jar</systemPath>
+       </dependency>
+     -->
+  </dependencies>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-changes-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>changes-report</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
+</project>

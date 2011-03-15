@@ -1,0 +1,13 @@
+<archetype>
+  <id>maven-archetype-simple-jboss-jee</id>
+  <resources>
+    <!-- ear -->
+    <resource>ear/pom.xml</resource>
+    <resource>ear/src/main/resources/META-INF/jboss-app.xml</resource>
+
+    <!-- ejbs -->
+    <resource>ejbs/pom.xml</resource>
+    <resource>ejbs/src/main/resources/META-INF/ejb-jar.xml</resource>
+    <resource>ejbs/src/main/resources/META-INF/jboss.xml</resource>
+  </resources>
+</archetype>

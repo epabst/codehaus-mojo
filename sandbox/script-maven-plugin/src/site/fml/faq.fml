@@ -1,0 +1,40 @@
+<faqs id="FAQ" title="Frequently Asked Questions">
+ <part id="General">
+   <faq id="bsfversion">
+     <question>How to use different version of BSF?</question>
+     <answer>
+       <p>Add BSF as dependency to <code>plugin</code> section in pom.xml:
+         <source>
+...
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>script-maven-plugin</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <configuration>
+        <language>groovy</language>
+        <script>
+          System.out.println("Hello from Groovy");
+        </script>
+        <engine>org.codehaus.groovy.bsf.GroovyEngine</engine>
+        <passProjectAsProperty>true</passProjectAsProperty>
+    </configuration>
+    <dependencies>
+        <dependency>
+            <groupId>bsf</groupId>
+            <artifactId>bsf</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>1.0-jsr-04</version>
+        </dependency>
+    </dependencies>
+</plugin>
+...
+         </source>
+       </p>
+     </answer>
+   </faq>
+ </part>
+</faqs>

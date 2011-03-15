@@ -1,0 +1,94 @@
+                                   ------
+                             Weblogic plugin APPC Special Instructions
+                                    ------
+                                   Scott Ryan
+                                    ------
+                                 Jan 1, 2006
+
+Maven 2 Weblogic Plugin Appc Special Instructions
+
+  This page will discuss some considerations when using the appc mojo in the Weblogic plugin.
+
+
+* Weblogic Plugin Appc Special Instructions
+
+-------------------
+
+The appc mojo requires the tools.jar to run.  Many systems provide the tools.jar as part of the
+installation such as the Apple Mac.  If you are not running on a MAC you will need to configure the
+tools jar in either your pom.xml or in your settings.xml.  The tools jar used to be included in the 
+pom.xml for the plugin but it caused issues with the mac so it was removed and this note added.
+
+in your settings.xml add a profile entry to discover what platform you are running on.
+
+<profiles>
+    <profile>
+      <id>default-tools.jar</id>
+      <activation>
+        <property>
+          <name>java.vendor</name>
+          <value>Sun Microsystems Inc.</value>
+       </property>
+     </activation>
+      <dependencies>
+        <dependency>
+          <groupId>com.sun</groupId>
+          <artifactId>tools</artifactId>
+          <version>1.5.0</version>
+          <scope>system</scope>
+          <systemPath>${java.home}/../lib/tools.jar</systemPath>
+       </dependency>
+     </dependencies>
+   </profile>
+ </profiles>
+
+
+in the pom.xml include a dependency 
+
+<dependency>
+    <groupId>com.sun</groupId>
+    <artifactId>tools</artifactId>
+    <version>1.5.0</version>
+    <scope>system</scope>
+    <systemPath>${java.home}/../lib/tools.jar</systemPath>
+</dependency>
+
+
+A sample configuration might be:
+...
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>weblogic-maven-plugin</artifactId>
+    <version>2.9.1-SNAPSHOT</version>
+    <configuration>
+        <contextUri>mycontext</contextUri>
+        <warName>myWarName-${pom.version}.war</warName>
+        <verbose>true</verbose>
+        <services>
+            <service>
+                <includeEJBs>MyEJB</includeEJBs>
+                <serviceName>MyEJBService</serviceName>
+                <serviceUri>/MyServiceURI</serviceUri>
+                <targetNamespace>
+                    http://my.service.com/wsdl
+                </targetNamespace>
+            </service>
+            <service>
+                ... additional services as required
+            </service>
+        </services>
+    </configuration>
+    <executions>
+        <execution>
+            <phase>package</phase>
+            <goals>
+                <goal>servicegen</goal>
+                <goal>appc</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+...
+
+
+-------------------

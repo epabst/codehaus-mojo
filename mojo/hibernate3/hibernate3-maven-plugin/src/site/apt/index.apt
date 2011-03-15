@@ -1,0 +1,47 @@
+ ------
+ Introduction
+ ------
+ Johann Reyes
+ <jreyes@hiberforum.org>
+ ------
+ 30 October 2006
+
+Maven Hibernate3 Plugin
+
+  This plugin provides easy integration with Hibernate 3.x for your project.
+
+* Goals Overview
+
+  The Maven Hibernate3 Plugin has seven goals.
+
+  * {{{./hbm2cfgxml-mojo.html}hibernate3:hbm2cfgxml}}: Generates hibernate.cfg.xml
+  
+  * {{{./hbm2ddl-mojo.html}hibernate3:hbm2ddl}}: Generates database schema.
+  
+  * {{{./hbm2doc-mojo.html}hibernate3:hbm2doc}}: Generates HTML documentation for the database schema.
+  
+  * {{{./hbm2hbmxml-mojo.html}hibernate3:hbm2hbmxml}}: Generates a set of hbm.xml files
+  
+  * {{{./hbm2java-mojo.html}hibernate3:hbm2java}}: Generates Java classes from set of *.hbm.xml files
+  
+  * {{{./hbmtemplate-mojo.html}hibernate3:hbmtemplate}}: Renders arbitrary templates against Hibernate Mapping information.
+
+  
+  []
+
+
+* Usage
+
+  Instructions on how to use the Maven Hibernate3 Plugin can be found on the {{{./usage.html}usage page}}.
+
+  []
+
+* Examples
+
+  * {{{./examples/simple_configuration.html}Simple plugin configuration.}}
+
+  * {{{./examples/hbmtemplate_configuration.html}hbmtemplate plugin configuration.}}
+
+  * {{{./examples/phase_embedding.html}Setting the <<hbm2ddl>> goal to run on the <<process-classes>> phase.}}
+
+  * {{{./examples/schema_output.html}Output the <<hbm2ddl>> goal to a file.}}

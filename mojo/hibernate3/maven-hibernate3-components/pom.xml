@@ -1,0 +1,27 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.codehaus.mojo.hibernate3</groupId>
+    <artifactId>maven-hibernate3</artifactId>
+    <version>2.3-SNAPSHOT</version>
+  </parent>
+
+  <packaging>pom</packaging>
+  <artifactId>maven-hibernate3-components</artifactId>
+  <name>Maven Hibernate3 Components</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.codehaus.mojo.hibernate3</groupId>
+      <artifactId>maven-hibernate3-api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+  </dependencies>
+
+  <modules>
+    <module>maven-hibernate3-jdk14</module>
+    <module>maven-hibernate3-jdk15</module>
+  </modules>
+
+</project>

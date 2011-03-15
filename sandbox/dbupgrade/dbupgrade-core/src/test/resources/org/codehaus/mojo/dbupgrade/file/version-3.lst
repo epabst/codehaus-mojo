@@ -1,0 +1,7 @@
+#this file cause the upgrade after version 2 is upgrade since the db version is not in this list
+#version1/file-1.sql
+#version1/file-2.sql
+#version1/file-3.sql
+#version2/file-1.sql
+#version2/file-2.sql
+version3/file-1.sql

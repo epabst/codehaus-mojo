@@ -1,0 +1,54 @@
+Examples
+
+  For an example of how to convert a Maven 1 to Maven 2 build please refer to:
+
+    * test/resources/unit/conversion-test/SampleProject
+
+  The Maven 2 converted project is created in
+
+    * test/resources/unit/conversion-test/SampleProject/m2
+
+  Here's a copy of the script:
+
+-------------------
+<project>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>fileutils-maven-plugin</artifactId>
+        <configuration>
+          <scripts>
+            mkdir target/test-classes/unit/conversion-test/SampleProject/m2/src/main/java;
+            mkdir target/test-classes/unit/conversion-test/SampleProject/m2/src/main/resources;
+            mkdir target/test-classes/unit/conversion-test/SampleProject/m2/src/main/webapp;
+            mkdir target/test-classes/unit/conversion-test/SampleProject/m2/src/main/webapp/WEB-INF;
+            mkdir target/test-classes/unit/conversion-test/SampleProject/m2/src/main/webapp/META-INF;
+            mkdir target/test-classes/unit/conversion-test/SampleProject/m2/src/main/webapp/WEB-INF/tld;
+
+            cp target/test-classes/unit/conversion-test/SampleProject/src/java/org/apache/maven/portlet/QuotePortlet.java
+               target/test-classes/unit/conversion-test/SampleProject/m2/src/main/java/org/apache/maven/portlet/QuotePortlet.java;
+
+            cp target/test-classes/unit/conversion-test/SampleProject/src/resources
+               target/test-classes/unit/conversion-test/SampleProject/m2/src/main/resources;
+
+            cp target/test-classes/unit/conversion-test/SampleProject/src/webapp/view.jsp
+               target/test-classes/unit/conversion-test/SampleProject/m2/src/main/webapp/view.jsp;
+
+            cp target/test-classes/unit/conversion-test/SampleProject/src/webapp/WEB-INF/tld
+               target/test-classes/unit/conversion-test/SampleProject/m2/src/main/webapp/WEB-INF/tld;
+
+            cp target/test-classes/unit/conversion-test/SampleProject/src/webapp/WEB-INF/jetspeed-web.xml
+               target/test-classes/unit/conversion-test/SampleProject/m2/src/main/webapp/WEB-INF/jetspeed/web.xml;
+
+            cp target/test-classes/unit/conversion-test/SampleProject/src/webapp/WEB-INF/pluto-web.xml
+               target/test-classes/unit/conversion-test/SampleProject/m2/src/main/webapp/WEB-INF/web.xml;
+
+            cp target/test-classes/unit/conversion-test/SampleProject/src/webapp/WEB-INF/portlet.xml
+               target/test-classes/unit/conversion-test/SampleProject/m2/src/main/webapp/WEB-INF/portlet.xml;
+          </scripts>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+-------------------

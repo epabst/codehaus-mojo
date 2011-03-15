@@ -1,0 +1,131 @@
+ ~~ Licensed to the Apache Software Foundation (ASF) under one
+ ~~ or more contributor license agreements.  See the NOTICE file
+ ~~ distributed with this work for additional information
+ ~~ regarding copyright ownership.  The ASF licenses this file
+ ~~ to you under the Apache License, Version 2.0 (the
+ ~~ "License"); you may not use this file except in compliance
+ ~~ with the License.  You may obtain a copy of the License at
+ ~~
+ ~~   http://www.apache.org/licenses/LICENSE-2.0
+ ~~
+ ~~ Unless required by applicable law or agreed to in writing,
+ ~~ software distributed under the License is distributed on an
+ ~~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ ~~ KIND, either express or implied.  See the License for the
+ ~~ specific language governing permissions and limitations
+ ~~ under the License.
+
+ -----
+ Usage
+ -----
+ Stephen Connolly
+ ------
+ 2009-10-06
+ ------
+
+Usage
+
+  The plugin offers goals for using free web-based translation services to provide localized
+  resource bundles.
+
+* Basic Usage
+
+  We recommend that you do not attach an execution of this plugin to your main build.
+  Our preference is that you use this plugin within a profile. There are a number of reasons
+  why we recommend this:
+  
+  * The plugin has to connect to the Internet and translate each message into each target locale.
+    Even if you only have a few messages and one target locale, this can add minutes to the build.
+    If you keep the plugin in a profile, then developers can generate the translations when they
+    need them, but when they do not need them, their build will not be as slow.
+    
+  * We do not want to abuse the free translation services.  Those nice people at {{{http://www.google.com}}}
+    are providing a translation service for free.  If everyone generates translations of every message into 
+    every target locale every time they do a build, then the translation service may end up being withdrawn.
+
+  []
+
+  An example of the plugin attached in a profile is:
+
++---+
+<project>
+
+  ...
+
+  <profiles>
+  
+    ...
+  
+    <profile>
+      <id>pm-l10n</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>${project.artifactId}</artifactId>
+            <version>${project.version}</version>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>translate-properties</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <referrer>http://myprogram.mycompany.com/</referrer>
+              <masterLocale>en</masterLocale>
+              <targetLocales>
+                <targetLocale>fr</targetLocale>
+                <targetLocale>de</targetLocale>
+              </targetLocales>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+</project>
++---+
+
+  The project structure would be something like
+  
++---+
+pom.xml
+src/
+    i18n/
+        resources/
+            com/
+                mycompany/
+                    myprogram/
+                        Messages.properties
++---+
+
+  After running the build with the profile enabled
+  
++---+
+mvn clean package -Ppm-l10n
++---+
+
+  The translated messages should end up in target/classes, e.g.
+  
++---+
+pom.xml
+src/
+    i18n/
+        resources/
+            com/
+                mycompany/
+                    myprogram/
+                        Messages.properties
+target/
+    classes/
+        com/
+            mycompany/
+                myprogram/
+                    Messages.properties
+                    Messages_en.properties
+                    Messages_fr.properties
+                    Messages_de.properties
++---+
+
+  

@@ -1,0 +1,22 @@
+ ------
+ Maven EC2 Plugin - Introduction
+ ------
+ Carlos Sanchez
+ ------
+ 23 July 2009
+ -----
+
+Introduction
+
+  The EC2 plugin for Maven 2 allows starting and stopping Amazon EC2 images as
+  part of your build.
+
+Features
+
+  * Start images as part of your build
+
+  * Stop images when build finishes
+
+How to Use the Plugin
+
+  See {{{usage.html}Plugin Usage}}.

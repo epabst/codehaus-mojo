@@ -1,0 +1,112 @@
+<document>
+  <properties>
+    <title>was5-plugin - was5:InstallApplication</title>
+    </properties>
+  <body>
+    <section name="was5:InstallApplication">
+      <p>Installs an ear/war/jar file to WebSphere.</p>
+      <p>Parameters for the goal: </p>
+      <table>
+        <tr>
+          <th>Parameter</th>
+          <th>Type</th>
+          <th>Expression</th>
+          <th>Default Value</th>
+          <th>Description</th>
+          </tr>
+        <tr>
+          <td>
+            <code>wasHome</code>
+            </td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${wasHome}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Location of WebSphere installation (normally the
+						WAS_HOME environment variable). [path to
+						WebSphere]</td>
+          </tr>
+        <tr>
+          <td>
+            <code>targetDirectory</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${targetDirectory}</code>
+            </td>
+          <td>
+            <code>${basedir}/target</code>
+            </td>
+          <td>Directory where ear/jar file to install resides.
+						Default is project target dir.</td>
+          </tr>
+        <tr>
+          <td>
+            <code>ear</code>
+            </td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${ear}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>The ear file you wish to install.</td>
+          </tr>
+        <tr>
+          <td>
+            <code>server</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${server}</code>
+            </td>
+          <td>
+            <code>server1</code>
+            </td>
+          <td>Contains the name of the server on which you
+						want to install the application. Defaults to
+						server1. [servername]</td>
+          </tr>
+        <tr>
+          <td>
+            <code>ant.basedir</code>
+            </td>
+          <td>
+            <code title="java.io.File">File</code>
+            </td>
+          <td>
+            <code>${antBasedir}</code>
+            </td>
+          <td>
+            <code>${basedir}</code>
+            </td>
+          <td>The base directory from which to execute the Ant script.</td>
+          </tr>
+        <tr>
+          <td>
+            <code>ant.messageLevel</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${antMessageLevel}</code>
+            </td>
+          <td>
+            <code>info</code>
+            </td>
+          <td>The message-level used to tune the verbosity of Ant logging.</td>
+          </tr>
+        </table>
+      </section>
+    </body>
+  </document>

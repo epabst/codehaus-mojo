@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns:buildinfo="urn:maven-buildinfo-tasks">
+
+  <target name="generate-buildinfo">
+    <typedef resource="org/apache/maven/shared/buildinfo/ant/antlib.xml" uri="urn:maven-buildinfo-tasks"/>
+
+    <buildinfo:write/>
+  </target>
+
+</project>

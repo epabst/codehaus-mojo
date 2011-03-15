@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<!--
+   Licensed to the Apache Software Foundation (ASF) under one or more
+   contributor license agreements.  See the NOTICE file distributed with
+   this work for additional information regarding copyright ownership.
+   The ASF licenses this file to You under the Apache License, Version 2.0
+   (the "License"); you may not use this file except in compliance with
+   the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<document>
+
+    <properties>
+        <title>Canoo WebTest Maven Plugin</title>
+        <author>Siegfried Goeschl</author>
+    </properties>
+
+    <body>
+        <section name="Integration Tests">
+            <p>The webtest-maven-plugin comes with a couple of integration test to show various feature
+                of the plugin. This page gives you an overview of the features covered by the regression
+                tests.
+            </p>
+            <table>
+                <tr>
+                    <th>Integration Test</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td>it1</td>
+                    <td>Demonstrates ignoring errors/failures and setting the trace level to 'warn' to have
+                        less verbose output. The test reflects a "classic" (i.e. ANT based) webtest script by
+                        including entity references to externalize the configuration. Just run "mvn clean site"
+                        and check the webtest report (we expect one test to fail).
+                    </td>
+                </tr>
+                <tr>
+                    <td>it2</td>
+                    <td>This is a simple and succesful test using a minimal configuration, i.e. only the
+                        server address and the server port are defined in the pom.xml. The remaining
+                        configuration settings are supplied by the default configuration of the plugin. Just run
+                        "mvn clean site webtest:verify-result".
+                    </td>
+                </tr>
+                <tr>
+                    <td>it3</td>
+                    <td>Demonstrates adding libraries (ant-contrib) and using a custom XSL and custom result
+                        file name for a CruiseControl Integration. Run "mvn clean site"
+                    </td>
+                </tr>
+                <tr>
+                    <td>it4</td>
+                    <td>Tests the file content validation - if you comment in the "fileContentValidationSet"
+                        the webtest will fail - just run "mvn webtest:test webtest:verify-filecontent"
+                    </td>
+                </tr>
+                <tr>
+                    <td>it5</td>
+                    <td>Runs the "offical" Canoo WebTest Samples using JavaScript integration - just run "mvn
+                        clean site" and check the report.
+                    </td>
+                </tr>
+                <tr>
+                    <td>it6</td>
+                    <td>Runs an additional Groovy step to print "Hello World" (which makes it to the most
+                        complex hello world sample in this part of the universe" - just run "mvn
+                        webtest:test".
+                    </td>
+                </tr>
+                <tr>
+                    <td>it7</td>
+                    <td>Test Google search with Javascript</td>
+                </tr>
+                <tr>
+                    <td>it8</td>
+                    <td>Test processing of a PDF document</td>
+                </tr>
+                <tr>
+                    <td>it9</td>
+                    <td>Demonstrate how to run webtest execution and report in the integration test cycle but
+                        still have the possibility to create a maven site with webtest reports included.
+                    </td>
+                </tr>
+                <tr>
+                    <td>it10</td>
+                    <td>A quick test to make sure that HTTPS works as expected.
+                    </td>
+                </tr>
+                <tr>
+                    <td>it11</td>
+                    <td>This test shows that passing properties from Maven to Ant works in addition
+                        to using a property prefix.
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </body>
+</document>

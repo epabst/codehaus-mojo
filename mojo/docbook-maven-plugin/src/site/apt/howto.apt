@@ -1,0 +1,29 @@
+		--------------
+		How to use the Docbook plugin
+		--------------
+		--------------
+		2005/11/30
+
+Create your Docbook source files
+
+	In order to use this plugin your first step would be to create a set of Docbook files. The files
+	should be included in the src/docbook directory under your project, although this is configurable
+	via plugin parameter.
+	
+	Those files may be organized in a tree hierarchy and may have links to other documents using the 
+	olink tag (refer to Docbook documentation if you don't know what I'm talking about). You must use
+	an identifier of the target document, that you must build in the following way: you must take the
+	relative path from <<<src/docbook>>> (or whatever source directory you're using) of the target 
+	document and replace every folder separator character (<<<\\>>> in Windows, <<</>>> in Linux) 
+	with <<<->>>. For example, the identifier for <<<src/docbook/requirements/module/reqs.xml>>> would
+	be <<<requirements-module-reqs.xml>>>.
+	
+	If you want to link to a section, remember to place your <<<id>>> at the section level, and not at the
+	title. <<<Id>>>s at title level seem to be ignored in anchor generation, so your links won't work.
+
+Generate XHTML output
+
+	You just have to run <<<mvn docbook:transform>>>. The plugin will take care of generating the olink
+	database for you, and use the generated database in the transformation process. Your links beteewn
+	documents will work as long as you have built your document identifiers as stated above.
+	

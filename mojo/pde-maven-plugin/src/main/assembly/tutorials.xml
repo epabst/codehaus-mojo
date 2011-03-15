@@ -1,0 +1,12 @@
+<assembly>
+  <id>tutorials</id>
+  <formats>
+    <format>zip</format>
+  </formats>
+  <includeBaseDirectory>true</includeBaseDirectory>
+  <fileSets>
+    <fileSet>
+      <directory>tutorials</directory>
+    </fileSet>
+  </fileSets>
+</assembly>

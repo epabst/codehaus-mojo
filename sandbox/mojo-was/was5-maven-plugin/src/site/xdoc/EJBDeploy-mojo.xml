@@ -1,0 +1,403 @@
+<document>
+  <properties>
+    <title>was5-plugin - was5:EJBDeploy</title>
+    </properties>
+  <body>
+    <section name="was5:EJBDeploy">
+      <p>This goal generates WebSphere specific deploymentcode
+				for an ejb jarfile.</p>
+      <p>Parameters for the goal: </p>
+      <table>
+        <tr>
+          <th>Parameter</th>
+          <th>Type</th>
+          <th>Expression</th>
+          <th>Default Value</th>
+          <th>Description</th>
+          </tr>
+        <tr>
+          <td>
+            <code>mavenproject</code>
+            </td>
+          <td>
+            <code title="org.apache.maven.project.MavenProject">MavenProject</code>
+            </td>
+          <td>
+            <code>${project}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>This is the pom for the project. Property is
+						read-only (i.e you can not set it)</td>
+          </tr>
+        <tr>
+          <td>
+            <code>wasHome</code>
+            </td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${wasHome}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Location of WebSphere installation (normally the
+						WAS_HOME environment variable). [path to
+						WebSphere]</td>
+          </tr>
+        <tr>
+          <td>
+            <code>workingDirectory</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${workingDirectory}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Temporary directory for the deploy tool to use.
+						If not set, the Java System Property user.home
+						is used. Do not include a trailing
+						pathseparator.</td>
+          </tr>
+        <tr>
+          <td>
+            <code>sourceDirectory</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${sourceDirectory}</code>
+            </td>
+          <td>
+            <code>${basedir}/target</code>
+            </td>
+          <td>Source directory for the deploy tool to use. If
+						not set, the project target directory is used.</td>
+          </tr>
+        <tr>
+          <td>
+            <code>targetDirectory</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${targetDirectory}</code>
+            </td>
+          <td>
+            <code>${basedir}/target</code>
+            </td>
+          <td>Target directory for the deploy tool to use. If
+						not set, the project target directory is used.</td>
+          </tr>
+        <tr>
+          <td>
+            <code>inputJar</code>
+            </td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${inputJar}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Specifies the undeployed EJB Jar file you wish
+						to deploy.</td>
+          </tr>
+        <tr>
+          <td>
+            <code>outputJar</code>
+            </td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${outputJar}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Specifies the name of the deployed EJB Jar to
+						create.</td>
+          </tr>
+        <tr>
+          <td>
+            <code>codegen</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${codegen}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Only generate the deployment code, do not run
+						RMIC or Javac [true].</td>
+          </tr>
+        <tr>
+          <td>
+            <code>dbschema</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${dbschema}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Specifies the name of the database schema to
+						create.</td>
+          </tr>
+        <tr>
+          <td>
+            <code>dbvendor</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${dbvendor}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Specifies the type of database the EJBs will
+						use. Some of the valid types are : DB2UDB_V72
+						DB2UDB_V81 CLOUDSCAPE_V5 DB2UDBOS390_V6
+						DB2UDBOS390_V7 DB2UDBOS390_V8 DB2UDBISERIES
+						INFORMIX_V73 INFORMIX_V93 INFORMIX_V94
+						MSSQLSERVER_V7 MSSQLSERVER_2000 ORACLE_V8
+						ORACLE_V9I SYBASE_V1200 SYBASE_V1250 MYSQL_V323</td>
+          </tr>
+        <tr>
+          <td>
+            <code>dynamic</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${dynamic}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Specifies to enable dynamic query support
+						[true].</td>
+          </tr>
+        <tr>
+          <td>
+            <code>keepGenerated</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${keepGenerated}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Set to prevent the workingDirectory from being
+						deleted [true].</td>
+          </tr>
+        <tr>
+          <td>
+            <code>quiet</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${quiet}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Set to display informational messages [false].</td>
+          </tr>
+        <tr>
+          <td>
+            <code>noValidate</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${noValidate}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Set to disable validation messages [true].</td>
+          </tr>
+        <tr>
+          <td>
+            <code>noWarnings</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${noWarnings}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Set to disable warning and informational
+						messages [true].</td>
+          </tr>
+        <tr>
+          <td>
+            <code>noInform</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${noInform}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Set to disable informational messages [true].</td>
+          </tr>
+        <tr>
+          <td>
+            <code>rmicOptions</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${rmicOptions}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Allows additional arguments to be passed to the
+						rmic command.</td>
+          </tr>
+        <tr>
+          <td>
+            <code>compatible</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${compatible}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Set to use WebSphere 3.5 or 4.0 compatible
+						mapping rules [-35|-40].</td>
+          </tr>
+        <tr>
+          <td>
+            <code>sqlj</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${sqlj}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Set to generate SQL/J persistor code [-sqlj].</td>
+          </tr>
+        <tr>
+          <td>
+            <code>trace</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${trace}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Set to enable internal deploy tool tracing
+						[true].</td>
+          </tr>
+        <tr>
+          <td>
+            <code>failonerror</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${failonerror}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Set to cause your build to not stop on deploy
+						errors [true].</td>
+          </tr>
+        <tr>
+          <td>
+            <code>jvmMaxMemory</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${jvmMaxMemory}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Sets maximum size of the memory for the
+						underlying VM. Defaults to -Xmx256m. [-Xmx...M]</td>
+          </tr>
+        <tr>
+          <td>
+            <code>targetWAS</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${targetWAS}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Set the server target, to one of: WAS510 WAS502
+						WAS501 WAS500 Defaults to WAS502</td>
+          </tr>
+        <tr>
+          <td>
+            <code>ant.basedir</code>
+            </td>
+          <td>
+            <code title="java.io.File">File</code>
+            </td>
+          <td>
+            <code>${antBasedir}</code>
+            </td>
+          <td>
+            <code>${basedir}</code>
+            </td>
+          <td>The base directory from which to execute the Ant script.</td>
+          </tr>
+        <tr>
+          <td>
+            <code>ant.messageLevel</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${antMessageLevel}</code>
+            </td>
+          <td>
+            <code>info</code>
+            </td>
+          <td>The message-level used to tune the verbosity of Ant logging.</td>
+          </tr>
+        </table>
+      </section>
+    </body>
+  </document>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component-set>
+  <components>
+    <component>
+      <role>org.apache.maven.artifact.handler.ArtifactHandler</role>
+      <role-hint>dpkg</role-hint>
+      <implementation>org.apache.maven.artifact.handler.DefaultArtifactHandler</implementation>
+      <configuration>
+        <extension>deb</extension>
+        <type>dpkg</type>
+        <language>none</language>
+        <addedToClasspath>false</addedToClasspath>
+      </configuration>
+    </component>
+    <component>
+      <role>org.apache.maven.lifecycle.mapping.LifecycleMapping</role>
+      <role-hint>dpkg</role-hint>
+      <implementation>org.apache.maven.lifecycle.mapping.DefaultLifecycleMapping</implementation>
+      <configuration>
+        <phases>
+          <process-resources>
+            org.apache.maven.plugins:maven-resources-plugin:resources
+          </process-resources>
+          <package>
+            org.codehaus.mojo:deb-maven-plugin:package-binary
+          </package>
+          <install>
+            org.apache.maven.plugins:maven-install-plugin:install
+          </install>
+          <deploy>
+            org.apache.maven.plugins:maven-deploy-plugin:deploy
+          </deploy>
+        </phases>
+      </configuration>
+    </component>
+    <component>
+      <role>org.apache.maven.plugin.deb.DebTool</role>
+      <implementation>org.apache.maven.plugin.deb.DefaultControlFileGenerator</implementation>
+      <instatiation-strategy>per-lookup</instatiation-strategy>
+    </component>
+  </components>
+</component-set>

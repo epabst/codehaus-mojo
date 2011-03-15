@@ -1,0 +1,35 @@
+Introduction 
+
+ Unlike the {{{http://maven.apache.org/plugins/maven-install-plugin}maven-install-plugin}} (which helps you to install artifacts to the local repository) this plugin <does> help you to setup/configure/install your maven installment.
+
+How does it work?
+
+  First of all: you don't need a pom.xml to execute this plugin. A pom describes the project, there's no data we need to use.\
+  It's even discouraged to run this plugin within a project, because it might create files you don't want to end up in your source control management system.
+   
+  For every goal there's basically the same strategy.\
+  When you run a setup-goal, the plugin will look for a custom-template, the default template or some plugin-specific properties.\
+  If none of these is found, the plugin will copy the target file (the file you're trying to set up) to the baseDirectory. If there's no target file yet, it will copy a prototype, which is available in this plugin.\ 
+  Prototypes are like templates, but they should contain more comments inside the file to help you configure it properly.
+  
+  If you provide a valid template file, you might have to merge it with the original file.\
+  Before merging a backup file is created, so you can always revert the changes.
+ 
+  There are four merge types available: 
+  
+ * none, the original file will stay as it is.
+ 
+ * expand, add the new entries of the template to the target file, but keep the original properties
+ 
+ * update, both add and update all entries of the target file
+ 
+ * overwrite, the target file will be replaced with the template.
+ 
+ []
+ 
+ Still unsure about the result? You can add <<<-DdryRun=true>>> to see what will happen. A folder will be generated in the current basedirectory containing the generated files.
+ 
+ The plugin supports different types of filtering as well.
+ System properties will be resolved, arguments like -Dkey=value will be resolved and you can also create a properties-file which contains key-value pairs ready to be used in the template.
+ Look at the plugin documentation to see which is the name of the properties-file it's expecting.
+ 

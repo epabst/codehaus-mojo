@@ -1,0 +1,72 @@
+<project>
+  <parent>
+    <artifactId>mojo-sandbox</artifactId>
+    <groupId>org.codehaus.mojo</groupId>
+    <version>4</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>izpack-maven-plugin</artifactId>
+  <packaging>maven-plugin</packaging>
+  <name>IzPack Maven Plugin</name>
+  <version>1.0-SNAPSHOT</version>
+  <description>Maven plugin which assembles files an IzPack Installer</description>
+  <inceptionYear>2005</inceptionYear>
+  <url>http://mojo.codehaus.org/izpack-maven-plugin/</url>
+  <developers>
+    <developer>
+      <name>Miguel Griffa</name>
+      <email>miguel.griffa@gmail.com</email>
+    </developer>
+  </developers>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <source>1.4</source>
+          <destDir>${project.build.directory}/site/javadoc</destDir>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <version>2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-archiver</artifactId>
+      <version>1.0-alpha-5</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-utils</artifactId>
+      <version>1.0.4</version>
+    </dependency>
+    <dependency>
+      <groupId>plexus</groupId>
+      <artifactId>plexus-i18n</artifactId>
+      <version>1.0-beta-5</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-project</artifactId>
+      <version>2.0</version>
+      <scope>test</scope>
+    </dependency>
+    
+    <!--  need to file and upload request for this -->
+    <dependency>
+      <groupId>org.izpack</groupId>
+      <artifactId>standalone-compiler</artifactId>
+      <version>4.0.0</version>
+      <!-- 
+        <url>http://www.izforge.com/izpack/</url>
+      -->
+    </dependency>
+  </dependencies>
+</project>

@@ -1,0 +1,17 @@
+import java.io.*;
+
+String[] expectedFiles =
+{
+    "sub-a/target/generated-sources/xdoclet/it/JBIServiceMBean.java",
+    "sub-b/target/classes/META-INF/ejb-jar.xml",
+    "sub-c/target/classes/WEB-INF/web.xml",
+};
+
+for ( String path : expectedFiles )
+{
+    File file = new File( basedir, path );
+    if ( !file.isFile() )
+    {
+        throw new FileNotFoundException( "Missing " + file );
+    }
+}

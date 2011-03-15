@@ -1,0 +1,55 @@
+ ------
+ Checking your source at build time
+ ------
+ Jean-Laurent de Morlhon
+ <jeanlaurent@NOSPAMgmail.com>
+ ------
+ 
+Checking your source at build time
+
+ The following example configuration enable the build to fail when the ccn of a method exceed 12 or the ncss 90.
+ Note that the plugin is <<not>> used in the reporting section of your build here, this is not the same usage as the standard reporting one.
+
+-------------------
+<project>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>javancss-maven-plugin</artifactId>
+        <version>2.0-beta-2</version>
+        
+        <configuration>
+          <failOnViolation>true</failOnViolation>
+          <ccnLimit>12</ccnLimit>
+          <ncssLimit>90</ncssLimit>
+        </configuration>
+        
+      </plugin>
+    </plugins>
+  </build>
+  ...
+</project>
+------------------- 
+
+ Here's a capture of the output when using javancss:check
+
+-------------------
+.../...
+[INFO]    task-segment: [javancss:check]
+[INFO] ----------------------------------------------------------------------------
+[INFO] Preparing javancss:check
+[INFO] [javancss:report]
+[INFO] Including for parsing : /Users/jlf/src/NcssTestGround/src/main/java/javancss/testground/Foo.java
+[INFO] [javancss:check]
+[WARNING] Your code has 1 method(s) with a ncss greater than 1
+[WARNING]     javancss.testground.Foo.foo()
+[INFO] ------------------------------------------------------------------------
+[ERROR] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Your code has 1 method(s) with a ncss greater than 1
+[INFO] ------------------------------------------------------------------------
+.../...
+-------------------
+ 

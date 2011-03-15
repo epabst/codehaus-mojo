@@ -1,0 +1,55 @@
+ ------
+ Usage
+ ------
+ Dan T. Tran
+ <dantran@gmail.com>
+ ------
+ October 31, 2009
+ ------
+
+Usage
+
+  The following contains examples how to use this plugin to send and receive syslog records. 
+
+* syslog:receive
+
+  * The following shows a couple of examples on how to run syslog receiver and display the log to console
+
+---------------------------
+mvn syslog:receive
+
+mvn syslog:receive -Dport=1234 
+---------------------------
+  
+   []
+   
+   * The following example shows how to quickly receive the log and display statistics periodically.
+  
+---------------------------
+mvn syslog:receive-fast
+---------------------------
+
+   []
+   
+     
+* syslog:send
+
+  * Send a test message to a syslog listener on the same host using the default port.
+  
+---------------------------
+mvn syslog:send 
+---------------------------
+
+  * Send every line in a file to a syslog listner at a remote host using port 1234
+  
+---------------------------
+mvn syslog:send -Dport=1234 -Dincludes=path/to/a/file 
+---------------------------
+
+  * Send every line found found in all files under a tgz compress file 
+  
+---------------------------
+mvn syslog:send -Dport=1234 -Dincludes=path/to/a/file/your.tgz
+---------------------------
+
+ []

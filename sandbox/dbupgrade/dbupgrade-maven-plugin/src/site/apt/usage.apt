@@ -1,0 +1,243 @@
+ ------
+ Usage
+ ------
+ Dan T. Tran
+ ------
+ 2010-03-15
+ ------
+
+
+Database Upgrade Maven Plugin
+
+  The database upgrade consists of an internal upgrade lifecycle and a set of incremental upgrades provided by the user.
+
+Generic Upgrade
+
+  This upgrade lets you hook up your global pre-upgrade, incremental upgrades, and finally global post-upgrade using both java and SQL 
+  files through java resources to upgrade multiple database types of your choice. After each executed incremental upgrade, its 
+  associated version is stored in your configurable database version table. DBUpgrade uses database version's value to pickup the next 
+  upgrade in your java resource.
+
+* Generic Upgrade Lifecycle
+
+	Here are a sequence of actions taken during this upgrade lifcycle:
+	
+	* Validates JDBC connection.
+	
+	* Creates version table and its data row with version column set to 0 if not available.
+	
+	* Lookups global java pre-upgrader and executes it if available. The java pre-upgrader must implement {{{../dbupgrade-core/apidocs}DBUpgrade interface}}.
+
+	* Retrieves resource version under your package/version.properties resource.
+	
+	* Retrieves database version and uses it to lookup next available incremental upgrade (see next).
+	
+	* Looks up the upgrades starting with the database version + 1, execute and commit them one by one until
+	  the upgrade version reaches the resource version . The upgrade must locate either at
+	  root of your database upgrade java package or under your package/dialect resource.  The upgrade can be either 
+	  a Java implementation of {{{../dbupgrade-core/apidocs}DBUpgrade interface}} or a SQL script. 
+	
+	* Lookup global java post-upgrader if available and execute it. The java post-upgrader must implement {{{../dbupgrade-core/apidocs}DBUpgrade interface}}.
+	
+
+** Generic Upgrade Setup
+   
+   * Setting up your maven project
+   
+------------------------------------
+   src/main/java/your/upgrade/package/YourPreUpgrade.java                         optional
+   src/main/java/your/upgrade/package/YourPostUpgrade.java                        optional
+   src/main/java/your/upgrade/package/YourUpgrade3_4.java                         global to all database types
+   src/main/java/your/upgrade/package/yourdbtype1/YourUpgrade2_3.java 
+   src/main/java/your/upgrade/package/yourdbtype2/YourUpgrade2_3.java 
+
+   src/main/resources/your/upgrade/package/version.properties                     set version=5
+   src/main/resources/your/upgrade/package/YourUpgade4_5.sql                      global to all database types
+   
+   src/main/resources/your/upgrade/package/yourdbtype1/YourUpgade0_1.sql
+   src/main/resources/your/upgrade/package/yourdbtype1/YourUpgade1_2.sql
+   src/main/resources/your/upgrade/package/yourdbtype1/YourUpgade3_4.sql          ignore
+
+   src/main/resources/your/upgrade/package/yourdbtype2/YourUpgade0_1.sql
+   src/main/resources/your/upgrade/package/yourdbtype2/YourUpgade1_2.sql
+-------------------------------------
+
+   The above directory setup will cause the upgrade to execute the following sequence for yourdbtype1
+   
+------------------------------------
+   your.upgrade.package.YourPreUpgrade.class
+   your.upgrade.package.yourdbtype1.YourUpgrade0_1.sql
+   your.upgrade.package.yourdbtype1.YourUpgrade1_2.sql
+   your.upgrade.package.YourUpgrade2_3.class
+   your.upgrade.package.yourdbtype1.YourUpgrade3_4.sql
+   your.upgrade.package.YourUpgrade4_5.sql
+   your.upgrade.package.YourPostUpgrade.class
+------------------------------------
+
+  * Setting up your plugin configuration
+  
+------------------------------------
+  <plugin>
+    [...]
+    <executions>
+      <execution>
+        [...]
+        <goals>
+          <goal>generic-upgrade</goal>
+        </goals>
+        <configuration>
+          <config>
+            <dialect>${dialect}</dialect>
+            [Your SQL configuration, similar to SQLExec maven plugin configuration]
+            <packageName>com.your.comp.app.upgrade.package</package>
+          
+            <!-- the following are optional since they have default values -->
+            <versionResourceName>version.properties</versionResourceName>
+            <upgraderPrefix>DBUpgrader</upgraderPrefix>
+            <versionTableName>version</versionTableName>
+            <versionColumnName>version</versionColumnName>
+          </config>
+        </configuration>
+      <execution>
+    </executions>
+  </plugin>
+  [...]
+  
+  <profiles>
+    <profile>
+      <id>yourdbtype1</id>
+      <properties>
+        <dialect>yourdbtyp1</dialect>
+      </properties>
+    </profile>
+    <profile>
+      <id>yourdbtype2</id>
+      <properties>
+        <dialect>yourdbtyp2</dialect>
+      </properties>
+    </profile>
+  </profiles>
+-------------------------------------
+  
+* File List Upgrade
+
+    File upgrade lets you hook up your SQL upgrade scripts in increamentally upgrade your application database schema and data. 
+    After a SQL script is executed, its names is stored in your configurable database version table. DBUpgrade uses
+    your database version's value ( a SQL script name ) to pickup the next upgrade script.
+
+* File List Upgrade Lifecycle
+
+	Here are a sequence of action taken during this upgrade lifcycle:
+	
+	* Validates JDBC connection.
+	
+	* Creates version table and its data row with varchar type version column set to empty if not available.
+	
+	* Loads up the file list via a user provided file which contains an order of sql files to be executed.
+	
+	* Retrieves database version and uses it to lookup next available incremental upgrade in the file list. (See next)
+	
+	* Walks down the file list until reaches the script name which matches with the database version. Use the next script name 
+	  in the list to start the incremental upgrade until end of list.  After each upgrade, update the database version to the 
+	  script name.
+
+    []
+    
+    
+   * Setting up your script directory
+   
+------------------------------------
+   src/upgrade/filelist.txt
+   src/upgrade/major-version-1/file1.sql
+   src/upgrade/major-version-1/file2.sql
+   [...]
+   src/upgrade/major-version-n/file1.sql
+   src/upgrade/major-version-n/file2.sql
+   src/upgrade/major-version-n/file3.sql
+-------------------------------------
+
+   * Setting up your file list
+   
+   Base on the above directory structure, your file list contents are:
+   
+-------------------------------------
+   major-version-1/file1.sql
+   major-version-1/file2.sql
+   [...]
+   major-version-2/file1.sql
+   major-version-2/file2.sql
+   major-version-2/file3.sql
+------------------------------------
+
+  * Setting up your plugin configuration
+  
+------------------------------------
+  <plugin>
+    [...]
+    <executions>
+      <execution>
+        [...]
+        <goals>
+          <goal>filelist-upgrade</goal>
+        </goals>
+        <configuration>
+          <config>
+            [Your SQL configuration, see SQLExec maven plugin for details]
+            <scriptDirectory>${basedir}/src/upgrade</scriptDirectory>          
+            <upgradeFile>${basedir}/src/upgrade/filelist.txt</upgradeFile>          
+            <!-- the following are optional since they have default values -->
+            <versionTableName>version</versionTableName>
+            <versionColumnName>version</versionColumnName>
+          </config>
+        </configuration>
+      <execution>
+    </executions>
+  </plugin>
+  [...]
+
+------------------------------------
+    
+* Clean database
+
+  While developing your incremental upgrades, you can use <clean-database> goal to wipe out your database.
+
+------------------------------------
+  <profiles>
+    <profile>
+      <id>cleandb</id>
+      <build>
+        <plugin>
+        [...]
+        <executions>
+          <execution>
+          [...]
+          <goals>
+            <goal>clean-database</goal>
+          </goals>
+          <configuration>
+            <config>
+              [Your SQL configuration, see SQLExec maven plugin for details]
+              <cleanScript>${basedir}/path/to/your/cleanscript.sql</cleanScript>
+            </config>
+          </configuration>
+        <execution>
+      </executions>
+    </plugin>
+    [...]
+    
+    </profile>
+  </profiles>
+------------------------------------
+    
+* Integration with Java Application
+
+  To integrate with your java application
+  
+  * Construct a DBUpgradeLifecycle implementation with an associated DBUpgradeConfigution of your choice.
+  
+  * Invoke the upgrade() interface.
+  
+  []
+  
+  
+  * See JUnit test for samples  

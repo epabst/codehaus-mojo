@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<JlintRules>
+    <Rule>BOUNDS</Rule>
+    <Rule>DEADLOCK</Rule>
+    <Rule>DOMAIN</Rule>
+    <Rule>FIELD_REDEFINED</Rule>
+    <Rule>INCOMP_CASE</Rule>
+    <Rule>NOT_OVERRIDDEN</Rule>
+    <Rule>NULL_REFERENCE</Rule>
+    <Rule>OVERFLOW</Rule>
+    <Rule>RACE_CONDITION</Rule>
+    <Rule>REDUNDANT</Rule>
+    <Rule>SHADOW_LOCAL</Rule>
+    <Rule>SHORT_CHAR_CMP</Rule>
+    <Rule>STRING_CMP</Rule>
+    <Rule>SUPER_FINALIZE</Rule>
+    <Rule>TRUNCATION</Rule>
+    <Rule>WAIT_NOSYNC</Rule>
+    <Rule>WEAK_CMP</Rule>
+    <Rule>ZERO_OPERAND</Rule>
+    <Rule>ZERO_RESULT</Rule>
+</JlintRules>

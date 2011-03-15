@@ -1,0 +1,71 @@
+ ------
+ Maven 2 JasperReports Plugin
+ ------
+
+Maven 2 JasperReports Plugin
+
+ This plug-in compiles {{{http://jasperreports.sourceforge.net/}JasperReports}} xml design files to Java source
+ and .jasper serialized files.
+
+* How to Use
+
+  In your pom.xml, insert this segment:
+
+-------------------
+<project>
+  ...
+  
+  <dependencies>
+    <dependency>
+      <groupId>jasperreports</groupId>
+      <artifactId>jasperreports</artifactId>
+      <version>${your.jasperreports.version}</version>
+      </dependency>
+      [...]
+  </dependencies>
+  
+  <build>
+      ...
+      <plugins>
+        ...
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>jasperreports-maven-plugin</artifactId>
+          <executions>
+            <execution>
+              <goals>
+                <goal>compile-reports</goal>
+              </goals>
+            </execution>
+          </executions>
+          
+          <dependencies>
+            <!--note this must be repeated here to pick up correct xml validation -->
+            <dependency>
+              <groupId>jasperreports</groupId>
+              <artifactId>jasperreports</artifactId>
+              <version>${your.jasperreports.version}</version>
+            </dependency>
+          </dependencies>
+          
+        </plugin>
+        ...
+      </plugins>
+      ...
+    </build>
+  ...
+</project>
+-------------------
+
+  By default, the <compile-reports> mojo runs at <generate-resources> phase. However, 
+  you might need to bind the mojo to the compile phase if your report uses classes
+  under <target/classes>.
+
+  Your xml design files should be in src/main/jasperreports and have a .jrxml
+  extension by default.
+  
+  It is necessary to declare your own jasperreports on both project and plugin's dependency lists.
+  This first one is used for compilation purpose. The later is used to pickup correct xml validation,
+  other wise, it will use the undesired one which comes with this plugin ( ie version 1.2.0 ) 
+  See {{{http://jira.codehaus.org/browse/MOJO-1254}MOJO-1254}} for details
+

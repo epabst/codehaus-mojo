@@ -1,0 +1,43 @@
+ ------
+ Introduction
+ ------
+ Dan T. Tran
+ ------
+ 2009-01-15
+ ------
+
+
+Enchanter Maven Plugin
+
+	Enchanter is a small library that helps you script Telnet/SSH sessions in a manner similar to Expect. 
+	Together with this plugin, you can execute multiple scripts.
+	
+	The Maven plugin bootstraps the infrastructure before invoking the input script(s).
+	
+	Enchanter at MOJO is a fork of {{{http://code.google.com/p/enchanter} googlecode's enchanter}} with added support for 
+	Telnet connection and this plugin itself.
+	  
+	The original script recorder, and single jar execution features are dropped until further user interests.
+	
+
+* Goals Overview
+
+  * {{{run-mojo.html}enchanter:run}} executes script(s)
+  
+  []
+  
+* Usage
+
+  Instructions on how to use the Enchanter Maven Plugin can be found on the {{{usage.html}usage page}}.
+
+* Examples
+
+  * {{{http://svn.codehaus.org/mojo/trunk/sandbox/enchanter/enchanter-maven-plugin/src/it/ruby} Scripting with Ruby}}
+  
+  * {{{http://svn.codehaus.org/mojo/trunk/sandbox/enchanter/enchanter-maven-plugin/src/it/python} Scripting with Python}}
+  
+  * {{{examples/settings.html}Configure username/password with settings.html}}
+  
+  []
+
+

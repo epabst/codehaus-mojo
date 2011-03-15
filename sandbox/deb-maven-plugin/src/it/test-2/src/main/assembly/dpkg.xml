@@ -1,0 +1,24 @@
+<assembly>
+  <id>dpkg</id>
+  <formats>
+    <format>directory</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <fileSets>
+    <fileSet>
+      <directory>src/main/root</directory>
+      <outputDirectory>/</outputDirectory>
+      <fileMode>0755</fileMode>
+    </fileSet>
+  </fileSets>
+  <dependencySets>
+    <dependencySet>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.codehaus.mojo.deb:myapp</include>
+      </includes>
+      <unpack>true</unpack>
+      <outputDirectory>/local/systems/myapp</outputDirectory>
+    </dependencySet>
+  </dependencySets>
+</assembly>

@@ -1,0 +1,43 @@
+ ------
+ Maven 2 Runtime plugin 
+ ------
+ Jesse McConnell <jesse.mcconnell@gmail.com>
+ ------
+ Fri Nov 4 2005
+ ------
+
+Maven 2 Runtime plugin
+
+ The basic goal of the maven runtime plugin is to provide a declarative mechanism for describing the runtime enviroment of Java applications.
+
+ For up to date information, including supported execution mechanisms, on this plugin as it is further developed please refer to the working documentation at:
+ 
+ http://docs.codehaus.org/display/MAVEN/Maven+Runtime
+
+Available Configuration Options:
+ 
+ * sourceDirectory - src/main/runtimes
+ 
+ * outputDirectory - target/runtimes
+ 
+ * timestampDirectory - target (used so grammers are not constantly regenerated)
+ 
+ []
+
+Usage:
+ 
+-------------------
+<project>
+   ...
+      <build>
+         <plugins>
+            <plugin>
+               <groupId>org.codehaus.mojo</groupId>
+               <artifactId>runtime-maven-plugin</artifactId>
+            </plugin>
+         </plugins>
+         ...
+      </build>
+   ...
+</project>
+-------------------

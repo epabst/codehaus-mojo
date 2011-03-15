@@ -1,0 +1,43 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>test</groupId>
+  <artifactId>echo-with-var-IT</artifactId>
+  <version>1.1-SNAPSHOT</version>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>shell-maven-plugin</artifactId>
+
+        <executions>
+          <execution>
+            <id>exec-echo</id>
+            <phase>initialize</phase>
+
+            <configuration>
+              <trimScript>true</trimScript>
+              <chmod>true</chmod>
+              <debug>true</debug>
+              <messageLevel>debug</messageLevel>
+              <script><![CDATA[
+#!/bin/bash
+
+VAR=something
+
+echo "Hello, $${VAR}" > ${project.build.directory}/echo-out.txt
+
+              ]]></script>
+            </configuration>
+
+            <goals>
+              <goal>shell</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+
+

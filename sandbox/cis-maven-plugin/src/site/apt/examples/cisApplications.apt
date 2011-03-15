@@ -1,0 +1,91 @@
+~~
+~~
+~~     Copyright 2007 Apache Software Foundation
+~~
+~~     Licensed under the Apache License, Version 2.0 (the "License");
+~~     you may not use this file except in compliance with the License.
+~~     You may obtain a copy of the License at
+~~
+~~       http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~     Unless required by applicable law or agreed to in writing, software
+~~     distributed under the License is distributed on an "AS IS" BASIS,
+~~     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+~~     See the License for the specific language governing permissions and
+~~     limitations under the License. 
+~~
+~~
+           ----------------------------
+           Configuring CIS applications
+           ----------------------------
+
+Configuring CIS applications
+
+  An application in the sense of the application designer is a subdirectory
+  of your web applications root directory. For example, this subdirectory
+  might be called "MyDirectory".
+  
+  The Maven CIS plugin suggests, that an application has a certain directory
+  layout:
+
+---------------------------------------------------------------------------
+  src/main/cis
+             + Application1
+                          + xml
+                          + web.xml
+                          
+             + Application2
+                          + xml
+                          + web.xml
+---------------------------------------------------------------------------
+
+  Each application is a subdirectory below <<<src/main/cis>>>. The name
+  of the subdirectory is the application name. Each application has a
+  directory <<<xml>>> with layout files.
+  
+  An application may also have a file <<<web.xml>>>. This file allows to
+  configure servlets, filters, URL mappings, and so on, which apply to
+  your application. The file is merged into the main <<<web.xml>>> file.
+
+  The "MyDirectory" application can be configured like this:
+
+---------------------------------------------------------------------------
+    ...
+    <build>
+      <plugins>
+        ...
+        <plugin> <!-- This section is required with the cis-maven-plugin. -->
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>cis-maven-plugin</artifactId>
+          <version>1.0-alpha-1-SNAPSHOT</version>
+          <configuration>
+            <cisApplications>
+              <name>MyDirectory</name>
+              <dependencies> <!-- Optional dependencies; of course, you -->
+                <dependency> <!-- may omit these                        -->
+                  <groupId>someGroup</groupId>
+                  <artifactId>someArtifact</artifactId>
+                  <version>someVersion</someVersion>
+                </dependency>
+                ...
+              </dependencies>
+              <!-- Default value, you can omit this. -->
+              <appWebXml>src/main/cis/MyDirectory/web.xml</appWebXml>
+              <!-- Default value, you can omit this. -->
+              <xmlDir>src/main/cis/MyDirectory/xml</xmlDir>
+              <startAppClasses> <!-- Optional application initializer  -->
+                                <!-- classes, you may omit this tag,   -->
+                                <!-- if you have none. The initializer -->
+                                <!-- classes are merged into           -->
+                                <!-- cis/config/startapps.xml.         -->
+                <startAppClass>com.foo.MyAppStarter</startAppClasses>
+              </startAppClasses>
+            </cisApplications>
+          </configuration>
+        </plugin>
+        ...
+      </plugins>
+    </build>
+    ...
+---------------------------------------------------------------------------
+

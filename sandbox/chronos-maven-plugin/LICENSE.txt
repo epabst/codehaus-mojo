@@ -1,0 +1,19 @@
+^/\*\s*$
+^ \* Copyright \(C\) 2008 Digital Sundhed \(SDSD\)\s*$
+^ \*\s*$
+^ \* All source code and information supplied as part of chronos\s*$
+^ \* is copyright to its contributers.
+^ \*\s*$
+^ \* The source code has been released under a dual license - meaning you can\s*$
+^ \* use either licensed version of the library with your code.\s*$
+^ \*\s*$
+^ \* It is released under the Common Public License 1.0, a copy of which can\s*$
+^ \* be found at the link below.\s*$
+^ \* http://www.opensource.org/licenses/cpl1.0.php\s*$
+^ \*\s*$
+^ \* It is released under the LGPL \(GNU Lesser General Public License\), either\s*$
+^ \* version 2.1 of the License, or \(at your option\) any later version. A copy\s*$
+^ \* of which can be found at the link below.\s*$
+^ \* http://www.gnu.org/copyleft/lesser.html\s*$
+^ \*/\s*$
+^package

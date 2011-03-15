@@ -1,0 +1,133 @@
+
+Migrate to the xml-maven-plugin
+
+* Update plugin's GAV
+
+ This is the original way to define the xslt-maven-plugin in your pom.
+ 
+---
+ <plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>xslt-maven-plugin</artifactId>
+  <version>1.0</version> 
+ </plugin>
+---
+
+ Change the artifactId and version. You might want to look for a more recent version of the plugin on the {{{http://mojo.codehaus.org/xml-maven-plugin}xml-maven-plugin page}} or the {{{http://repository.codehaus.org/org/codehaus/mojo/xml-maven-plugin/}codehaus repository}}.
+ 
+---
+ <plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>xml-maven-plugin</artifactId>
+  <version>1.0-beta4</version> <!-- look for the most recent version -->
+ </plugin>
+---
+
+* Required fields
+
+ For both plugins it's required to configure the sourcedirectory, outputdirectory and the stylesheet.
+ The xslt-maven-plugin uses the fields <srcDir>, <destDir> and <xslFile>. 
+
+---
+ <plugin>
+  <artifactId>xslt-maven-plugin</artifactId>
+  <configuration>
+    <srcDir>src/main/xml</srcDir> <!-- default: \${project.build.sourceDirectory} -->
+    <destDir>target/generated-resources/xml/xslt</destDir> <!-- default: \${project.build.outputDirectory} -->
+    <xslFile>src/main/stylesheet.xsl</xslFile>
+  </configuration>
+ </plugin>
+---
+
+ The xslt-maven-plugin uses the fields <dir>, <outputDir> and <stylesheet> as part of a transformationSet.
+
+---
+ <plugin>
+  <artifactId>xslt-maven-plugin</artifactId>
+  <configuration>
+   <transformationSets>
+    <transformationSet>
+     <dir>src/main/xml</dir> <!-- default: \${project.basedir} --> 
+     <outputDir>target/generated-resources/xml/xslt</outputDir> <!-- default: \${project.build.directory}/generated-resources/xml/xslt -->
+     <stylesheet>src/main/stylesheet.xsl</stylesheet>
+    </transformationSet>
+   </transformationSets>
+  </configuration>
+ </plugin>
+---
+
+* Parameters 
+
+ In the following example we'll set the value of the parameter <foo> to <bar>.
+ 
+---
+ <plugin>
+  <artifactId>xslt-maven-plugin</artifactId>
+  <configuration>
+    <!-- omitted other required fields -->
+    <parameters>
+     <foo>bar</foo>
+    </parameters>
+  </configuration>
+ </plugin>
+---
+
+ The xml-maven-plugin uses parameter entries with a name-value pair. 
+ 
+---
+ <plugin>
+  <artifactId>xslt-maven-plugin</artifactId>
+  <configuration>
+   <transformationSets>
+    <transformationSet>
+     <!-- omitted other required fields -->
+     <parameters>
+      <parameter>
+       <name>foo</name>
+       <value>bar</value>
+      </parameter>
+     </parameters>
+    </transformationSet>
+   </transformationSets>
+  </configuration>
+ </plugin>
+---
+
+* Filename transformation
+
+ In the following example we will replace every appearance of <foo> in the filename with <bar>. 
+
+---
+ <plugin>
+  <artifactId>xslt-maven-plugin</artifactId>
+  <configuration>
+    <!-- omitted other required fields -->
+    <fileNameRegex>foo</fileNameRegex>
+    <fileNameReplacement>bar</fileNameReplacement>
+  </configuration>
+ </plugin>
+---
+
+ The xml-maven-plugin uses fileMappers to do the filename transformation.
+ 
+---
+ <plugin>
+  <artifactId>xslt-maven-plugin</artifactId>
+  <configuration>
+   <transformationSets>
+    <transformationSet>
+     <!-- omitted other required fields -->
+     <fileMappers>
+      <fileMapper implementation="org.codehaus.plexus.components.io.filemappers.ReplaceRegExpFileMapper">
+       <pattern>foo</pattern>
+       <replacement>bar</replacement>
+       <replaceAll>true</replaceAll>
+      </fileMapper>
+     </fileMappers>
+    </transformationSet>
+   </transformationSets>
+  </configuration>
+ </plugin>
+---
+
+

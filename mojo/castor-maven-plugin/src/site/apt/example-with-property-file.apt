@@ -1,0 +1,100 @@
+ ------
+ Usage 
+ ------
+ <brozow@opennms.org>
+ ------
+ November 30, 2006
+ ------
+
+Usage
+
+	This document isn't intended to be a tutorial on the use of Castor
+	but rather on the use of the plugin.  For more details on using Castor see
+	{{http://castor.codehaus.org/xml-framework.html}}.
+ 
+* Overview
+
+	The easiest way to use the Castor plugin is to place your <<<*.xsd>>> files in
+	<<<$\{schemaDirectory\}>>> (by default <<<src/main/castor>>>).  All <<<*.xsd>>> files in this 
+	directory will have java source generated for them along the appropriate descriptors and
+	marshallers.  This code will be generated into the directory specified by <<<$\{dest\}>>>
+	(this is <<<target/generated-source/castor>>> by default).
+	
+	Unless you want all code to be generated to the default package, either the package parameter
+	must be specified or the <<<castorbuilder.properties>>> must be supplied either by putting into the
+	<<<src/main/castor>>> directory or specifying it in the configuration.
+	
+	The castorbuilder.properties must provide the namespace to package mappings for all of the xsds
+	in the <<<$\{schemaDirectory\}>>> as specified
+	{{{http://castor.codehaus.org/sourcegen.html#Mapping-XML-namespaces-to-Java-packages}here}}.
+	
+	As an alternative to using the schemaDirectory and individual schema file can be specified via
+	the schema element of the configuration.
+	
+* Minimal configuration
+
+	This configuration generates java code for all *.xsds in <<<src/main/castor>>> to the package
+	specified in src/main/castor/castorbuilder.properties or the default package depending on the
+	contents of castorbuilder.properties.
+
+	<<pom.xml>>
+	
++-------------------
+<project>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>castor-maven-plugin</artifactId>
+        <version>1.0</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
++-------------------
+
+* More complex configuration
+
+	This generates the source for a single schema (<<<src/main/castor/schema.xsd>>>) using the
+	package <<<org.codehaus.example.schema>>>.
+
+	<<pom.xml>>
+	
++-------------------
+<project>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>castor-maven-plugin</artifactId>
+        <version>1.0</version>
+        <executions>
+          <execution>
+            <goal>generate</goal>
+            <configuration>
+              <schema>src/main/castor/schema.xsd</schema>
+              <packaging>org.codehaus.example.schema</packaging>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
++-------------------
+
+	More documentation on the configuration options can be found in the description for the
+	{{{generate-mojo.html}generate goal}}.

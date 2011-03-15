@@ -1,0 +1,64 @@
+Generating bindings for EARs
+
+  The wsDefaultBindings goal generates default bindings for
+references to administered resources.\ 
+To generate default bindings, put the following in the plugins section of your POM:
+
++--
+
+<plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>was6-maven-plugin</artifactId>
+  <version>${project.version}</version>
+  <executions>
+    <execution>
+      <goals>
+        <goal>wsDefaultBindings</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
+
++--
+
+
+  It's also possible to specify a bindings configuration file 
+(see $WAS_INSTALL_ROOT/properties/dfltbndngs.dtd for the format):
+
++--
+
+<plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>was6-maven-plugin</artifactId>
+  <version>${project.version}</version>
+  <executions>
+    <execution>
+      <goals>
+        <goal>wsDefaultBindings</goal>
+      </goals>
+    </execution>
+  </executions>
+  <configuration>
+    <wasHome>${was61home}</wasHome>
+    <strategy>bindings.xml</strategy>
+  </configuration>
+</plugin>
+
++--
+
+  Example excerpt of the bindings.xml file could be
+  
++--
+
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE dfltbndngs SYSTEM "dfltbndngs.dtd">
+<dfltbndngs>
+  <module-bindings>
+    <war-binding>
+	  <jar-name>jamon-war-2.7.war</jar-name>
+	  <virtual-host>admin_host</virtual-host>
+	</war-binding>
+  </module-bindings>
+</dfltbndngs>
+
++--

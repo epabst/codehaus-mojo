@@ -1,0 +1,12 @@
+<verifications>
+  <files>
+    <file>
+      <location>build.log</location>
+      <contains>Using as namingstrategy it.CustomNamingStrategy</contains>
+    </file>
+    <file>
+      <location>target/hibernate3/sql/schema.sql</location>
+      <contains>tbl_Person</contains>
+    </file>
+  </files>
+</verifications>

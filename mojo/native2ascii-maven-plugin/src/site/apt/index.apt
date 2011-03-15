@@ -1,0 +1,32 @@
+ ------
+ Introduction
+ ------
+ Dan T. Tran
+ <dantran@gmail.com>
+ ------
+ 2010-03-04
+ ------
+
+Native2Ascii Maven Plugin
+
+  This plugin runs native2ascii at the <<<generate-resources>>> phase and adds the output directory to your Maven project as a resource.
+
+
+* Goals Overview
+
+  * {{{native2ascii-mojo.html}native2ascii:native2ascii}}: Run the conversion.
+
+  []
+
+
+* Usage
+
+  Instructions on how to use the Native2Ascii Maven Plugin can be found on the {{{usage.html}usage page}}.
+
+
+* Examples
+
+  * {{{examples/utf8-2ascii.html} UTF8 to ASCII example.}}
+
+  []
+

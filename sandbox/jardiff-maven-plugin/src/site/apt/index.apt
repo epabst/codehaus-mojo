@@ -1,0 +1,14 @@
+ ------
+ Maven 2 Jardiff Plugin 
+ ------
+ Torsten Curdt
+ <tcurdt@apache.org>
+ ------
+ April 18, 2006
+
+Jardiff Maven plugin
+
+ This plugin creates a jardiff report. It will compare the freshly build
+ artifact with a previous version and describe API and code changes.
+ 
+ To learn how to use the plugin, click {{{howto.html}here}}.

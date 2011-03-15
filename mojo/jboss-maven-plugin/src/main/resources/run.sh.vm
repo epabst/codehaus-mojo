@@ -1,0 +1,6 @@
+#! /bin/sh
+
+# Shell script that starts jboss with all the copied folders and stuff.
+
+export JAVA_OPTS="${javaOpts} -Djboss.server.home.dir=${jbossServerHome} -Djboss.server.home.url=file:${jbossServerHome}"
+${jbossHome}/bin/run.sh -c ${serverName} ${options}

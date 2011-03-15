@@ -1,0 +1,112 @@
+ ------
+ Translating Maven Projects
+ ------
+ ------
+ $Rev$ $Date$
+
+~~
+~~ Licensed to the Apache Software Foundation (ASF) under one
+~~ or more contributor license agreements.  See the NOTICE file
+~~ distributed with this work for additional information
+~~ regarding copyright ownership.  The ASF licenses this file
+~~ to you under the Apache License, Version 2.0 (the
+~~ "License"); you may not use this file except in compliance
+~~ with the License.  You may obtain a copy of the License at
+~~
+~~  http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~ Unless required by applicable law or agreed to in writing,
+~~ software distributed under the License is distributed on an
+~~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+~~ KIND, either express or implied.  See the License for the
+~~ specific language governing permissions and limitations
+~~ under the License.
+~~
+
+Translating Maven Projects
+
+ <<NOTE:>> The examples below, unless otherwise specified, all assume that the
+ Maven build is invoked with a life-cycle phase:
+
++----------+
+mvn install
++----------+
+
+ Due to the use of executions configurations, invoking the named goals from the 
+ command-line will fail to function correctly.
+
+* Translate a Jar Maven Project
+
+ When executing on a <<jar>> project, the <<<translate-project>>> goal will translate the
+ project's artifacts (the jar file) and then optionally attach the new retrotranslated
+ artifact to be included in <<<install>>> and <<<deploy>>> operations.
+
++----------+
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>retrotranslator-maven-plugin</artifactId>
+    <executions>
+        <execution>
+            <goals>
+                <goal>translate-project</goal>
+            </goals>
+            <configuration>
+                <classifier>jdk14</classifier>
+                <attach>true</attach>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
++----------+
+
+* Translate a War Maven Project
+
+ When executing on a <<war>> project, the <<<translate-war>>> goal will translate the
+ contents (classes directory and jars in the lib directory) of the project's artifact
+ (war file) and then optionally attach the new retrotranslated artifact to be included
+ in <<<install>>> and <<<deploy>>> operations.
+
++----------+
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>retrotranslator-maven-plugin</artifactId>
+    <executions>
+        <execution>
+            <goals>
+              <goal>translate-war</goal>
+            </goals>
+            <configuration>
+                <classifier>jdk1.4</classifier>
+                <attach>true</attach>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
++----------+
+
+* Translating only specific Jars in a War Maven Project
+
+ Sometimes (especially when also performing verification) you only want some jars translated.
+
++----------+
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>retrotranslator-maven-plugin</artifactId>
+    <executions>
+        <execution>
+            <goals>
+              <goal>translate-war</goal>
+            </goals>
+            <configuration>
+                <jarfileset>
+                    <includes>
+                        <include>myproject-*.jar</include>
+                    </includes>
+                </jarfileset>
+                <classifier>jdk1.4</classifier>
+                <attach>true</attach>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
++----------+

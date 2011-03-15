@@ -1,0 +1,193 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>mojo-parent</artifactId>
+    <groupId>org.codehaus.mojo</groupId>
+    <version>28</version>
+  </parent>
+  
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.codehaus.mojo.natives</groupId>
+  <artifactId>maven-native</artifactId>
+  <version>1.0-alpha-8-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>Maven Native</name>
+  
+  <scm>
+    <connection>scm:svn:http://svn.codehaus.org/mojo/trunk/mojo/maven-native</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/maven-native</developerConnection>
+    <url>http://svn.codehaus.org/mojo/trunk/mojo/maven-native</url>
+  </scm>
+  
+  <developers>
+    <developer>
+      <id>dtran</id>
+      <name>Dan T. Tran</name>
+      <email>dantran@gmail.com</email>
+      <organization />
+      <roles>
+        <role>Lead Developer</role>
+      </roles>
+    </developer>
+  </developers>
+  
+  
+  
+  <dependencyManagement>
+  
+    <dependencies>
+
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-plugin-api</artifactId>
+        <version>2.0.6</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.codehaus.plexus</groupId>
+        <artifactId>plexus-container-default</artifactId>
+        <version>1.0-alpha-9</version>
+      </dependency>
+  
+      <dependency>
+        <groupId>org.codehaus.plexus</groupId>
+        <artifactId>plexus-utils</artifactId>
+        <version>2.0.1</version>
+      </dependency>    
+
+      <dependency>
+        <groupId>commons-lang</groupId>
+        <artifactId>commons-lang</artifactId>
+        <version>2.4</version>
+      </dependency>    
+
+      <dependency>
+        <groupId>bcel</groupId>
+        <artifactId>bcel</artifactId>
+        <version>5.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-project</artifactId>
+        <version>2.0.6</version>
+      </dependency>    
+
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-model</artifactId>
+        <version>2.0.6</version>
+      </dependency>    
+
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-artifact</artifactId>
+        <version>2.0.6</version>
+      </dependency>    
+      
+      
+      <dependency>
+        <groupId>org.codehaus.plexus</groupId>
+        <artifactId>plexus-archiver</artifactId>
+        <version>1.0-alpha-12</version>
+        <exclusions>
+          <exclusion>
+            <groupId>org.codehaus.plexus</groupId>
+            <artifactId>plexus-component-api</artifactId>
+          </exclusion>
+        </exclusions>
+      
+      </dependency>       
+    
+      <dependency>
+        <groupId>org.apache.maven.shared</groupId>
+        <artifactId>maven-plugin-testing-harness</artifactId>
+        <version>1.0-beta-1</version>
+        <scope>test</scope>
+      </dependency>    
+
+      <dependency>
+        <groupId>backport-util-concurrent</groupId>
+        <artifactId>backport-util-concurrent</artifactId>
+        <version>3.1</version>
+      </dependency>   
+
+      <dependency>
+        <groupId>org.codehaus.mojo.natives</groupId>
+        <artifactId>maven-native-api</artifactId>
+        <version>${project.version}</version>
+      </dependency>    
+
+      <dependency>
+        <groupId>org.codehaus.mojo.natives</groupId>
+        <artifactId>maven-native-javah</artifactId>
+        <version>${project.version}</version>
+      </dependency>    
+  
+      <dependency>
+        <groupId>org.codehaus.mojo.natives</groupId>
+        <artifactId>maven-native-generic-c</artifactId>
+        <version>${project.version}</version>
+      </dependency>    
+
+      <dependency>
+        <groupId>org.codehaus.mojo.natives</groupId>
+        <artifactId>maven-native-msvc</artifactId>
+        <version>${project.version}</version>
+      </dependency>    
+
+      <dependency>
+        <groupId>org.codehaus.mojo.natives</groupId>
+        <artifactId>maven-native-bcc</artifactId>
+        <version>${project.version}</version>
+      </dependency>    
+
+      <dependency>
+        <groupId>org.codehaus.mojo.natives</groupId>
+        <artifactId>maven-native-manager</artifactId>
+        <version>${project.version}</version>
+      </dependency>    
+
+    </dependencies>
+       
+  </dependencyManagement>
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.2</version>
+      <scope>test</scope>
+    </dependency>    
+  </dependencies>
+       
+  
+  
+  <modules>
+    <module>maven-native-api</module>
+    <module>maven-native-components</module>
+    <module>native-maven-plugin</module>
+  </modules>
+  
+  
+  <build>
+  
+    <defaultGoal>install</defaultGoal>
+    
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-eclipse-plugin</artifactId>
+          <version>2.7</version>
+          <configuration>
+            <workspace>${basedir}</workspace>
+            <workspaceCodeStylesURL>
+              http://svn.apache.org/repos/asf/maven/plugins/trunk/maven-eclipse-plugin/src/optional/eclipse-config/maven-styles.xml
+            </workspaceCodeStylesURL>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    
+  </build>
+  
+</project>

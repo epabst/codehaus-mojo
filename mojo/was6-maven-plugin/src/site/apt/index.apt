@@ -1,0 +1,76 @@
+ ------
+ Introduction
+ ------
+ David J. M. Karlsen <david@codehaus.org>
+ ------
+ 29 Jan 2008
+ ------
+
+
+WAS6 maven plugin
+
+  This plugin can be used to
+  
+  * Generate EJB stub code 
+  
+  * Generate or modify resource descriptor
+  
+  * Deploy EARs to targets (servers and/or clusters)
+  
+  * Start/stop applications
+  
+  * Start/stop targets (servers and/or clusters).
+  
+  * Execute arbitrary scripts controlling WAS environments.
+  
+  * Generate EAR files suitable for deploying into a WebSphere Process Server environment using ServiceDeploy.
+
+* Goals Overview
+
+  General Information about the goals.
+
+  * {{{clean-mojo.html}was6:clean}} Clean up generated stubs.
+
+  * {{{ejbdeploy-mojo.html}was6:ejbdeploy}} Generate EJB stub code.
+  
+  * {{{wsUninstallApp-mojo.html}was6:wsUninstallApp}} Uninstall EAR.
+  
+  * {{{installApp-mojo.html}was6:installApp}} Install EAR.
+  
+  * {{{wsDefaultBindings-mojo.html}was6:wsDefaultBindings}} Generate/modify EAR resource bindings.
+  
+  * {{{wsListApps-mojo.html}was6:wsListApps}} List installed applications.
+  
+  * {{{wsStartApp-mojo.html}was6:wsStartApp}} Start an application.
+  
+  * {{{wsStopApp-mojo.html}was6:wsStopApp}} Stop an application.
+  
+  * {{{wsStartServer-mojo.html}was6:wsStartServer}} Start a server.
+  
+  * {{{wsStopServer-mojo.html}was6:wsStopServer}} Stop a server.
+  
+  * {{{wsAdmin-mojo.html}was6:wsAdmin}} Execute scripts with ws admin.
+
+  * {{{servicedeploy-mojo.html}was6:servicedeploy}} Run ServiceDeploy against WID Libraries and Modules to produce an EAR for Process Server.
+  
+  * {{{endpointEnabler-mojo.html}was6:endpointEnabler}} Generate web-services routing.
+  
+  * {{{wsdl2java-mojo.html}was6:wsdl2java}} Generate IBM specific stuff from WSDL2Java.
+
+* Usage
+
+  Instructions on how to use the WAS6 maven plugin can be found on the {{{usage.html}usage page}}.
+
+* Examples
+
+  To provide you with better understanding of some usages of the WAS6 maven plugin,
+  you can take a look into the following examples:
+
+  * {{{examples/generating-default-bindings.html}Generate default bindings}}
+
+  * {{{examples/generating-ejb-stubs.html}Generating EJB stubs}}
+  
+  * {{{examples/installing-ears.html}Installing EARs}}
+  
+  * {{{examples/generating-process-server-ears.html}Generating Process Server EARs via ServiceDeploy}}
+  

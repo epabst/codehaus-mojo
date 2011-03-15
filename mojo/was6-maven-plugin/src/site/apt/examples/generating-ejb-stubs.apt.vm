@@ -1,0 +1,70 @@
+Generating stub-code for an EJB
+
+Mark: Placement/order of plugin executions
+  
+  Be sure to place the was6-maven-plugin declaration BEFORE the maven-ejb-plugin.
+This ensures that the generated stubs get included in the resulting archive.
+Likewise if you're generating home-, remote- and/or local interfaces (f.ex. with xdoclet),
+place that plugin BEFORE the was6-maven-plugin. This ensures that the generated interfaces
+are available on the classpath for the was6-maven-plugin.
+  
+TIP: Use properties
+  
+  It may be wise to define a property referencing
+the WAS installation point in your pom or in your settings.xml.
+This way you can reuse the value across dependencies in the pom and in the plugin,
+and the location of installation-point can be triggered by profiles and vary per
+environment.
+  
+
+Usage with vanilla installation of WebSphere (Base or ND)  
+
+  This assures that the generated sources will be included in the resulting jar. 
+If your WebSphere environment is a base install/ND:
+  
++--
+
+<plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>was6-maven-plugin</artifactId>
+  <version>${project.version}</version>
+  <executions>
+    <execution>
+      <goals>
+        <goal>ejbdeploy</goal>
+      </goals>
+    </execution>
+  </executions>
+  <configuration>
+    <wasHome>C:/Program Files/IBM/WebSphere/AppServer</wasHome>
+  </configuration>
+</plugin>
+
++--
+
+
+Legacy mode
+
+  If your WebSphere installation is an Rational Application Developer embedded test environment,
+which does not support the jdkComplicanceAttribute (see faq), set legacyMode to true:
+
++--
+
+<plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>was6-maven-plugin</artifactId>
+  <version>${project.version}</version>
+  <executions>
+    <execution>
+      <goals>
+        <goal>ejbdeploy</goal>
+      </goals>
+    </execution>
+  </executions>
+  <configuration>
+    <wasHome>C:\Program Files\IBM\SDP70\runtimes\base_v61</wasHome>
+    <legacyMode>true</legacyMode>
+  </configuration>
+</plugin>
+
++--

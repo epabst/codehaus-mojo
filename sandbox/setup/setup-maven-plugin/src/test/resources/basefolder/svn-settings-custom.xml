@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svn-settings>
+  <configDirectory>configDirectory_customTemplate</configDirectory>
+  <useCygwinPath>true</useCygwinPath>
+  <cygwinMountPath>cygwinMountPath_customTemplate</cygwinMountPath>
+  <useNonInteractive>false</useNonInteractive>
+</svn-settings>

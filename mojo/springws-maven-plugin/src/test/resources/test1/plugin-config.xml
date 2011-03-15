@@ -1,0 +1,15 @@
+<project>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>springws-maven-plugin</artifactId>
+        <configuration>
+          <contextLocations>
+            <contextLocation>test-context1.xml</contextLocation>
+          </contextLocations>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

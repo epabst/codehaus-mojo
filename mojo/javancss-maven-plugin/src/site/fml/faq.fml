@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faqs xmlns="http://maven.apache.org/FML/1.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/FML/1.0 http://maven.apache.org/xsd/fml-1.0.xsd"
+  id="FAQ"
+  title="Frequently Asked Questions">
+
+ <part id="General">
+   <faq id="Aggregate Reporting">
+     <question>Is there an easy way to generate the aggregate report?</question>
+     <answer>
+       <p>
+       Unfortunately Maven's internal support for report aggregation
+  is rather poor so it does have a number of limitations.  Foremost the aggregate report is generated <b>before</b> the child
+  reports, so you must re-run the JavaNCSS report after the children have generated, like this:
+      </p>
+      <p>
+<code>mvn clean site</code> (generate the site for every module recursively)<br/>
+<code>mvn javancss:report</code> (re-run the JavaNCSS report recursively so the aggregate report works)
+       </p>
+     </answer>
+   </faq>
+ </part>
+</faqs>

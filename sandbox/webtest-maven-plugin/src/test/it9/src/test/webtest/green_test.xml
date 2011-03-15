@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE project [
+   <!ENTITY init                                        SYSTEM "modules/set.init.txt">
+   <!ENTITY config                                      SYSTEM "modules/set.config.txt">
+]>
+
+<project name="Canoo Webtest Sample" basedir="." default="all">
+
+  <!-- Load configuration data from properties -->
+
+  <property file="config/sample.properties"/>
+  
+  <!-- Initialize Canoo WebTest -->
+  
+  &init;
+  
+  <!-- 
+   |
+   | Add additional targets here
+   |
+   -->
+
+  <target name="all" >   
+    <antcall target="GreenTest"/>
+  </target>
+
+  <!--
+   |
+   | Cruise around the Jakarta site (well, not too much)
+   |
+  -->
+  
+  <target name="GreenTest" >   
+    <testSpec name="GreenTest" >
+      &config;
+      <steps>              
+        <invoke description="Go to the JAKARTA home page" url="${green.url}"/>                            
+        <verifytitle description="Check the title is parsed correctly" text="The Jakarta Site - The Jakarta Project -- Java Related Products" /> 
+      </steps>      
+    </testSpec>        
+  </target>
+  
+</project>

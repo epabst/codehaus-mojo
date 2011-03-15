@@ -1,0 +1,21 @@
+<!-- configure file for eclipse 3.3 support -->
+<project>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>pde-maven-plugin</artifactId>
+        <configuration>
+           <project implementation="org.codehaus.mojo.pde.stubs.ProjectStub"/>
+           <eclipseInstall>src/test/resources/baseLocation2</eclipseInstall>>
+           <pdeBuildTempFolder>target/pdeTemp</pdeBuildTempFolder>
+           <buildProperties>
+             <property1>value1</property1>
+           </buildProperties>
+           <antVerbose>true</antVerbose>
+           <antDebug>true</antDebug>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

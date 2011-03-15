@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<document>
+  <properties>
+    <author email="dvicente72@gmail.com">David Vicente</author>
+    <title>Maven Dashboard Report Plugin : Standard Usage</title>
+  </properties>
+  <!-- Optional HEAD element, which is copied as is into the XHTML <head> element -->
+  <head>
+    <meta/>
+  </head>
+  <body>
+    <!-- The body of the document contains a number of sections -->
+    <section name="About Standard Usage of Maven Dashboard Report Plugin">
+    	<subsection name="Configuring the Dashboard report">
+			<p>To add this report to your site, you must add the plugin to the special <tt>reporting</tt> section in the POM <b>as the last report</b>.</p>
+			<source>
+       <![CDATA[
+<reporting>
+	<plugins>
+		...
+		<plugin>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>dashboard-maven-plugin</artifactId>
+		</plugin>
+		...
+	</plugins>
+</reporting>
+       ]]>
+      	</source>
+      	<p><font color="red"><b>WARNING</b></font> : be sure to add this repository to retreive this plugin</p>
+      	<source>
+       <![CDATA[
+<pluginRepositories>
+	<pluginRepository>
+		<id>Codehaus repository</id>
+		<url>http://repository.codehaus.org/</url>
+	</pluginRepository>
+</pluginRepositories>
+				]]>
+      	</source>
+      	<p>To generate the site and the correct dashboard report, you must run the dashboard report plugin in 2 passes :</p>
+      	<ol>
+      		<li><b>mvn site</b></li>
+      			<ol>
+        			<li>generate the site .</li>
+        <li>let each report plugin generate its xml file.</li>
+
+        <li>add the dashboard report item in the left menu.</li>
+        </ol>
+      <li> <b>mvn dashboard:dashboard</b></li>
+      <ol>
+        <li> aggregate all results of each report.</li>
+
+        <li> re-generate the dashboard HTML file.</li>
+        </ol>
+        </ol>
+      	</subsection>
+    </section>
+  </body>
+</document>

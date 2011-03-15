@@ -1,0 +1,80 @@
+                                    ------
+                             Weblogic Plugin Usage
+                                    ------
+                                Scott Ryan
+                                    ------
+                                 Jan 1, 2006
+
+Maven 2 Weblogic Plugin
+
+  This plugin provides support for Weblogic 8.1(sp4+) and 9.0 deployment capabilities as well as artifact (EAR, WAR, RAR, etc.) compilation within the maven 2 environment.
+
+
+* Basic Weblogic Configuration.
+
+  The recommended Basic Weblogic configuration is as follows.
+
+-------------------
+For Weblogic 8.1 SP 4 and above use <version>2.8.0-SNAPSHOT</version>
+
+
+Be sure to set up the repository access as defined on page http://mojo.codehaus.org/using-sandbox-plugins.html 
+
+For a local deployment
+
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      ...
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>weblogic-maven-plugin</artifactId>
+        <version>2.8.0-SNAPSHOT</version>
+        <configuration>
+          <adminServerHostName>localhost</adminServerHostName>
+          <adminServerPort>7001</adminServerPort>
+          <adminServerProtocol>http</adminServerProtocol>
+          <userId>weblogic</userId>
+          <password>weblogic</password>
+          <upload>false</upload>
+          <remote>false</remote>
+          <verbose>false</verbose>
+          <debug>false</debug>
+          <targetNames>myserver</targetNames>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+
+For a remote deployment with no staging
+
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      ...
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>weblogic-maven-plugin</artifactId>
+        <version>2.8.0-SNAPSHOT</version>
+        <configuration>
+          <adminServerHostName>localhost</adminServerHostName>
+          <adminServerPort>7001</adminServerPort>
+          <adminServerProtocol>http</adminServerProtocol>
+          <userId>weblogic</userId>
+          <password>weblogic</password>
+          <upload>true</upload>
+          <remote>true</remote>
+          <verbose>false</verbose>
+          <debug>false</debug>
+          <targetNames>myserver</targetNames>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+-------------------

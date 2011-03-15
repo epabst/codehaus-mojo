@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+      <groupId>org.codehaus.mojo.archetypes</groupId>
+      <artifactId>mojo-archetypes</artifactId>
+      <version>5</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>maven-archetype-simple-jboss-jee</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>maven-archetype</packaging>
+  <name>Simple JBoss JEE archetype</name>
+  <scm>
+    <connection>scm:svn:http://svn.codehaus.org/mojo/trunk/mojo/mojo-archetypes/maven-archetype-simple-jboss-jee</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/mojo-archetypes/maven-archetype-simple-jboss-jee</developerConnection>
+    <url>http://fisheye.codehaus.org/browse/mojo/trunk/mojo/mojo-archetypes/maven-archetype-simple-jboss-jee</url>
+  </scm>
+</project>

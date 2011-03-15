@@ -1,0 +1,362 @@
+ ------
+ Usage
+ ------
+ ------
+ $Id$
+
+~~
+~~ Copyright (C) 2007 the original author or authors.
+~~
+~~ Licensed under the Apache License, Version 2.0 (the "License");
+~~ you may not use this file except in compliance with the License.
+~~ You may obtain a copy of the License at
+~~
+~~     http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~ Unless required by applicable law or agreed to in writing, software
+~~ distributed under the License is distributed on an "AS IS" BASIS,
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+~~ See the License for the specific language governing permissions and
+~~ limitations under the License.
+~~
+
+Usage
+
+ Using the SHITTY plugin is relatively easy.  First you need to configure your project to know about SHITTY
+ and how to enable its execution of tests.  Then some tests are needed, which means setting up a tree
+ of test modules.  Each test is just a normal Maven project, so you can use anything in the Maven universe
+ to implement your tests.
+
+* Profile
+ 
+ Configure a profile in your top-level projects <<<pom.xml>>> looking something like this:
+
++----+
+<profiles>
+    <profile>
+        <id>super-helpful-integration-tests</id>
+        
+        <activation>
+            <property>
+                <name>shit</name>
+                <value>true</value>
+            </property>
+        </activation>
+        
+        <build>
+            <defaultGoal>install</defaultGoal>
+            <plugins>
+                <plugin>
+                    <groupId>org.codehaus.mojo</groupId>
+                    <artifactId>shitty-maven-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <goals>
+                                <goal>clean</goal>
+                                <goal>install</goal>
+                                <goal>test</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+            </plugins>
+        </build>
+    </profile>
+</profiles>
++----+
+
+* Structure
+
+ In each module which you want to have integration tests, create a directory structure like:
+
++----+
+  <project-root>/
+  |
+  +- pom.xml
+  |
+  +- src/
+  |  |
+  |  +- it/
+  |  |  |
+  |  |  +- test-1/
+  |  |  |  |
+  |  |  |  +- pom.xml
+  |  |  |  |
+  |  |  |  +- goals.txt
+  |  |  |  |
+  |  |  +- test-2/
+  |  |  |  |
+  |  |  |  +- pom.xml
+  |  |  |  |
+  |  |  |  +- goals.txt
+  |  |  |  |
+  |  |  |  +- setup.groovy
+  |  |  |  |
+  |  |  |  +- validate.groovy
+  |  |  |  |
+  |  |  +- test-n/
+  |  |  |  |
+  |  |  |  +- pom.xml
+  |  |  |  |
+  |  |  |  +- goals.txt
+  |  |  |  |
+  ...
++----+
+
+ You can have as many modules under <<<src/it>>> as you like, and you can even organize
+ them into a tree if you like, but for the purpose of this guide, lets say its a
+ flat tree.
+
+* Test Modules
+
+ Each integration test module should be a standalone project for simplicity, and
+ should define the version of the artifact being under test as <<<testing>>>.  To
+ help explain consider this example integration test module pom:
+
++----+
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>my.company.myproject.it</groupId>
+    <artifactId>test-1</artifactId>
+    <version>testing</version>
+    
+    <description>
+        Test the myproject-maven-plugin:do-something goal.
+    </description>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>my.company.myproject</groupId>
+                <artifactId>myproject-maven-plugin</artifactId>
+                <version>testing</version>
+                
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>do-something</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
++----+
+
+ In this example, the integration test is for the <<<myproject:do-something>>>
+ goal, and generally this integration test will live in the
+ <<<myproject-maven-plugin/src/it/test-1>>> directory.  It is important
+ to keep the integration tests in the same module as the artifact being tested, in
+ this case the <<<myproject-maven-plugin>>> is being tested.
+
+* Goals
+
+ Each test module needs to have a <<<goals.txt>>> in the module's root (peer to the <<<pom.xml>>>),
+ which is a simple text file containing the goals which will be passed to the child Maven
+ process when executing tests for the module.  Multiple goals are separated by white-space ore new-lines.
+ For example:
+ 
++----+
+clean package
++----+
+
++----+
+clean
+package
++----+
+
+ Or if you need to test a specific goal on the command-line you could also:
+
++----+
+clean myproject:do-something
++----+
+
+* Running Tests
+
+ Then to run the integration tests, simple enable the profile created above, as in:
+
++----+
+mvn -Dshit
++----+
+
+ This will run all of the configured integration test modules one by one and collect the results.
+ If one fails, it is noted and the tests continue.  After all of the tests have been run a 
+ results table is displayed.  If one of the tests has failed, then after the results are
+ displayed the build will fail, else the build will continue.
+ 
+ By default each of the tests build output will be captured into a <<<build.log>>> file
+ which is created as a peer to the module's <<<pom.xml>>>.  You can use this file to
+ see what the build actually performed, and in the case of a failure, you can see more
+ detail as to why the test failed.
+
+Advanced Usage and Configuration
+
+* Test Selection
+
+ Often times when developing a single integration test needs to be re-run to validate
+ some change, or perhaps a small sub-set of tests.  To help make life a little easier
+ the SHITTY plugin supports selecting tests with the <<<test>>> configuration (and property).
+
+ So, for example, if you have 3 integration test modules <<<test-1>>>, <<<test-2>>> and
+ <<<test-3>>>, and you just want to run <<<test-2>>> you can:
+
++----+
+mvn -Dshit -Dtests=test-2
++----+
+
+ Or if you want to run <<<test-1>>> and <<<test-3>>> you can:
+
++----+
+mvn -Dshit -Dtests=test-1,test-3
++----+
+
+ Or if you want to run everything that starts with <<<test->>> then:
+
++----+
+mvn -Dshit -Dtests='test-*'
++----+
+
+* Offline Builds
+
+ When the invoking Maven process is run <offline>, then the child modules are also
+ built offline, unless the <<<offline>>> parameter has been explicitly set.
+
+ For example, to run the driving build offline, and the children online:
+
++----+
+mvn -o -Dshit -Doffline=false
++----+
+
+* Parallel Execution
+
+ Tests can be run in parallel by setting the <<<parallel>>> flag (and optionally
+ tuning the <<<threadCount>>> parameter).  By default, tests are executed serially,
+ but if this flag is flipped, then by default 5 threads will be used to execute
+ the test builds.
+
++----+
+mvn -Dshit -Dparallel=true
++----+
+
+ To change the number of threads, you can:
+
++----+
+mvn -Dshit -Dparallel=true -DthreadCount=2
++----+
+
+* ANSI Colors
+
+ By default SHITTY will try to auto-detect if the running system supports ANSI colors.
+ If for some reason it fails to detect correctly you can force ANSI colors to be used
+ by:
+
++----+
+mvn -Dshit -Dcolor=true
++----+
+
+ And similarly if you don't want colors you can:
+
++----+
+mvn -Dshit -Dcolor=false
++----+
+
+* Verbose Output
+
+ If you like, you can enable more output by setting the <<<verbose>>> parameter.  When verbose is enabled,
+ as one might expect, more information is displayed to console.  This includes the status display and
+ when a test fails the contents of its log are dumped to console as well (but only for failed builds).
+
++----+
+mvn -Dshit -Dverbose=true
++----+
+
+* Test Properties
+
+ You can setup per-test properties by creating a <<<test.properties>>> file as a peer the the
+ <<<goals.txt>>> file (or however you've configured SHITTY really).
+ 
+ This file is optional, but if its found, then it will be read as a normal properties file and
+ all of the pairs will be passed to the test build.
+
+* Test Flags
+ 
+ See the <<<test>>> goal's <<<flagsFile>>> and <<<flags>>> parameters for more information.
+ 
+* Setup and Validate Script Hooks
+
+ Before each test is executed, SHITY looks for a Groovy script to perform any custom
+ setup muck, and then after the test is executed looks for a script to perform any
+ custom validation of the test.
+ 
+ By default the names of these scripts are <<<setup.groovy>>> and <<<validate.groovy>>>
+ and are expected to be located as peers to the test modules <<<pom.xml>>>.  Of course
+ you can change the default names if you like.
+ 
+ The scripts return <<<false>>> to indicate failure and <<<true>>> (or <<<null>>>) to
+ indicate success.  Any exception thrown from the script execution is also considered
+ a failure.
+ 
+ The scripts output (both <<<STDOUT>>> and <<<STDERR>>>) is captured into the <<<build.log>>>
+ and is adorned by start and stop markers for clarity.  Output from the script is
+ also prefixed with a token to indicate which stream it came from.  Script output
+ from <<<System.out>>> is prefixed with <<<OUT: >>> and output from <<<System.err>>>
+ is prefixed with <<<ERR: >>>.
+
+** Script Class-Path
+
+ It is important to note (hence this little section), that the scripts class-path is picked up
+ from the <<<test>>> goal's environment (ie. whatever class-path of the <<<test>>> scope has,
+ the scripts will have).
+ 
+ This means that scripts can not <<easily>> access classes build in test modules.  Of course if
+ you did need to load classes, you can always construct a new <<<GroovyClassLoader>>> and go things
+ that way, though its not easy to deal with dependencies yet. It is really best to <<avoid>>
+ needing to load classes from test modules.
+ 
+ If a script requires some custom dependencies then configure the <<<shitty-maven-plugin>>>
+ with the required dependencies.
+
+** Context Variables
+
+*---------------------+-------------------------------------------------------+
+| <<Variable Name>>   | <<Description>>                                       |
+*---------------------+-------------------------------------------------------+
+| <<<basedir>>>       | The base directory of the module under test.          |
+*---------------------+-------------------------------------------------------+
+| <<<ant>>>           | An <<<AntBuilder>>> instance rooted to <<<basedir>>>  |
+*---------------------+-------------------------------------------------------+
+| <<<log>>>           | An instance of the Maven logger.  Usage of this will be displayed to the user and not captured in the <<<build.log>>> file.|
+*---------------------+-------------------------------------------------------+
+| <<<goals>>>         | A list of the goals which are being executed for the test|
+*---------------------+-------------------------------------------------------+
+| <<<properties>>>    | Any properties configured.  See the <<<test>>> goal's <<<propertiesFile>>> parameter for more details.| 
+*---------------------+-------------------------------------------------------+
+| <<<flags>>>         | A list of the configured flags.  See the <<<test>>> goal's <<<flagsFile>>> or <<<flags>>> parameter for more details.| 
+*---------------------+-------------------------------------------------------+
+| <<<settings>>>      | The Maven settings which the test build is invoked under.|
+*---------------------+-------------------------------------------------------+
+
+** Examples
+
+ I tend to lean best by example, so here are a few to wet your pallet...
+ 
+ If you have want to validate that your class has been compiled, then you can have
+ something simple like this in the test module's <<<validate.groovy>>> script:
+
++----+
+def file = new File(basedir, 'target/classes/some/package/SomeClass.class')
+assert file.exists()
++----+
+
+ Or if you need to force some directories to be created before the test, then you could add
+ something like this in the test module's <<<setup.groovy>>> script:
+
++----+
+log.debug('Creating out required directories for testing or something')
+ant.mkdir(dir: 'target/somedir')
++----+
+
+ These are both really super trivial examples, but may help you get a rough idea for what
+ these hook scripts can be used for.
+

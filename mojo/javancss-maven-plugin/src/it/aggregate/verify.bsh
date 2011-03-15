@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+import org.codehaus.plexus.util.*;
+
+try
+{
+    File outputFolder = new File( basedir, "target" );
+    File siteFolder = new File( outputFolder, "site" );
+
+    File javancssFile = new File( siteFolder, "javancss.html");
+    if ( !javancssFile.isFile() )
+    {
+        System.err.println( "Could not find generated html report: " + javancssFile );
+        return false;
+    }
+
+    String content = FileUtils.fileRead( javancssFile, "UTF-8" );
+    if ( content.indexOf( "moduleA" ) <= 0 || content.indexOf( "moduleB1" ) <= 0 || content.indexOf( "moduleB2" ) <= 0 )
+    {
+        System.err.println( "One module is missing in aggregate report: should contain moduleA, moduleB1 and moduleB2" );
+        return false;
+    }
+}
+catch( Throwable t )
+{
+    t.printStackTrace();
+    return false;
+}
+
+return true;

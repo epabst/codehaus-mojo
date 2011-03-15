@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project 
+  xmlns="http://maven.apache.org/POM/4.0.0" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>native2ascii-maven-plugin-example</artifactId>
+  <name>Maven Native2ascii Plugin - Example</name>
+  <version>1.0-beta-1-SNAPSHOT</version>
+    
+  <description>
+    This example convert utf8 files under src/main/native2ascii directory to ascii.
+    The output files are part of the final artifact
+  </description>
+  
+  <build>
+    <defaultGoal>process-resources</defaultGoal>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>native2ascii-maven-plugin</artifactId>
+        <configuration>
+          <encoding>UTF8</encoding>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>native2ascii</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

@@ -1,0 +1,46 @@
+ ------
+ Maven 2 Jardiff Plugin
+ ------
+ Torsten Curdt
+ <tcurdt@apache.org>
+ ------
+ April 18, 2006
+
+How to Use
+
+  These is a brief example on how to use the jardiff:jardiff goal.
+
+  Specify (at least) the previous release of the artifact you are building in the configuration section of the plugin
+  inside the pom. Assume the current version of the project is 1.2-SNAPSHOT.
+
+-------------------
+<project>
+  ...
+  <build>
+    ...
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>maven-jardiff-plugin</artifactId>
+          <configuration>
+            <comparison>incremental</comparison> <!-- Or "individual"-->
+            <artifacts>
+                <artifact>
+                    <groupId>${pom.groupId}</groupId>
+                    <artifactId>${pom.artifactId}</artifactId>
+                    <artifactId>1.1</artifactId>
+                </artifact>
+                <artifact>
+                    <groupId>${pom.groupId}</groupId>
+                    <artifactId>${pom.artifactId}</artifactId>
+                    <artifactId>1.0</artifactId>
+                </artifact>
+            </oldVersion>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  ...
+-------------------

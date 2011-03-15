@@ -1,0 +1,28 @@
+  ------
+ Maven 2 Hibernate3 Plugin - Component Configuration
+ ------
+ Johann Reyes
+ <jreyes@hiberforum.org>
+ ------
+ December 13, 2006
+
+Component Configuration
+
+*-------------+--------------------------------------+---------------------------------+
+| <<name>>    | <<outputDirectory>>                  | <<implementation>>
+*-------------+--------------------------------------+---------------------------------+
+| hbmtemplate | target/hibernate3/generic            | jdbcconfiguration
+*-------------+--------------------------------------+---------------------------------+
+| hbm2cfgxml  | target/hibernate3/generated-mappings | jdbcconfiguration
+*-------------+--------------------------------------+---------------------------------+
+| hbm2ddl     | target/hibernate3/sql                | configuration (jdk14)
+|             |                                      | annotationconfiguration (jdk15)
+*-------------+--------------------------------------+---------------------------------+
+| hbm2doc     | target/hibernate3/javadoc            | configuration (jdk14)
+|             |                                      | annotationconfiguration (jdk15)
+*-------------+--------------------------------------+---------------------------------+
+| hbm2hbmxml  | target/hibernate3/generated-mappings | jdbcconfiguration
+*-------------+--------------------------------------+---------------------------------+
+| hbm2java    | target/hibernate3/generated-sources  | configuration (jdk14)
+|             |                                      | annotationconfiguration (jdk15) 
+*-------------+--------------------------------------+---------------------------------+

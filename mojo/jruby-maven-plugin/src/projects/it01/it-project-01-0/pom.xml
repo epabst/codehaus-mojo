@@ -1,0 +1,26 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.codehaus.mojo.ruby.test</groupId>
+  <artifactId>it-project-03-0</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <build>
+    <plugins>
+       <plugin>
+		<groupId>org.codehaus.mojo.ruby.it</groupId>
+        <artifactId>it03-ruby-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <configuration>
+		  <base>${basedir}/src/main/java/project01</base>
+		  <extension>java</extension>
+		  <!-- for future use -->
+		  <libraryPaths>
+		    <libraryPath>/User</libraryPath>
+		  </libraryPaths>
+		  <requires>
+		    <require>/usr/lib/ruby/1.8/fileutils</require>
+		  </requires>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

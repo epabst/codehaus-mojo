@@ -1,0 +1,14 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>netbeans-freeform</groupId>
+  <artifactId>test-project-parent</artifactId>
+  <version>10.0</version>
+  <dependencies>
+    <dependency>
+      <groupId>commons-test</groupId>
+      <artifactId>commons-test</artifactId>
+      <version>1.5</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>

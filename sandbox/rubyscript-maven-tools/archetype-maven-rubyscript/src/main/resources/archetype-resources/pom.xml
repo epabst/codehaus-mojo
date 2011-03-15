@@ -1,0 +1,12 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.codehaus.mojo.plugins</groupId>
+    <artifactId>rubyscript-parent-maven-plugin</artifactId>
+    <version>1</version>
+  </parent>
+  <groupId>${groupId}</groupId>
+  <artifactId>${artifactId}</artifactId>
+  <packaging>maven-plugin</packaging>
+  <version>${version}</version>
+</project>

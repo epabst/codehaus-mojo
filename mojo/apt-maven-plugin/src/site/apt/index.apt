@@ -1,0 +1,53 @@
+ ------
+ Introduction
+ ------
+ Mark Hobson
+ <markhobson@gmail.com>
+ ------
+ 22 April 2008
+ ------
+
+
+Apt Maven Plugin
+
+ This plugin provides goals to run the {{{http://java.sun.com/j2se/1.5.0/docs/guide/apt/GettingStarted.html}Annotation 
+ Processing Tool (apt)}} against project sources.
+
+* Goals Overview
+
+ The Apt Maven Plugin has the following goals:
+
+ * {{{process-mojo.html}apt:process}} Executes apt on project sources.
+  
+ * {{{test-process-mojo.html}apt:test-process}} Executes apt on project test sources.
+  
+ * {{{eclipse-mojo.html}apt:eclipse}} Generates Eclipse files for apt integration.
+
+* Usage
+
+  General instructions on how to use the APT Maven Plugin can be found on the {{{usage.html}usage page}}. Some more
+  specific use cases are described in the examples given below.
+
+  In case you still have questions regarding the plugin's usage, please have a look at the {{{faq.html}FAQ}} and feel
+  free to contact the {{{mail-lists.html}user mailing list}}. The posts to the mailing list are archived and could
+  already contain the answer to your question as part of an older thread. Hence, it is also worth browsing/searching
+  the {{{mail-lists.html}mail archive}}.
+
+  If you feel like the plugin is missing a feature or has a defect, you can fill a feature request or bug report in our
+  {{{issue-tracking.html}issue tracker}}. When creating a new issue, please provide a comprehensive description of your
+  concern. Especially for fixing bugs it is crucial that the developers can reproduce your problem. For this reason,
+  entire debug logs, POMs or most preferably little demo projects attached to the issue are very much appreciated.
+  Of course, patches are welcome, too. Contributors can check out the project from our
+  {{{source-repository.html}source repository}} and will find supplementary information in the
+  {{{http://mojo.codehaus.org/development/guidelines.html}development guidelines}}.
+
+* Examples
+
+ To provide you with better understanding of some usages of the Apt Maven Plugin, you can take a look into the following 
+ examples:
+
+ * {{{examples/configuring-a-factory.html}Configuring a factory}}
+ 
+ * {{{examples/forking-the-execution.html}Forking the execution}}
+ 
+ * {{{examples/configuring-staleness-checking.html}Configuring staleness checking}}

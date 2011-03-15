@@ -1,0 +1,163 @@
+ ---
+ With Surefire
+ ---
+ Olivier Lamy
+ <olamy@apache.org>
+ ---
+ 2010-10-13
+
+~~ 
+~~ Licensed to the Apache Software Foundation (ASF) under one
+~~ or more contributor license agreements.  See the NOTICE file
+~~ distributed with this work for additional information
+~~ regarding copyright ownership.  The ASF licenses this file
+~~ to you under the Apache License, Version 2.0 (the
+~~ "License"); you may not use this file except in compliance
+~~ with the License.  You may obtain a copy of the License at
+~~
+~~  http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~ Unless required by applicable law or agreed to in writing,
+~~ software distributed under the License is distributed on an
+~~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+~~ KIND, either express or implied.  See the License for the
+~~ specific language governing permissions and limitations
+~~ under the License.
+~~ 
+
+Using With Surefire
+
+* Simple Test
+
+ Below is a very simple test which shows how to use the 
+ {{{http://seleniumhq.org/projects/remote-control/languages/java.html}Selenium Java Client Driver}}.
+ 
+ <<NOTE:>>
+ This is a normal JUnit-style test, though you may want to use JUnit-4
+ or TestNG which provide better per-suite-level setup that is more
+ ideal for configuration of the Selenium component.
+
++----------+
+package org.codehaus.mojo.selenium;
+
+import junit.framework.TestCase;
+
+import com.thoughtworks.selenium.DefaultSelenium;
+
+public class SeleniumExampleTest
+    extends TestCase
+{
+    protected DefaultSelenium createSeleniumClient(String url) throws Exception {
+        return new DefaultSelenium("localhost", 4444, "*firefox", url);
+    }
+    
+    public void testSomethingSimple() throws Exception {
+        DefaultSelenium selenium = createSeleniumClient("http://localhost:8080/");
+        selenium.start();
+        
+        //
+        // This is an exmaple of testing the Apache Geroniom Welcome page for specific text
+        //
+        
+        selenium.click("link=JVM");
+        selenium.waitForPageToLoad("30000");
+        selenium.click("link=Welcome");
+        selenium.waitForPageToLoad("30000");
+        assertEquals("Geronimo Console", selenium.getTitle());
+        assertEquals("Welcome", selenium.getText(
+            "xpath=/html/body/table[@id='rootfragment']/tbody/tr[2]/td/table/tbody/tr[2]/td[4]/table/tbody/tr[1]/td/table/tbody/tr[1]/td/div/table/tbody/tr/td[2]/table/tbody/tr/td[1]/strong"));
+        
+        // Test help link
+        selenium.click("link=help");
+        selenium.waitForPageToLoad("30000");
+        selenium.isTextPresent("This is the help for the Geronimo Administration Console Welcome.");
+        
+        selenium.stop();
+    }
+}
++----------+
+
+ To run this test, and have it work, you will need to:
+ 
+ * Start your application server
+ 
+ * Deploy your web-aplication
+ 
+ * Start the Selenium maven plugin (this plugin)
+ 
+ * Execute Surefire tests
+ 
+ []
+
+Here is an example pom to run Surefire tests w/Selenium:
+
++----------+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    
+    <groupId>example.group</groupId>
+    <artifactId>example</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    
+    
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.2</version>
+            <scope>test</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.seleniumhq.selenium.client-drivers</groupId>
+            <artifactId>selenium-java-client-driver</artifactId>
+            <version>1.0.1</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>selenium-maven-plugin</artifactId>
+                <version>${project.version}</version>
+                <executions>
+                    <execution>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>start-server</goal>
+                        </goals>
+                        <configuration>
+                            <background>true</background>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <!-- Skip the normal tests, we'll run them in the integration-test phase -->
+                    <skip>true</skip>
+                </configuration>
+                
+                <executions>
+                    <execution>
+                        <phase>integration-test</phase>
+                        <goals>
+                            <goal>test</goal>
+                        </goals>
+                        <configuration>
+                            <skip>false</skip>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    
+</project>
++----------+

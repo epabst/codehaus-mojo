@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project name="Canoo Webtest Sample" basedir="." default="all">
+    
+  <taskdef resource="webtestTaskdefs.properties" />
+
+  <target name="all" >   
+    <testSpec name="GreenTest" >
+      <config
+        host="${host}"
+        port="${port}"
+        protocol="${protocol}"
+        basepath="${basepath}"
+        summary="${summary}"
+        saveresponse="${saveresponse}"
+        resultpath="${resultpath}"
+        resultfile="${resultfile}"
+        haltonfailure="${haltonfailure}"
+        haltonerror="${haltonerror}"
+        showhtmlparseroutput="${showhtmlparseroutput}"
+        autorefresh="${autorefresh}"
+      />
+      <steps> 
+        <echo>project.groupId      := ${maven.project.groupId}</echo>
+        <echo>project.artifactId   := ${maven.project.artifactId}</echo>
+        <echo>project.version      := ${maven.project.version}</echo>
+        <echo>project.name         := ${maven.project.name}</echo>
+        <echo>webtest.property.foo := ${maven.webtest.property.foo}</echo>
+        <echo>webtest.property.bar := ${maven.webtest.property.bar}</echo>
+        <fail>foo</fail>
+      </steps>      
+    </testSpec>  
+    <fail unless="maven.project.groupId" message="Maven property not found"/>
+    <fail unless="maven.project.artifactId" message="Maven property not found"/>
+    <fail unless="maven.project.version" message="Maven property not found"/>
+    <fail unless="maven.webtest.property.foo" message="Maven property not found"/>
+    <fail unless="maven.webtest.property.bar" message="Maven property not found"/>
+  </target>
+</project>    

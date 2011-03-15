@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                      http://maven.apache.org/xsd/settings-1.0.0.xsd">
+  <activeProfiles/>
+  <interactiveMode>false</interactiveMode>
+  <localRepository>localRepository_currentGlobalSettings</localRepository>
+  <mirrors/>
+  <offline>true</offline>
+  <pluginGroups/>
+  <profiles/>
+  <proxies/>
+  <servers>
+    <server>
+      <id>cgs</id>
+      <username>cgs_username_currentGlobalSettings</username>
+      <password>cgs_password_currentGlobalSettings</password>
+    </server>
+    <server>
+      <id>all</id>
+      <username>all_username_currentGlobalSettings</username>
+      <password>all_password_currentGlobalSettings</password>
+    </server>
+  </servers>
+  <usePluginRegistry>true</usePluginRegistry> 
+</settings>

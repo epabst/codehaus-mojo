@@ -1,0 +1,25 @@
+ ------
+ Maven 2 Natural Docs Plugin - FAQ
+ ------
+ Tim Astle
+ <timothy.astle@caris.com>
+ ------
+ 2010-10-05
+ ------
+
+
+Natural Docs Plugin FAQ
+ 
+ This page will show some of the common questions we get when using the Natural Docs plugin.
+
+* Does this plugin work without Natural Docs installed?
+
+  Natural Docs must be already installed and functioning on the system.  The main reason for this is because Natural Docs is licensed under {{{http://www.gnu.org/licenses/agpl-3.0.html}GNU Affero General Public License}}.  This license is not compatible with Codehaus.
+  
+* What is the basic required configuration to run the Natural Docs Plugin?
+
+  You will need to set the \<naturalDocsHome/\>, \<input/\> and \<project/\> values in the \<configuration/\> block.
+  
+* What Natural Docs commands does the Natural Docs Plugin support?
+
+  It <should> support all of the commands available as of Natural Docs version 1.5.  See {{{./generate-mojo.html}naturaldocs:generate}} for details.

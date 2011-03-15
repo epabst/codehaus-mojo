@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.codehaus.mojo.sqlj.test</groupId>
+	<artifactId>two-sqlj-files</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<description>Sample project to demonstrate how SQLJ can be managed using Maven</description>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>sqlj-maven-plugin</artifactId>
+				<version>testing</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>sqlj</goal>
+						</goals>
+						<configuration>
+							<sqljDirs>
+								<sqljDir>src/main/resources</sqljDir>
+							</sqljDirs>
+						</configuration>
+					</execution>
+				</executions>
+				<dependencies>
+					<dependency>
+						<groupId>ibm.db2</groupId>
+						<artifactId>sqlj</artifactId>
+						<version>1.0</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>ibm.db2</groupId>
+			<artifactId>sqlj</artifactId>
+			<version>1.0</version>
+		</dependency>
+	</dependencies>
+</project>

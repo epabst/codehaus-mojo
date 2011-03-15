@@ -1,0 +1,77 @@
+<document>
+	<properties>
+		<author email="hermod.opstvedt@dnbnor.no">
+			Hermod Opstvedt
+		</author>
+		<title>How to use EJBDeploy</title>
+	</properties>
+	<body>
+		<section>
+			<h2>About EJBDeploy</h2>
+			<p>
+				The EJBDeploy goal will generate a WebSphere specific stubs and ties,
+				along with the IBM specific artifacts
+								<ul>
+					<li>ejb-jar.xml</li>
+					<li>ibm-ejb-jar-bnd.xmi</li>
+				</ul>
+				
+			</p>
+			<h2>Running EJBDeploy from commandline</h2>
+			<p>
+				Running the EJBDeploy task from the commandline is done
+				using the following syntax:
+				<pre>
+	mvn clean install was5:EJBDeploy \
+		-DoutputJar=&lt;mygeneratedjar-1.0.jar&gt; \
+		-DinputJar=&lt;myinputjar-1.0.jar&gt; \
+		-DwasHome=&lt;path to WebSphere installation&gt;
+				</pre>
+			</p>
+			<h2>Running EJBDeploy with definition in pom</h2>
+			<p>
+				Running the EJBDeploy task with the definition defined
+				in the build section of the pom:
+			<pre>
+	&lt;dependencies&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
+			&lt;artifactId&gt;was5-plugin&lt;/artifactId&gt;
+			&lt;version&gt;1.0&lt;/version&gt;
+			&lt;scope&gt;runtime&lt;/scope&gt;
+		&lt;/dependency&gt;
+	&lt;/dependencies&gt;
+	
+	&lt;build&gt;
+		&lt;plugins&gt;
+			&lt;plugin&gt;
+				&lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
+				&lt;artifactId&gt;was5-plugin&lt;/artifactId&gt;
+				&lt;version&gt;1.0&lt;/version&gt;
+				&lt;executions&gt;
+					&lt;execution&gt;
+						&lt;id&gt;generate-deploycode&lt;/id&gt;
+						&lt;phase&gt;pre-integration-test&lt;/phase&gt;
+						&lt;goals&gt;
+							&lt;goal&gt;EJBDeploy&lt;/goal&gt;
+						&lt;/goals&gt;
+					&lt;/execution&gt;
+				&lt;/executions&gt;
+				&lt;configuration&gt;
+					&lt;inputJar&gt;
+						${artifactId}-${project.version}.jar
+					&lt;/inputJar&gt;
+					&lt;outputJar&gt;
+						${artifactId}-${project.version}.jar
+					&lt;/outputJar&gt;
+					&lt;wasHome&gt;C:/Programfiles/WebSphere/AppServer&lt;/wasHome&gt;
+					&lt;targetWAS&gt;WAS502&lt;/targetWAS&gt;
+				&lt;/configuration&gt;
+			&lt;/plugin&gt;
+		&lt;/plugins&gt;
+	&lt;/build&gt;
+				</pre>
+			</p>
+		</section>
+	</body>
+</document>

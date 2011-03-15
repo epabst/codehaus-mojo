@@ -1,0 +1,76 @@
+ ------
+ Usage
+ ------
+ Dan T. Tran
+ <dantran@gmail.com>
+ ------
+ 2010-02-15
+ ------
+
+Usage
+
+  The execution of this plugin's goal can be bound to a phase of the build lifecycle.
+
+  Use the <<<\<dependencies\>>>> element inside the <<<\<plugin\>>>> element to specify the artifact that has your
+  JDBC driver.
+
+---------------------------
+<project>
+  [...]
+  <build>
+    [...]
+    <plugins>
+      [...]
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>sql-maven-plugin</artifactId>
+        <version>${project.version}</version>
+
+        <dependencies>
+          <!-- specify the dependent JDBC driver here -->
+          <dependency>
+            <groupId></groupId>
+            <artifactId></artifactId>
+            <version></version>
+          </dependency>
+        </dependencies>
+
+        <!-- common configuration shared by all executions -->
+        <configuration>
+          <driver></driver>
+          <url></url>
+          <username></username>
+          <password></password>
+          [...]
+        </configuration>
+
+        <executions>
+          <execution>
+            <phase></phase>
+            <goals>
+              <goal>execute</goal>
+            </goals>
+            <!-- specific configuration for this execution -->
+            <configuration>
+              <!-- specify your SQL commands, can be all of the following configurations -->
+              <fileset></fileset>
+              <sqlCommand></sqlCommand>
+              <srcFiles>
+                <srcFile></srcFile>
+                [...]
+              </srcFiles>
+            </configuration>
+          </execution>
+          <execution>
+            [...]
+          </execution>
+          [...]
+        </executions>
+      </plugin>
+      [...]
+    </plugins>
+    [...]
+  </build>
+  [...]
+</project>
+---------------------------

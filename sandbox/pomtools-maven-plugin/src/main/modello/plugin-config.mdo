@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<!-- 
+ Copyright 2001-2006 The Apache Software Foundation.
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+
+ @author <a href="mailto:dhawkins@codehaus.org">David Hawkins</a>
+-->
+<model>
+  <id>pomtools-maven-plugin</id>
+  <name>PomToolsPlugin</name>
+  <defaults>
+    <default>
+      <key>package</key>
+      <value>org.codehaus.mojo.pomtools.config</value>
+    </default>
+  </defaults>
+  <classes>
+    <class rootElement="true" xml.tagName="pomToolsConfiguration">
+      <name>PomToolsConfig</name>
+      <fields>
+        <field>
+          <name>fieldConfigurations</name>
+          <association>
+            <type>FieldConfiguration</type>
+            <multiplicity>*</multiplicity>
+          </association>
+        </field>        
+      </fields>
+    </class>
+    
+	<class>
+    	<name>FieldConfiguration</name>
+      	<fields>
+        	<field>
+		    	<name>fieldName</name>
+          		<type>String</type>
+        	</field>
+        	<field>
+		    	<name>fieldNames</name>
+                <association>
+              		<type>String</type>
+                    <multiplicity>*</multiplicity>
+                </association>
+        	</field>
+        	<field>
+		    	<name>fieldNamePattern</name>
+          		<type>String</type>
+        	</field>
+        	<field>
+		    	<name>possibleValues</name>
+          		<type>String</type>
+        	</field>
+        	<field>
+		    	<name>label</name>
+          		<type>String</type>
+        	</field>
+        	<field>
+		    	<name>editorFieldOrder</name>
+          		<type>String</type>
+        	</field>
+        	<field>
+		    	<name>editorClass</name>
+          		<type>String</type>
+        	</field>
+        	<field>
+		    	<name>ignore</name>
+          		<type>boolean</type>
+        	</field>
+        	<field>
+		    	<name>itemClassName</name>
+          		<type>String</type>
+        	</field>
+        	<field>
+		    	<name>itemLabel</name>
+          		<type>String</type>
+        	</field>
+        	<field>
+		    	<name>toStringBuilder</name>
+          		<type>String</type>
+        	</field>
+    	</fields>
+        <codeSegments>
+        <codeSegment>
+          <code><![CDATA[
+    public void merge( FieldConfiguration otherConfig )
+    {
+        if ( getEditorClass() == null )
+        {
+            setEditorClass( otherConfig.getEditorClass() );
+        }
+        
+        if ( getItemClassName() == null )
+        {
+            setItemClassName( otherConfig.getItemClassName() );
+        }
+        
+        if ( getItemLabel() == null )
+        {
+            setItemLabel( otherConfig.getItemLabel() );
+        }
+        
+        if ( getPossibleValues() == null )
+        {
+            setPossibleValues( otherConfig.getPossibleValues() );
+        }
+        
+        if ( getEditorFieldOrder() == null )
+        {
+            setEditorFieldOrder( otherConfig.getEditorFieldOrder());
+        }
+    }
+          ]]></code>
+        </codeSegment>
+      </codeSegments>
+	</class>
+
+  </classes>
+</model>
+

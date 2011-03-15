@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  XML RELAX NG schema for Subversion command-line client output
+  For "svn status"
+-->
+<!--
+  The DTD compatibility annotations namespace, used for adding default
+  attribute values.
+-->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:include schemaLocation="common.xsd"/>
+  <xs:element name="status">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="target"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="target">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="entry"/>
+        <xs:element minOccurs="0" ref="against"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.target"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.target">
+    <xs:attribute name="path" use="required" type="xs:string">
+      <xs:annotation>
+        <xs:documentation>The target path.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="entry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="wc-status"/>
+        <xs:element minOccurs="0" ref="repos-status"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.entry"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.entry">
+    <xs:attribute name="path" use="required">
+      <xs:annotation>
+        <xs:documentation>Path inside the target.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="wc-status">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="commit"/>
+        <xs:element minOccurs="0" ref="lock"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.wc-status"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.wc-status">
+    <xs:attribute name="item" use="required">
+      <xs:annotation>
+        <xs:documentation>Item/text status.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="added"/>
+          <xs:enumeration value="conflicted"/>
+          <xs:enumeration value="deleted"/>
+          <xs:enumeration value="ignored"/>
+          <xs:enumeration value="modified"/>
+          <xs:enumeration value="replaced"/>
+          <xs:enumeration value="external"/>
+          <xs:enumeration value="unversioned"/>
+          <xs:enumeration value="incomplete"/>
+          <xs:enumeration value="obstructed"/>
+          <xs:enumeration value="normal"/>
+          <xs:enumeration value="none"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="props" use="required">
+      <xs:annotation>
+        <xs:documentation>Properties status.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="conflicted"/>
+          <xs:enumeration value="modified"/>
+          <xs:enumeration value="normal"/>
+          <xs:enumeration value="none"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="revision" type="revnum.type">
+      <xs:annotation>
+        <xs:documentation>Base revision number.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+    <xs:attribute name="wc-locked" default="false">
+      <xs:annotation>
+        <xs:documentation>WC directory locked.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="true"/>
+          <xs:enumeration value="false"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="copied" default="false">
+      <xs:annotation>
+        <xs:documentation>Add with history.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="true"/>
+          <xs:enumeration value="false"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="switched" default="false">
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="true"/>
+          <xs:enumeration value="false"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="repos-status">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="lock"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.repos-status"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.repos-status">
+    <xs:attribute name="item" use="required">
+      <xs:annotation>
+        <xs:documentation>Text/item status in the repository.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="added"/>
+          <xs:enumeration value="deleted"/>
+          <xs:enumeration value="modified"/>
+          <xs:enumeration value="replaced"/>
+          <xs:enumeration value="none"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+    <xs:attribute name="props" use="required">
+      <xs:annotation>
+        <xs:documentation>Properties status in repository.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="modified"/>
+          <xs:enumeration value="none"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="against">
+    <xs:complexType>
+      <xs:attributeGroup ref="attlist.against"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.against">
+    <xs:attribute name="revision" use="required" type="revnum.type">
+      <xs:annotation>
+        <xs:documentation>Revision number at which the repository information was obtained.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+</xs:schema>

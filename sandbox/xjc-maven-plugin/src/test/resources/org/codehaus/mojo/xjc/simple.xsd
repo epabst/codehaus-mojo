@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+
+
+<xsd:schema
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="http://www.schemas.acme/simple"
+	xmlns="http://www.schemas.acme/simple"
+	elementFormDefault="qualified">
+
+	<xsd:element name="simple">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="name" type="xsd:string"/>
+				<xsd:element name="age" type="xsd:string"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+
+</xsd:schema>

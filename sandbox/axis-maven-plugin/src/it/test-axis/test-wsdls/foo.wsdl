@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions
+    name="fooservice"
+    targetNamespace="FooService"
+    xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+    xmlns:tns="FooService"
+    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsd1="FooService">
+
+    <wsdl:types>
+
+        <xsd:schema
+            targetNamespace="FooService"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            elementFormDefault="qualified">
+
+            <xsd:element name="DoSomething" > 
+              <xsd:complexType>
+                 <xsd:sequence>
+                    <xsd:element name="MyInput">
+                       <xsd:simpleType>
+                          <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="128" />
+                          </xsd:restriction>
+                       </xsd:simpleType>
+                    </xsd:element>
+
+                 </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+
+ 
+            <xsd:element name="DoSomethingResponse">
+               <xsd:complexType> 
+                 <xsd:sequence>
+                    <xsd:element name="MyOutput">
+                       <xsd:simpleType>
+                          <xsd:restriction base="xsd:string">
+                              <xsd:maxLength value="128" />
+                          </xsd:restriction>
+                       </xsd:simpleType>
+                    </xsd:element>
+
+                 </xsd:sequence>
+               </xsd:complexType>
+            </xsd:element>
+
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="DoSomethingRequest">
+        <wsdl:part name="DoSomethingRequest" element="tns:DoSomething"/>
+    </wsdl:message>
+
+    <wsdl:message name="DoSomethingResponse">
+        <wsdl:part name="DoSomethingResponse" element="tns:DoSomethingResponse"/>
+    </wsdl:message>
+
+    <wsdl:portType name="FooServicePort">
+        <wsdl:operation name="DoSomething">
+            <wsdl:input message="tns:DoSomethingRequest"/>
+            <wsdl:output message="tns:DoSomethingResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="FooServiceBinding" type="tns:FooServicePort">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="DoSomething">
+            <soap:operation/>
+            <wsdl:input>
+               <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="FooService">
+        <wsdl:port binding="tns:FooServiceBinding" name="FooService">
+            <soap:address location="http://localhost:8080/axis/services/FooService"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

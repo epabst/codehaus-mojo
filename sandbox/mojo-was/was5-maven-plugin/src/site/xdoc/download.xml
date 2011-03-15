@@ -1,0 +1,13 @@
+<document>
+	<properties>
+		<author email="hermod.opstvedt@dnbnor.no">Hermod Opstvedt</author>
+		<title>WAS 5 Plugin for Maven 2</title>
+	</properties>
+	<body>
+		<section name="Download">
+			<p>
+				This plugin can be downloaded from...
+			</p>
+		</section>
+	</body>
+</document>

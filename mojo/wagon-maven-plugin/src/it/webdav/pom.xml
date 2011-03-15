@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>wagon-maven-plugin</artifactId>
+  <packaging>pom</packaging>
+  <version>testing</version>
+
+
+  <repositories>
+    <repository>
+      <id>apache.org</id>
+      <name>Maven Central Development Plugin Repository</name>
+      <url>http://people.apache.org/repo/m2-snapshot-repository</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+    </repository>
+  </repositories>
+
+  <build>
+  
+
+ 
+    <defaultGoal>package</defaultGoal>
+    
+    <finalName>${project.artifactId}</finalName>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>wagon-maven-plugin</artifactId>
+        <version>${version}</version>
+        <configuration>
+          <url>${url.base}</url>
+          <serverId>codehaus.org</serverId>
+          <downloadDirectory>${downloadDirectory.base}</downloadDirectory>
+        </configuration>
+        
+        <executions>
+        
+          <execution>
+            <id>download-single</id>
+            <phase>package</phase>
+            <goals>
+              <goal>download-single</goal>
+            </goals>
+            <configuration>
+              <fromFile>org/codehaus/mojo/build-helper-maven-plugin/1.2-SNAPSHOT/build-helper-maven-plugin-1.2-20080813.143116-6.pom</fromFile>
+              <toFile>${project.build.directory}/a.txt</toFile>
+            </configuration>
+          </execution>
+
+          <!-- Currently failing -->
+          <execution>
+             <!-- this return one wear file list with only one file .DS_store-->
+            <id>list-all</id> 
+            <phase>package</phase>
+            <goals>
+              <goal>list</goal>
+            </goals>
+            <configuration>
+              <recursive>true</recursive>
+            </configuration>
+          </execution>
+
+          <execution>
+             <!-- this returns exception-->
+            <id>list-dir</id>
+            <phase>package</phase>
+            <goals>
+              <goal>list</goal>
+            </goals>
+            <configuration>
+              <url>${url.base}/org/codehaus/mojo/build-helper-maven-plugin/1.2-SNAPSHOT</url>
+              <recursive>true</recursive>
+            </configuration>
+          </execution>
+        
+        </executions>
+        
+      </plugin>
+    </plugins>
+  </build>
+
+  <properties>
+    <version>testing</version>
+    <url.base>dav:https://dav.codehaus.org/snapshots.repository/mojo/</url.base>
+    <downloadDirectory.base>${project.build.directory}/it/webdav</downloadDirectory.base>
+    
+  </properties>
+
+</project>

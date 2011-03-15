@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-2.0.dtd">
+
+<hibernate-mapping>
+
+    <class 
+        name="org.codehaus.mojo.hibernate2.test.PersonEntity"
+        table="PERSONS"
+    >
+
+        <id name="id" column="id">
+            <generator class="native"/>
+        </id>
+
+        <property
+            name="name"
+            type="java.lang.String"
+            column="name"
+            length="20"
+            not-null="false"
+            unique="false"
+        />
+
+    </class>
+
+</hibernate-mapping>

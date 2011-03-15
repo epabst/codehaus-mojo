@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description url="http://mojo.codehaus.org/sysdeo-tomcat-maven-plugin">
+      Sysdeo Tomcat support for m2eclipse
+   </description>
+
+   <feature url="features/org.codehaus.mojo.sysdeo-tomcat-m2eclipse_1.1.jar" id="org.codehaus.mojo.sysdeo-tomcat-m2eclipse" version="1.1">
+      <category name="Maven Integration"/>
+   </feature>
+
+   <category-def name="Maven Integration" label="Maven Integration"/>
+</site>

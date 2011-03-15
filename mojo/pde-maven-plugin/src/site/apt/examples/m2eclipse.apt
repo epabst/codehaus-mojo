@@ -1,0 +1,55 @@
+ ------
+ M2Eclipse Build
+ ------
+ Dan T. Tran
+ <dantran@gmail.com>
+ ------
+ September 29, 2005
+
+M2Eclipse Build
+
+  This example maven 
+  {{{http://svn.codehaus.org/mojo/trunk/mojo/pde-maven-plugin/src/it/m2eclipse}
+  project}} uses a 
+  {{{http://svn.codehaus.org/mojo/trunk/mojo/pde-maven-plugin/src/it/m2eclipse/pom.xml}
+  wrapper pom}} to fetch {{{http://svn.codehaus.org/m2eclipse/trunk}M2Eclipse source}}
+  at {{{http://m2eclipse.codehaus.org}codehaus}}
+  into the following PDE directory structure:
+
+---------------------------------
+    target
+      checkout
+        features
+          org.maven.ide.eclipse.feature
+        plugins
+          org.maven.ide.eclipse
+---------------------------------         
+    
+  After the check out completes, the wrapper pom uses  maven-antrun-plugin 
+  to invoke this plugin to produce M2Eclipse feature distribution binary using:
+  
+  * {{{http://svn.codehaus.org/mojo/trunk/mojo/pde-maven-plugin/src/it/m2eclipse/src/test/resources/pom.xml}
+    Default build lifecycle}}
+  
+  * {{{http://svn.codehaus.org/mojo/trunk/mojo/pde-maven-plugin/src/it/m2eclipse/src/test/resources/custom-pom.xml}
+    Custom build lifecycle}}
+  
+  * Direct pde:pde invocation
+  
+  []
+  
+  Appropriate POM file is used to obtain the desired build,
+  except the last one where a POM is optional.
+  
+  To demontrate this plugin can build Eclipse plugin, one of M2Eclipse's plugin
+  is built using a default build lifecycle pom.
+  
+  To run this demo, invoke
+  
+---------------------
+   mvn compile  
+---------------------
+   
+  in this example directory.
+  
+

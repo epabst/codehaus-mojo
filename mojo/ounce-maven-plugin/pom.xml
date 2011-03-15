@@ -1,0 +1,268 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<!--
+* Copyright (c) 2007, Ounce Labs, Inc.
+* All rights reserved.
+*
+* Redistribution and use in source and binary forms, with or without
+* modification, are permitted provided that the following conditions are met:
+*     * Redistributions of source code must retain the above copyright
+*       notice, this list of conditions and the following disclaimer.
+*     * Redistributions in binary form must reproduce the above copyright
+*       notice, this list of conditions and the following disclaimer in the
+*       documentation and/or other materials provided with the distribution.
+*     * Neither the name of the <organization> nor the
+*       names of its contributors may be used to endorse or promote products
+*       derived from this software without specific prior written permission.
+*
+* THIS SOFTWARE IS PROVIDED BY OUNCE LABS, INC. ``AS IS'' AND ANY
+* EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+* WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+* DISCLAIMED. IN NO EVENT SHALL OUNCE LABS, INC. BE LIABLE FOR ANY
+* DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+* (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+* LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+* ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+* (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+* SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>mojo</artifactId>
+      <version>16</version>
+	</parent>
+	<groupId>org.codehaus.mojo</groupId>
+	<artifactId>ounce-maven-plugin</artifactId>
+	<packaging>maven-plugin</packaging>
+	<name>Ounce Maven Plugin</name>
+	<version>1.3-SNAPSHOT</version>
+  <issueManagement>
+    <system>JIRA</system>
+    <url>http://jira.codehaus.org/browse/MOUNCE</url>
+  </issueManagement>
+	<developers>
+		<developer>
+			<id>brianf</id>
+			<name>Brian Fox</name>
+			<email>brianf@apache.org</email>
+			<roles>
+				<role>Lead Maven Developer</role>
+			</roles>
+			<timezone>-5</timezone>
+		</developer>
+		<developer>
+			<id>sheadrick</id>
+			<name>Sam Headrick</name>
+			<email>sam.headrick@ouncelabs.com</email>
+			<roles>
+				<role>Lead Ounce Developer</role>
+			</roles>
+			<organization>OunceLabs</organization>
+			<timezone>-5</timezone>
+		</developer>
+	</developers>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.0</version>
+				<executions>
+					<execution>
+						<phase>clean</phase>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		<!--
+		<plugin>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<configuration>
+					<rules>
+						<requirePluginVersions />
+					</rules>
+				</configuration>
+			</plugin>-->		
+      <plugin>
+        <groupId>org.codehaus.plexus</groupId>
+        <artifactId>plexus-maven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>descriptor</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+		</plugins>
+  <pluginManagement>
+    <plugins>
+      <plugin>    
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-install-plugin</artifactId>
+        <version>2.2</version>
+      </plugin>
+      <plugin>    
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.0.2</version>
+      </plugin>
+      <plugin>    
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>2.3</version>
+      </plugin>
+      <!--<plugin>    
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+      </plugin>-->
+      <plugin>    
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.1</version>
+      </plugin>
+      <plugin>    
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>2.3</version>
+      </plugin>
+      <plugin>    
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-plugin-plugin</artifactId>
+        <version>2.3</version>
+      </plugin>
+      <plugin>    
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.2</version>
+      </plugin>
+	  <plugin>    
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>2.0-beta-5</version>
+      </plugin>
+	  <plugin>    
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-clean-plugin</artifactId>
+        <version>2.1.1</version>
+      </plugin>	  
+	  <plugin>    
+        <groupId>org.codehaus.plexus</groupId>
+        <artifactId>plexus-maven-plugin</artifactId>
+        <version>1.3.6</version>
+      </plugin>
+    </plugins>
+  </pluginManagement>
+	</build>
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-plugin-api</artifactId>
+			<version>2.0.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-project</artifactId>
+			<version>2.0.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-model</artifactId>
+			<version>2.0.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-model</artifactId>
+			<version>2.0.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven</groupId>
+			<artifactId>maven-artifact</artifactId>
+			<version>2.0.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.shared</groupId>
+			<artifactId>maven-test-tools</artifactId>
+			<version>1.0-alpha-1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.shared</groupId>
+			<artifactId>maven-plugin-testing-tools</artifactId>
+			<version>1.0-alpha-2</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.shared</groupId>
+			<artifactId>maven-plugin-testing-harness</artifactId>
+			<scope>test</scope>
+			<version>1.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.plexus</groupId>
+			<artifactId>plexus-utils</artifactId>
+			<version>1.4.6</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.4</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.codehaus.plexus</groupId>
+			<artifactId>plexus-container-default</artifactId>
+			<version>1.0-alpha-9-stable-1</version>
+		</dependency>
+		<dependency>
+		  <groupId>com.thoughtworks.xstream</groupId>
+		  <artifactId>xstream</artifactId>
+		  <version>1.2.2</version>
+		</dependency>
+		<dependency>
+		  <groupId>xerces</groupId>
+          <artifactId>xercesImpl</artifactId>
+          <version>2.8.1</version>
+        </dependency>		
+		<dependency>
+			<groupId>org.codehaus.plexus</groupId>
+			<artifactId>plexus-io</artifactId>
+			<version>1.0-alpha-1</version>
+			<exclusions>
+				<exclusion>
+					<groupId>org.codehaus.plexus</groupId>
+					<artifactId>plexus-container-default</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>org.codehaus.plexus</groupId>
+					<artifactId>plexus-component-api</artifactId>
+				</exclusion>			  
+			</exclusions>
+		</dependency>
+        <dependency>
+          <groupId>org.apache.maven.reporting</groupId>
+          <artifactId>maven-reporting-impl</artifactId>
+          <version>2.0.2</version>
+      <exclusions>
+        <!-- Using org.codehaus.plexus:plexus-utils instead of -->
+        <exclusion>
+          <groupId>plexus</groupId>
+          <artifactId>plexus-utils</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>	
+    <dependency>
+      <groupId>org.apache.maven.reporting</groupId>
+      <artifactId>maven-reporting-api</artifactId>
+      <version>2.0.6</version>
+    </dependency>
+ <!--   <dependency>
+      <groupId>org.apache.maven.reporting</groupId>
+      <artifactId>maven-reporting-impl</artifactId>
+      <version>2.0.2</version>
+    </dependency>-->
+  </dependencies>
+</project>

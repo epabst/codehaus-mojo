@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  The MIT License
+
+  Copyright (c) 2009 codehaus.org.
+
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+  THE SOFTWARE.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.codehaus.mojo.signature</groupId>
+    <artifactId>signatures-parent</artifactId>
+    <version>1.1</version>
+    <relativePath>../signatures-parent</relativePath>
+  </parent>
+
+  <artifactId>java14</artifactId>
+  <version>1.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>Generic Java 1.4 Runtime Signatures</name>
+
+  <description>
+    Java 1.4 Runtime Signatures excluding vendor specific implementation classes.
+  </description>
+
+  <scm>
+    <connection>scm:svn:https://svn.codehaus.org/mojo/trunk/signatures/java14</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/signatures/java14</developerConnection>
+    <url>http://fisheye.codehaus.org/browse/mojo/trunk/signatures/java14</url>
+  </scm>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>animal-sniffer-maven-plugin</artifactId>
+        <configuration>
+          <includeJavaHome>true</includeJavaHome>
+          <includeModuleClasses>false</includeModuleClasses>
+          <excludeDependencies>
+            <excludeDependency>*:*:*:*:*</excludeDependency>
+          </excludeDependencies>
+          <skipIfNoJavaHome>false</skipIfNoJavaHome>
+        </configuration>
+        <executions>
+          <execution>
+            <id>java14</id>
+            <phase>package</phase>
+            <goals>
+              <goal>build</goal>
+            </goals>
+            <configuration>
+              <jdk>
+                <version>[1.4,1.5)</version>
+              </jdk>
+              <includeClasses>
+                <includeClass>java.*</includeClass>
+                <includeClass>javax.accessibility.*</includeClass>
+                <includeClass>javax.crypto.*</includeClass>
+                <includeClass>javax.imageio.*</includeClass>
+                <includeClass>javax.naming.*</includeClass>
+                <includeClass>javax.net.*</includeClass>
+                <includeClass>javax.print.*</includeClass>
+                <includeClass>javax.rmi.*</includeClass>
+                <includeClass>javax.security.auth.*</includeClass>
+                <includeClass>javax.security.cert.*</includeClass>
+                <includeClass>javax.sound.midi.*</includeClass>
+                <includeClass>javax.sound.sampled.*</includeClass>
+                <includeClass>javax.sql.*</includeClass>
+                <includeClass>javax.swing.*</includeClass>
+                <includeClass>javax.transaction.*</includeClass>
+                <includeClass>javax.xml.*</includeClass>
+                <includeClass>org.ietf.jgss.*</includeClass>
+                <includeClass>org.omg.CORBA.*</includeClass>
+                <includeClass>org.omg.CORBA_2_3.*</includeClass>
+                <includeClass>org.omg.CosNaming.*</includeClass>
+                <includeClass>org.omg.Dynamic.*</includeClass>
+                <includeClass>org.omg.DynamicAny.*</includeClass>
+                <includeClass>org.omg.IOP.*</includeClass>
+                <includeClass>org.omg.Messaging.*</includeClass>
+                <includeClass>org.omg.PortableInterceptor.*</includeClass>
+                <includeClass>org.omg.PortableServer.*</includeClass>
+                <includeClass>org.omg.SendingContext.*</includeClass>
+                <includeClass>org.omg.stub.java.rmi.*</includeClass>
+                <includeClass>org.w3c.dom.*</includeClass>
+                <includeClass>org.xml.sax.*</includeClass>
+              </includeClasses>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>

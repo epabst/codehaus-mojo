@@ -1,0 +1,105 @@
+ ------
+ Multimodule Projects
+ ------
+
+Multimodule Projects
+
+
+  Configuring the Jalopy Maven Plugin for use within a large multimodule
+  project can be done, but it requires a little setup.
+
+  This example will use a project called <multi>.
+
+-------------------
+[multi]$ ls
+drwxr-xr-x+ 5      0 Nov  3 15:36 core/
+drwxr-xr-x+ 6      0 Nov 16 16:11 gui/
+drwxr-xr-x+ 6      0 Nov 29 13:13 jmx/
+-rw-r--r--  1   6153 Nov 29 13:08 pom.xml
+drwxr-xr-x+ 4      0 Nov  1 15:48 src/
+-------------------
+
+  First: setup a sub project to house your build tools.
+
+-------------------
+[multi]$ ls
+drwxr-xr-x+ 4      0 Nov 29 13:44 build-tools/
+drwxr-xr-x+ 5      0 Nov  3 15:36 core/
+drwxr-xr-x+ 6      0 Nov 16 16:11 gui/
+drwxr-xr-x+ 6      0 Nov 29 13:13 jmx/
+-rw-r--r--  1   6153 Nov 29 13:08 pom.xml
+drwxr-xr-x+ 4      0 Nov  1 15:48 src/
+-------------------
+
+  Next, include the resources you want in the build-tools jar file.
+
+-------------------
+[multi/build-tools]$ find . -type f
+./pom.xml
+./src/main/resources/multi/jalopy.xml
+./src/main/resources/multi/checkstyle.xml
+./src/main/resources/multi/pmd.xml
+./src/main/resources/multi/LICENSE.txt
+-------------------
+
+  <<TIP:>> put the resources into a subdirectory that you can ensure will be
+  unique, and not conflict with anyone else.
+
+  Now, include the Jalopy configuration in the top level <<<pom.xml>>>.
+
+-------------------
+[multi]$ cat pom.xml
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.example.multi</groupId>
+  <artifactId>multi-parent</artifactId>
+  <version>1.0</version>
+  <packaging>pom</packaging>
+  <name>multi Parent</name>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jalopy-maven-plugin</artifactId>
+        <version>1.0-alpha-1</version>
+        <configuration>
+          <convention>multi/jalopy.xml</convention>
+          <failOnError>false</failOnError>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>com.example.multi</groupId>
+            <artifactId>build-tools</artifactId>
+            <version>1.0</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
+  </build>
+  <modules>
+    <module>build-tools</module>
+    <module>core</module>
+    <module>jmx</module>
+    <module>gui</module>
+  </modules>
+</project>
+-------------------
+
+  Once you are done with that, ensure that you do not include the
+  jalopy-maven-plugin in your sub modules, as their definitions and
+  configuration will override the top level parent pom's definitions.
+
+  Lastly, kick off a reformat of the files:
+
+-------------------
+[multi]$ mvn jalopy:format
+-------------------
+
+  Every sub project will use the same Jalopy setup and configuration.

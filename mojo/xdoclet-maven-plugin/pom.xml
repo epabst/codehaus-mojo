@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>mojo-parent</artifactId>
+    <version>22</version>
+  </parent>
+
+  <artifactId>xdoclet-maven-plugin</artifactId>
+  <packaging>maven-plugin</packaging>
+  <version>1.1-SNAPSHOT</version>
+
+  <name>XDoclet Maven Plugin</name>
+  <description>Processes XDoclet tags in project source files.</description>
+
+  <prerequisites>
+    <maven>2.0</maven>
+  </prerequisites>
+
+  <developers>
+    <developer>
+      <id>kenney</id>
+      <name>Kenney Westerhof</name>
+      <email>kenney@neonics.com</email>
+      <organization>Neonics</organization>
+      <organizationUrl>http://www.neonics.com</organizationUrl>
+      <timezone>CEST</timezone>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:svn:http://svn.codehaus.org/mojo/trunk/mojo/xdoclet-maven-plugin</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/xdoclet-maven-plugin</developerConnection>
+    <url>http://fisheye.codehaus.org/browse/mojo/trunk/mojo/xdoclet-maven-plugin</url>
+  </scm>
+  <issueManagement>
+    <system>JIRA</system>
+    <url>http://jira.codehaus.org/browse/MOJO/component/12027</url>
+  </issueManagement>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </reporting>
+
+  <properties>
+    <xdoclet.version>1.2.3</xdoclet.version>
+    <xjavadoc.version>1.1</xjavadoc.version>
+  </properties>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>ant</groupId>
+      <artifactId>ant</artifactId>
+      <version>1.6.5</version>
+    </dependency>
+
+    <!-- maven mojo deps -->
+
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <version>2.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-project</artifactId>
+      <version>2.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-artifact</artifactId>
+      <version>2.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-antrun-plugin</artifactId>
+      <version>1.0</version>
+    </dependency>
+
+    <!-- XDoclet core -->
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet</artifactId>
+      <version>${xdoclet.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xjavadoc</artifactId>
+      <version>${xjavadoc.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-xdoclet-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <!-- dependencies for XDoclet -->
+
+    <dependency>
+      <groupId>commons-collections</groupId>
+      <artifactId>commons-collections</artifactId>
+      <version>2.1</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.0.4</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <!-- all XDoclet modules -->
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-apache-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-bea-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-borland-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-caucho-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-de-locale</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-ejb-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-exolab-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-fr_FR-locale</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-hibernate-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-hp-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-ibm-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-java-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-jboss-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-jdo-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-jmx-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-jsf-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-libelis-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-macromedia-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-mockobjects-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-mvcsoft-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-mx4j-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-objectweb-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-openejb-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-oracle-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-orion-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-portlet-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-pramati-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-pt_BR-locale</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-solarmetric-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-spring-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-sun-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-sybase-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-tjdo-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-web-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-webwork-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-wsee-module</artifactId>
+      <version>${xdoclet.version}</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <!-- dependencies for XDoclet modules -->
+
+    <!-- ejbdoclet -->
+    <dependency>
+      <groupId>jboss</groupId>
+      <artifactId>jboss-j2ee</artifactId>
+      <version>3.2.1</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <!-- webdoclet -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.3</version>
+      <scope>runtime</scope>
+    </dependency>
+
+  </dependencies>
+
+  <profiles>
+    <profile>
+      <id>run-its</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-invoker-plugin</artifactId>
+            <version>1.4</version>
+            <configuration>
+              <projectsDirectory>src/it</projectsDirectory>
+              <cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
+              <pomIncludes>
+                <pomInclude>*/pom.xml</pomInclude>
+              </pomIncludes>
+              <postBuildHookScript>verify.bsh</postBuildHookScript>
+              <settingsFile>src/it/settings.xml</settingsFile>
+              <localRepositoryPath>${project.build.directory}/local-repo</localRepositoryPath>
+              <debug>true</debug>
+              <goals>
+                <goal>clean</goal>
+                <goal>generate-sources</goal>
+              </goals>
+            </configuration>
+            <executions>
+              <execution>
+                <id>integration-test</id>
+                <goals>
+                  <goal>install</goal>
+                  <goal>run</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+</project>

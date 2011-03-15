@@ -1,0 +1,29 @@
+<project>
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.codehaus.mojo.natives.it</groupId>
+  <artifactId>it-parent</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>Maven Native Plugin IT Parent</name>
+  
+  <packaging>pom</packaging>
+  
+  
+  <modules>
+    <module>java</module>
+    <module>native</module>
+  </modules>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>native-maven-plugin</artifactId>
+          <version>1.0-alpha-7-SNAPSHOT</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+  
+</project>

@@ -1,0 +1,34 @@
+ ------
+ Maven CruiseControl Plugin
+ ------
+ Jerome Lacoste
+ ------
+ 13 April 2006
+ ------
+
+Maven CruiseControl Plugin - Introduction
+
+ A plugin that adds CruiseControl support. The current plugin has a single goal {{{cruisecontrol-mojo.html} cruisecontrol:cruisecontrol}}
+ which helps create a CruiseControl config.xml file based on a multiple module maven pom.
+
+Features & build stability
+
+ This is a very early but working release.
+
+Features:
+
+   * converts pom.xml to config.xml. Today the plugin supports the following CruiseControl features
+
+   ** sourcecontrols: subversion
+
+   ** publishers: htmlemail, email
+
+Reported missing features
+
+   * Some sort of dependency management
+
+   *
+
+Links
+
+  * {{{http://cruisecontrol.sf.net/} http://cruisecontrol.sf.net/}}

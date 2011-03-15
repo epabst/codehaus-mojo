@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <!--
+    XML RELAX NG schema for Subversion command-line client output
+    Common declarations
+  -->
+  <!-- Data types. -->
+  <xs:simpleType name="revnum.type">
+    <xs:annotation>
+      <xs:documentation>A revision number.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:nonNegativeInteger"/>
+  </xs:simpleType>
+  <xs:simpleType name="username.type">
+    <xs:annotation>
+      <xs:documentation>A user name.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="target.type">
+    <xs:annotation>
+      <xs:documentation>A path or URL.</xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="xs:string xs:anyURI"/>
+  </xs:simpleType>
+  <xs:simpleType name="uuid.type">
+    <xs:annotation>
+      <xs:documentation>An UUID.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:simpleType name="md5sum.type">
+    <xs:annotation>
+      <xs:documentation>An MD5 checksum.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:hexBinary">
+      <xs:length value="16"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <!-- Common elements -->
+  <xs:element name="commit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="author"/>
+        <xs:element minOccurs="0" ref="date"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.commit"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.commit">
+    <xs:attribute name="revision" use="required" type="revnum.type"/>
+  </xs:attributeGroup>
+  <xs:element name="author" type="username.type"/>
+  <xs:element name="date" type="xs:dateTime"/>
+  <xs:element name="lock">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="token"/>
+        <xs:element ref="owner"/>
+        <xs:element minOccurs="0" ref="comment"/>
+        <xs:element ref="created"/>
+        <xs:element minOccurs="0" ref="expires"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="token" type="xs:anyURI"/>
+  <xs:element name="owner" type="username.type"/>
+  <xs:element name="comment" type="xs:string"/>
+  <xs:element name="created" type="xs:dateTime"/>
+  <xs:element name="expires" type="xs:dateTime"/>
+</xs:schema>

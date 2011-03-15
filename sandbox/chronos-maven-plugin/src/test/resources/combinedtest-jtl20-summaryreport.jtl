@@ -1,0 +1,604 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+
+<sampleResult timeStamp="1197017914827" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="1349" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017915431" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="1234" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017915027" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="1181" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017915633" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="1123" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017916999" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="639" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017917065" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="573" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017916976" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="682" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017916949" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="713" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017917960" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="14" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017917966" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="33" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017917962" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="43" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017917960" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="91" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017918282" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="26" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017918301" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="28" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017918313" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="64" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017918354" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="96" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017918632" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="1006" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017918610" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="1027" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017918680" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="968" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017918753" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="1001" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017919944" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="295" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017919953" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="289" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017919949" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="294" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017920066" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="272" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017920543" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="15" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017920545" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="36" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017920546" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="93" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017920641" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="16" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017920861" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="86" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017920884" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="75" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017920958" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="36" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017920942" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="57" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017915230" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="5790" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017921328" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="308" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017921261" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="424" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017921249" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="645" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017921940" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="21" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017921300" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="963" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017921990" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="280" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017922263" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="86" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017922199" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="327" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017922573" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="94" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017922568" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="269" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017922829" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="23" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017922969" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="94" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017922652" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="427" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017923140" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="27" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017923156" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="81" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017923469" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="47" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017923383" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="292" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017923979" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="54" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017923366" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="1021" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017924335" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="57" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017923539" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="1176" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017923818" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="1153" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017924692" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="331" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017924694" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="448" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017925020" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="297" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017925331" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="66" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017925276" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="288" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017925619" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="38" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017925699" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="39" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017925447" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="293" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017925867" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="38" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017921296" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="4628" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017925959" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="62" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017926043" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="3" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017926207" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="70" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017926349" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="19" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017926040" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="396" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017926228" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="296" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017926323" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="383" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017926828" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="12" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017926741" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="281" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017926579" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="604" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017927142" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="47" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017927011" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="304" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017927325" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="62" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017927619" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="68" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017927689" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="69" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017927488" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="286" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017926670" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="1154" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017927989" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="77" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017928077" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="33" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017928129" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="297" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017927491" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="949" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017928413" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="49" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017928729" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="14" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017928369" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="603" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017928060" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="950" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017929045" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="36" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017928744" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="392" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017928764" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="631" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017929440" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="1" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017929277" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="293" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017929315" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="322" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017929383" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="380" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017929742" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="86" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017929874" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="98" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017929699" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="321" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017929940" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="95" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017930066" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="151" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017930274" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="42" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017930337" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="28" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017930324" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="92" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017930521" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="89" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017930718" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="0" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017930912" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="78" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017930131" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="941" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017930667" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="605" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017931377" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="306" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017930618" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="1203" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017931577" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="272" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017931986" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="49" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017932153" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="48" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017931020" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="1196" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017931293" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="963" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017932338" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="18" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017932126" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="300" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017932503" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="32" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017932730" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="23" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017932521" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="292" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017932560" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="327" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017933055" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="17" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017932658" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="422" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017933190" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="18" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017933116" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="95" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017933511" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="33" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017933513" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="98" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017933386" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="294" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017932837" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="984" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017933983" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="8" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017933374" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="948" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017934293" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="96" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017934126" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="303" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017933913" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="610" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017934732" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="60" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017933846" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="976" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017934625" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="301" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017934826" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="275" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017934690" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="458" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017935094" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="82" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017935230" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="4" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017935126" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="299" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017935404" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="69" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017935536" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="61" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017935453" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="149" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017935728" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="36" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017935775" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="22" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017935906" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="42" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017936066" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="24" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017936250" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="59" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017935480" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="957" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017936098" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="831" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017936742" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="339" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017935899" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="1238" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017936611" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="585" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017937384" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="88" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017937233" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="291" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017936393" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="1184" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017937441" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="366" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017937774" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="50" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017937827" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="21" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017937501" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="469" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017937882" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="294" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017938112" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="94" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017938150" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="74" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017938273" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="81" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017938126" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="384" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017938488" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="91" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017938508" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="93" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017938656" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="21" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017938526" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="407" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017938881" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="103" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017938814" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="575" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017939238" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="293" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017939692" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="4" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017939834" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="14" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017938984" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="988" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017939998" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="23" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017938906" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="1270" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017940149" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="37" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017939286" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="1155" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017940276" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="286" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017940323" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="404" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017940480" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="294" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017940865" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="44" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017940746" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="276" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017941077" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="96" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017941031" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="145" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017941211" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="24" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017941328" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="35" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017940488" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="962" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017941480" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="46" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017941475" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="75" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017941665" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="23" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017941828" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="64" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017941537" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="398" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017941754" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="270" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017942327" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="91" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017942239" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="285" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017942720" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="82" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017942828" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="33" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017941990" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="954" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017941852" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="1151" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017943163" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="26" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017942194" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="1128" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017943248" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="276" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017943104" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="469" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017943308" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="329" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017943491" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="403" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017943827" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="87" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017943627" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="307" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017943940" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="71" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017943878" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="297" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017944216" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="5" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017944237" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="60" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017944313" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="60" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017944598" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="10" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017944478" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="99" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017944199" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="323" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017944950" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="66" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017944950" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="99" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017945318" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="3" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017944523" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="987" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017944675" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="1251" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017944949" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="1189" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017945815" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="456" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017946229" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="299" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017945351" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="1224" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017945623" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="955" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017946574" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="96" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017946442" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="329" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017946832" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="33" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017946971" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="52" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017947074" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="69" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017947172" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="15" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017946894" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="321" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017946895" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="321" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017947445" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="65" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017947528" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="36" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017947527" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="50" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017947325" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="378" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017947866" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="16" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017947489" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="407" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017947878" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="47" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017947812" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="413" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017948008" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="304" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017948199" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="324" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017948615" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="85" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017948529" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="292" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017948831" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="19" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017949002" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="10" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017949124" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="34" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017949152" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="25" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017948227" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="987" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017948184" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="1242" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017949460" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="96" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017949519" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="292" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017949730" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="295" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017950114" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="15" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017949314" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="1007" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017950328" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="10" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017949479" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="991" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017950431" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="73" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017950640" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="18" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017950626" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="304" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017950775" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="295" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017949858" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="1215" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017951234" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="39" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017951373" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="16" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017950960" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="618" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017951575" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="11" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017951692" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="35" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017950807" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="1021" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017951883" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="293" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017951377" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="841" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017952133" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="294" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017952480" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="45" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017952521" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="7" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017952731" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="11" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017952829" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="20" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017952827" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="45" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017951888" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="1030" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017953044" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="5" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017953221" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="319" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017952029" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="1608" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017953843" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="90" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017953150" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="1028" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017953218" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="987" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017953942" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="330" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017954235" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="51" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017954575" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="62" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017954483" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="288" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017954510" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="301" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017954939" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="2" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017954587" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="386" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017955075" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="53" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017955114" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="26" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017953352" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="1859" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017955429" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="53" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017955441" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="82" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017955278" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="289" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017955515" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="306" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017955871" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="69" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017956124" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="55" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017955244" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="1013" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017956242" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="43" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017956481" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="19" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017956561" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="275" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017955825" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="1247" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017957140" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="13" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017955784" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="1394" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017957455" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="6" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017956586" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="988" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017957377" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="302" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017956803" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="955" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017957483" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="290" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017957983" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="19" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017958077" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="78" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017957764" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="420" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017957879" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="306" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017958304" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="35" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017958064" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="324" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017958457" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="18" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017958491" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="11" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017958691" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="22" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017958491" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="317" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017958804" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="37" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017959016" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="86" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017959111" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="8" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017959421" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="99" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017958641" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="1037" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017958777" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="977" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017959404" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="613" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017959983" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="292" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017959143" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="1186" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017960059" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="329" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017960578" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="25" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017960322" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="316" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017960691" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="48" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017959822" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="1000" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017960634" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="290" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017960906" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="44" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017960941" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="22" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017961042" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="5" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017961266" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="25" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017961228" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="98" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017961127" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="299" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017961252" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="430" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017961628" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="96" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017961730" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="46" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017962078" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="5" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017961593" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="595" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017961987" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="288" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017961349" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="973" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017962026" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="620" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017962578" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="94" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017962493" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="288" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017962627" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="298" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017962974" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="100" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017963108" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="70" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017963228" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="16" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017962951" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="325" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017962385" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="1002" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017963480" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="64" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017963545" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="24" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017963579" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="82" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017963376" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="389" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017963692" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="296" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017963963" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="35" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017964291" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="34" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017964070" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="317" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017964626" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="16" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017964690" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="47" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017963846" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="983" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017963871" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="1204" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017965039" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="52" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017964943" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="391" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017965133" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="293" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017964300" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="1169" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017965379" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="299" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017965729" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="24" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017965393" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="436" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017965639" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="287" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017965982" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="44" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017966055" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="2" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017965773" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="288" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017966229" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="6" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017966328" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="34" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017966363" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="45" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017966134" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="293" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017966537" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="3" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017966710" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="39" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017966730" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="32" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017967064" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="39" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017966359" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="1028" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017966664" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="1223" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017966842" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="1180" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017967051" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="1161" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017967692" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="736" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017967405" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="1022" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017968192" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="279" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017968730" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="50" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017968516" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="296" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017968775" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="47" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017968327" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="701" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017969081" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="12" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017969123" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="19" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017969115" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="53" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017968731" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="444" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017969332" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="25" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017969478" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="61" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017969470" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="82" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017969659" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="72" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017969395" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="437" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017969845" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="29" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017969444" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="451" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017970136" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="391" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017970199" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="490" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017969854" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="984" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017970831" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="10" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017970992" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="18" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017970033" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="986" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017971143" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="5" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017971312" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="31" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017970176" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="1211" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017971143" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="305" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017971324" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="270" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017971751" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="8" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017971451" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="447" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017971899" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="27" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017971692" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="335" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017972061" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="22" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017972228" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="72" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017972331" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="13" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017972202" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="270" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017971645" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="1031" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017972646" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="50" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017972774" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="28" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017973104" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="42" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017972980" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="294" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017972385" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="939" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017973577" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="61" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017973628" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="301" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017973939" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="32" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017972998" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="1012" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017972602" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="1612" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017974232" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="35" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017973448" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="1020" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017974568" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="20" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017974315" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="321" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017974273" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="414" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017974519" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="300" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017974939" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="90" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017974773" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="288" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017975122" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="55" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017974991" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="286" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017974890" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="443" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017975331" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="32" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017975364" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="30" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017975479" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="38" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017975580" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="48" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017975696" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="80" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017975638" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="290" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017975931" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="43" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017976231" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="24" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017976557" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="77" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017975819" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="1130" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017976078" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="1179" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017976276" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="1192" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017976936" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="581" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017977254" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="308" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017975665" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="1971" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017977562" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="273" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017977865" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="2" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017977773" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="288" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017977821" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="318" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017978138" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="44" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017978169" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="99" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017977941" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="333" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017978364" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="24" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017978442" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="19" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017978484" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="69" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017978577" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="87" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017978689" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="80" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017978763" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="96" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017978570" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="402" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017978966" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="87" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017978855" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="413" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017979276" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="363" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017979572" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="315" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017979942" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="70" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017979071" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="939" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017980190" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="97" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017980313" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="40" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017979355" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="1033" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017979161" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="1227" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017980589" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="21" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017980315" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="323" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017980941" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="41" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017980693" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="341" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017980692" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="373" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017980655" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="491" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017980912" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="429" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017981283" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="71" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017981522" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="0" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017981522" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="9" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017981524" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="290" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017981824" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="1" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017981833" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="9" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017981644" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="304" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017982117" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="38" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017982250" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="41" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017982456" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="93" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017982593" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="80" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017981656" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="1019" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017982128" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="1127" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017982978" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="294" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017982144" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="1446" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017983575" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="98" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017982852" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="973" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017983559" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="328" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017983975" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="97" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017983901" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="299" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017984190" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="47" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017984129" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="299" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017984503" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="60" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017984539" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="51" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017982974" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="1702" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017984731" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="23" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017984865" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="36" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017985056" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="33" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017984374" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="808" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017984981" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="294" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017985578" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="47" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017985487" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="284" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017984892" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="1033" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017985927" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="26" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017985203" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="935" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017986074" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="86" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017986465" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="37" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017985391" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="1113" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017986255" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="274" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017986365" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="395" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017986465" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="307" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017986832" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="91" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017986808" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="293" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017987075" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="67" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017986804" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="382" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017987225" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="36" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017987065" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="323" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017987404" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="91" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017987444" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="55" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017987691" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="66" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017987491" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="283" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017987797" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="80" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017988059" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="44" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017988077" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="31" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017988410" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="50" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017987562" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="948" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017988180" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="591" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017987801" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="1165" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017988405" dataType="text" threadName="Performance Test Group 1-5" label="jmeter site" time="640" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017988814" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="422" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017989075" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="268" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017988762" dataType="text" threadName="Performance Test Group 1-4" label="jmeter site" time="632" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017989271" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="299" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017989538" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="69" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017989356" dataType="text" threadName="Performance Test Group 1-5" label="mojo codehaus" time="320" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017989647" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="50" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017989873" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="82" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017989908" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="59" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017989698" dataType="text" threadName="Performance Test Group 1-4" label="mojo codehaus" time="287" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017989979" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr1" time="56" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017990003" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="76" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017990257" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="18" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017990336" dataType="Not Applicable" threadName="Performance Test Group 1-5" label="Junit nr 2" time="5" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017990288" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr1" time="63" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017990653" dataType="Not Applicable" threadName="Performance Test Group 1-4" label="Junit nr 2" time="15" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017990269" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="988" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017990381" dataType="text" threadName="Performance Test Group 1-1" label="jmeter site" time="1009" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017990577" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="1179" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017991562" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="272" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017991694" dataType="text" threadName="Performance Test Group 1-1" label="mojo codehaus" time="273" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017992137" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="91" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017992270" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr1" time="58" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017992060" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="328" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017992530" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="61" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017992630" dataType="Not Applicable" threadName="Performance Test Group 1-1" label="Junit nr 2" time="23" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017992691" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="35" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017993028" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="58" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017992893" dataType="text" threadName="Performance Test Group 1-2" label="jmeter site" time="436" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017993388" dataType="text" threadName="Performance Test Group 1-3" label="jmeter site" time="384" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017994076" dataType="text" threadName="Performance Test Group 1-3" label="mojo codehaus" time="313" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017993634" dataType="text" threadName="Performance Test Group 1-2" label="mojo codehaus" time="756" responseMessage="OK" responseCode="200" success="true"/>
+<sampleResult timeStamp="1197017994693" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr1" time="88" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017994692" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr1" time="94" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017995087" dataType="Not Applicable" threadName="Performance Test Group 1-3" label="Junit nr 2" time="36" responseMessage="Test successful" responseCode="1000" success="true"/>
+<sampleResult timeStamp="1197017995083" dataType="Not Applicable" threadName="Performance Test Group 1-2" label="Junit nr 2" time="55" responseMessage="Test successful" responseCode="1000" success="true"/>
+</testResults>

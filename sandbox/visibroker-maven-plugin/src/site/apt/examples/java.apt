@@ -1,0 +1,124 @@
+ ------
+ Maven 2 VisiBroker Plugin
+ ------
+ Dan T. Tran
+ <dantran@gmail.com>
+ ------
+ September 29, 2005
+
+Java Example
+
+  This example shows how to:
+  
+  * Pre-compile a set of java files
+  
+  * Generate java iiop files from a set of previously compiled java class files.
+  
+  * Generate java files from a set of VisiBroker's IDL files.
+  
+  * Compile existing and generated java files.
+  
+  []
+  
+---------------------------
+
+
+<project>
+
+  ....
+  
+  <packaging>jar</packaging>
+
+  ....
+  
+  <build>
+  
+    <plugins> 
+      
+      <!-- precompile some java files first so that we can convert .class files -->
+      <!-- to Java IIOP files -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>precompile</id>
+            <phase>initialize</phase>
+            <configuration>
+              <includes >
+                <include>
+                  Your Java file which you want to gererate a java iiop file in the next step
+                </include>
+                ....
+              </includes>
+            </configuration>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehause.mojo</groupId>
+        <artifactId>visibroker-maven-plugin</artifactId>
+        <dependencies>
+          <!--Your VisiBroker's runtime tool jars: vbdev.jar, vbjorb.jar, and vbjdev.jar -->
+        </dependencies>
+            
+        <executions>
+
+          <!-- generate java iiop files base on the previous precompile step -->        
+          <execution>
+            <id>generate-iiop-java-files</id>
+            <goals>
+              <goal>java2iiop</goal>
+            </goals>
+            <configuration>
+              <options>
+                <option> -list_files -no_comments  -export_all </option>
+              </options>
+              <classNames>
+                 <className>
+                   Your Java class file which was pre-compliled in the last step
+                 </className>
+                 ....
+              </classNames>
+            </configuration>
+          </execution>
+        
+          <execution>
+            <id>generate-java-files-from-idl-files</id>
+            <goals>
+              <goal>idl2java</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>src/main/idl/CosTransactions.idl</source>
+                <source>src/main/idl/VISTransactions.idl</source>
+              </sources>
+              <includePaths>
+                <includePath>src/main/idl/include</includePath>
+              </includePaths>
+              <options>
+                <option>
+                  arguments specific to idl2java, see your VisiBroker's documenation for details
+                </option>
+                .....
+              </options>
+              
+            </configuration>
+          </execution>
+        </executions>
+        
+      </plugin>
+
+    </plugins>    
+    
+    
+  </build>
+</project>
+
+-----------------------------
+
+

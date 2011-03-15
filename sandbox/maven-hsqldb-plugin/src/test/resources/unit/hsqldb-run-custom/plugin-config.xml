@@ -1,0 +1,19 @@
+<project>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-hsqldb-plugin</artifactId>
+        <configuration>
+        	<dbName>test</dbName>
+        	<mode>server</mode>
+        	<!-- hsql custom settings -->
+        	<silent>true</silent>
+        	<trace>true</trace>
+			<tls>false</tls>
+			<isTransient>false</isTransient>
+			<deleteOnExit>true</deleteOnExit>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

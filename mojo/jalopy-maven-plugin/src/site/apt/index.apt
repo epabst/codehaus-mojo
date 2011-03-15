@@ -1,0 +1,28 @@
+ ------
+ Introduction
+ ------
+ Dennis Lundberg
+ ------
+ 2007-08-25
+ ------
+
+Jalopy Maven Plugin
+
+ The Jalopy Maven Plugin formats java source files following a coding convention.
+
+* Goals Overview
+
+   The Jalopy Plugin has one goal:
+
+   * {{{format-mojo.html}jalopy:format}} Format the java source files following a coding convention.
+
+* Usage
+
+   Instructions on how to use the Jalopy Plugin can be found on the {{{usage.html}usage page}}.
+
+* Examples
+
+   The following example show how to use the Jalopy Plugin in more advanced use-cases:
+
+   * {{{examples/multimodule.html}Multimodule Projects}}
+

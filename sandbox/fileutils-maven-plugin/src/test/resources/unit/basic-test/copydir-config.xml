@@ -1,0 +1,14 @@
+<project>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>fileutils-maven-plugin</artifactId>
+        <configuration>
+          <scripts>
+            cp target/test-classes/unit/basic-test/test-files/ target/test
+          </scripts>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

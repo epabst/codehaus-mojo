@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project default="all">
+    <taskdef resource="webtestTaskdefs.properties"/>
+    <target name="all">
+        <webtest name="test some PDF document testing">
+            <config
+              host="${host}"
+              port="${port}"
+              protocol="${protocol}"
+              basepath="${basepath}"
+              summary="${summary}"
+              saveresponse="${saveresponse}"
+              resultpath="${resultpath}"
+              resultfile="${resultfile}"
+              haltonfailure="${haltonfailure}"
+              haltonerror="${haltonerror}"
+              showhtmlparseroutput="${showhtmlparseroutput}"
+              autorefresh="${autorefresh}"
+            />
+      			<invoke description="get PDF document" url="input.pdf" />
+			      <pdfVerifyPageCount count="1" />
+			      <pdfVerifyText description="Invoice" text="Rechnung" startPage="1" endPage="1" />
+        </webtest>        
+    </target>
+</project>

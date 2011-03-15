@@ -1,0 +1,13 @@
+<assembly>
+  <id>my-aop</id>
+  <formats>
+    <format>aop</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <fileSets>
+    <fileSet>
+      <directory>target/classes</directory>
+      <outputDirectory>/</outputDirectory>
+    </fileSet>
+  </fileSets>
+</assembly>

@@ -1,0 +1,47 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>mojo-sandbox</artifactId>
+    <version>2</version>
+  </parent>
+  <artifactId>rubyscript-maven-tools</artifactId>
+  <packaging>pom</packaging>
+  <name>Ruby Mojo Tools Parent</name>
+  <developers>
+    <developer>
+      <id>eredmond</id>
+      <name>Eric Redmond</name>
+      <email>eric.redmond@gmail.com</email>
+      <roles>
+        <role>Developer</role>
+      </roles>
+    </developer>
+  </developers>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+<!--
+  <distributionManagement>
+    <site>
+      <id>mojo.website</id>
+      <name>Mojo Website</name>
+      <url>scp://beaver.codehaus.org/home/projects/mojo/public_html/</url>
+    </site>
+    < ! - - Prevent accidental release of official version from sandbox - - >
+    <repository>
+      <id>repo1</id>
+      <name>Redirected Snapshots repository</name>
+      <url>scp://localhost</url>
+    </repository>
+  </distributionManagement>
+-->
+  <modules>
+	<module>rubyscript-parent-maven-plugin</module>
+    <module>archetype-maven-rubyscript</module>
+  </modules>
+</project>

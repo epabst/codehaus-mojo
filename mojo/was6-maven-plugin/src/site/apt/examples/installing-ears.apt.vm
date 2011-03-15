@@ -1,0 +1,95 @@
+Installing an EAR
+
+
+To Network Deployment (ND) environment / cluster
+
+  To install an EAR for the first time to a ND based cluster, 
+  connect to the deployment manager for the cell, and make sure updateExisting is false
+  Example configuration:
+  
++--
+
+<plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>was6-maven-plugin</artifactId>
+  <version>${project.version}</version>
+  <executions>
+    <execution>
+      <id>integration-test</id>
+      <phase>integration-test</phase>
+      <goals>
+        <goal>installApp</goal>
+      </goals>
+    </execution>
+  </executions>
+  <configuration>
+    <wasHome>${was61home}</wasHome>
+    <host>deploymentmanager.your.domain</host>
+    <username>admin</username>
+    <password>adminpassword</password>
+    <targetCluster>nameOfCluster</targetCluster>
+    <profileName>Dmgr01</profileName>
+    <!-- remember to import certificate from remote site when deploying to a site with security activated -->
+    <conntype>SOAP</conntype>
+    <port>8879</port>
+    <verbose>true</verbose>
+    <!-- need to be false first time it's deployed to a server --> 
+    <updateExisting>false</updateExisting>
+  </configuration>
+</plugin>
++--
+
+  after a first successful installation on you can remove the updateExisting element as it's default value is true. Further installations will
+update the existing application, which will cause the configuration to be merged with the configuration of the new archive.
+
+
+To base install environment (f.ex. RAD-integrated server1), stopping the server before installation, and starting afterwards
+
++--
+<plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>was6-maven-plugin</artifactId>
+  <version>${project.version}</version>
+  <executions>
+    <execution>
+      <id>integration-test</id>
+      <phase>integration-test</phase>
+      <goals>
+        <goal>wsStopServer</goal>
+        <goal>installApp</goal>
+        <goal>wsStartServer</goal>
+      </goals>
+    </execution>
+  </executions>
+  <configuration>
+    <verbose>true</verbose>
+    <wasHome>${was61home}</wasHome>
+  </configuration>
+</plugin>
++--
+
+
+Replacing the entire application (fresh install each time)
+
++--
+<plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>was6-maven-plugin</artifactId>
+  <version>${project.version}</version>
+  <executions>
+    <execution>
+      <id>integration-test</id>
+      <phase>integration-test</phase>
+      <goals>
+        <goal>wsUninstallApp</goal>
+        <goal>installApp</goal>
+        <goal>wsStartApp</goal>
+      </goals>
+    </execution>
+  </executions>
+  <configuration>
+    <verbose>true</verbose>
+    <wasHome>${was61home}</wasHome>
+  </configuration>
+</plugin>
++--

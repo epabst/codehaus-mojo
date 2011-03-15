@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                      http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>mojo-sandbox</artifactId>
+    <version>5-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>springide-maven-plugin</artifactId>
+  <version>1.0.0-SNAPSHOT</version>
+  <packaging>maven-plugin</packaging>
+  <name>Spring IDE Maven Plugin</name>
+  <description>
+    ${project.name} is a Maven plugin to configure Spring IDE
+  </description>
+  <inceptionYear>2008</inceptionYear>
+  <url>http://mojo.codehaus.org/${project.artifactId}</url>
+  <developers>
+    <developer>
+      <id>ndeloof</id>
+      <name>Nicolas De Loof</name>
+      <email>nicolas@apache.org</email>
+      <roles>
+        <role>Initial plugin author</role>
+      </roles>
+      <timezone>+1</timezone>
+    </developer>
+  </developers>
+  <licenses>
+    <license>
+      <name>Apache 2.0</name>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-utils</artifactId>
+      <version>1.4.7</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-project</artifactId>
+      <version>2.0.9</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-model</artifactId>
+      <version>2.0.9</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <version>2.0.9</version>
+    </dependency>
+    <dependency>
+      <groupId>freemarker</groupId>
+      <artifactId>freemarker</artifactId>
+      <version>2.3.6</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>1.4</version>
+    </dependency>
+
+    <!-- Test dependencies -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.2</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+
+</project>

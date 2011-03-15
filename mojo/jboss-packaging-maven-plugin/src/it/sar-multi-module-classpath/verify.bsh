@@ -1,0 +1,19 @@
+import java.io.*;
+import java.util.*;
+
+try
+{
+    File file = new File( basedir, "module-b/target/module-b-1.0-SNAPSHOT.sar" );
+    if ( !file.exists() || file.isDirectory() )
+    {
+        System.err.println( "Could not find generated sar: " + file );
+        return false;
+    }
+}
+catch( Throwable t )
+{
+    t.printStackTrace();
+    return false;
+}
+
+return true;

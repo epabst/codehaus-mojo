@@ -1,0 +1,37 @@
+<project>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.codehaus.mojo.chronos.it</groupId>
+	<artifactId>minimalconfig</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<name>minimalconfig</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<jmeter.home>/Applications/Utilities/Java/jakarta-jmeter-2.3.1</jmeter.home>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>chronos-maven-plugin</artifactId>
+				<configuration>
+					<input>${basedir}/src/main/resources/simplewebplan.jmx</input>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>jmeter</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>chronos-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</reporting>
+</project>

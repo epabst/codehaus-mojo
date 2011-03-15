@@ -1,0 +1,57 @@
+Maven 2 JDiff Plugin
+
+ This plugin is used to generate an API difference report between two versions of code.  See the {{{http://www.jdiff.org/}JDiff Home Page}} for more information on JDiff.
+
+
+*How to Generate a JDiff Report
+
+ The API differences generated compares two versions of code.  JDiff automatically does the checkout of the sources based from the scm element inside your pom.xml and into the JDiff outputDirectory.  If CURRENT is used as either oldTag or newTag, JDiff will use the sources from ${project.build.sourceDirectory}.
+
+*Examples
+
+**Report configuration for generating JDiff between alpha-1 and the current version on a secured svn connection
+
+-------------------
+<project>
+  ...
+    <reporting>
+      ...
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jdiff-maven-plugin</artifactId>
+        <version>0.1-SNAPSHOT</version>
+        <configuration>
+          <svnUsername>epunzalan</svnUsername>
+          <svnPassword>password</svnPassword>
+          <svnTagBase>branches</svnTagBase>
+          <oldTag>alpha-1</oldTag>
+        </configuration>
+      </plugin>
+      ...
+    </reporting>
+  ...
+</project>
+-------------------
+
+**Report configuration for generating JDiff between alpha and beta from packages with org.apache.maven
+
+-------------------
+<project>
+  ...
+    <reporting>
+      ...
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jdiff-maven-plugin</artifactId>
+        <version>0.1-SNAPSHOT</version>
+        <configuration>
+          <packages>org.apache.maven</packages>
+          <oldTag>alpha</oldTag>
+          <newTag>beta</oldTag>
+        </configuration>
+      </plugin>
+      ...
+    </reporting>
+  ...
+</project>
+-------------------

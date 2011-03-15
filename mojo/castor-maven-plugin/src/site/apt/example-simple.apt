@@ -1,0 +1,42 @@
+ ------
+ Generating sources from a single XML schema 
+ ------
+ <wguttmn@codehaus.org>
+ ------
+ July 14, 2009
+ ------
+
+Generating sources from a single XML schema
+
+  To generate Java sources from a single XML schema named <<<schema.xsd>>> (located 
+  at the default location, i.e. src/main/castor) using the Maven plugin for Castor, 
+  simply define a plugin configuration as follows:
+
++-------------------
+<project>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>castor-maven-plugin</artifactId>
+        <version>2.0</version>
+        <configuration>
+            <schema>src/main/castor/schema.xsd</schema>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
++-------------------
+
+

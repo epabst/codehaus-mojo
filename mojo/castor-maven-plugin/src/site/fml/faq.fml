@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faqs id="FAQ" title="Frequently Asked Questions">
+    <part id="General">
+        <title>General</title>
+        <faq id="castor.version">
+            <question>Is there any restrictions on the version of Castor I have to use?</question>
+            <answer><p>In general, <b>no</b>. Starting with Castor 1.1, all versions can be used.</p></answer> 
+        </faq> 
+    </part>
+    <part id="Customization">
+        <title>Customization</title>
+        <faq id="property.file">
+            <question>Do I have to supply a castorbuilder.properties file?</question>
+            <answer><p>As of release 2.0, no.</p></answer> 
+        </faq> 
+        <faq id="property.file.configuration">
+            <question>How does one supply a castorbuilder.properties file?</question>
+            <answer>
+                <p>
+                    As part of the plugin definition within your Maven project, simply
+                    add the following plugin configuration parameter:
+                </p>
+                <source>
+<properties>src/main/castor/builder.properties</properties>                
+                </source>
+            </answer> 
+        </faq> 
+        <faq id="binding.file">
+            <question>Where do I find more information about the syntax of the Castor binding file for the XML code generator?</question>
+            <answer>
+                <p>
+                    In the <a href="http://castor.org/reference-guide.html">ereference guide</a> of Castor.
+                </p>
+            </answer> 
+        </faq> 
+    </part>
+</faqs>

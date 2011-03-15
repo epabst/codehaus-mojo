@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.codehaus.mojo.fitnesse.integration</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>org.codehaus.mojo.fitnesse.integration</groupId>
+    <artifactId>integration-minimalist</artifactId>
+
+    <packaging>pom</packaging>
+    <name>Maven FitNesse Plugin Minimalist</name>
+    <description>Maven FitNesse Plugin Minimalist</description>
+    <version>1.0-SNAPSHOT</version>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>fitnesse-maven-plugin</artifactId>
+                <version>@pluginVersion@</version>
+                <configuration>
+                    <!-- Fail and Output configuration -->
+                    <failOnError>true</failOnError>
+                    <!-- Fitnesse servers list -->
+                    <fitnesses>
+                        <fitnesse>
+                            <hostName>localhost</hostName>
+                            <port>@fitnessePort@</port>
+                            <pageName>FitnesseIntegrationTest.SuiteCoverage4</pageName>
+                        </fitnesse>
+                    </fitnesses>
+                </configuration>
+                 <executions>
+                    <execution>
+                        <id>site</id>
+                        <phase>pre-site</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,72 @@
+ ------
+ Introduction
+ ------
+
+${project.name}
+
+  This plugin packages various JBoss deployable archive files including AOP,
+  ESB, HAR, SAR, and Spring. These archives are specially named JAR files with a
+  specific deployable XML descriptor and file extension.
+
+* Goals Overview
+
+  General Information about the plugin goals.
+
+  * {{{./aop-mojo.html}jboss-packaging:aop}} Builds a deployable JBoss AOP Archive.
+  
+  * {{{./esb-mojo.html}jboss-packaging:esb}} Builds a deployable JBoss ESB Archive.
+
+  * {{{./har-mojo.html}jboss-packaging:har}} Builds a deployable JBoss Hibernate Archive.
+  
+  * {{{./par-mojo.html}jboss-packaging:par}} Builds a deployable JBoss Process Archive.
+
+  * {{{./sar-mojo.html}jboss-packaging:sar}} Builds a deployable JBoss Service Archive.
+
+  * {{{./spring-mojo.html}jboss-packaging:spring}} Builds a deployable JBoss Spring Archive.
+
+* Deprecated Goals
+
+  The exploded formats are automatically created using the standard goals.  A parameter "explodedOnly"
+  can be used on the standard goals if the archive is not needed.
+  
+  * {{{./esb-exploded-mojo.html}jboss-packaging:esb-exploded}} Builds a JBoss ESB exploded Archive.
+
+  * {{{./har-exploded-mojo.html}jboss-packaging:har-exploded}} Builds a JBoss Hibernate exploded Archive.
+
+  * {{{./sar-exploded-mojo.html}jboss-packaging:sar-exploded}} Builds a JBoss Service exploded Archive.
+
+  * {{{./sar-inplace-mojo.html}jboss-packaging:sar-inplace}} Builds a JBoss Service in place exploded Archive.
+
+
+* Usage
+
+  General instructions on how to use the Plugin Name can be found on the {{{./usage.html}usage page}}. Some more
+  specific use cases are described in the examples given below. Last but not least, users occasionally contribute
+  additional examples, tips or errata to the
+  {{{http://docs.codehaus.org/display/MAVENUSER/JBoss+Packaging+Maven+Plugin}plugin's wiki page}}.
+
+  In case you still have questions regarding the plugin's usage, please feel
+  free to contact the {{{./mail-lists.html}user mailing list}}. The posts to the mailing list are archived and could
+  already contain the answer to your question as part of an older thread. Hence, it is also worth browsing/searching
+  the {{{./mail-lists.html}mail archive}}.
+
+  If you feel like the plugin is missing a feature or has a defect, you can fill a feature request or bug report in our
+  {{{./issue-tracking.html}issue tracker}}. When creating a new issue, please provide a comprehensive description of your
+  concern. Especially for fixing bugs it is crucial that the developers can reproduce your problem. For this reason,
+  entire debug logs, POMs or most preferably little demo projects attached to the issue are very much appreciated.
+  Of course, patches are welcome, too. Contributors can check out the project from our
+  {{{./source-repository.html}source repository}} and will find supplementary information in the
+  {{{http://maven.apache.org/guides/development/guide-helping.html}guide to helping with Maven}}. 
+ 
+* Examples
+
+  To provide you with better understanding of some usages of the JBoss Packaging Maven Plugin,
+  you can take a look into the following examples:
+
+  * {{{./examples/example-basic.html}Basic Examples}}
+
+  * {{{./examples/example-assembly.html}Assembly Plugin}}
+
+  * {{{./examples/example-dependency.html}Dependencies}}
+
+ 

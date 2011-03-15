@@ -1,0 +1,56 @@
+<project> 
+ 
+  <modelVersion>4.0.0</modelVersion> 
+  <groupId>com.google.appengine</groupId> 
+  <artifactId>appengine-tools-api</artifactId> 
+  <version>1.2.0</version> 
+  <packaging>jar</packaging> 
+ 
+  <name>Google App Engine Java SDK tools</name> 
+  <url>http://code.google.com/intl/en/appengine/docs/java/</url> 
+  <description>App Engine applications can be implemented using the Java programming language, and other languages that use the Java Virtual Machine.</description> 
+  <licenses> 
+    <license> 
+      <name>The Apache Software License, Version 2.0</name> 
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url> 
+      <distribution>repo</distribution> 
+    </license> 
+  </licenses> 
+ 
+  <dependencies>
+    <dependency>
+	  <!-- SDK md5sum doesn't match maven repo one -->
+      <groupId>ant</groupId>
+      <artifactId>ant</artifactId>
+      <version>1.6.5</version>
+    </dependency>
+    <dependency>
+	  <!-- SDK md5sum doesn't match maven repo one -->
+      <groupId>ant</groupId>
+      <artifactId>ant-launcher</artifactId>
+      <version>1.6.5</version>
+    </dependency>
+
+    <!-- jsp dependencies -->
+    <dependency>
+      <!-- SDK md5sum doesn't match maven repo one -->
+	  <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.1.2</version>
+    </dependency>
+    <dependency>
+	  <!-- SDK md5sum doesn't match maven repo one -->
+      <groupId>taglibs</groupId>
+      <artifactId>standard</artifactId>
+      <version>1.1.2</version>
+    </dependency>
+	
+    <!-- orm dependencies -->
+    <dependency>
+      <groupId>com.google.appengine</groupId>
+      <artifactId>datanucleus-appengine</artifactId>
+      <version>1.0.0.final</version>
+    </dependency>
+  </dependencies>
+  
+</project> 

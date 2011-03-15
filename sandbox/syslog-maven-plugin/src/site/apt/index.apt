@@ -1,0 +1,32 @@
+ -----
+ Introduction
+ ------
+ Dan T. Tran
+ <dantran@gmail.com>
+ ------
+ January 31, 2009
+ ------
+
+Syslog Maven Maven Plugin
+
+	This plugin is a thin wrapper of {{{http://www.syslog4j.org}syslog4j}} to provide Maven command line interface to 
+	receive and send syslog records.
+
+* Goals Overview
+
+  * {{{receive-mojo.html}syslog:receive}} Listens for incoming syslog record and display on console.
+
+  * {{{receive-fast-mojo.html}syslog:receive-fast}} Listens for incoming syslog records and display statistics.
+
+  * {{{send-mojo.html}syslog:send}} Sends syslog records to a remote syslog listener.
+
+  []
+
+
+* Usage
+
+  Instructions on how to use the Syslog Maven Plugin can be found on the {{{usage.html}usage page}}.
+
+
+
+

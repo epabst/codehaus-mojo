@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <includes>
+  	<include>.*</include>
+  </includes>
+  <excludes>
+  </excludes>
+  <nodes>
+    <compressJavaBeanProperties>true</compressJavaBeanProperties>
+    <propagateInheritedMethods>true</propagateInheritedMethods>
+    <propagateInheritedFields>true</propagateInheritedFields>
+  </nodes>
+  <edges>
+    <aggregating/>
+    <implemmenting/>
+    <inheritance/>
+  </edges>
+</configuration>

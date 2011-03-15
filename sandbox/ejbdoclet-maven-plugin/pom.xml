@@ -1,0 +1,339 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>mojo-sandbox</artifactId>
+    <groupId>org.codehaus.mojo</groupId>
+    <version>2</version>
+  </parent>
+  <artifactId>ejbdoclet-maven-plugin</artifactId>
+  <packaging>maven-plugin</packaging>
+  <version>1.0-beta-1-SNAPSHOT</version>
+  <name>ejbdoclet</name>
+  <description>Ejb Doclet Plugin</description>
+  <inceptionYear>2005</inceptionYear>
+  <url>http://mojo.codehaus.org/ejbdoclet-maven-plugin/</url>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.2</source>
+          <target>1.2</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <developers>
+    <developer>
+      <id>awilliams</id>
+      <name>Ashley Williams</name>
+      <email>agwilliams1000@codehaus.org</email>
+      <organization>Interest</organization>
+      <roles>
+        <role>Author</role>
+      </roles>
+      <timezone>0</timezone>
+    </developer>
+  </developers>
+  <dependencies> 
+    
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <version>2.0</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-project</artifactId>
+      <version>2.0</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>mant-maven-plugin</artifactId>
+      <version>1.0-beta-2-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xjavadoc</artifactId>
+      <version>1.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-xdoclet-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+  	
+    <dependency>
+      <groupId>commons-collections</groupId>
+      <artifactId>commons-collections</artifactId>
+      <version>2.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.0.4</version>
+    </dependency>
+
+  	<!-- modules -->
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-apache-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-bea-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-borland-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-caucho-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-de-locale</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-ejb-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-exolab-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-fr_FR-locale</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-hibernate-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-hp-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-ibm-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-java-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-jboss-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-jdo-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-jmx-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-jsf-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-libelis-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-macromedia-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-mockobjects-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-mvcsoft-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-mx4j-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-objectweb-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-openejb-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-oracle-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-orion-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-portlet-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-pramati-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-pt_BR-locale</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-solarmetric-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-spring-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-sun-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-sybase-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-tjdo-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-web-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-webwork-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>xdoclet</groupId>
+      <artifactId>xdoclet-wsee-module</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
+    <!-- dependencies for XDoclet modules -->
+
+    <!-- ejbdoclet -->
+    <dependency>
+      <groupId>jboss</groupId>
+      <artifactId>jboss-j2ee</artifactId>
+      <version>3.2.1</version>
+    </dependency>
+
+    <!-- webdoclet -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.3</version>
+    </dependency>
+
+  </dependencies>
+</project>

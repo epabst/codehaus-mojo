@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF8"?>
+<git-settings>
+  <commitNoVerify>true</commitNoVerify>
+  <revParseDateFormat>revParseDateFormat_currentSettings</revParseDateFormat>
+  <traceGitCommand>traceGitCommand_currentSettings</traceGitCommand>
+</git-settings>

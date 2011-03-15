@@ -1,0 +1,32 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>archetype-maven-rubyscript</artifactId>
+  <version>1.0-beta-1-SNAPSHOT</version>
+  <packaging>maven-plugin</packaging>
+  <name>Maven Ruby Plugin Archetype Quickstart</name>
+  <inceptionYear>2005</inceptionYear>
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ftp-prop-snap</id>
+      <name>Propellors Snapshots repository</name>
+      <url>ftp://propellors.net/public_html/maven-repo/</url>
+    </snapshotRepository>
+    <repository>
+      <id>ftp-prop-repo</id>
+      <name>Propellors Repository</name>
+      <url>ftp://propellors.net/public_html/maven-repo/</url>
+    </repository>
+  </distributionManagement>
+  <build>
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+         <artifactId>wagon-ftp</artifactId>
+         <version>1.0-alpha-6</version>
+      </extension>
+    </extensions>
+  </build>
+
+</project>

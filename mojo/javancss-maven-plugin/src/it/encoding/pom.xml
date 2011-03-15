@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>it.javancss-maven-plugin</groupId>
+  <artifactId>encoding</artifactId>
+
+  <name>javancss-maven-plugin simple IT</name>
+  <version>0.10-SNAPSHOT</version>
+  <description>
+    Try to call the javancss-maven-plugin with sources in UTF-16.
+  </description>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-16</project.build.sourceEncoding>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>@sitePluginVersion@</version>
+      </plugin>
+    </plugins>
+  </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>javancss-maven-plugin</artifactId>
+        <version>@project.version@</version>
+      </plugin>
+    </plugins>
+  </reporting>
+</project>

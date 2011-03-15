@@ -1,0 +1,1 @@
+This code has been moved to apache at: https://svn.apache.org/repos/asf/maven/sandbox/trunk/archetypeng 

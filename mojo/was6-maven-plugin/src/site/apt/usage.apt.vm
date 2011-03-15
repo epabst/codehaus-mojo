@@ -1,0 +1,18 @@
+Usage
+
+Prerequisites
+
+  The plugin requires an installation of IBM WebSphere Application Server or IBM WebSphere Process Server.
+The plugin has been tested on BASE, ND, Process Server and RAD/RSA test-environments on Windows, Linux, AIX and Solaris
+platforms. The path of this root installation point will have to be referenced in the plugin wasHome configuration element.
+
+When invoking the plugin, the wasHome configuration element will need to point to the installation root of
+your Process Server installation.
+
+Running outsite a normal build
+
+  mvn org.codehaus.mojo:was6-maven-plugin:${project.version}:installApp -Dwas6.wasHome=C:\progra~1\IBM\SDP70\runtimes\base_v61 -Dwas.earFile=/path/to/earFile.ear
+
+Examples
+
+  See {{{http://svn.codehaus.org/mojo/tags/was6-maven-plugin-${project.version}/src/it}integration-tests}} for examples  

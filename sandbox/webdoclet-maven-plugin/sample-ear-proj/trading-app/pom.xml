@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <parent>
+    <groupId>acme</groupId>
+    <artifactId>trading-proj</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>trading-app</artifactId>
+  <packaging>ear</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>Trading App</name>
+  <dependencies>
+    <dependency>
+      <groupId>acme</groupId>
+      <artifactId>trading-ejb</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>ejb</type>
+    </dependency>
+    <dependency>
+      <groupId>acme</groupId>
+      <artifactId>trading-web</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>war</type>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-ear-plugin</artifactId>
+        <configuration>
+          <modules>
+            <webModule>
+              <groupId>acme</groupId>
+              <artifactId>trading-web</artifactId>
+              <contextRoot>/trading</contextRoot>
+            </webModule>
+          </modules>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jboss-maven-plugin</artifactId>
+        <version>1.0</version>
+        <configuration>
+          <hostName>localhost</hostName>
+          <server>jboss</server>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

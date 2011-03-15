@@ -1,0 +1,168 @@
+<?xml version="1.0"?>
+
+<model>
+   <id>runtime</id>
+   <name>Runtime</name>
+   <description><![CDATA[
+      model for generating classes representing the runtime descriptors used for the runtime-builder-maven-plugin
+      ]]></description>
+   <defaults>
+      <default>
+         <key>package</key>
+         <value>org.codehaus.mojo.runtime.model</value>
+      </default>
+   </defaults>
+   <classes>
+      <class rootElement="true" xml.tagName="runtimeDescriptor">
+         <name>Runtime</name>
+         <description><![CDATA[
+            top level container tag for the runtime descriptors
+            ]]></description>
+         <version>1.0.0</version>
+         <fields>
+            <field>
+               <name>shell</name>
+               <version>1.0.0</version>
+               <description><![CDATA[
+                  the most basic of the runtime environment descriptors, generates a shell script
+                  ]]></description>
+               <association>
+                  <type>ShellRuntime</type>
+               </association>
+            </field>
+            <field>
+               <name>jar</name>
+               <version>1.0.0</version>
+               <description><![CDATA[
+                  this runtime descriptor will provide for java -jar artifact.jar <main-id> <arg1> <arg2>
+                  ]]></description>
+               <association>
+                  <type>JarRuntime</type>
+               </association>
+            </field>
+         </fields>
+      </class>
+      <class>
+         <name>RuntimeBase</name>
+         <description><![CDATA[
+            empty base class for the moment
+            ]]></description>
+         <version>1.0.0</version>
+         <fields>
+            <field>
+               <name>id</name>
+               <description><![CDATA[
+                  The id associated with the runtime descriptor.
+                  ]]></description>
+               <version>1.0.0</version>
+               <type>String</type>
+            </field>
+         </fields>
+      </class>
+      <class>
+         <name>ShellRuntime</name>
+         <superClass>RuntimeBase</superClass>
+         <description><![CDATA[
+            The simplest type of runtime descriptor that can be processed, intended to generate just the bare bones of a runtime environment, perhaps not even enougth to bundle up.  Maybe just enough to generate a shell script that manages dependencies and executes a main method.
+            ]]></description>
+         <version>1.0.0</version>
+         <fields>
+            <field>
+               <name>mainClass</name>
+               <description><![CDATA[
+                  The fully qualified class name that has the main method on it that this runtime environment will be generated for.
+                  ]]></description>
+               <version>1.0.0</version>
+               <type>String</type>
+            </field>
+         </fields>
+      </class>
+      <class>
+         <name>JarRuntime</name>
+         <superClass>RuntimeBase</superClass>
+         <description><![CDATA[
+	    This runtime will be the uberjar++ arrangement with a gateway class that will build out the classpath and offer up the options to X number of main methods.
+            ]]></description>
+         <version>1.0.0</version>
+         <fields>
+           
+	    <field>
+	       <name>executables</name>
+	       <description><![CDATA[
+	          This will be a list of the main methods that are to be serviced by the executorClass
+		  ]]></description>
+	       <version>1.0.0</version>
+	       <association>
+  	          <type>Executable</type>
+		  <multiplicity>*</multiplicity>
+	       </association>
+	    </field>
+	    <field>
+	       <name>dependencies</name>
+	       <description><![CDATA[
+	          This will be a list of the main methods that are to be serviced by the executorClass
+		  ]]></description>
+	       <version>1.0.0</version>
+	       <association>
+  	          <type>String</type>
+		  <multiplicity>*</multiplicity>
+	       </association>
+	    </field>
+         </fields>
+	 <codeSegments>
+	    <codeSegment>
+	       <version>1.0.0</version>
+	       <code><![CDATA[
+		private java.util.Map executableMap = null;
+		private java.util.List dependencyList = null;
+
+		public java.util.Map getExecutableMap() {
+		  if (executableMap == null) {
+		    executableMap = new java.util.HashMap();
+
+		    if (getExecutables() != null) {
+                      for (java.util.Iterator i = getExecutables().iterator(); i.hasNext();) {
+                        Executable exec = (Executable) i.next();
+
+			if (executableMap.containsKey(exec.getId())) {
+                           throw new IllegalStateException( "executable id's must be unique among all executables: " + exec.getId() );
+			} else {
+                           executableMap.put(exec.getId(), exec);
+			}
+		      }
+		    }
+		  }
+		  return executableMap;
+		}
+	
+	       ]]></code>
+	    </codeSegment>
+	 </codeSegments>
+      </class>
+      <class>
+         <name>Executable</name>
+	 <description/>
+	 <version>1.0.0</version>
+	 <fields>
+	    <field>
+	       <name>id</name>
+	       <description/>
+	       <version>1.0.0</version>
+	       <type>String</type>
+	    </field>
+	    <field>
+	       <name>implementation</name>
+	       <description/>
+	       <version>1.0.0</version>
+	       <type>String</type>
+	    </field>
+	 </fields>
+      </class>
+   <!--         <class>
+         <name>Dependency</name>
+	 <description/>
+	 <version>1.0.0</version>
+	 <type>String</type>
+      </class>-->
+   </classes>
+</model>

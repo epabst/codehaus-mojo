@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Licensed to the Apache Software Foundation (ASF) under one or more
+ contributor license agreements.  See the NOTICE file distributed with
+ this work for additional information regarding copyright ownership.
+ The ASF licenses this file to You under the Apache License, Version 2.0
+ (the "License"); you may not use this file except in compliance with
+ the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+<document>
+    <properties>
+        <title>webtest-maven-plugin</title>
+        <author>Siegfried Goeschl</author>
+    </properties>
+    <body>
+        <release version="0.7.1-SNAPSHOT" date="2010-11-04" description="Maintenance Release">
+            <action dev="sgoeschl" type="fix" date="2010-11-04">
+                The R_1810 webtest release creates the HTML report pages on the
+                fly using an Ant macrodef. Since we don't have this macro the execution
+                fails. Added 'resultreporterclass' to configure/disable the behaviour.
+            </action>
+        </release>
+        <release version="0.7.0-SNAPSHOT" date="2010-11-03" description="Maintenance Release">
+            <action dev="sgoeschl" type="update" date="2010-11-03">
+                A problem forced update to R_1810 which is not found in any M2 repo.
+                Going back to include the webtest classes into the plugin to have more
+                flexibility.
+            </action>
+        </release>
+        <release version="0.6.9-SNAPSHOT" date="2010-11-03" description="Maintenance Release">
+            <action dev="sgoeschl" type="fix" date="2010-11-03">
+                Fixed NPE when putting 'null' as property value.
+            </action>
+        </release>
+        <release version="0.6.8-SNAPSHOT" date="2010-11-02" description="Maintenance Release">
+            <action dev="sgoeschl" type="add" date="2010-11-02">
+                The webtest configuration properties can be now overwritten on
+                the command line, e.g. "-Dwebtest.target=foo". Please note that
+                work currently only for properties which are not defined in the
+                pom.xml (seems to be a M2 problem).
+            </action>
+            <action dev="sgoeschl" type="update" date="2010-11-02">
+                Maven properties can now be passed to the Canoo Webtest script and
+                additionally prefixed. Added another integration tes (it11) to show
+                how the property passing works.
+            </action>
+        </release>
+        <release version="0.6.7-SNAPSHOT" date="2010-09-17" description="Maintenance Release">
+            <action dev="sgoeschl" type="update" date="2010-09-17">
+                Tweaked the code to avoid "import requires support in ProjectHelper" as
+                described in the Ant user mailing list.
+            </action>
+        </release>
+        <release version="0.6.6-SNAPSHOT" date="2010-03-19" description="Maintenance Release">
+            <action dev="sgoeschl" type="update" date="2010-03-19">
+                Updating the documentation.
+            </action>
+            <action dev="sgoeschl" type="update" date="2010-03-05" due-to="Mark Struberg">
+                Moving the plugin to Mojo Sandbox.
+            </action>
+            <action dev="sgoeschl" type="update" date="2010-02-16">
+                Setting UTF-8 encoding for code and resources in pom.xml.
+            </action>
+            <action dev="sgoeschl" type="update" date="2009-12-09">
+                Updated the plugin documentation and added one more integration test
+                (it9) to show binding the plugin to different life cycle phases.
+            </action>
+            <action dev="sgoeschl" type="update" date="2009-12-08">
+                Syncing resources with Canoo WebTest 3.0.
+            </action>
+        </release>
+        <release version="0.6.5" date="2009-11-18" description="Maintenance Release">
+            <action dev="sgoeschl" type="add" due-to="Felipe Gaucho">
+                Added the PDF test (it8) as described in Felipe Gaucho's blog
+                (http://weblogs.java.net/blog/felipegaucho/archive/2009/11/18/testing-pdf-files-canoo-webtest-and-maven2).
+            </action>
+            <action dev="sgoeschl" type="update">
+                Added more information what the integration tests are doing.
+            </action>
+            <action dev="sgoeschl" type="update">
+                Upgrading to HTMLUnit 2.6 to fix a known Javascript problem.
+            </action>
+            <action dev="sgoeschl" type="update" due-to="Christoph Lipp">
+                Upgrading to the official Canoo WebTest 3.0 release which is now available via maven repository.
+                The WebTest code does no longer have to be included in the plugin
+                which simplifies the build and reduces the plugin size.
+            </action>
+        </release>
+        <release version="0.6.4" date="2008-10-14" description="Maintenance Release">
+            <action dev="sgoeschl" type="update" due-to="Mirko Friedenhagen">
+                Upgrading to the latest Canoo WebTest R1720 build. This also implies
+                that the plugin requires JDK 1.5 to run.
+            </action>
+            <action dev="sgoeschl" type="add" due-to="Mirko Friedenhagen">
+                Added 'it7' integration test to cover Google Javascript handling
+            </action>
+        </release>
+        <release version="0.6.3" date="2008-07-29" description="Maintenance Release">
+            <action dev="sgoeschl" type="update">
+                Updated the usage section of the plugin documentation.
+            </action>
+            <action dev="sgoeschl" type="update">
+                Upgrading to the official Canoo WebTest 2.6 release.
+            </action>
+            <action dev="sgoeschl" type="add">
+                Added the goal 'webtest:verify-filecontent'
+            </action>
+            <action dev="sgoeschl" type="update">
+                The goal 'webtest:verify' was renamed to 'webtest:verify-result' to
+                avoid name clashes.
+            </action>
+        </release>
+        <release version="0.6.2" date="2007-12-28" description="Maintenance Release">
+            <action dev="sgoeschl" type="add">
+                Added webtest:clean target
+            </action>
+        </release>
+        <release version="0.6.1" date="2007-12-27" description="Maintenance Release">
+            <action dev="sgoeschl" type="fix">
+                Removed the custom dependencies found in lib - this caused a build
+                failure when installing the plugin.
+            </action>
+            <action dev="sgoeschl" type="add">
+                Added CCWebTestReport.xsl to tinker with better CruiseControl integration
+            </action>
+        </release>
+        <release version="0.6.0" date="2007-12-20" description="Maintenance Release">
+            <action dev="sgoeschl" type="add">
+                Added webtest:verify to enforce a 'BUILD FAILURE' even when
+                haltonfailure and haltonerror are false. Using this setting
+                the build would report SUCCESS even when all tests are broken.
+            </action>
+            <action dev="sgoeschl" type="add">
+                Added CCWebTestReport.xsl to tinker with better CruiseControl integration
+            </action>
+        </release>
+        <release version="0.5.0" date="2007-12-14" description="Maintenance Release">
+            <action dev="sgoeschl" type="add" due-to="Krystian Nowak">
+                Added maven classpath references for use inside Ant scripts.
+            </action>
+        </release>
+        <release version="0.4.0" date="2007-11-06" description="Maintenance Release">
+            <action dev="sgoeschl" type="update" due-to="Markus Strutzenberger">
+                Unpacking the non-public jars into target/classes - this simplifies
+                shipping the plugin
+            </action>
+        </release>
+        <release version="0.3.0" date="2007-10-29" description="Maintenance Release">
+            <action dev="sgoeschl" type="update">
+                Using javax.mail-1.4 from the maven repo
+            </action>
+            <action dev="sgoeschl" type="add">
+                Added a README.txt
+            </action>
+            <action dev="sgoeschl" type="update">
+                Keeping the plugin parameters to lowercase to avoid upper/lowercase clashes.
+            </action>
+            <action dev="sgoeschl" type="update">
+                Better error handling when catching an exception.
+            </action>
+        </release>
+        <release version="0.2.0" date="2007-10-21" description="Maintenance Release">
+            <action dev="sgoeschl" type="update">
+                Using the artifactId as report title.
+            </action>
+            <action dev="sgoeschl" type="fix">
+                Removing the DOCTYPE from "WebTestReport.xsl" to get rid of Xalan's
+                validation warnings.
+            </action>
+            <action dev="sgoeschl" type="update">
+                Keeping the plugin parameters to lowercase to avoid upper/lowercase clashes.
+            </action>
+            <action dev="sgoeschl" type="update">
+                Better error handling when catching an exception.
+            </action>
+        </release>
+        <release version="0.1.0" date="2007-10-01" description="Initial Release">
+            <action dev="sgoeschl" type="add">
+                Initial release to the public.
+            </action>
+        </release>
+    </body>
+</document>

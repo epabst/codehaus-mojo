@@ -1,0 +1,5 @@
+LaTeX Maven Plugin
+Copyright 2010 INRIA / CITI Laboratory / Amazones Research Team.
+
+This product includes software developed at
+INRIA / CITI Laboratory / Amazones Research Team (http://amazones.gforge.inria.fr/).

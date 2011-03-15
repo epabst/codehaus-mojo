@@ -1,0 +1,144 @@
+ ------
+ Sample NSIS Project
+ ------
+
+Sample NSIS Project
+
+  An example project using the nsis-maven-plugin is provided below.
+
+  Be sure to check out the {{{http://nsis.sourceforge.net/Category:Code_Examples} Code Examples at NSIS}}
+  to find more NSIS specific examples.
+
+* HTML Tidy Installer Example
+
+  The source files for this project can be found in the
+  {{{https://svn.codehaus.org/mojo/trunk/sandbox/nsis-maven-plugin/src/test/projects/html-tidy-installer}subversion test projects space for nsis-maven-plugin}}.
+
+** html-tidy-installer/pom.xml
+
++------------------------------------------+
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.w3c</groupId>
+  <artifactId>tidy</artifactId>
+  <version>2008.5.22</version>
+  <packaging>pom</packaging>
+  <name>HTML Tidy</name>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>nsis-maven-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>generate-project</goal>
+              <goal>compile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
++------------------------------------------+
+
+
+** html-tidy-installer/setup.nsi
+
+  Notice that this <<<setup.nsi>>> does not include an <<<OutFile>>> command.
+  The <<<OutFile>>> command is handled by the nsis-maven-plugin.
+  (Failure to allow nsis-maven-plugin to handle the <<<OutFile>>> command will
+   likely prevent Maven from attaching and ultimately deploying the
+   created exe as an artifact to the repository)
+
++------------------------------------------+
+; Installer for HTML Tidy - March 22, 2008
+
+;======================================================
+; Includes
+
+  !include MUI.nsh
+  !include Sections.nsh
+  !include target\project.nsh
+
+;======================================================
+; Installer Information
+
+  Name "${PROJECT_NAME}"
+
+  SetCompressor /SOLID lzma
+  XPStyle on
+  CRCCheck on
+  InstallDir "C:\Program Files\${PROJECT_ARTIFACT_ID}\"
+  AutoCloseWindow false
+  ShowInstDetails show
+  Icon "${NSISDIR}\Contrib\Graphics\Icons\orange-install.ico"
+
+;======================================================
+; Version Tab information for Setup.exe properties
+
+  VIProductVersion 2008.3.22.0
+  VIAddVersionKey ProductName "${PROJECT_NAME}"
+  VIAddVersionKey ProductVersion "${PROJECT_VERSION}"
+  VIAddVersionKey CompanyName "${PROJECT_ORGANIZATION_NAME}"
+  VIAddVersionKey FileVersion "${PROJECT_VERSION}"
+  VIAddVersionKey FileDescription ""
+  VIAddVersionKey LegalCopyright ""
+
+;======================================================
+; Variables
+
+
+;======================================================
+; Modern Interface Configuration
+
+  !define MUI_HEADERIMAGE
+  !define MUI_ABORTWARNING
+  !define MUI_COMPONENTSPAGE_SMALLDESC
+  !define MUI_HEADERIMAGE_BITMAP_NOSTRETCH
+  !define MUI_FINISHPAGE
+  !define MUI_FINISHPAGE_TEXT "Thank you for installing ${PROJECT_NAME}. \r\n\n\nYou can now run ${PROJECT_ARTIFACT_ID} from your command line."
+  !define MUI_ICON "${NSISDIR}\Contrib\Graphics\Icons\orange-install.ico"
+
+;======================================================
+; Modern Interface Pages
+
+  !define MUI_DIRECTORYPAGE_VERIFYONLEAVE
+  !insertmacro MUI_PAGE_LICENSE tidy\tidy_license.txt
+  !insertmacro MUI_PAGE_DIRECTORY
+  !insertmacro MUI_PAGE_COMPONENTS
+  !insertmacro MUI_PAGE_INSTFILES
+  !insertmacro MUI_PAGE_FINISH
+
+;======================================================
+; Languages
+
+  !insertmacro MUI_LANGUAGE "English"
+
+;======================================================
+; Installer Sections
+
+Section "HTML Tidy"
+    SetOutPath $INSTDIR
+    SetOverwrite on
+    File /r /x *.svn .\tidy\*.*
+
+    writeUninstaller "$INSTDIR\tidy_uninstall.exe"
+SectionEnd
+
+; Installer functions
+Function .onInstSuccess
+
+FunctionEnd
+
+Section "uninstall"
+  delete "$INSTDIR\tidy.exe"
+  delete "$INSTDIR\tidy_*.*"
+SectionEnd
+
+Function .onInit
+    InitPluginsDir
+FunctionEnd
++------------------------------------------+

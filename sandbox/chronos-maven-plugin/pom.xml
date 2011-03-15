@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.codehaus.mojo</groupId>
+		<artifactId>mojo-sandbox-parent</artifactId>
+		<version>8</version>
+	</parent>
+	<groupId>org.codehaus.mojo</groupId>
+	<artifactId>chronos-maven-plugin</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<url>http://mojo.codehaus.org</url>
+	<organization>
+		<name>CodeHaus</name>
+		<url>http://mojo.codehaus.org</url>
+	</organization>
+	<name>Chronos</name>
+	<inceptionYear>2008</inceptionYear>
+	<description>
+		Plugin for testing performance with jmeter
+		and creating nice reports of the results
+	</description>
+	<licenses>
+		<license>
+			<name>LGPL (GNU Lesser General Public License) 2.1</name>
+			<url>http://www.gnu.org/copyleft/lesser.html</url>
+		</license>
+		<license>
+			<name>Common Public License 1.0</name>
+			<url>http://www.opensource.org/licenses/cpl1.0.php</url>
+		</license>
+	</licenses>
+	<developers>
+		<developer>
+			<id>soelvpil</id>
+			<name>Kent Soelvsten</name>
+			<email>ksr@lakeside.dk</email>
+		</developer>
+		<developer>
+			<id>christiangasser</id>
+			<name>Christian Gasser</name>
+			<email>chg@lakeside.dk</email>
+		</developer>
+		<developer>
+			<id>ads</id>
+			<name>Anders Sørensen</name>
+			<email>ads@lakeside.dk</email>
+		</developer>
+	</developers>
+
+	<prerequisites>
+		<maven>2.0.6</maven>
+	</prerequisites>
+
+	<packaging>maven-plugin</packaging>
+
+	<properties>
+		<mojo.javadoc.mavenVersion>${project.prerequisites.maven}
+		</mojo.javadoc.mavenVersion>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.apache.maven.reporting</groupId>
+			<artifactId>maven-reporting-api</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.maven.reporting</groupId>
+			<artifactId>maven-reporting-impl</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-math</artifactId>
+			<version>2.1</version>
+		</dependency>
+		<dependency>
+			<groupId>jfree</groupId>
+			<artifactId>jfreechart</artifactId>
+			<!-- Version 1.0.13 has problems - since it depens on JCommon 1.0.16 which 
+				is currently not uploaded correctly -->
+			<version>1.0.12</version>
+		</dependency>
+	</dependencies>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-report-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<id>unit</id>
+						<configuration>
+							<outputDirectory>${project.build.directory}/surefire-reports
+							</outputDirectory>
+							<outputName>surefire-report</outputName>
+						</configuration>
+						<reports>
+							<report>report</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<configLocation>${project.basedir}/chronos_checks.xml
+					</configLocation>
+					<headerLocation>LICENSE.txt</headerLocation>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.7</version>
+				<configuration>
+					<quiet>true</quiet>
+					<links>
+						<link>http://download-llnw.oracle.com/javaee/1.4/api/</link>
+						<link>http://download-llnw.oracle.com/javase/1.5.0/docs/api/
+						</link>
+						<link>http://commons.apache.org/collections/apidocs-COLLECTIONS_3_0/
+						</link>
+						<link>http://commons.apache.org/dbcp/apidocs/</link>
+						<link>http://commons.apache.org/fileupload/apidocs/</link>
+						<link>http://commons.apache.org/httpclient/apidocs/</link>
+						<link>http://commons.apache.org/logging/apidocs/</link>
+						<link>http://commons.apache.org/pool/apidocs/</link>
+						<link>http://junit.sourceforge.net/javadoc/</link>
+						<link>http://logging.apache.org/log4j/1.2/apidocs/</link>
+						<link>http://jakarta.apache.org/regexp/apidocs/</link>
+						<link>http://velocity.apache.org/engine/releases/velocity-1.5/apidocs/
+						</link>
+						<link>http://maven.apache.org/ref/${mojo.javadoc.mavenVersion}/maven-artifact/apidocs/
+						</link>
+						<link>http://maven.apache.org/ref/${mojo.javadoc.mavenVersion}/maven-artifact-manager/apidocs/
+						</link>
+						<link>http://maven.apache.org/ref/${mojo.javadoc.mavenVersion}/maven-plugin-api/apidocs/
+						</link>
+						<link>http://maven.apache.org/ref/${mojo.javadoc.mavenVersion}/maven-project/apidocs/
+						</link>
+						<link>http://maven.apache.org/ref/${mojo.javadoc.mavenVersion}/maven-reporting/maven-reporting-api/apidocs/
+						</link>
+						<link>http://maven.apache.org/ref/${mojo.javadoc.mavenVersion}/maven-settings/apidocs/
+						</link>
+					</links>
+					<tagletArtifacts>
+						<tagletArtifact>
+							<groupId>org.apache.maven.plugin-tools</groupId>
+							<artifactId>maven-plugin-tools-javadoc</artifactId>
+							<version>2.6</version>
+						</tagletArtifact>
+						<tagletArtifact>
+							<groupId>org.codehaus.plexus</groupId>
+							<artifactId>plexus-component-javadoc</artifactId>
+							<version>1.5.4</version>
+						</tagletArtifact>
+					</tagletArtifacts>
+					<tags>
+						<tag>
+							<name>parameter</name>
+							<placement>X</placement>
+						</tag>
+					</tags>
+				</configuration>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>javadoc</report>
+							<report>test-javadoc</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+		</plugins>
+	</reporting>
+</project>

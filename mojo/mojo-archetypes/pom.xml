@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>mojo-parent</artifactId>
+    <groupId>org.codehaus.mojo</groupId>
+    <version>28</version>
+  </parent>
+
+  <groupId>org.codehaus.mojo.archetypes</groupId>
+  <artifactId>mojo-archetypes</artifactId>
+  <version>6-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>Codehaus Mojo Archetypes Parent</name>
+
+  <scm>
+    <connection>scm:svn:http://svn.codehaus.org/mojo/trunk/mojo/mojo-archetypes</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/mojo-archetypes</developerConnection>
+    <url>http://fisheye.codehaus.org/browse/mojo/trunk/mojo/mojo-archetypes</url>
+  </scm>
+
+  <modules>
+    <module>cbuild-automvn</module>
+    <module>ear-j2ee14</module>
+    <module>ear-javaee6</module>
+    <module>ear-jee5</module>
+    <module>ejb-j2ee13</module>
+    <module>ejb-j2ee14</module>
+    <module>ejb-javaee6</module>
+    <module>ejb-jee5</module>
+    <module>maven-archetype-simple-jboss-jee</module>
+    <module>nbm-archetype</module>
+    <module>nbm-suite-root</module>
+    <module>netbeans-platform-app-archetype</module>
+    <module>osgi-archetype</module>
+    <module>pom-root</module>
+    <module>webapp-j2ee13</module>
+    <module>webapp-j2ee14</module>
+    <module>webapp-javaee6</module>
+    <module>webapp-jee5</module>
+  </modules>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.0</version>
+        <configuration>
+          <tagBase>https://svn.codehaus.org/mojo/tags</tagBase>
+          <useReleaseProfile>false</useReleaseProfile>
+          <arguments>-Pmojo-release -N</arguments>
+        </configuration>
+      </plugin>
+    </plugins>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-archetype-plugin</artifactId>
+          <version>2.0-alpha-5</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <extensions>
+      <extension>
+        <groupId>org.apache.maven.archetype</groupId>
+        <artifactId>archetype-packaging</artifactId>
+        <version>2.0-alpha-5</version>
+      </extension>
+    </extensions>
+  </build>
+</project>

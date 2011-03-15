@@ -1,0 +1,131 @@
+ ---
+ Headless X11 with Xvfb
+ ---
+ Olivier Lamy
+ <olamy@apache.org>
+ ---
+ 2010-10-13
+
+~~ 
+~~ Licensed to the Apache Software Foundation (ASF) under one
+~~ or more contributor license agreements.  See the NOTICE file
+~~ distributed with this work for additional information
+~~ regarding copyright ownership.  The ASF licenses this file
+~~ to you under the Apache License, Version 2.0 (the
+~~ "License"); you may not use this file except in compliance
+~~ with the License.  You may obtain a copy of the License at
+~~
+~~  http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~ Unless required by applicable law or agreed to in writing,
+~~ software distributed under the License is distributed on an
+~~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+~~ KIND, either express or implied.  See the License for the
+~~ specific language governing permissions and limitations
+~~ under the License.
+~~ 
+
+Headless X11 with Xvfb
+
+ To allow builds on headless Unix systems to function correctly with Selenium, you may
+ need to configure Xvfb (virtual framebuffer X server for X Version 11).
+ 
+ Use the <<<xvfb>>> goal to start up an Xvfb process.  This will try to detect an
+ unused X11 display starting from <<<:20>>> and configure the Selenium server with that
+ <<<DISPLAY>>> environment variable so that when launching browsers they startup using
+ the virutal X11 server.
+
++----------+
+<plugins>
+    <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>selenium-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <executions>
+            <execution>
+                <id>xvfb</id>
+                <phase>pre-integration-test</phase>
+                <goals>
+                    <goal>xvfb</goal>
+                </goals>
+            </execution>
+            
+            <execution>
+                <id>selenium</id>
+                <phase>pre-integration-test</phase>
+                <goals>
+                    <goal>start-server</goal>
+                </goals>
+                <configuration>
+                    <background>true</background>
+                </configuration>
+            </execution>
+        </executions>
+    </plugin>
+</plugins>
++----------+
+
+ <<NOTE:>>
+ For execution of Xvfb to work correctly as a non-root user, the Xvfb process needs to be SUID-root.
+
++----------+
+chmod u+s `which Xvfb`
++----------+
+
+ You can also configure an explicit display to be used instead of autodetecting:
+
++----------+
+<plugins>
+    <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>selenium-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <executions>
+            <execution>
+                <id>xvfb</id>
+                <phase>pre-integration-test</phase>
+                <goals>
+                    <goal>xvfb</goal>
+                </goals>
+                <configuration>
+                    <display>:2</display>
+                </configuration>
+            </execution>
+            
+            <execution>
+                <id>selenium</id>
+                <phase>pre-integration-test</phase>
+                <goals>
+                    <goal>start-server</goal>
+                </goals>
+                <configuration>
+                    <background>true</background>
+                </configuration>
+            </execution>
+        </executions>
+    </plugin>
+</plugins>
++----------+
+
+ You may get an error like this in <<<target/selenium/xvfb.log>>> when you try to start Xvfb
+
++----------+
+ Fatal server error:
+ PAM authentication failed, cannot start X server.
+        Perhaps you do not have console ownership?
++----------+
+
+ From {{{https://lists.sdsc.edu/pipermail/npaci-rocks-discussion/2004-December/008837.html}the sdsc.edu mailing list}}
+
+ To allow users to start an xserver you need to modify /etc/pam.d/xserver and make it look something like this:
+
++----------+
+#%PAM-1.0
+auth       sufficient   /lib/security/pam_rootok.so
+#auth      required     /lib/security/pam_console.so
+auth       required     /lib/security/pam_permit.so
+account    required     /lib/security/pam_permit.so
++----------+
+
+ This will permit authorization for users not at the console to start an X-server.
+

@@ -1,0 +1,45 @@
+Features
+
+ * Usage of templates from URL, an absolute or relative file 
+ 
+ * Filtering by property file or by commandline arguments
+ 
+ * Different types of merging with the existing file
+ 
+ * Automatic generated backup file
+ 
+ * Dry run support, to see the outcome without really changing any file
+ 
+ * Maven version check per goal(!), since not all goals require the same Maven version.
+
+ * Plugin can provide prototypes, which contain a lot of comments helping you to write your file
+ 
+ * Make a copy of the current file to the current base directory, ready to be edited.
+ 
+ * The following files can be set up with this plugin:
+ 
+   * settings.xml
+   
+   * toolchains.xml
+   
+   * settings-security.xml
+   
+   * clearcase-settings.xml
+   
+   * cvs-settings.xml
+   
+   * git-settings.xml
+   
+   * starteam-settings.xml
+   
+   * vss-settings.xml
+
+   []
+ 
+Special Settings Features
+
+ * Generate and write the master-key without editing the settings-security file by hand
+ 
+ * Encrypting all server passwords without editing the settings file by hand 
+ 
+ 

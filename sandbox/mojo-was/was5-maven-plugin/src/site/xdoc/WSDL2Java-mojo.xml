@@ -1,0 +1,156 @@
+<document>
+  <properties>
+    <title>was5-plugin - was5:WSDL2Java</title>
+    </properties>
+  <body>
+    <section name="was5:WSDL2Java">
+      <p>The WSDL2Java task creates Java classes and deployment
+				descriptor templates from a Web Services Description
+				Language (WSDL) file.</p>
+      <p>Parameters for the goal: </p>
+      <table>
+        <tr>
+          <th>Parameter</th>
+          <th>Type</th>
+          <th>Expression</th>
+          <th>Default Value</th>
+          <th>Description</th>
+          </tr>
+        <tr>
+          <td>
+            <code>wasHome</code>
+            </td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${wasHome}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Location of WebSphere installation (normally the
+						WAS_HOME environment variable). [path to
+						WebSphere]</td>
+          </tr>
+        <tr>
+          <td>
+            <code>url</code>
+            </td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${url}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Location of input WSDL document.</td>
+          </tr>
+        <tr>
+          <td>
+            <code>output</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${output}</code>
+            </td>
+          <td>
+            <code>${project.source.directory}</code>
+            </td>
+          <td>Root directory for emitted files.</td>
+          </tr>
+        <tr>
+          <td>
+            <code>role</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${role}</code>
+            </td>
+          <td>
+            <code>client</code>
+            </td>
+          <td>J2EE development role
+						[client|deploy-client|deploy-server|develop-client|develop-server|server]</td>
+          </tr>
+        <tr>
+          <td>
+            <code>container</code>
+            </td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${container}</code>
+            </td>
+          <td>
+            <code>client</code>
+            </td>
+          <td>J2EE container [client|ejb|web|none].</td>
+          </tr>
+        <tr>
+          <td>
+            <code>genjava</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${genjava}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Generate java files only (Do not run rmic and
+						compile) [true|false]</td>
+          </tr>
+        <tr>
+          <td>
+            <code>verbose</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${verbose}</code>
+            </td>
+          <td>
+            <code>-</code>
+            </td>
+          <td>Verbose outout [true|false]</td>
+          </tr>
+        <tr>
+          <td>
+            <code>ant.basedir</code>
+            </td>
+          <td>
+            <code title="java.io.File">File</code>
+            </td>
+          <td>
+            <code>${antBasedir}</code>
+            </td>
+          <td>
+            <code>${basedir}</code>
+            </td>
+          <td>The base directory from which to execute the Ant script.</td>
+          </tr>
+        <tr>
+          <td>
+            <code>ant.messageLevel</code> <i>(Optional)</i></td>
+          <td>
+            <code title="java.lang.String">String</code>
+            </td>
+          <td>
+            <code>${antMessageLevel}</code>
+            </td>
+          <td>
+            <code>info</code>
+            </td>
+          <td>The message-level used to tune the verbosity of Ant logging.</td>
+          </tr>
+        </table>
+      </section>
+    </body>
+  </document>

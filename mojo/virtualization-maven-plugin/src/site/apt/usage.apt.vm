@@ -1,0 +1,308 @@
+ ~~ Licensed to the Apache Software Foundation (ASF) under one
+ ~~ or more contributor license agreements.  See the NOTICE file
+ ~~ distributed with this work for additional information
+ ~~ regarding copyright ownership.  The ASF licenses this file
+ ~~ to you under the Apache License, Version 2.0 (the
+ ~~ "License"); you may not use this file except in compliance
+ ~~ with the License.  You may obtain a copy of the License at
+ ~~
+ ~~   http://www.apache.org/licenses/LICENSE-2.0
+ ~~
+ ~~ Unless required by applicable law or agreed to in writing,
+ ~~ software distributed under the License is distributed on an
+ ~~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ ~~ KIND, either express or implied.  See the License for the
+ ~~ specific language governing permissions and limitations
+ ~~ under the License.
+
+ -----
+ Usage
+ -----
+ Stephen Connolly
+ ------
+ 2009-08-13
+ ------
+
+Usage
+
+  The plugin offers goals for controlling virtual computers on a virtualization platform.
+
+  When using the virtualization-maven-plugin, you need to provide the connection details in your <<<pom.xml>>>,
+  for example:
+
+---
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      ...
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>virtualization-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        ...
+        <configuration>
+          ...
+          <datacenterUri>vcc+vi+https://hostname/sdk</datacenterUri>
+          <username>myname</username>
+          <password>secret</password>
+          ...
+        </configuration>
+        ...
+      </plugin>
+      ...
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
+---
+
+  Or you need to provide the connection details in your <<<settings.xml>>>, for example:
+
+---
+<settings>
+  ...
+  <profiles>
+    ...
+    <profile>
+      <id>virtualization-details</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <virtualization.datacenterUri>vcc+vi+https://hostname/sdk</virtualization.datacenterUri>
+        <virtualization.username>myname</virtualization.username>
+        <virtualization.password>secret</virtualization.password>
+      </properties>
+    </profile>
+    ...
+  </profiles>
+  ...
+</settings>
+---
+
+  Or you could provide the connection details on the command line when executing maven, for example:
+
+---
+mvn "-Dvirtualization.datacenterUri=vcc+vi+https://hostname/sdk" "-Dvirtualization.username=myname" \
+        "-Dvirtualization.password=secret" virtualization:list-computers
+---
+
+  Or you can use a combination of any of these, e.g. keep your password and username in <<<settings.xml>>> and keep
+  the datacenter URI in the <<<pom.xml>>>
+
+* Listing the available virtual computers
+
+  To list the avaiable virtual computers, use the <<<list-computers>>> goal, e.g.
+
+---
+mvn "-Dvirtualization.datacenterUri=vcc+vi+https://hostname/sdk" "-Dvirtualization.username=myname" \
+        "-Dvirtualization.password=secret" virtualization:list-computers
+---
+
+* Starting a virtual computer
+
+  To start a virtual computer, which will either power on the virtual computer if it is stopped, or resume the
+  virtual computer if it is paused or suspended, use the <<<start-computer>>> goal, e.g.
+
+---
+mvn "-Dvirtualization.datacenterUri=vcc+vi+https://hostname/sdk" "-Dvirtualization.username=myname" \
+        "-Dvirtualization.password=secret" "-Dvirtualization.computer=Joe's JBoss Server" virtualization:start-computer
+---
+
+  Alternatively, you can bind this goal to a phase in the build lifecycle, e.g.
+
+---
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      ...
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>virtualization-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        ...
+        <executions>
+          ...
+          <execution>
+            <id>start-it-env</id>
+            <phase>pre-integration-test</phase>
+            <goals>
+              <goal>start-computer</goal>
+            </goals>
+            <configuration>
+              <computers>
+                <computer>Joe's Database Server</computer>
+                <computer>Joe's JBoss Server</computer>
+              </computers>
+            </configuration>
+          </execution>
+          ...
+        </executions>
+      </plugin>
+      ...
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
+---
+
+* Pausing a virtual computer
+
+  To pausing a virtual computer has the effect of halting execution of a running the virtual computer while retaining
+  its state in memory, and so can be resumed quickly (note: not all virtualization platforms support the concept of
+  a paused state)
+
+  To pause a virtual computer if it is started, use the <<<pause-computer>>> goal, e.g.
+
+---
+mvn "-Dvirtualization.datacenterUri=vcc+vi+https://hostname/sdk" "-Dvirtualization.username=myname" \
+        "-Dvirtualization.password=secret" "-Dvirtualization.computer=Joe's JBoss Server" virtualization:pause-computer
+---
+
+  Alternatively, you can bind this goal to a phase in the build lifecycle, e.g.
+
+---
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      ...
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>virtualization-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        ...
+        <executions>
+          ...
+          <execution>
+            <id>start-it-env</id>
+            <phase>post-integration-test</phase>
+            <goals>
+              <goal>pause-computer</goal>
+            </goals>
+            <configuration>
+              <computers>
+                <computer>Joe's Database Server</computer>
+                <computer>Joe's JBoss Server</computer>
+              </computers>
+            </configuration>
+          </execution>
+          ...
+        </executions>
+      </plugin>
+      ...
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
+---
+
+* Suspending a virtual computer
+
+  To suspending a virtual computer has the effect of halting execution of a running the virtual computer while retaining
+  its state on disk (note: that resuming from a suspended state will be slower than resuming from a paused state)
+
+  To suspend a virtual computer if it is started, use the <<<suspend-computer>>> goal, e.g.
+
+---
+mvn "-Dvirtualization.datacenterUri=vcc+vi+https://hostname/sdk" "-Dvirtualization.username=myname" \
+        "-Dvirtualization.password=secret" "-Dvirtualization.computer=Joe's JBoss Server" virtualization:suspend-computer
+---
+
+  Alternatively, you can bind this goal to a phase in the build lifecycle, e.g.
+
+---
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      ...
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>virtualization-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        ...
+        <executions>
+          ...
+          <execution>
+            <id>start-it-env</id>
+            <phase>post-integration-test</phase>
+            <goals>
+              <goal>suspend-computer</goal>
+            </goals>
+            <configuration>
+              <computers>
+                <computer>Joe's Database Server</computer>
+                <computer>Joe's JBoss Server</computer>
+              </computers>
+            </configuration>
+          </execution>
+          ...
+        </executions>
+      </plugin>
+      ...
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
+---
+
+* Stopping a virtual computer
+
+  To stop a virtual computer, which has the effect of powering it off, use the <<<stop-computer>>> goal, e.g.
+
+---
+mvn "-Dvirtualization.datacenterUri=vcc+vi+https://hostname/sdk" "-Dvirtualization.username=myname" \
+        "-Dvirtualization.password=secret" "-Dvirtualization.computer=Joe's JBoss Server" virtualization:stop-computer
+---
+
+  Alternatively, you can bind this goal to a phase in the build lifecycle, e.g.
+
+---
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      ...
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>virtualization-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        ...
+        <executions>
+          ...
+          <execution>
+            <id>start-it-env</id>
+            <phase>post-integration-test</phase>
+            <goals>
+              <goal>stop-computer</goal>
+            </goals>
+            <configuration>
+              <computers>
+                <computer>Joe's Database Server</computer>
+                <computer>Joe's JBoss Server</computer>
+              </computers>
+            </configuration>
+          </execution>
+          ...
+        </executions>
+      </plugin>
+      ...
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
+---
+

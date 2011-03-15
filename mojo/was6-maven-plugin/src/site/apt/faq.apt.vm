@@ -1,0 +1,160 @@
+  ------
+  WAS6 maven plugin
+  ------
+
+
+
+FAQs
+
+* I get an error when generating stubs telling me "10: The <wsEjbDeploy> type doesn't support the "jdkcompliancelevel" attribute."
+
+  This is because IBM introduced this flag in FP7 and later: 
+{{{http://www-1.ibm.com/support/docview.wss?rs=180&uid=swg1PK33035}IBM support}}.
+Please upgrade your environment. If no upgrade path is available for your environment,
+try setting the legacyMode flag to true. This will ignore the jdkComplianceLevel configuration element.
+
+* How can I generate EJB-stubs from within my IDE?
+  
+  For eclipse/RAD: Install the m2eclipse plugin {{{http://m2eclipse.codehaus.org/}m2eclipse site}}.
+This will integrate eclipse with maven2.
+You can then right-click your EJB-project, and select "Run as..." and select
+"Maven generate-sources".
+
+* I get an error when running servicedeploy stating: "The skipXsdValidate flag is invalid".
+
+  This is because this flag was introduced in Process Server 6.0.2.4 and later. Please upgrade the Process Server installation to 6.0.2.4 or later.
+
+* EJB stub generation hangs at the validation phase
+  
+  Your project probably contains some bad XML documents. Try setting the noValidate option to true.
+  Also setting the verbose parameter might shade light over what's going on.
+
+* My EJB project fails compilation after generating sources - why?
+  
+  You need to provide a complete classpath for the container in your project.
+One possible way to do this is to define a property pointing to the WebSphere 6.1 root installation,
+and the define to system scoped dependencies:
+
++--
+
+<dependency>
+  <scope>system</scope>
+  <groupId>com.ibm.ws</groupId>
+  <artifactId>ejbportable</artifactId>
+  <version>6.1.0</version>
+  <systemPath>C:/Program Files/IBM/WebSphere/AppServer/plugins/com.ibm.ws.ejbportable_6.1.0.jar</systemPath>
+</dependency>
+<dependency>
+  <scope>system</scope>
+  <groupId>com.ibm.ws</groupId>
+  <artifactId>runtime</artifactId>
+  <version>6.1.0</version>
+  <systemPath>C:/Program Files/IBM/WebSphere/AppServer/plugins/com.ibm.ws.runtime_6.1.0.jar</systemPath>
+</dependency>
+    
++--
+
+Although I rather recommend making it available from a 3rd party repository, for instance federated by nexus.
+
+
+* When generating binding for MDBs, my listener port settings are not taken into consideration.
+  
+  This is a known problem, see {{{http://www-01.ibm.com/support/docview.wss?uid=swg21248211}IBMs support site}}.  
+  
+* How do I map roles onto components?
+
+  See http://www.ibm.com/developerworks/websphere/techjournal/0309_apte/apte.html and the roles option on the installApp goal.
+
+* Update, install, uninstall - help I'm confused!
+
+  The installApp goal can either update an existing application (with the same name).
+  You can either configure the plugin to uninstall an existing installation prior to attempting an installation, 
+  or you can configure it to update an existing.
+
+  Example of complete reinstallation:
+  
++--
+
+<project>
+  
+  ...
+  
+  <properties>
+    <was6Home>c:\progra~1\ibm\SDP70\runtimes\base_v61</was6Home>
+  </properties>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>was6-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>wsUninstallApp</goal> <!-- first uninstall -->
+              <goal>installApp</goal> <!-- then install again -->
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <wasHome>${was6Home}</wasHome>
+          <conntype>SOAP</conntype>
+          <host>my.dns.name</host>
+          <port>8879</port>
+          <targetCluster>MY-TARGET-CLUSTER</targetCluster>
+          <profileName>Dmgr01</profileName>
+          <verbose>true</verbose>
+          <updateExisting>false</updateExisting> <!-- this needs to be false as we're reinstalling each time -->
+        </configuration>
+      </plugin>
+    </plugins>
+    
+    ...
+    
+</project>
+  
++--  
+
+
+  Example of updating existing:
+  
++--
+
+<project>
+  
+  ...
+  
+  <properties>
+    <was6Home>c:\progra~1\ibm\SDP70\runtimes\base_v61</was6Home>
+  </properties>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>was6-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>installApp</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <wasHome>${was6Home}</wasHome>
+          <conntype>SOAP</conntype>
+          <host>my.dns.name</host>
+          <port>8879</port>
+          <targetCluster>MY-TARGET-CLUSTER</targetCluster>
+          <profileName>Dmgr01</profileName>
+          <verbose>true</verbose>
+          <updateExisting>true</updateExisting> <!-- actually the default value - but set for clarity -->
+        </configuration>
+      </plugin>
+    </plugins>
+    
+    ...
+    
+</project>
+  
++--  

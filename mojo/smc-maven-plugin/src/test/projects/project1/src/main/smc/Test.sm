@@ -1,0 +1,26 @@
+%{
+//
+// $Id $
+//
+%}
+//
+//
+%class Test
+%package org.codehaus.mojo.smc.test
+%access package
+%start TestFSM::Stopped
+%map TestFSM
+%%
+
+Stopped
+{
+  Start
+    Started
+    {}
+}
+
+Started
+{
+
+}
+%%

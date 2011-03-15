@@ -1,0 +1,73 @@
+ -----
+ Maven Model Plugin
+ -----
+ David Hawkins dhawkins@codehaus.org
+ -----
+ Date
+ 
+Known Issues:
+ 
+  * Like the any other plugin which rewrites the pom, this plugin will make certain changes
+    to your pom.xml if you save any changes.
+    
+       * All comments are stripped from the saved pom. 
+         See {{{http://jira.codehaus.org/browse/MNG-1010} MNG-1010}} for more information.
+       
+       * Certain values which are defaulted in the pom will not be written to 
+         the saved pom if the value is equal to the default value. This is the
+         default behavior of Modello which is used for reading and writing 
+         pom.xml. \
+         For example, project.packaging defaults to "jar" and therefore the 
+         packaging element will not be written to the resulting pom.xml if 
+         the value equals "jar". This shouldn't affect the build because the 
+         values will be set to their defaults when Maven reads the pom.xml
+         for a build.
+    
+  * Maven currently has a couple issues with transitive dependency resolution.
+  
+     * The first being {{{http://jira.codehaus.org/browse/MNG-1797?page=all} MNG-1797}} -
+       Dependency excludes apply to every subsequent dependency, not just the one it 
+       is declared under. \
+       If you specify ANY dependency excludes, all dependencies after that one in the 
+       pom will also exclude what you specified. They appear to be cumulative on every 
+       dependency in that they bleed over into sibling dependencies.
+	   It's easy to test if you add an exclusion to a random dependency. This exclusion 
+	   should exclude a required transitive dependency that is included by a dependency 
+	   lower in the list. You will find that the dependency lower in the list no longer 
+	   includes the required dependency because it is using the filter you declared in 
+	   the other dependency.
+	   
+  * Editing a build.extensions.extension will give a NullPointerException because of a bug in maven-model.
+    See {{{http://jira.codehaus.org/browse/MNG-1849} MNG-1849}} for more information.
+       
+ 
+Todo:
+
+  * Find a better way to interface with the console. This may require using 
+    some sort of JNI library for access to curses.  At a minimum, the user 
+    should be able to edit the existing value of text fields without having
+    to type value over again.
+    
+  * Consider writing a swing ui that performs the same operations as the 
+    console. A user could choose between doing the editing on the command line
+    vs a nicer UI.
+  
+  * Allow for re-ordering list items.
+   
+  * In the end point details screen, add  the ability to add an explicit
+    dependency rather than excluding it everywhere else.
+     
+  * Allow the user to specify inclusive vs. exclusive ranges when setting
+    dependency version ranges.
+
+  * Add support for editing Xpp3Dom values.  Some elements use xml as their 
+    values and the plugin currently does not support editing these fields.
+    project.reports, project.profiles.profile.reports, etc.
+   
+  * On screens which contain a list of values, provide a mechanism to enter a 
+    null value or event manually enter a value.
+     
+  * TableLayout test cases should verify results rather than print to stdout.
+
+  * Create a separate project or do something with the versioning package taken
+    from the release plugin.

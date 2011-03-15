@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="Maven">
+	<bannerLeft>
+		<name>Maven</name>
+		<src> http://maven.apache.org/images/apache-maven-project.png </src>
+		<href>http://maven.apache.org/</href>
+	</bannerLeft>
+	<skin>
+		<groupId>org.apache.maven.skins</groupId>
+		<artifactId>maven-stylus-skin</artifactId>
+		<version>1.0-SNAPSHOT</version>
+	</skin>
+	<publishDate format="dd MMM yyyy"/>
+	<body>
+		
+		<links>
+			<item name="Apache" href="http://www.apache.org/"/>
+			<item name="Maven 1" href="http://maven.apache.org/maven-1.x/"/>
+			<item name="Maven 2" href="http://maven.apache.org/"/>
+		</links>
+		
+		<menu name="Quicklinks">
+			<item name="Frontpage" href="index.html"/>
+			<item name="Introduction" href="introduction.html"/>
+			<item name="Release Notes" href="release-notes.html"/>
+			<item name="Road Map" href="roadmap.html"/>
+			<item name="License" href="license.html"/>
+		</menu>
+		
+		<menu name="How to">
+			<item name="Use WSDL2Java" href="wsdl2java.html"/>
+			<item name="Use Java2WSDL" href="java2wsdl.html"/>
+			<item name="Use EJBDeploy" href="ejbdeploy.html"/>
+			<item name="Use StartServer" href="startserver.html"/>
+			<item name="Use ServerStatus" href="serverstatus.html"/>
+			<item name="Use StopServer" href="stopserver.html"/>
+			<item name="Use InstallApplication" href="installapplication.html"/>
+			<item name="Use UninstallApplication" href="uninstallapplication.html"/>
+			<item name="Use StartApplication" href="startapplication.html"/>
+			<item name="Use ListApplications" href="listapplications.html"/>
+			<item name="Use StopApplication" href="stopapplication.html"/>
+		</menu>
+		
+		<menu name="Download">
+			<item name="Download" href="download.html"/>
+		</menu> ${reports} </body>
+	
+</project>

@@ -1,0 +1,41 @@
+ ------
+ Simple Example
+ ------
+ Johann Reyes (jreyes@vaporwarecorp.com)
+ ------
+ 2010-11-30
+
+~~ Licensed to the Apache Software Foundation (ASF) under one
+~~ or more contributor license agreements.  See the NOTICE file
+~~ distributed with this work for additional information
+~~ regarding copyright ownership.  The ASF licenses this file
+~~ to you under the Apache License, Version 2.0 (the
+~~ "License"); you may not use this file except in compliance
+~~ with the License.  You may obtain a copy of the License at
+~~
+~~   http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~ Unless required by applicable law or agreed to in writing,
+~~ software distributed under the License is distributed on an
+~~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+~~ KIND, either express or implied.  See the License for the
+~~ specific language governing permissions and limitations
+~~ under the License.
+
+~~ NOTE: For help with the syntax of this file, see:
+~~ http://maven.apache.org/doxia/references/apt-format.html
+
+Simple Example
+
+    This example illustrates the minimum configuration that you need to run
+    the plugin.
+
+    To run the plugin you just need a hibernate tool configuration
+    ("jdbcconfiguration", "configuration", "annotationconfiguration",
+    "jpaconfiguration") inside a "hibernatetool" element in the
+    <<<configuration>>> section of the plugin.
+
+    With this minimum configuration one can run any of the multiple goals
+    available from the plugin.
+
+%{snippet|id=pom|file=src/it/jpa-hbm2ddl-default/pom.xml}

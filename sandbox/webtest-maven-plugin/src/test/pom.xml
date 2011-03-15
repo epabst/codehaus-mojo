@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>mojo-sandbox-parent</artifactId>
+        <groupId>org.codehaus.mojo</groupId>
+        <version>5</version>
+    </parent>
+    <artifactId>webtest-maven-plugin-it</artifactId>
+    <packaging>pom</packaging>
+    <version>0.6.7-SNAPSHOT</version>
+    <name>Canoo WebTest Maven Plugin Tests</name>
+    <inceptionYear>2007</inceptionYear>
+    <description>
+        Run the multi-project test using "mvn clean site webtest:verify-result"
+    </description>
+    <modules>
+        <module>it2</module>
+        <module>it4</module>
+        <module>it6</module>
+        <module>it7</module>
+        <module>it8</module>
+        <module>it9</module>
+        <module>it11</module>
+        <module>it12</module>
+    </modules>
+</project>

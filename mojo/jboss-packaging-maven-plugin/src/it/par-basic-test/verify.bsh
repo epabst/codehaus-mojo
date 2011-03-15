@@ -1,0 +1,49 @@
+import java.io.*;
+import java.util.*;
+import java.util.jar.*;
+
+try
+{
+    File file = new File( basedir, "target/par-basic-test-1.0-SNAPSHOT.par" );
+    if ( !file.exists() || file.isDirectory() )
+    {
+        System.err.println( "Could not find generated par: " + file );
+        return false;
+    }
+    
+    JarFile jarFile = new JarFile(file);
+    JarEntry descEntry = jarFile.getJarEntry("processdefinition.xml");
+    if ( descEntry == null )
+    {
+    	System.err.println("Could not find jpdl resource: processdefinition.xml");
+    	return false;
+    }
+    
+    JarEntry descEntry = jarFile.getJarEntry("jbpm.cfg.xml");
+    if ( descEntry == null )
+    {
+    	System.err.println("Could not find jbpm resource: jbpm.cfg.xml");
+    	return false;
+    }
+    
+    JarEntry descEntry = jarFile.getJarEntry("classes/com/acme/SampleClass.class");
+    if ( descEntry == null )
+    {
+    	System.err.println("Could not find class: classes/com/acme/SampleClass.class");
+    	return false;
+    }
+    
+    JarEntry descEntry = jarFile.getJarEntry("classes/com/acme/sample.properties");
+    if ( descEntry == null )
+    {
+    	System.err.println("Could not find resource: classes/com/acme/sample.properties");
+    	return false;
+    }
+}
+catch( Throwable t )
+{
+    t.printStackTrace();
+    return false;
+}
+
+return true;

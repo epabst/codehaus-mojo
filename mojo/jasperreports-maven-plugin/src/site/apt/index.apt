@@ -1,0 +1,27 @@
+ ------
+ Maven 2 JasperReports Plugin
+ ------
+
+Maven 2 JasperReports Plugin
+
+  This plugin provides the capability to compile {{{http://www.jasperforge.org/jaspersoft/opensource/business_intelligence/jasperreports/}Jasper Report xml design files. }}
+
+* Goals Overview
+
+  * {{{compile-reports-mojo.html}jasperreports:compile-reports}}: Compile jrxml files.  
+  
+  []
+  
+
+* Usage
+  
+  Instructions on how to use the JasperReports Maven Plugin can be found on the {{{usage.html}usage page}}.
+ 
+   
+* Examples
+
+  * {{{examples/example-1.html}A comprehensive example.}}
+
+  []
+  
+ 

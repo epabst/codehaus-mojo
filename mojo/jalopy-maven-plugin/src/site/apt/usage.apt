@@ -1,0 +1,81 @@
+ ------
+ Usage
+ ------
+ Johnny R. Ruiz III
+ <jruiz@exist.com>
+ ------
+ September 1, 2005
+ ------
+
+Usage
+
+ The Jalopy Maven Plugin is used to format java source files following a coding
+ convention. For more information on Jalopy see
+ {{{http://jalopy.sourceforge.net}their home page}}.
+
+ This plugin will format all java source files in the <<<sourceDirectory>>> and
+ <<<testDirectory>>> following the configured coding convention. If you put
+ your Jalopy configuration file here:
+ <<<${basedir}/src/main/resources/jalopy.xml>>>, it will be picked up by the
+ plugin automatically. If you do not configure a convention the
+ {{{http://svn.codehaus.org/mojo/trunk/mojo/jalopy-maven-plugin/src/main/resources/jalopy.xml}Jalopy default conventions}}
+ will be used.
+
+
+*Configuration
+ 
+-------------------
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jalopy-maven-plugin</artifactId>
+        <version>1.0-alpha-1</version>
+      </plugin>
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
+-------------------
+
+
+*Using Your Own Jalopy Configuration File
+
+ You can use a custom Jalopy configuration file placed in a directory of your
+ liking. For this example we want to use the file
+ <<<src/jalopy/my-jalopy-conventions.xml>>>. This is how you would configure
+ that.
+
+-------------------
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jalopy-maven-plugin</artifactId>
+        <version>1.0-alpha-1</version>
+        <configuration>
+          <convention>src/jalopy/my-jalopy-conventions.xml</convention>
+        </configuration>
+      </plugin>
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
+-------------------
+
+ For all available configuration options see {{{format-mojo.html}this page}}.
+
+
+*How To Run The Jalopy Plugin
+
+-------------------
+mvn jalopy:format
+-------------------

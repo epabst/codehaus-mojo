@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project>
+  <body>
+    <menu name="Project Reports">
+      <item name="Performancetest" href="performancetest.html"/>
+    </menu>
+  </body>
+</project>

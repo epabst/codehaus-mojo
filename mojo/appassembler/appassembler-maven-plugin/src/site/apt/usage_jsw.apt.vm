@@ -1,0 +1,97 @@
+  ------
+  Usage: how create Java Service Wrapper Scripts
+  ------
+  Erik Drolshammer
+  ------
+  December 25, 2008
+  ------
+
+Usage
+
+* Java Daemon based on Java Service Wrapper
+
+  The following shows how to generate start scripts to make an application run as a Linux daemon.
+
+  The setup is based on {{{http://wrapper.tanukisoftware.org} Java Service Wrapper (JSW)}}
+  version {{{http://wrapper.tanukisoftware.org/downloads/3.2.3} 3.2.3}}, using the
+  {{{http://wrapper.tanukisoftware.org/doc/english/integrate.html#method1} WrapperSimpleApp Integration}}.
+
+** Minimal configuration
+
+  In <<<pom.xml>>>:
+
++--------------------------
+<project>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>appassembler-maven-plugin</artifactId>
+        <version>${project.version}</version>        
+        <configuration>
+          <repositoryLayout>flat</repositoryLayout>
+          <includeConfigurationDirectoryInClasspath>true</includeConfigurationDirectoryInClasspath>         
+
+          <daemons>
+            <daemon>
+              <id>app1</id>
+              <mainClass>${project.groupId}.SomeMainClass</mainClass>
+              <commandLineArguments>
+                <commandLineArgument>start</commandLineArgument>
+              </commandLineArguments>
+              <platforms>
+                <platform>jsw</platform>
+              </platforms>              
+            </daemon>
+          </daemons>
+        </configuration>
+        <executions>
+          <execution>
+            <id>generate-jsw-scripts</id>
+            <phase>package</phase>
+            <goals>
+              <goal>generate-daemons</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
++--------------------------
+
+** Using the generated scripts
+
+  * All dependencies and the artifact itself are placed in <<<target/appassembler/repo>>>
+  directory.
+
+  * The JSW bin scripts and configuration are placed in <<<target/jsw/app1>>> directory.
+
++--------------------------
+$ mvn package
+
+$ target/jsw/app1/bin/app1 start
+
+$ ps -ef | grep java
+(to check that it is running)
+
+$ target/jsw/app1/bin/app1 stop
++--------------------------
+
+** Add application specific shutdown code
+
+  * The JSW default stop script use the "kill" command.
+  Use a shutdown hook to override this behaviour with application specific shutdown code.
+
+  E.g. add something like the following to your Main method:
+
++--------------------------
+Runtime.getRuntime().addShutdownHook(new Thread(){
+    public void run() {
+        log.debug("Shutdown hook was invoked. Shutting down App1.");
+        App1JmxStopper appJmxStopper = new App1JmxStopper();
+        appJmxStopper.stop();
+    }
+}); 
++--------------------------

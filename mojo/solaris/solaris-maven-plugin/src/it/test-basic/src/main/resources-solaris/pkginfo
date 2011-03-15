@@ -1,0 +1,7 @@
+CLASSES="none"
+PKG=${project.artifactId}
+NAME="${project.name}"
+DESC="${project.description}"
+VERSION=${project.version}
+ARCH=none
+CATEGORY=application

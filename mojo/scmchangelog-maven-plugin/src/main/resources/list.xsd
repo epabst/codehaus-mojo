@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:include schemaLocation="common.xsd"/>
+  <!--
+    XML RELAX NG schema for Subversion command-line client output
+    For "svn list"
+  -->
+  <xs:element name="lists">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="list"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="list">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="entry"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.list"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.list">
+    <xs:attribute name="path" use="required" type="target.type">
+      <xs:annotation>
+        <xs:documentation>Local path or repository URL.</xs:documentation>
+      </xs:annotation>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="entry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name"/>
+        <xs:element minOccurs="0" ref="size"/>
+        <xs:element ref="commit"/>
+        <xs:element minOccurs="0" ref="lock"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.entry"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.entry">
+    <xs:attribute name="kind" use="required">
+      <xs:annotation>
+        <xs:documentation>The kind of the entry.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="dir"/>
+          <xs:enumeration value="file"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+  <xs:element name="name" type="xs:string"/>
+  <xs:element name="size" type="xs:nonNegativeInteger"/>
+</xs:schema>

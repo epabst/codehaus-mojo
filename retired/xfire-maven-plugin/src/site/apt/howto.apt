@@ -1,0 +1,74 @@
+ ------
+ Maven 2 XFire Plugin
+ ------
+
+How to use
+
+ Brief examples on how to use the xfire:wsdlgen and xfire:wsgen goals.
+ 
+* How to configure xfire:wsdlgen using pom.xml
+
+-------------------
+<project>
+  ...
+  <packaging>jar</packaging>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>xfire-maven-plugin</artifactId>
+        <executions>
+           <execution>
+              <phase>test-compile</phase>
+              <goals>
+                 <goal>wsdlgen</goal>
+              </goals>
+           </execution>
+        </executions>
+        <!-- this shows the default -->
+        <configuration>
+          <outputDirectory>${project.build.directory}/generated-sources/xfire/wsdlgen</outputDirectory>
+          <configs>
+            <wsdl>${basedir}/src/main/resources/META-INF/xfire/services.xml</wsdl>
+          </configs>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+-------------------
+
+* How to configure xfire:wsgen using pom.xml
+
+-------------------
+<project>
+  ...
+  <packaging>jar</packaging>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>xfire-maven-plugin</artifactId>
+        <executions>
+           <execution>
+              <goals>
+                 <goal>wsgen</goal>
+              </goals>
+           </execution>
+        </executions>
+        <configuration>
+          <package>com.example.ws</package>
+          <profile></profile>
+          <binding></binding>
+          <outputDirectory>${project.build.directory}/client</outputDirectory>
+          <wsdls>
+            <wsdl>${basedir}/src/wsdl/TheService.wsdl</wsdl>
+          </wsdls>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+-------------------

@@ -1,0 +1,4 @@
+....
+Test Pages: 1 right, 0 wrong, 0 ignored, 0 exceptions
+Assertions: 4 right, 0 wrong, 0 ignored, 0 exceptions
+Formatting as html to D:\SCM\ProjectSVN\fitnesse-maven-plugin\src\it\minimalist\target/fitnesse/fitnesseResult_localhost_FitnesseIntegrationTest.SuiteCoverage4_tmp.html

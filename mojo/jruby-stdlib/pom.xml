@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>mojo</artifactId>
+    <groupId>org.codehaus.mojo</groupId>
+    <version>14</version>
+  </parent>
+  <artifactId>jruby-stdlib</artifactId>
+  <version>1.8.5</version>
+  <name>Standard Libraries for JRuby in convenient JAR form</name>
+
+</project>

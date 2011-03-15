@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tomcatProjectProperties>
+    <rootDir>${warSourceDir}</rootDir>
+    <exportSource>false</exportSource>
+    <reloadable>true</reloadable>
+    <redirectLogger>true</redirectLogger>
+    <updateXml>true</updateXml>
+    <warLocation></warLocation>
+    <extraInfo>
+    ${extraContext}
+    </extraInfo>
+    <webPath>/${webPath}</webPath>
+    <webClassPathEntries>
+      <#list referencedProjects as project>
+        <#if project.type == "test-jar">
+          <webClassPathEntry>/${project.ideProjectName}/${project.testOutputDirectory}</webClassPathEntry>
+        <#else>
+          <webClassPathEntry>/${project.ideProjectName}/${project.outputDirectory}</webClassPathEntry>
+        </#if>
+      </#list>
+      <#list jarDependencies as dependency>
+          <webClassPathEntry>${localRepository}/${dependency.groupId?replace(".","/")}/${dependency.artifactId}/${dependency.version}/${dependency.artifactId}-${dependency.version}<#if dependency.classifier?exists>-${dependency.classifier}</#if>.jar</webClassPathEntry>
+      </#list>
+      <#list systemDependencyPaths as path>
+          <webClassPathEntry>${path}</webClassPathEntry>
+      </#list>
+    </webClassPathEntries>
+</tomcatProjectProperties>

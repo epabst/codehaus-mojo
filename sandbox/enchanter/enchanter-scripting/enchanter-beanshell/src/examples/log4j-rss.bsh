@@ -1,0 +1,78 @@
+import java.util.regex.*;
+server = "brutus.apache.org";
+user = "mrdon";
+prompt = ":~$";
+localRssPath = "";
+remoteRssPath = "http://myserver.com/feeds/";
+remoteLogPath = "/usr/local/tomcat/tomcat-confluence/logs/catalina.out";
+
+conn.connect(server, user);
+conn.setTimeout(20000);
+conn.waitFor(prompt);
+conn.sendLine("tail -n 5000 "+remoteLogPath);
+
+entries = new ArrayList();
+entry = "";
+id = conn.waitForMux(new String[]{"ERROR", prompt});
+while (id == 0) {
+    id = conn.waitForMux(new String[]{"\r\n", prompt});
+    if (id == 0) {
+		line = conn.lastLine();
+		if (line.contains("WARN") || line.contains("DEBUG") || line.contains("INFO")) {
+			if (entry != null) {
+				entries.add(entry);
+				entry = null;
+			}
+            continue;
+        }    
+		if (line.contains("ERROR")) {
+			entry = line;
+		} else if (entry != null) {
+		    entry += "\n"+line;
+        }
+    } 
+}
+
+Collections.reverse(entries);
+out = new FileWriter(localRssPath+server+".xml");
+rss = new PrintWriter(out);
+
+rss.println("<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>");
+rss.println("<rss version=\"2.0\">");
+
+rss.println("<channel>");
+    rss.println("<title>"+server+" log errors</title>");
+    rss.println("<link>"+remoteRssPath+server+".xml</link>");
+    rss.println("<description>"+server+" Tomcat Log errors</description>");
+
+for (x=0; x<entries.size() && x<20; x++) {
+    entry = entries.get(x);
+    fout = new FileWriter(localRssPath+x+".txt");
+    fout.write(entry);
+    fout.close();
+    entry = entry.replaceAll("&", "&amp;");
+    entry = entry.replaceAll("<", "&lt;");
+    entry = entry.replaceAll(">", "&gt;");
+    entry = entry.replaceAll("\n", "<br />");
+    
+    firstLine = entry;
+    if (entry.contains("<br />")) {
+        firstLine = entry.substring(0, entry.indexOf("<br />"));
+    }
+    
+    rss.println("<item>");
+    rss.println("<title>"+firstLine+"</title>");
+    rss.println("<link>"+remoteRssPath+x+".txt</link>");
+    rss.println("<description><![CDATA[");
+    rss.println(entry);
+    rss.println("]]></description>");
+    rss.println("</item>"); 
+}       
+
+rss.println("</channel>");
+rss.println("</rss>");
+
+rss.close();
+conn.disconnect();
+
+

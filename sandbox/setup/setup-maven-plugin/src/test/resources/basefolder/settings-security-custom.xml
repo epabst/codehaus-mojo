@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF8"?>
+<settingsSecurity>
+  <master>master_customTemplate</master> <!--  for testability, this would normally be encrypted!! -->
+  <relocation>relocation_customTemplate</relocation>
+</settingsSecurity>

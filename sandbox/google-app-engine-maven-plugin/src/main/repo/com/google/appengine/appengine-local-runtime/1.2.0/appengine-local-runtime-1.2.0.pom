@@ -1,0 +1,43 @@
+<project> 
+ 
+  <modelVersion>4.0.0</modelVersion> 
+  <groupId>com.google.appengine</groupId> 
+  <artifactId>appengine-local-runtime</artifactId> 
+  <version>1.2.0</version> 
+  <packaging>jar</packaging> 
+ 
+  <name>Google App Engine Java SDK local runtime</name> 
+  <url>http://code.google.com/intl/en/appengine/docs/java/</url> 
+  <description>App Engine applications can be implemented using the Java programming language, and other languages that use the Java Virtual Machine.</description> 
+  <licenses> 
+    <license> 
+      <name>The Apache Software License, Version 2.0</name> 
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url> 
+      <distribution>repo</distribution> 
+    </license> 
+  </licenses> 
+ 
+  <dependencies>
+	 <dependency>
+	   <groupId>com.google.appengine</groupId>
+	   <artifactId>appengine-api</artifactId>
+	   <version>1.2.0</version>
+	 </dependency>	 
+	 <dependency>
+	   <groupId>com.google.appengine</groupId>
+	   <artifactId>appengine-api-stubs</artifactId>
+	   <version>1.2.0</version>
+	 </dependency> 
+	 <dependency>
+	   <groupId>com.google.appengine</groupId> 
+	   <artifactId>appengine-local-runtime-shared</artifactId> 
+	   <version>1.2.0</version> 
+	 </dependency>
+	 <dependency>
+	   <groupId>com.google.appengine</groupId>
+	   <artifactId>datanucleus-appengine</artifactId>
+	   <version>1.0.0.final</version>
+	 </dependency>	        
+  </dependencies>
+ 
+</project> 

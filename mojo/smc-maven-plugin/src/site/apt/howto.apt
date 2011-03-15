@@ -1,0 +1,65 @@
+ ------
+ Maven 2 SMC Plugin
+ ------
+
+How to use
+
+ Brief examples on how to use the smc:smc and smc:smcreports goals.
+ 
+* How to configure smc:smc using pom.xml
+
+-------------------
+<project>
+  ...
+  <packaging>jar</packaging>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>smc-maven-plugin</artifactId>
+        <executions>
+           <execution>
+              <goals>
+                 <goal>smc</goal>
+              </goals>
+           </execution>
+        </executions>
+        <configuration>
+          <verbose>true</verbose>
+          <sync>true</sync>
+          ...
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+-------------------
+
+ The goal is tied to the generate-sources phase, and will generate a Context.java file for each of your .sm file.
+ It uses the %class and %package definitions from your .sm file to create the appropriate directory structure
+ in the output directory. The goal also adds the outputDirectory to the list of source directories.
+
+
+* How to configure the smc reports using pom.xml
+
+-------------------
+<project>
+  ...
+  <reporting>
+    <plugins>
+      ...
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>smc-maven-plugin</artifactId>
+        <configuration>
+          <verbose>true</verbose>
+          <glevel>1</glevel> [0, 1 or 2. Defaults to 0 and can be omitted]
+        </configuration>
+      </plugin>
+      ...
+    </plugins>
+  </reporting>
+  ...
+</project>
+-------------------

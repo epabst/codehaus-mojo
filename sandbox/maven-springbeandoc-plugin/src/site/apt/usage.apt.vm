@@ -1,0 +1,98 @@
+ ------
+ Maven 2 Spring BeanDoc plugin
+ ------
+
+How To Use as a plugin
+
++------------------------------------------+
+<project>
+<build>
+<plugins>
+	<plugin>
+		<groupId>org.codehaus.mojo</groupId>
+		<artifactId>maven-springbeandoc-plugin</artifactId>
+		<version>${project.version}</version>
+		<executions>
+			<execution>
+				<phase>pre-site</phase>
+				<goals>
+					<goal>springbeandoc</goal>
+				</goals>
+			</execution>
+		</executions>
+		<configuration>
+		  <!-- Any number of directories with Spring context files -->
+			<sourceDirectories>
+			  <sourceDirectory>
+			  </sourceDirectory>
+			</sourceDirectories>
+			<!-- Include patterns -->
+			<includes>
+			  <include>**/*-context.xml</include>
+			  <include>**/*-spring.xml</include>
+			</includes>
+			<!-- xml file or directory containing xml files -->
+			<resources>
+				<resource>src/test/resources/beandocxmldir/spring.xml</resource>
+			</resources>
+			<!-- html title (optional) -->
+			<title>${project.name} ${project.version} Bean docs</title>
+			<!-- optional stylesheet to use -->
+			<cssUrl>stylesheet.css</cssUrl>
+			<!-- location of api docs (optional) -->
+			<javadocLocations>
+				<javadocLocation>
+					<packagename>org.codehaus.mojo.springbeans</packagename>
+					<location>${project.build.directory}/site/apidocs</location>
+				</javadocLocation>
+			</javadocLocations>
+			<!-- location of exe for image generation (alias graphViz) -->
+			<executable>C:/Program Files/ATT/Graphviz/bin/dot.exe</executable>
+			<!-- Graph output types. Default is png. Use png, jpg, gif, svg. -->
+			<graphsOutputType>png</graphsOutputType>
+			<!-- you can have the XML parser not bother to validate the input files against the DTD if you so wish. True by default. -->
+			<validate>false</validate>
+		</configuration>
+	</plugin>
+.
+.
+.
++------------------------------------------+
+
+How To Use as a site report
+
++------------------------------------------+
+<project>
+<reporting>
+<plugins>
+	<plugin>
+		<groupId>org.codehaus.mojo</groupId>
+		<artifactId>maven-springbeandoc-plugin</artifactId>
+		<version>${project.version}</version>
+		<configuration>
+			<!-- xml file or directory containing xml files -->
+			<resources>
+				<resource>src/test/resources/beandocxmldir/spring.xml</resource>
+			</resources>
+			<!-- html title (optional) -->
+			<title>${project.name} ${project.version} Bean docs</title>
+			<!-- optional stylesheet to use -->
+			<cssUrl>stylesheet.css</cssUrl>
+			<!-- location of api docs (optional) -->
+			<javadocLocations>
+				<javadocLocation>
+					<packagename>org.codehaus.mojo.springbeans</packagename>
+					<location>${project.build.directory}/site/apidocs</location>
+				</javadocLocation>
+			</javadocLocations>
+			<!-- location of exe for image generation (alias graphViz) -->
+			<executable>C:/Program Files/ATT/Graphviz/bin/dot.exe</executable>
+			<!-- Graph output types. Default is png. Use png, jpg, gif, svg. -->
+			<graphsOutputType>png</graphsOutputType>
+			<!-- you can have the XML parser not bother to validate the input files against the DTD if you so wish. True by default. -->
+			<validate>false</validate>
+		</configuration>
+	</plugin>
+</plugins>
+</reporting>
+</project>

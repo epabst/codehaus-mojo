@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://maven.apache.org/changes/1.0.0" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+          xsi:schemaLocation="http://maven.apache.org/changes/1.0.0 http://maven.apache.org/xsd/changes-1.0.0.xsd">
+
+  <properties>
+    <title>Antlr Maven Plugin Changes Report</title>
+    <author>Paul Gier</author>
+  </properties>
+  <body>
+    <release version="2.2" date="2010-11-19" description="Minor Bugfix Release">
+      <action dev="pgier" type="fix" issue="MANTLR-1">
+        ANTLR plugin does not track dependencies based on importVocab/exportVocab options 
+      </action>
+      <action dev="pgier" type="fix" issue="MANTLR-3">
+        ANTLR plugin does not reorder grammars connected by importVocab/exportVocab dependencies
+      </action>
+      <action dev="pgier" type="fix" issue="MANTLR-29">
+        Impossible to utilize dependent grammars (import/export vocabs) using different packages
+      </action>
+    </release>
+  </body>
+</document>
+

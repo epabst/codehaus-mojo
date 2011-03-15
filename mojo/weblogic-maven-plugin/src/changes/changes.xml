@@ -1,0 +1,36 @@
+<document>
+	<properties>
+		<title>WebLogic Maven Plugin Changes</title>
+		<author email="willievu@dev.java.net">Willie Vu</author>
+	</properties>
+	<body>
+		<release version="2.9.0-SNAPSHOT" date="2006-12-21"
+			description="Subsequent release">
+			<action dev="willievu" type="fix" issue="MOJO-585">
+				Fixed java.lang.NoClassDefFoundError:
+				com/bea/xml/XmlException by adding WebLogic necessary
+				artifacts.
+			</action>
+			<action dev="willievu" type="fix" issue="MOJO-586">
+				Added -noexit parameter so that all goals do not
+				terminate after execution.
+			</action>
+			<action dev="willievu" type="add">
+				Added expression to WebLogic parameters for easy
+				configuration using profiles.
+			</action>
+			<action dev="willievu" type="update">
+				Changed WebLogic artifacts version to [9.0,) to allow
+				easier WebLogic version compatibility.
+			</action>
+			<action dev="willievu" type="fix">
+				Fixed WeblogicMojoUtilities.getDependencies() to get
+				path separator from system property.
+			</action>
+			<action dev="willievu" type="fix">
+				Fixed getInputArtifactPath() so that if directory is
+				supported for artifactPath.
+			</action>
+		</release>
+	</body>
+</document>

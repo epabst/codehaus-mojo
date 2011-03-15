@@ -1,0 +1,22 @@
+<project>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>castor-maven-plugin</artifactId>
+        <configuration>
+          <className>org.codehaus.mojo.castor.Request</className>
+          <mappingName>request-mapping.xml</mappingName>
+          <outputDirectory>${basedir}/target/mapping</outputDirectory>
+          <force>true</force>
+          <project implementation="org.apache.maven.plugin.testing.stubs.MavenProjectStub">
+             <compileSourceRoots>
+               <compileSourceRoot>target/test-classes</compileSourceRoot>
+             </compileSourceRoots>
+          </project>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+

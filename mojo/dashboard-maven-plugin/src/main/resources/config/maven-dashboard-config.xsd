@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="unqualified" attributeFormDefault="unqualified">
+	<xsd:element name="configuration">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="sections" maxOccurs="1" />
+			</xsd:sequence>
+			<xsd:attribute type="xsd:float" name="version" />
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="sections">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="section" maxOccurs="unbounded"
+					minOccurs="1" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="section">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="historicgraphs" maxOccurs="1" />
+			</xsd:sequence>
+			<xsd:attribute type="xsd:string" name="id" use="required" />
+			<xsd:attribute type="xsd:string" name="groupId"
+				use="required" />
+			<xsd:attribute type="xsd:string" name="artifactId"
+				use="required" />
+			<xsd:attribute type="xsd:string" name="title"
+				use="required" />
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="historicgraphs">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="graph" maxOccurs="unbounded"
+					minOccurs="1" />
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="graph">
+		<xsd:complexType>
+			<xsd:simpleContent>
+				<xsd:extension base="xsd:string">
+					<xsd:attribute type="xsd:string" name="id"
+						use="required" />
+					<xsd:attribute type="xsd:string" name="title"
+						use="required" />
+					<xsd:attribute type="enumTimeUnit" name="timeUnit"
+						use="required" />
+					<xsd:attribute type="enumPeriod" name="startPeriod"
+						use="required" />
+					<xsd:attribute type="enumPeriod" name="endPeriod"
+						use="required" />
+				</xsd:extension>
+			</xsd:simpleContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:simpleType name="enumTimeUnit">
+		<!-- Historic time unit list  -->
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="hour" />
+			<xsd:enumeration value="day" />
+			<xsd:enumeration value="week" />
+			<xsd:enumeration value="month" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="enumPeriod">
+		<!-- Historic period list  -->
+		<xsd:union>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:enumeration value="Now" />
+					<xsd:enumeration value="Startof_today" />
+					<xsd:enumeration value="Endof_today" />
+					<xsd:enumeration value="Startof_tomorrow" />
+					<xsd:enumeration value="Endof_tomorrow" />
+					<xsd:enumeration value="Startof_yesterday" />
+					<xsd:enumeration value="Endof_yesterday" />
+					<xsd:enumeration value="Startof_thisweek" />
+					<xsd:enumeration value="Endof_thisweek" />
+					<xsd:enumeration value="Startof_nextweek" />
+					<xsd:enumeration value="Endof_nextweek" />
+					<xsd:enumeration value="Startof_lastweek" />
+					<xsd:enumeration value="Endof_lastweek" />
+					<xsd:enumeration value="Startof_thismonth" />
+					<xsd:enumeration value="Endof_thismonth" />
+					<xsd:enumeration value="Startof_lastmonth" />
+					<xsd:enumeration value="Endof_lastmonth" />
+					<xsd:enumeration value="Startof_nextmonth" />
+					<xsd:enumeration value="Endof_nextmonth" />
+					<xsd:enumeration value="Startof_thisyear" />
+					<xsd:enumeration value="Endof_thisyear" />
+					<xsd:enumeration value="Startof_lastyear" />
+					<xsd:enumeration value="Endof_lastyear" />
+					<xsd:enumeration value="Startof_nextyear" />
+					<xsd:enumeration value="Endof_nextyear" />
+				</xsd:restriction>
+			</xsd:simpleType>
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:string">
+					<xsd:pattern value="Plus[0-9]{1,3}"></xsd:pattern>
+					<xsd:pattern value="Minus[0-9]{1,3}"></xsd:pattern>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:union>
+	</xsd:simpleType>
+</xsd:schema>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE project SYSTEM "./dtd/Project.dtd">
+
+<project name="Canoo Webtest Sample" basedir="." default="test">
+
+    <!-- Load configuration data from properties -->
+    <property file="config/sample.properties"/>
+
+    &init;
+
+	<target name="all">
+        <webtest name="SSL Example">
+            &config;
+			<invoke url="http://www.xing.com/" description="Go to the XING logon screen"/>
+            <verifyTitle text="Business Network - Social Network for Business Professionals | XING" />
+			<group description="Submit login form">
+                <selectForm name="loginform"/>
+				<setInputField htmlId="username-field" value="${username}" />
+				<setInputField htmlId="password-field" value="${password}" />
+				<clickButton htmlId="login-button" />
+			</group>
+            <verifyTitle text="Start | XING" />
+		</webtest>
+	</target>
+
+</project>    
+

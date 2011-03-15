@@ -1,0 +1,20 @@
+
+<pluginMetadata>
+  <mojos>
+    <mojo>
+      <requiresDependencyResolution>compile</requiresDependencyResolution>
+
+      <goal>process-wsdls</goal>
+      
+      <call>process-wsdls-with-axis</call>
+      
+      <description>
+        Process all WSDLs with Axis WSDL2java
+      </description>
+
+      <parameters>
+      </parameters>
+    </mojo>
+  </mojos>
+</pluginMetadata>
+

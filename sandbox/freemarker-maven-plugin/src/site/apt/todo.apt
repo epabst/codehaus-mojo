@@ -1,0 +1,23 @@
+		--------------
+		TODO list
+		--------------
+		--------------
+		2006/09/03
+		
+		
+TODO
+
+ [[1]] add configuration option of helper
+     * context name
+     * time zone
+     * locale
+     * time format
+
+ [[1]] add suppresion of execution:
+     * package type: use regxp and default to ".*"
+
+ [[1]] javadoc documentation
+
+ [[1]] site documentation
+  
+ []

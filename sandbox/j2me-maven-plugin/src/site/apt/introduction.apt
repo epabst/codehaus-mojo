@@ -1,0 +1,58 @@
+ ---------------------------------
+ Welcome to the Maven J2ME Plugin
+ ---------------------------------
+ Frank Seidinger
+ ---------------------------------
+ 2006-03-29
+ ---------------------------------
+
+{maven-j2me-plugin}
+
+  The maven J2ME plugin supports the development of J2ME applications. The  
+goals of this plugin cover the preverification process  of the compiled classes
+and the creation of a java descriptor. The goals are configured using plugin
+configurations and profiles.
+
+{Introduction}
+
+  Creating J2ME applications is different from creating applications using J2SE.
+Usually a device running a J2ME application is limited in resources. Therefore
+subsets of the Java APIs where defined, to honor the limited capabilities of
+these devices.
+
+  Currently there are two subsets of the Java APIs wich are used on limited   
+devices. The first subset is called CLDC (connected limited device
+configuration). It contains a strict subset of the Java class libraries and is  
+the minimum of classes needed for a Java virtual machine to run.
+
+  The second subset of Java APIs is called MIDP (mobile information device   
+profile). It contains an GUI API aimed for the use on limited LCDs. Also  
+included are classes of a simple 2D graphics API.
+
+  The Java virtual machine running on limited devices is also limited compared 
+with a full blown JVM of the standard edition. Sun introduced a limited  
+virtual machine called K virtual machine (KVM). It is found an many limited  
+devices running Java.
+
+  One thing a JVM is responsible for, is a process called JVM class file
+verification. The class file verification is done in four steps for every class 
+to load, before  the JVM starts execution. The code size in the J2SE according 
+to the wikipedia is round about 50K.
+
+  The KVM spares this extra code and is not able to run a class file
+verification.  The class file verification has to be done as a part of the
+development process.  The J2ME SDK comes with an executable called preverify (or 
+preverify.exe on  windows platforms). After compiling the classes using a java 
+compiler of the  J2SE SDK, the classes must be preverified using this
+executable.
+
+  For further information on building J2ME applications, you might want to have
+a look at the links given below:
+
+*-------------------------------------+
+{{http://en.wikipedia.org/wiki/J2ME}}
+*-------------------------------------+
+{{http://en.wikipedia.org/wiki/MIDlet}}
+*-------------------------------------+
+{{http://java.sun.com/j2me}}
+*-------------------------------------+

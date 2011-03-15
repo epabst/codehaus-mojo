@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<document>
+  <properties>
+    <author email="dvicente72@gmail.com">David Vicente</author>
+    <title>Maven Dashboard Report Plugin : Road Map</title>
+  </properties>
+  <!-- Optional HEAD element, which is copied as is into the XHTML <head> element -->
+  <head>
+    <meta/>
+  </head>
+  <body>
+    <!-- The body of the document contains a number of sections -->
+    <section name="About the Road Map of Maven Dashboard Report Plugin">
+    	<table class="bodyTable">
+    		<tbody>
+    			<tr class="a">
+    				<td align="center">Number</td>
+    				<td align="center">Aim</td>
+    				<td align="center">Description</td>
+    			</tr>
+    			<tr class="b">
+    				<td align="center">1</td>
+    				<td align="center">other reports support</td>
+    				<td align="center">support of other reports as JavaNCSS, Clirr, JDiff ....</td>
+    			</tr>
+    		</tbody>
+    	</table>
+    </section>
+  </body>
+</document>

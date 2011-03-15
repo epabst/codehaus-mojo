@@ -1,0 +1,163 @@
+ ------
+ Usage
+ ------
+ Dan T. Tran
+ <dantran@gmail.com>
+ ------
+ October 31, 2009
+ ------
+
+Usage
+
+  The following contains a list of requirements in order to use this plugin.
+  
+  * A DITA Open Toolkit 1.5+ with all required plugins.  The easiest way is to use the full version.
+    However, if minimum or standard package is used, you will need to configure all require dependencies
+    via Maven dependencies.
+
+* DITA to PDF
+
+  The following shows a example on how to transform your DITA source to a PDF format
+  
+  Replace <transtype> for xhtml for xhtml format
+  
+---------------------------
+<project>
+  [...] 
+  <packaging>pom</packaging>
+  [...]
+  <!-- Turn this on if using minimum or standard DITA-OT package -->
+  <dependencies>
+  
+    <dependency>
+      <groupId>net.sourceforge.saxon</groupId>
+      <artifactId>saxon</artifactId>
+      <version>9.1.0.8</version>
+      <optional>true</optional>
+    </dependency>
+    
+    <dependency>
+      <groupId>net.sourceforge.saxon</groupId>
+      <artifactId>saxon</artifactId>
+      <classifier>dom</classifier>
+      <version>9.1.0.8</version>
+      <optional>true</optional>
+    </dependency>
+  
+    <dependency>
+      <groupId>com.ibm.icu</groupId>
+      <artifactId>icu4j</artifactId>
+      <version>3.4.4</version>
+      <optional>true</optional>
+    </dependency>
+    
+    <!-- only need this to generate PDF -->
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>fop</artifactId>
+      <version>0.95-1</version>
+      <optional>true</optional>
+    </dependency>
+  </dependencies>
+  [...]
+  <build>
+    [...]
+    <plugins>
+      [...]
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>dita-maven-plugin</artifactId>
+        <version>1.0-beta-1</version>
+        <executions>
+          <execution>
+            <id>dita2chm</dita>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <antProperties>
+                <output.dir>${project.build.directory}/dita/pdf</output.dir>
+                <args.input>${env.DITA_HOME}/doc/DITA-readme.ditamap</arg.input>
+                <transtype>pdf</transtype>
+              </antProperties>
+            </configuration>
+          </execution>
+          [...]
+        </executions>
+      </plugin>
+      [...]
+    </plugins>
+    [...]
+  </build>
+  [...]
+</project>
+---------------------------
+  
+* DITA to CHM to HTML
+
+  The following shows an example on how to transform your DITA source to a web format, by having
+  DITA Open Toolkit to transform your DITA files to Microsoft CHM file, then use <dita:chm2web> goal to convert
+  CHM file to HTML files, zip the produced html files, and setup Maven to deploy it
+  
+  Additional external tools are required for this example:
+  
+  * Microsoft's HTML Help Workshop on your execution path to generate Microsoft help
+    format ( transtype=htmlhelp ),or CHM type file.
+    
+  * chm2web utility 
+  
+  Full working example is at {{{https://svn.codehaus.org/mojo/trunk/mojo/dita-maven-plugin/src/it/dita-to-htmlhelp-to-web}
+  https://svn.codehaus.org/mojo/trunk/mojo/dita-maven-plugin/src/it/dita-to-htmlhelp-to-web}}
+   
+---------------------------
+<project>
+  [...] 
+  <packaging>pom</packaging>
+  [...]
+  <build>
+    [...]
+    <plugins>
+      [...]
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>dita-maven-plugin</artifactId>
+        <version>1.0-beta-1</version>
+        <executions>
+          <execution>
+            <id>dita2chm</dita>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <antProperties>
+                <output.dir>${project.build.directory}/dita/htmlhelp</output.dir>
+                <args.input>${env.DITA_HOME}/doc/DITA-readme.ditamap</args.input>
+                <transtype>htmlhelp</transtype>
+              </antProperties>
+            </configuration>
+          </execution>
+          
+          <execution>
+            <id>chm2web</dita>
+            <phase>complile</phase>
+            <goals>
+              <goal>chm2web</goal>
+            </goals>
+            <configuration>
+              <chm2webExe>path/to/your/chm2web.exe</chm2webExe>
+              <descriptor>path/to/your/chm2web profile file</descriptor>
+              <attach>true</attach>
+            </configuration>
+          </execution>
+          [...]
+        </executions>
+      </plugin>
+      [...]
+    </plugins>
+    [...]
+  </build>
+  [...]
+</project>
+---------------------------

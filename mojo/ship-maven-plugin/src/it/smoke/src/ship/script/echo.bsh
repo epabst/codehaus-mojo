@@ -1,0 +1,4 @@
+for (i = 0; i < artifacts.length; i++) {
+  print("Artifact #" + i + " is " + artifacts[i]);
+}
+

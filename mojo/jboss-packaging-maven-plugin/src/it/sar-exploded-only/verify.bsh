@@ -1,0 +1,25 @@
+import java.io.*;
+import java.util.*;
+
+try
+{
+    File sarDir = new File( basedir, "target/sar-exploded-only-1.0-SNAPSHOT" );
+    if ( !sarDir.exists() || !sarDir.isDirectory() )
+    {
+        System.err.println( "Could not find exploded sar: " + sarDir );
+        return false;
+    }
+    File sarFile = new File( basedir, "target/sar-exploded-only-1.0-SNAPSHOT.sar" );
+    if ( sarFile.exists() )
+    {
+        System.err.println( "Should not have generated sar: " + sarFile );
+        return false;
+    }
+}
+catch( Throwable t )
+{
+    t.printStackTrace();
+    return false;
+}
+
+return true;

@@ -1,0 +1,92 @@
+import java.util.regex.*;
+server = args.length>1 ? args[1] : "www.twdata.org";
+user = args.length>2 ? args[2] : "mrdon";
+prompt = args.length>3 ? args[3] : ":~>";
+
+printValues(regex, raw, fileWriter) {
+	m = Pattern.compile(regex).matcher(raw);
+	m.matches();
+	for (x=1; x<=m.groupCount(); x++) 
+		fileWriter.write("|"+m.group(x));
+}
+
+addLogEntry(fileWriter) {
+	
+	conn.connect(server, user);
+	conn.setTimeout(20000);
+	conn.waitFor(prompt);
+	conn.sendLine("date");
+	fileWriter.write(conn.getLine());
+	conn.sendLine("top -b -n 1");
+	
+	printValues(".*average: ([0-9.]+), ([0-9.]+), ([0-9.]+)", conn.getLine(), fileWriter);
+	
+	// swallow tasks
+	conn.getLine();
+	// swallow cpu
+	conn.getLine();
+	
+	printValues("Mem:\\s+([0-9k]+) total,\\s+([0-9k]+) used,\\s+([0-9k]+).*", conn.getLine(), fileWriter);
+	printValues("Swap:\\s+([0-9k]+) total,\\s+([0-9k]+) used,\\s+([0-9k]+).*", conn.getLine(), fileWriter);
+	
+	// swallow empty line
+	conn.getLine();
+	// swallow proc headers
+	conn.getLine();
+	
+	cols = conn.getLine().split("\\s+");
+	fileWriter.write("|"+cols[cols.length-1]+"|"+cols[cols.length-4]+"|"+cols[cols.length-3]);
+	
+	fileWriter.write("\n");
+	
+	conn.disconnect();
+}
+
+writeLogToRss(in, out) {
+	log = new BufferedReader(in);
+	rss = new PrintWriter(out);
+	
+	rss.println("<?xml version=\"1.0\" encoding=\"ISO-8859-1\" ?>");
+    rss.println("<rss version=\"2.0\">");
+
+    rss.println("<channel>");
+  	rss.println("<title>"+server+" Stats</title>");
+  	rss.println("<link>conn://"+server+"</link>");
+  	rss.println("<description>Free web building tutorials</description>");
+
+	
+	lines = new LinkedList();
+	while ((line = log.readLine()) != null) {
+	    lines.addFirst(line);
+	    if (lines.size() > 20)
+	    	lines.removeLast();
+	}
+	
+	for (line : lines) {
+		vals = line.split("\\|");
+		rss.println("<item>");
+		rss.println("<title>load average: "+vals[1]+", "+vals[2]+", "+vals[3]+"</title>");
+		rss.println("<link>ssh://"+server+"</link>");
+		rss.println("<description>");
+		rss.println("load average: "+vals[1]+", "+vals[2]+", "+vals[3]+"<br />");
+		rss.println("Mem:  "+vals[4]+" total, "+vals[5]+" used, "+vals[6]+" free<br />");
+		rss.println("Swap: "+vals[7]+" total, "+vals[8]+" used, "+vals[9]+" free<br />");
+		rss.println("Top Process: "+vals[10]+" "+vals[11]+"% CPU, "+vals[12]+"% Mem");
+		rss.println("</description>");
+		rss.println("</item>");	
+	}    	
+	
+	rss.println("</channel>");
+	rss.println("</rss>");
+		
+}
+
+log = new FileWriter(server+".log", true);
+addLogEntry(log);
+log.close();
+log = new FileReader(server+".log");
+rss = new FileWriter(server+".xml");
+writeLogToRss(log, rss);
+log.close();
+rss.close();
+

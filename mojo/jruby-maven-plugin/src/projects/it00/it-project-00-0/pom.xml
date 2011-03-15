@@ -1,0 +1,18 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.codehaus.mojo.ruby.test</groupId>
+  <artifactId>it-project-00-0</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <build>
+    <plugins>
+       <plugin>
+		<groupId>org.codehaus.mojo.ruby.it</groupId>
+        <artifactId>it00-ruby-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <configuration>
+		  <prop>This is a property I set</prop>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

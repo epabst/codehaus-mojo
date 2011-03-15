@@ -1,0 +1,121 @@
+  ------
+  Example: linux daemon using JSW 
+  ------
+  Erik Drolshammer
+  ------
+  December 26, 2008
+  ------
+  
+Example: Linux daemon based on Java Service Wrapper
+
+  The following example shows how to generate start scripts to make an application run as a Linux daemon.
+  See comments below.
+
+  In <<<pom.xml>>>:
+
++--------------------------
+<project>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>appassembler-maven-plugin</artifactId>
+        <version>${project.version}</version>        
+        <configuration>
+          <repositoryLayout>flat</repositoryLayout>
+          <includeConfigurationDirectoryInClasspath>true</includeConfigurationDirectoryInClasspath>
+          <target>${project.build.directory}</target>
+
+          <defaultJvmSettings>
+            <initialMemorySize>256M</initialMemorySize>
+            <maxMemorySize>1024M</maxMemorySize>
+            <systemProperties>
+              <systemProperty>java.security.policy=conf/policy.all</systemProperty>
+              <systemProperty>com.sun.management.jmxremote</systemProperty>
+              <systemProperty>com.sun.management.jmxremote.port=8999</systemProperty>
+              <systemProperty>com.sun.management.jmxremote.authenticate=false</systemProperty>
+              <systemProperty>com.sun.management.jmxremote.ssl=false</systemProperty>
+            </systemProperties>
+            <extraArguments>
+              <extraArgument>-server</extraArgument>
+            </extraArguments>
+          </defaultJvmSettings>
+
+          <daemons>
+            <daemon>
+              <id>app1</id>
+              <mainClass>${pom.groupId}.SomeMainClass</mainClass>
+              <commandLineArguments>
+                <commandLineArgument>start</commandLineArgument>
+              </commandLineArguments>
+              <platforms>
+                <platform>jsw</platform>
+              </platforms>
+              <generatorConfigurations>
+                <generatorConfiguration>
+                  <generator>jsw</generator>
+                  <includes>
+                    <include>linux-x86-32</include>
+                    <include>linux-x86-64</include>
+                  </includes>
+                  <configuration>
+                    <property>
+                      <name>configuration.directory.in.classpath.first</name>
+                      <value>etc</value>
+                    </property>
+                    <property>
+                      <name>set.default.REPO_DIR</name>
+                      <value>lib</value>
+                    </property>
+                    <property>
+                      <name>wrapper.logfile</name>
+                      <value>logs/wrapper.log</value>
+                    </property>
+                    <property>
+                      <name>run.as.user.envvar</name>
+                      <value>johndoe</value>
+                    </property>
+                  </configuration>
+                </generatorConfiguration>
+              </generatorConfigurations>
+            </daemon>
+          </daemons>
+        </configuration>
+        <executions>
+          <execution>
+            <id>generate-jsw-scripts</id>
+            <phase>package</phase>
+            <goals>
+              <goal>generate-daemons</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
++--------------------------  
+
+* Comments
+  
+  The <<defaultJvmSettings>> are all properties passed to the JVM when it is started.
+
+  In the daemon configuration the first thing to notice is the <<mainClass>> element and
+  the <<commandLineArgument>> start. The command line argument will be passed to the main method of the given mainClass.
+
+  In the <<generatorConfiguration>> specify architectures to avoid generating scripts for unrelevant platforms.
+
+
+  The example also shows some custom properties. These properties are mostly workarounds to facilitate the
+  needs of the community, and will probably be changed/refactored in later versions of the plugin.
+
+  <<configuration.directory.in.classpath.first>> is a hardcoded directory which will be added to the classpath
+    before everything else. (Guess what <<configuration.directory.in.classpath.last>> will do...)
+
+  <<set.default.REPO_DIR>> will override the default <<repo>> as location for libraries.
+
+  <<wrapper.logfile>> sets the wrapper.log location to the <<log>> directory.
+
+  <<run.as.user.envvar>> will set the environment varaible RUN_AS_USER to the given string in the shell JSW is started in.
+  The application will thus be started with this user, if the string represents an existing user.

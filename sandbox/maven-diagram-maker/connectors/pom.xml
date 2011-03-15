@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <parent>
+    <artifactId>diagrams</artifactId>
+    <groupId>org.codehaus.mojo.maven-diagram-maker</groupId>
+    <version>0.1-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>connectors</artifactId>
+  <name>connectors</name>
+  <groupId>org.codehaus.mojo.maven-diagram-maker.connectors</groupId>
+  <version>0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+	  <artifactId>connector-api</artifactId>
+	  <groupId>org.codehaus.mojo.maven-diagram-maker</groupId>
+	  <version>0.1-SNAPSHOT</version>
+	  <scope>compile</scope>
+    </dependency>
+  </dependencies>
+  <modules>
+    <module>connector-dependencies</module>
+    <module>connector-classes</module>
+  </modules>
+</project>

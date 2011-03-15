@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<project name="Weblogic Mojo">
+  <bannerLeft>
+    <name>Mojo</name>
+    <src>http://mojo.codehaus.org/images/mojo_logo.png</src>
+    <href>http://mojo.codehaus.org/</href>
+  </bannerLeft>
+  <bannerRight>
+    <name>Codehaus</name>
+    <src>http://mojo.codehaus.org/images/codehaus-small.png</src>
+    <href>http://www.codehaus.org/</href>
+  </bannerRight>
+  <body>
+    <links>
+      <item name="Mojo" href="http://mojo.codehaus.org/"/>
+      <item name="Maven" href="http://maven.apache.org/maven2/"/>
+      <item name="BEA" href="http://bea.com/"/>
+    </links>
+    <menu name="Mojo">
+      <item name="mojo" href="http://mojo.codehaus.org/"/>
+    </menu>
+    <menu name="Weblogic Plugin Docs">
+      <item name="Goals" href="plugin-info.html"/>
+      <item name="Usage" href="usage.html"/>
+      <item name="Installation" href="installation.html"/>
+      <item name="APPC Special Instructions" href="appc-use.html"/>
+      <item name="JWSC Special Instructions" href="jwsc-use.html"/>
+      <item name="FAQ" href="faq.html"/>
+      <item name="Usage for 2.8.0" href="usage280.html"/>
+      <item name="Installation for 2.8.0" href="installation280.html"/>
+      <item name="Plugin Weblogic Dependencies" href="weblogic-dep.html"/>
+    </menu>
+    ${reports}
+  </body>
+</project>

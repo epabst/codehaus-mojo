@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+
+<document>
+  <properties>
+    <title>IzPack plugin project</title>
+    <author email="miguel.griffa@gmail.com">Miguel Griffa</author>
+  </properties>
+  <body>
+    <release version="1.0-SNAPSHOT" date="2006-01-30">
+      <action dev="mgriffa" type="add">
+        Initial version
+      </action>
+    </release>
+  </body>
+</document>

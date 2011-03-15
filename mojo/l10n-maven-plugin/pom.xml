@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>mojo-parent</artifactId>
+    <version>18</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>l10n-maven-plugin</artifactId>
+  <packaging>maven-plugin</packaging>
+  <name>Localization Tools Maven Plugin</name>
+  <version>1.0-alpha-3-SNAPSHOT</version>
+  <description>
+    Allows you to do an automated pseudo-localization to test the completeness
+    of your project's internationalization effort. This technique simulates the
+    process of localizing products by prefixing and suffixing all your
+    internationalized messages.
+    For more information on pseudo-localization, see
+    http://developers.sun.com/solaris/articles/i18n/I18N_Testing.html.
+    For more general information on localization, see
+    http://java.sun.com/developer/technicalArticles/Intl/ResourceBundles/.
+  </description>
+  <prerequisites>
+    <maven>2.0.4</maven>
+  </prerequisites>
+
+  <issueManagement>
+    <system>JIRA</system>
+    <url>http://jira.codehaus.org/browse/MOJO/component/13468</url>
+  </issueManagement>
+
+  <inceptionYear>2007</inceptionYear>
+  <developers>
+    <developer>
+      <id>mkleint</id>
+      <name>Milos Kleint</name>
+      <email>mkleint@codehaus.org</email>
+      <organization>Codehaus</organization>
+      <roles>
+        <role>Developer</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>dennisl</id>
+      <name>Dennis Lundberg</name>
+      <email>dennisl@apache.org</email>
+      <organization>ASF</organization>
+      <roles>
+        <role>Committer</role>
+      </roles>
+      <timezone>+1</timezone>
+    </developer>
+  </developers>
+
+  <licenses>
+    <license>
+      <name>Apache License 2</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:svn:http://svn.codehaus.org/mojo/trunk/mojo/l10n-maven-plugin/</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/l10n-maven-plugin/</developerConnection>
+    <url>http://svn.codehaus.org/mojo/trunk/mojo/l10n-maven-plugin/</url>
+  </scm>
+
+  <properties>
+    <doxiaVersion>1.0</doxiaVersion>
+    <mavenVersion>2.0.6</mavenVersion>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-model</artifactId>
+      <version>${mavenVersion}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <version>${mavenVersion}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-project</artifactId>
+      <version>${mavenVersion}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.reporting</groupId>
+      <artifactId>maven-reporting-api</artifactId>
+      <version>${mavenVersion}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.reporting</groupId>
+      <artifactId>maven-reporting-impl</artifactId>
+      <version>2.0.4.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.doxia</groupId>
+      <artifactId>doxia-sink-api</artifactId>
+      <version>${doxiaVersion}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.doxia</groupId>
+      <artifactId>doxia-site-renderer</artifactId>
+      <version>${doxiaVersion}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>plexus</groupId>
+          <artifactId>plexus-utils</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-utils</artifactId>
+      <version>1.5.8</version>
+    </dependency>
+  </dependencies>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-changes-plugin</artifactId>
+        <version>2.1</version>
+        <configuration>
+          <issueLinkTemplate>http://jira.codehaus.org/browse/%ISSUE%</issueLinkTemplate>
+        </configuration>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>changes-report</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>2.0.1</version>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>l10n-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <configuration>
+          <locales>
+            <locale>de</locale>
+          </locales>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
+</project>

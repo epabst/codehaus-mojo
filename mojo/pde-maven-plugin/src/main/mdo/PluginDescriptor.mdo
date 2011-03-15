@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+
+<model>
+  <id>pde-plugin-descriptor</id>
+  <name>Plugin</name>
+  <description>
+    <![CDATA[
+    <p>
+    </p>
+    ]]>
+  </description>
+  <defaults>
+    <default>
+      <key>package</key>
+      <value>org.codehaus.mojo.pde.descriptor</value>
+    </default>
+  </defaults>
+  <classes>
+    <class>
+      <name>Descriptor</name>
+      <version>1.0.0</version>
+      <fields>
+          <field xml.attribute="true">
+          <name>id</name>
+          <required>true</required>
+          <type>String</type>
+          <required>true</required>
+        </field>
+        <field xml.attribute="true">
+          <name>name</name>
+          <required>true</required>
+          <type>String</type>
+        </field>
+        <field xml.attribute="true">
+          <name>version</name>
+          <required>true</required>
+          <type>String</type>
+        </field>
+      </fields>
+    </class>
+  
+    <class rootElement="true" xml.tagName="plugin">
+      <name>PluginDescriptor</name>
+      <superClass>Descriptor</superClass>
+      <description>
+        PDE Plugin.xml Java binding.
+      </description>
+      <fields>
+        <field xml.attribute="true">
+          <name>id</name>
+          <required>true</required>
+          <type>String</type>
+          <required>true</required>
+        </field>
+        <field xml.attribute="true">
+          <name>name</name>
+          <required>true</required>
+          <type>String</type>
+        </field>
+        <field xml.attribute="true">
+          <name>version</name>
+          <required>true</required>
+          <type>String</type>
+        </field>
+      </fields>      
+    </class>
+  </classes>
+</model>
+

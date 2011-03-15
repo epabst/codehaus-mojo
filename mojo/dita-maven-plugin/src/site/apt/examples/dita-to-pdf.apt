@@ -1,0 +1,244 @@
+ -----
+ DITA to PDF Example
+ ------
+ Dan T. Tran
+ <dantran@gmail.com>
+ ------
+ October 31, 2009
+ ------
+
+
+
+DITA to PDF Example
+
+    This example will show you how to: 
+    
+    * Use Maven and DITA Open Toolkit Maven plugin to transform your DITA bookmap to PDF 
+    
+    * Fully automate your build system by:
+    
+      o Automatically fetch Apache-Ant-1.7.1 and DITA-OT minimum package to your build.
+      
+      o Prepare build properties ( project version, build time, etc ) to be consumed by your PDF transformation.
+        ( such as adding build date, project version to Notice page, etc )
+      
+      []
+      
+      
+     * Create a PDF template to override the current DITA-OT PDF plugin bookmap transformation for your own your own cover page, header, and footer.
+       
+     
+     * Hack a work around to make PDF Notices and Trademarks page to display right after cover page.
+       ( Note the current implementation has <Notices> page appears after <Table of Contents>
+       
+     []
+     
+     With this automation, your writer is now free to concentrate on writing good document.
+     
+     Below contains high level explanation and how the actual example is constructed.
+     
+Build the example
+
+	* Install DITA-OT 1.5 full package.  Full package is required since the example uses the sample <TaskBook>
+	  DITA source to build the PDF ouput
+	  
+	* Setup DITA_HOME environment variable to point to your installed DITA-OT directory
+	
+	* SVN check out {{{https://svn.codehaus.org/mojo/trunk/mojo/dita-maven-plugin/src/it/dita-to-pdf} dita-to-pdf example}}
+	
+	* Run < mvn install > 
+
+	* The output PDF file is at target/dita/out/taskbook.pdf
+	
+	[]
+	
+		     
+Maven Build Infrastructure.
+     
+* Download Apache Ant and DITA Open Toolkit.
+
+    This plugin requires an existing Apache-Ant 1.7+ and DITA-OT-1.5 minimum package including FO Plugin.  Having user to install
+    Apache Ant and DITA-OT on his/her work station will lead to long term compatibility problem.  To automate this process:
+  
+    * Install a copy of Apache Ant distribution to your internal Maven repository manager
+    
+    * Repackage the minimum DITA-OT package with FO plugin and deploy it to your Maven repository manager.  It is a good practice to give
+      your custom DITA-OT a version and a classfifier ( ex dita-ot-1.5-1-min.tgz ).  You can also can deploy DITA-OT standard
+      package which is much bigger than the the custom minimum package.
+      
+      Note: The actual example uses the DITA-OT full package from ${env.DITA_HOME} since ANT and DITA-OT distributions are not available 
+      Maven Central repository.
+      
+    * Finally configure your POM to use Maven Dependency Plugin to download and unpack your Apache Ant and DITA-OT distributions
+      to your project base directory.  With the right configuration, this will only happen once.
+      
+      []
+      
+      Here is an example
+      
+--------------------------------
+
+  <project>
+  
+  [...]
+  
+  <properties>
+    <ant.dir>${basedir}/apache-ant-1.7.1</ant.dir>
+    <dita.dir>${basedir}/dita-ot1.5</dita.dir>
+  </properties>
+  [...]
+  
+  <build>
+    <plugins>
+      [...]
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>unpack-ant-ifneeded</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}</outputDirectory>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>org.apache.ant</groupId>
+                  <artifactId>apache-ant</artifactId>
+                  <type>tgz</type>
+                  <version>1.7.1</version>
+                </artifactItem>
+              </artifactItems>
+              <markersDirectory>${ant.dir}</markersDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>unpack-ditaot-ifneeded</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>unpack</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}</outputDirectory>
+              <artifactItems>
+                <artifactItem>
+                  <groupId>net.sourceforge.dita-ot</groupId>
+                  <artifactId>dita-ot</artifactId>
+                  <type>tgz</type>
+                  <version>1.5</version>
+                </artifactItem>
+              </artifactItems>
+              <markersDirectory>${dita.dir}</markersDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      [...]
+    </plugins>
+  </build>
+      
+---------------------------            
+      
+* Setup Dependency Management
+
+	When using with DITA-OT minimum or standard package, will need to configure your project dependencies to that this plugin can add them
+	to CLASSPATH environment before invoking Ant build. The required dependencies are:
+	
+	* Saxon 9+. Note as of this writing, Saxon is not available at Maven central repository yet.
+	
+	* fop 0.95+
+	
+	[]
+	
+	Note You must always declare Saxon first before FOP
+	
+      
+* Prepare build properties.
+
+  Use Maven Resource Plugin to generate a xsl script with all build properties, such as project <version> <build date>,
+  in the from of <xsl:variable>  to be consumed ( ie included ) by your PDF customization <xsl> scripts.
+  
+  
+Create PDF template.
+
+  DITA-OT has a default PDF template with decent look and feel. However every company, organization requires different settings.  
+  This example show you how to:
+  
+  * Create your own cover page
+  
+  * Font
+  
+  * Footer and Header
+  
+  * Dynamically inject <project version> and <build date> into cover page, notice, and footer.
+  
+  * A work around to make <Notices> page to appear after cover page
+  
+  * If you are new to XSLT and XSL-FO, this is a good time to get you started.
+  
+  []
+  
+  
+* Example PDF Template Layout 
+
+
+** Cover page
+   
+----------------------------------------------------------------
+                     Banner Graphic
+								
+                                                ${projectName}
+                                             ${projectVersion}
+                                                   ${bookName}
+																		
+
+                     Company Logo
+
+----------------------------------------------------------------
+
+**  Even Footer
+  
+----------------------------------------------------------------
+$(projectName} ${projectVersion} ${bookName}
+${projectId}                                       ${pageName}
+${projectVersion}
+----------------------------------------------------------------
+  
+**  Odd Footer
+  
+----------------------------------------------------------------
+                  $(projectName} ${projectVersion} ${bookName}
+${pageNumber}                                     ${projectId}
+                                             ${projectVersion}
+----------------------------------------------------------------
+  
+  
+** Even Header
+  
+----------------------------------------------------------------
+$(bookName}                                    ${chapterTitle}
+----------------------------------------------------------------
+
+
+** Odd Header
+
+----------------------------------------------------------------
+${chapterTitle}                                    $(bookName}                                    
+----------------------------------------------------------------
+  
+
+
+
+
+  
+    
+    
+      
+      
+
+	
+
+
+

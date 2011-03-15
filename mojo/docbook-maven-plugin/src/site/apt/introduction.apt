@@ -1,0 +1,57 @@
+		--------------
+		Docbook plugin
+		--------------
+		--------------
+		2005/11/30
+
+Introduction
+
+	{{{http://www.docbook.org/}Docbook}} is an XML based documentation format that was originally 
+	created	for technical book authoring and has become an Oasis standard widely used for technical
+	documentation. 
+
+Why a Docbook plugin?
+
+	This plugin intends to provide Docbook support for Maven, meaning you could have some documentation
+	written using Docbook, and export it to several formats (HTML, PDF,...) so you can publish it
+	wherever you want. 
+	
+	For those confused about current support of Docbook in Maven, the current situation 
+	(as far as I know) is the following:
+	
+	* There is a Docbook plugin available for Maven1.x named sdocbook, you can find it at 
+	{{{http://maven-plugins.sourceforge.net/maven-sdocbook-plugin/index.html}the Maven plugins project}}
+	at SourceForge.net.
+	
+	* There is some support for Docbook in Doxia, a subproject of Maven, that intends to be a 
+	content generation framework.
+	
+	[]
+	
+	IMHO the Docbook support included in Doxia (although improved by a recently submitted patch)
+	is quite good for using Docbook as the source for a Maven site, but it's inadequate for some 
+	other tasks you may acomplish with Docbook. Why? Because you have the stylesheets included in
+	the {{{http://docbook.sourceforge.net/}Docbook project}} at SourceForge.net, that has support
+	for a lot of output formats: xhtml, Java help, Eclipse documentation, man pages, etc. Including 
+	such support in Doxia would mean duplicating a lot of already made work, and wouldn't be feasible
+	in a short amount of time: it's much easier to use the stylesheets, that are actively developed
+	and already support all those formats.
+
+Status
+
+	Currently this plugin is in a very alpha stage, and has only support for my use case: I use to
+	write project documentation (specially requirements documentation) using Docbook format. I like to
+	have very small and manageable pieces of documentation heavily interlinked, so the reader can focus
+	on one concept at a time but have access to every related concept. In this scenario, I want to have
+	an automatic process that converts this documentation into an HTML site. This involves a two step
+	process:
+	
+	* Generate a olink database with the list of anchors in each document, and
+	
+	* Transform the Docbook documents using the already generated database to link documents
+	
+	[]
+	
+	Of course this is a very minimal implementation of a Docbook plugin, but I would like to hear
+	from potential users before adding more use cases to the plugin. So if you want some use case
+	to be added to the plugin, feel free to contact me, or even better, file an issue at JIRA.

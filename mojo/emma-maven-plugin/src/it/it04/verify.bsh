@@ -1,0 +1,6 @@
+File coverage = new File(basedir, "target/site/emma/coverage.xml");
+if(!coverage.exists() || coverage.length() == 0) {
+	System.out.println("Missing 'coverage.xml'");
+	return false;
+}
+return true;

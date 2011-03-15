@@ -1,0 +1,49 @@
+<document>
+  <properties>
+    <title>Maven 2.x Emma Plugin changelog</title>
+    <author email="stephen.alan.connolly@gmail.com">
+      Stephen Connolly
+    </author>
+    <author email="alexandre.roman@gmail.com">
+      Alexandre Roman
+    </author>
+  </properties>
+  <body>
+    <release version="1.0-alpha-3-SNAPSHOT" description="Third alpha release">
+      <action dev="godin" type="update" issue="MEMMA-16">
+        Emma updated to version 2.1.5320.
+      </action>
+    </release>
+    <release version="1.0-alpha-2" date="2009-08-06" description="Second alpha release">
+      <action dev="brett" type="fix" issue="MEMMA-10">
+        Fixed.
+      </action>
+      <action dev="brett" type="fix" issue="MEMMA-7">
+        Fixed.
+      </action>
+      <action dev="romale" type="fix" issue="MEMMA-2">
+        Fixed.
+      </action>
+      <action dev="romale" type="fix" issue="MEMMA-11">
+        Fixed.
+      </action>
+    </release>
+    <release version="1.0-alpha-1" date="2008-10-01" description="First alpha release">
+      <action dev="romale" type="fix" issue="MEMMA-6">
+        Fixed.
+      </action>
+      <action dev="romale" type="fix" issue="MEMMA-3">
+        Fixed.
+      </action>
+      <action dev="bentmann" type="fix" issue="MEMMA-9">
+        Fixed.
+      </action>
+      <action dev="stephenconnolly" type="update" issue="MEMMA-1">
+        Updated the site documentation.
+      </action>
+      <action dev="stephenconnolly" type="update">
+        Fixed all the checkstyle errors, warnings and infos.
+      </action>
+    </release>
+  </body>
+</document>

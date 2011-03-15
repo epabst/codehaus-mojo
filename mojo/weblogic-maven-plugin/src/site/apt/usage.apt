@@ -1,0 +1,190 @@
+                                    ------
+                             Weblogic Plugin Usage
+                                    ------
+                            Scott Ryan / Jon Osborn
+                                    ------
+                                 Jan 1, 2006 (updated May 20, 2008)
+
+Maven 2 Weblogic Plugin
+
+  This plugin provides support for Weblogic 8.1(sp4+) and 9.0 deployment capabilities as well as artifact (EAR, WAR, RAR, etc.) compilation within the maven 2 environment.
+
+
+* Basic Weblogic Configuration.
+
+  The recommended Basic Weblogic configuration is as follows.
+
+  For Weblogic 9.0 and above use version 2.9.0 or newer.
+
+  Be sure to set up the repository access as defined on page http://mojo.codehaus.org/using-sandbox-plugins.html 
+
+  For a local deployment
+
+-------------------
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      ...
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>weblogic-maven-plugin</artifactId>
+        <version>2.9.1</version>
+        <configuration>
+          <adminServerHostName>localhost</adminServerHostName>
+          <adminServerPort>7001</adminServerPort>
+          <adminServerProtocol>http</adminServerProtocol>
+          <userId>weblogic</userId>
+          <password>weblogic</password>
+          <upload>false</upload>
+          <remote>false</remote>
+          <verbose>false</verbose>
+          <debug>false</debug>
+          <targetNames>AdminServer</targetNames>
+          <exploded>false</exploded>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>com.sun</groupId>
+            <artifactId>tools</artifactId>
+            <version>1.5</version>
+            <scope>system</scope>
+            <systemPath>${java.home}/../lib/tools.jar</systemPath>
+          </dependency>
+          <dependency>
+            <groupId>weblogic</groupId>
+            <artifactId>weblogic</artifactId>
+            <version>${weblogic.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>weblogic</groupId>
+            <artifactId>webservices</artifactId>
+            <version>${weblogic.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>weblogic</groupId>
+            <artifactId>xbean</artifactId>
+            <version>${weblogic.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>weblogic</groupId>
+            <artifactId>javelinx</artifactId>
+            <version>${weblogic.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>weblogic</groupId>
+            <artifactId>bcel</artifactId>
+            <version>5.1</version>
+          </dependency>
+          <dependency>
+            <groupId>weblogic</groupId>
+            <artifactId>wlw-util</artifactId>
+            <version>${weblogic.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>weblogic</groupId>
+            <artifactId>wlw-langx</artifactId>
+            <version>${weblogic.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.apache.xmlbeans</groupId>
+            <artifactId>xmlbeans</artifactId>
+            <version>2.3.0</version>
+          </dependency>
+          <dependency>
+            <groupId>weblogic</groupId>
+            <artifactId>weblogic-container-binding</artifactId>
+            <version>${weblogic.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+-------------------
+
+  For a remote deployment with no staging
+
+-------------------
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      ...
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>weblogic-maven-plugin</artifactId>
+        <version>2.9.1</version>
+        <configuration>
+          <adminServerHostName>localhost</adminServerHostName>
+          <adminServerPort>7001</adminServerPort>
+          <adminServerProtocol>http</adminServerProtocol>
+          <userId>weblogic</userId>
+          <password>weblogic</password>
+          <upload>true</upload>
+          <remote>true</remote>
+          <verbose>false</verbose>
+          <debug>false</debug>
+          <targetNames>AdminServer</targetNames>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>com.sun</groupId>
+            <artifactId>tools</artifactId>
+            <version>1.5</version>
+            <scope>system</scope>
+            <systemPath>${java.home}/../lib/tools.jar</systemPath>
+          </dependency>
+          <dependency>
+            <groupId>weblogic</groupId>
+            <artifactId>weblogic</artifactId>
+            <version>${weblogic.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>weblogic</groupId>
+            <artifactId>webservices</artifactId>
+            <version>${weblogic.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>weblogic</groupId>
+            <artifactId>xbean</artifactId>
+            <version>${weblogic.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>weblogic</groupId>
+            <artifactId>javelinx</artifactId>
+            <version>${weblogic.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>weblogic</groupId>
+            <artifactId>bcel</artifactId>
+            <version>5.1</version>
+          </dependency>
+          <dependency>
+            <groupId>weblogic</groupId>
+            <artifactId>wlw-util</artifactId>
+            <version>${weblogic.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>weblogic</groupId>
+            <artifactId>wlw-langx</artifactId>
+            <version>${weblogic.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>org.apache.xmlbeans</groupId>
+            <artifactId>xmlbeans</artifactId>
+            <version>2.3.0</version>
+          </dependency>
+          <dependency>
+            <groupId>weblogic</groupId>
+            <artifactId>weblogic-container-binding</artifactId>
+            <version>${weblogic.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+-------------------

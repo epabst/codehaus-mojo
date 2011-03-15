@@ -1,0 +1,145 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>dbupgrade-maven-plugin-it-upgrade-with-filelist</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  
+  <name>dbupgrade-maven-plugin Database Integration Test Using filelist method</name>
+  
+  <build>
+     
+    <defaultGoal>compile</defaultGoal>
+    
+    <plugins>
+
+      <plugin>
+      
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>dbupgrade-maven-plugin</artifactId>
+        <version>1.0-beta-1-SNAPSHOT</version>
+        
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derby</artifactId>
+            <version>10.2.2.0</version>
+          </dependency>
+        </dependencies>
+        
+        <executions>
+
+          <execution>
+            <id>create-version-1</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>filelist-upgrade</goal>
+            </goals>
+            <configuration>
+              <config>
+                <driver>org.apache.derby.jdbc.EmbeddedDriver</driver>
+                <url>jdbc:derby:${project.build.directory}/testdb;create=true</url>
+                <username>sa</username>
+                <scriptDirectory>${basedir}/src/dbupgrade/filelist</scriptDirectory>
+                <upgradeFile>${basedir}/src/dbupgrade/filelist/dbupgrade-list-1.txt</upgradeFile>
+              </config>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>create-version-2</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>filelist-upgrade</goal>
+            </goals>
+            <configuration>
+              <config>
+                <driver>org.apache.derby.jdbc.EmbeddedDriver</driver>
+                <url>jdbc:derby:${project.build.directory}/testdb;create=true</url>
+                <username>sa</username>
+                <scriptDirectory>${basedir}/src/dbupgrade/filelist</scriptDirectory>
+                <upgradeFile>${basedir}/src/dbupgrade/filelist/dbupgrade-list-2.txt</upgradeFile>
+              </config>
+            </configuration>
+          </execution>
+
+          <execution>
+            <id>create-version-3</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>filelist-upgrade</goal>
+            </goals>
+            <configuration>
+              <config>
+                <driver>org.apache.derby.jdbc.EmbeddedDriver</driver>
+                <url>jdbc:derby:${project.build.directory}/testdb;create=true</url>
+                <username>sa</username>
+                <scriptDirectory>${basedir}/src/dbupgrade/filelist</scriptDirectory>
+                <upgradeFile>${basedir}/src/dbupgrade/filelist/dbupgrade-list-3.txt</upgradeFile>
+              </config>
+            </configuration>
+          </execution>
+          <execution>
+            <id>create-version-3-again-should-have-no-effect</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>filelist-upgrade</goal>
+            </goals>
+            <configuration>
+              <config>
+                <driver>org.apache.derby.jdbc.EmbeddedDriver</driver>
+                <url>jdbc:derby:${project.build.directory}/testdb;create=true</url>
+                <username>sa</username>
+                <scriptDirectory>${basedir}/src/dbupgrade/filelist</scriptDirectory>
+                <upgradeFile>${basedir}/src/dbupgrade/filelist/dbupgrade-list-3.txt</upgradeFile>
+              </config>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      
+    </plugins>
+    
+  </build>
+
+  <profiles>
+    <profile>
+      <id>cleandb</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>dbupgrade-maven-plugin</artifactId>
+            <version>1.0-beta-1-SNAPSHOT</version>
+            <dependencies>
+              <dependency>
+                <groupId>org.apache.derby</groupId>
+                <artifactId>derby</artifactId>
+                <version>10.2.2.0</version>
+              </dependency>
+            </dependencies>
+            <executions>
+              <execution>
+              <id>cleandb</id>
+              <phase>validate</phase>
+              <goals>
+                <goal>clean-database</goal>
+              </goals>
+              <configuration>
+                <config>
+                  <driver>org.apache.derby.jdbc.EmbeddedDriver</driver>
+                  <url>jdbc:derby:${project.build.directory}/testdb;create=true</url>
+                  <username>sa</username>
+                </config>
+                <cleanScript>${basedir}/src/dbupgrade/filelist/cleandb.sql</cleanScript>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </build>
+  </profile>
+</profiles>
+  
+</project>

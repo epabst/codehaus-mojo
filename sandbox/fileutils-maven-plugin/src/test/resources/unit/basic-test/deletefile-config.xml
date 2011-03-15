@@ -1,0 +1,15 @@
+<project>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>fileutils-maven-plugin</artifactId>
+        <configuration>
+          <scripts>
+            rm target/test/sample1.txt;
+            rm target/test/sample2.txt;
+          </scripts>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

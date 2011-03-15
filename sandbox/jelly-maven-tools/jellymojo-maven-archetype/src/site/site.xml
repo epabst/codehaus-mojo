@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="Jelly Mojo Archetype">
+  <bannerLeft>
+    <name>Jelly Mojo Archetype</name>
+  </bannerLeft>
+  <!--<bannerRight>
+  </bannerRight>-->
+  <body>
+    <links>
+      <item name="Jelly" href="http://jakarta.apache.org/commons/jelly/"/>
+    </links>
+    <menu name="Jelly Mojo Archetype">
+      <item name="Description &amp; Usage" href="index.html"/>
+    </menu>
+    \${reports}
+  </body>
+</project>

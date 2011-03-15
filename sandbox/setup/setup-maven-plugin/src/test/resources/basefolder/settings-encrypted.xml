@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF8"?>
+<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd" xmlns="http://maven.apache.org/SETTINGS/1.1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <localRepository>localRepository_defaultTemplate</localRepository>
+  <interactiveMode>false</interactiveMode>
+  <usePluginRegistry>true</usePluginRegistry>
+  <offline>true</offline>
+  <servers>
+    <server>
+      <username>dt_username_defaultTemplate</username>
+      <password>{OxhDEWjvOzsHR3km+NFZXMIR/S2Qucv1WbcRjstHviPZ45uvrJ1l3Jd80EhLBs9q}</password>
+      <id>dt</id>
+    </server>
+    <server>
+      <username>all_username_defaultTemplate</username>
+      <password>{2PeFv2TaNtEHOUorciQOCK+3nCkwrG/AuZ6hgLl5AwF5F8jE/fGwCSXmuwAYnyUU}</password>
+      <id>all</id>
+    </server>
+  </servers>
+</settings>

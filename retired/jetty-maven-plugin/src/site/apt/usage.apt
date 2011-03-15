@@ -1,0 +1,65 @@
+ ------
+ Maven 2 Jetty plugin 
+ ------
+ Kristian Nordal
+ ------
+ Fri Jul 15 2005
+
+Maven 2 Jetty plugin 
+
+ NOTE: deprecated in favor of {{{http://jetty.mortbay.org/jetty6/maven-plugin/index.html}Mortbay Jetty Plugin}}, maintaned by the Jetty developers.
+
+ This plugin is for running a web application directly from Maven.
+
+ It currently support running the generated war file as a web application in
+ Jetty, with the <run-war> goal. This goal will execute the package phase and
+ then run Jetty with the generated war as a web application. By default, Jetty
+ will run on port 8080, with the context path set to <app/> and the location of
+ the war file set to
+ <${project.build.directory}/${project.build.finalName}.war>. You can
+ alternatively specify your own properties or create a Jetty xml configuration file.
+
+*Available Configuration Options
+
+*-----------------+--------------*------------------------------------------------------------+--------------------------------------------------+
+| <<Parameter>>   | <<Optional>> | <<Default>>                                                | <<Description>>                                  |
+*-----------------+--------------*------------------------------------------------------------+--------------------------------------------------+
+| port            | Optional     | 8080                                                       |                                                  |
+*-----------------+--------------*------------------------------------------------------------+--------------------------------------------------+
+| contextPathSpec | Optional     | /app                                                       | The context path                                 |
+*-----------------+--------------*------------------------------------------------------------+--------------------------------------------------+
+| webApp          | Optional     | ${project.build.directory}/${project.build.finalName}.war  | The location of the war file                     |
+*-----------------+--------------*------------------------------------------------------------+--------------------------------------------------+
+| jettyConfig     | Optional     |                                                            | The location of a Jetty xml configuration file,  | 
+|                 |              |                                                            | it will override all other parameters            |
+*-----------------+--------------*------------------------------------------------------------+--------------------------------------------------+
+
+*Using the plugin
+
+ Add the plugin to your POM's plugin configuration:
+
++-----------------------------------------+
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jetty-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+</project>
++-----------------------------------------+
+
+ You can configure your plugin with the optional parameters, by following the instructions 
+ found in the {{{http://maven.apache.org/maven2/getting-started.html}Getting Started Guide}}.
+
+ Then run m2 with one of the available goals:
+
++-----------------------------------------+
+m2 jetty:run-war
++-----------------------------------------+
+
+ Point you browser to http://localhost:\<port\>/\<contextPathSpec\>/

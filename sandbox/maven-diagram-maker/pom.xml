@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <!--parent>
+    <artifactId>maven-parent</artifactId>
+    <groupId>org.apache.maven</groupId>
+    <version>5</version>
+    <relativePath>../pom/maven/pom.xml</relativePath>
+    </parent-->
+    
+    
+  <parent>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>mojo-sandbox</artifactId>
+    <version>4-SNAPSHOT</version>    
+  </parent>  
+ 
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.codehaus.mojo.maven-diagram-maker</groupId>
+  <artifactId>diagrams</artifactId>
+  <packaging>pom</packaging>
+  <version>0.1-SNAPSHOT</version>
+  <name>diagrams</name>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <modules>
+    <module>connector-api</module>
+    <module>connectors</module>
+    <module>graph-api</module>
+    <module>maven-diagrams-plugin</module>
+    <module>diagrams-gui</module>
+  </modules>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+	  <verbose>false</verbose>
+          <encoding>UTF-8</encoding>
+          <excludes>
+            <exclude>**/.svn/</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

@@ -1,0 +1,17 @@
+<component-set>
+  <components>
+
+    <component>
+      <role>org.codehaus.mojo.hibernate3.configuration.ComponentConfiguration</role>
+      <role-hint>annotationconfiguration</role-hint>
+      <implementation>org.codehaus.mojo.hibernate3.configuration.AnnotationComponentConfiguration</implementation>
+    </component>
+
+    <component>
+      <role>org.codehaus.mojo.hibernate3.configuration.ComponentConfiguration</role>
+      <role-hint>jpaconfiguration</role-hint>
+      <implementation>org.codehaus.mojo.hibernate3.configuration.JPAComponentConfiguration</implementation>
+    </component>
+
+  </components>
+</component-set>

@@ -1,0 +1,32 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <groupId>org.codehaus.mojo.archetypes</groupId>
+    <artifactId>mojo-archetypes</artifactId>
+    <version>5</version>
+  </parent>
+
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>cbuild-automvn</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>maven-archetype</packaging>
+  <name>CBUILDS maven enhanced autoconf project archetype</name>
+  <description>
+    Archetype for creating a GNU autoconf software project
+    automated by maven.  The GNU coding standard's lifecycle is not as 
+    complete as maven's lifecycle.  For instance, GNU defines how to make a 
+    source release, a compressed tarball, but it does not define a repository 
+    to publish the tarball.  Also, the SCM release procedures like 
+    maven-release-plugin are undefined.  Documentation of GNU projects, while
+    thouroughly defined, are outdated compared with maven-site-plugin.
+    So, if you need to write in C, putting maven on top of autoconf gets a
+    more completely implemented and automated project lifecycle.
+  </description>
+
+  <scm>
+    <connection>scm:svn:http://svn.codehaus.org/mojo/trunk/mojo/mojo-archetypes/cbuild-automvn</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/mojo-archetypes/cbuild-automvn</developerConnection>
+    <url>http://fisheye.codehaus.org/browse/mojo/trunk/mojo/mojo-archetypes/cbuild-automvn</url>
+  </scm>
+
+</project>

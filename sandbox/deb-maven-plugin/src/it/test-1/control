@@ -1,0 +1,9 @@
+Section: devel
+Priority: standard
+Maintainer: trygvis@codehaus.org
+Package: bar-project-a
+Version: 1.0-1
+Architecture: all
+Depends: commons-lang-commons-lang (=2.0), commons-logging-commons-logging (=1.0.3), junit-junit (=3.8.1)
+Description: This is the longer description over several lines with a lot of whitespace.
+ And text sections.

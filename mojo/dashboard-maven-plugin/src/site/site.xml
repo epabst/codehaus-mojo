@@ -1,0 +1,35 @@
+<project name="Dashboard Maven Plugin">
+   <body>
+    <menu name="Overview">
+      <item name="Introduction" href="index.html"/>
+      <item name="Goals" href="plugin-info.html"/>
+      <item name="FAQ" href="faq.html"/>
+    </menu>
+    <menu name="Documentation">
+      <item name="Standard Usage" href="usage.html"/>
+      <item name="Continuum Integration" href="continuum.html"/>
+      <item name="Unix Environment" href="unix_support.html"/>
+      <item name="Clover Support" href="clover_support.html"/>
+      <item name="FindBugs Support" href="findbugs_support.html"/>
+      <item name="Taglist Support" href="taglist_support.html"/>
+    </menu>
+    <menu name="Documentation for historic support">
+      <item name="Standard Usage" href="usage_historic.html"/>
+      <item name="Continuum Integration" href="continuum_historic.html"/>
+      <item name="Standard Dashboard Configuration" href="standard_config.html"/>
+      <item name="Custom Dashboard Configuration" href="custom_config.html"/>
+      <item name="Custom Dashboard Multimodule Configuration" href="custom_multi_config.html"/>
+    </menu>
+    <menu name="Sample reports">
+      <item name="Single project" href="examples/dashboard-report.html" />
+      <item name="Multimodule projects" href="examples/dashboard-report-summary.html" />
+      <item name="M1Like Multimodule projects" href="examples/dashboard-report-M1like.html" />
+      <item name="Historic report" href="examples/dashboard-report-historic.html" />
+    </menu>
+    <menu name="History">
+      <item name="Changes" href="changes-report.html" />
+      <item name="Road Map" href="roadmap.html" />
+    </menu>
+    ${reports}
+  </body>
+</project>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!--
+This file is generated automatically from the information contained in the folder includes.
+Do not edit it else you risk to lose your changes.
+-->
+
+<!ENTITY init SYSTEM "../includes/set.init.txt">
+<!ENTITY config SYSTEM "../includes/set.config.txt">
+<!ENTITY definitions__fillParticipantData__xml SYSTEM "../definitions/fillParticipantData.xml">
+<!ENTITY definitions__googleOnWebTest__xml SYSTEM "../definitions/googleOnWebTest.xml">
+
+

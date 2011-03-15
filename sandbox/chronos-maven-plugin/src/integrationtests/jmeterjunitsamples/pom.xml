@@ -1,0 +1,114 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.codehaus.mojo.chronos.it</groupId>
+	<artifactId>jmeterjunitsamples</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>jmeterjunitsamples</name>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>bundle-test-jar</id>
+						<phase>package</phase>
+						<goals>
+							<goal>test-jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>chronos-maven-plugin</artifactId>
+				<version>1.0-SNAPSHOT</version>
+				<executions>
+					<execution>
+						<phase>integration-test</phase>
+						<id>jmeter</id>
+						<configuration>
+							<dataid>jmeter-report-1</dataid>
+							<input>${basedir}/src/test/resources/simplejunitplan.jmx</input>
+							<loggc>true</loggc>
+                            <responsetimeaverage>5.0</responsetimeaverage>
+						</configuration>
+						<goals>
+							<goal>jmeter</goal>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>chronos-maven-plugin</artifactId>
+				<version>1.0-SNAPSHOT</version>
+				<reportSets>
+					<reportSet>
+					    <id>1</id>
+						<configuration>
+							<dataid>jmeter-report-1</dataid>
+							<reportid>jmeter-report-1</reportid>
+							<title>JMeter Test Report</title>
+							<description>
+								This is a test report, which
+								illustrates the different parts of
+								the reports.
+							</description>
+							<showsummary>true</showsummary>
+							<showresponse>true</showresponse>
+							<showhistogram>false</showhistogram>
+							<showpercentile>false</showpercentile>
+							<showaverage>false</showaverage>
+						</configuration>
+						<reports>
+							<report>report</report>
+						</reports>
+					</reportSet>
+					<reportSet>
+					    <id>2</id>
+						<configuration>
+							<dataid>jmeter-report-1</dataid>
+							<reportid>jmeter-report-2</reportid>
+							<title>JMeter Test Report</title>
+							<description>
+								This is a test report, which
+								illustrates the different parts of
+								the reports.
+							</description>
+							<showsummary>true</showsummary>
+							<showresponse>true</showresponse>
+							<showhistogram>false</showhistogram>
+							<showpercentile>false</showpercentile>
+							<showaverage>false</showaverage>
+							<responsetimedivider>10</responsetimedivider>
+						</configuration>
+						<reports>
+							<report>report</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+		</plugins>
+	</reporting>
+	<properties>
+	  <jmeter.home>/Applications/Utilities/Java/jakarta-jmeter-2.3.1</jmeter.home>
+	</properties>
+</project>

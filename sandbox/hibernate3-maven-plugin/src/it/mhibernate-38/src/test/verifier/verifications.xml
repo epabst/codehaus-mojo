@@ -1,0 +1,12 @@
+<verifications>
+  <files>
+    <file>
+      <location>target/classes/testdb.script</location>
+      <contains>PET</contains>
+    </file>
+    <file>
+      <location>target/classes/testdb.script</location>
+      <contains>(?!PERSON)</contains>
+    </file>
+  </files>
+</verifications>

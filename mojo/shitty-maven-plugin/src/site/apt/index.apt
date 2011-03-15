@@ -1,0 +1,79 @@
+ ------
+ Introduction
+ ------
+ ------
+ $Id$
+
+~~
+~~ Copyright (C) 2007 the original author or authors.
+~~
+~~ Licensed under the Apache License, Version 2.0 (the "License");
+~~ you may not use this file except in compliance with the License.
+~~ You may obtain a copy of the License at
+~~
+~~     http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~ Unless required by applicable law or agreed to in writing, software
+~~ distributed under the License is distributed on an "AS IS" BASIS,
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+~~ See the License for the specific language governing permissions and
+~~ limitations under the License.
+~~
+
+Introduction
+
+ The SHITTY, <<S>>uper <<H>>elpful <<I>>ntegration <<T>>esting <<T>>hing<<Y>>,
+ plugin provides a simple way to run integration tests for a project (single module or multi-module).
+ 
+ The plugin is basically an aggregation of a few standard plugin goals with slightly
+ augmented behavior tailored for integration testing purposes.  Here is basically
+ what it is doing:
+ 
+ * Removes all integration test module output and logs.
+ 
+ * Installs the current modules artifact with the version <<<testing>>>, so that the test can be 100% which artifact is being used.
+ 
+ * Invoke child Maven processes on each of the integration test modules and capture the results.
+ 
+ []
+
+ The goals of the plugin are setup to run around the <<<integration-test>>> phase
+ and related phases, and the <<<testing>>> artifact installation happens before the normal
+ <<<install>>> phase, and the <<<install>>> phase will only propagate the <real> versioned
+ artifact into the repository once all of the integration test modules have run successfully.
+ If one of them fails, then the build fails (after all of the integration tests have been run).
+
+ Setup and validation of integration tests are fairly common, so SHITTY provides hooks to
+ invoke {{{http://groovy.codehaus.org}Groovy}} scripts before and after test execution
+ to run special magic.
+
+* Examples
+
+ More often than not, its easier to comprehend a new tool by seeing how it is being used.
+ Here are some projects which are already using the SHITTY plugin for their integration tests:
+ 
+ * {{{http://forge.octo.com/maven/sites/mtg/grails-maven-plugin/}Grails Plugin}}
+ 
+ * {{{http://mojo.codehaus.org/groovy/}Groovy integration for Maven 2}}
+ 
+ * {{{http://mojo.codehaus.org/javascript-maven-tools/}JavaScript Integration}}
+ 
+ * {{{http://mojo.codehaus.org/jspc/}JSP Compiler Support for Maven 2}} (Version 2)
+ 
+ * {{{http://mojo.codehaus.org/retrotranslator-maven-plugin/}Retrotranslator Maven Plugin}}
+ 
+ * {{{http://mojo.codehaus.org/selenium-maven-plugin/}Selenium Maven Plugin}}
+ 
+ []
+
+ For a good idea on how its being used, take a look at each projects top-level
+ <<<pom.xml>>> and then look through the modules for <<<src/it>>> directories and then
+ have a look at the <<<pom.xml>>> and <<<goals.txt>>> files to see how things are
+ hooked up.
+
+* Versions
+
+ The current version of the SHITTY plugin is <<<1.0-alpha-2>>>.
+ 
+ It is relatively stable, but new features and some refactoring is being done to prepare for an official release.
+

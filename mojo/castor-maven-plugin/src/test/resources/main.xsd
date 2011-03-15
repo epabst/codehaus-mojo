@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<schema targetNamespace="http://www.castor.org/test/xsd/main"
+	xmlns="http://www.w3.org/2001/XMLSchema" xmlns:this="http://www.castor.org/test/xsd/main"
+	xmlns:imported="http://www.castor.org/test/xsd/imported">
+
+	<import namespace="http://www.castor.org/test/xsd/imported"
+		schemaLocation="imported.xsd" />
+
+	<element name="main" type="imported:mainType" />
+
+</schema>

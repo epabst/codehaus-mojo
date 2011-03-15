@@ -1,0 +1,7 @@
+<verifications>
+  <files>
+    <file>
+      <location>target/generated-sources/hibernate3/it/Person.java</location>
+    </file>
+  </files>
+</verifications>

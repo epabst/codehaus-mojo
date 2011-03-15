@@ -1,0 +1,2975 @@
+1.636: [Full GC 18909K->917K(249088K), 0.0770344 secs]
+4.141: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    2291816 bytes,    2291816 total
+ 105877K->3155K(249088K), 0.0192226 secs]
+4.673: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     534128 bytes,     534128 total
+- age   2:    1815312 bytes,    2349440 total
+ 108115K->3211K(249088K), 0.0087427 secs]
+5.059: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     481408 bytes,     481408 total
+- age   2:       3888 bytes,     485296 total
+ 108171K->3163K(249088K), 0.0081888 secs]
+5.439: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     897600 bytes,     897600 total
+- age   2:        408 bytes,     898008 total
+ 108123K->3569K(249088K), 0.0056722 secs]
+5.801: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     900008 bytes,     900008 total
+- age   2:       1160 bytes,     901168 total
+ 108529K->3572K(249088K), 0.0027327 secs]
+6.174: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1953024 bytes,    1953024 total
+- age   2:        392 bytes,    1953416 total
+ 108532K->4599K(249088K), 0.0038410 secs]
+6.517: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    2345400 bytes,    2345400 total
+- age   2:        992 bytes,    2346392 total
+ 109559K->4983K(249088K), 0.0048196 secs]
+6.904: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     996080 bytes,     996080 total
+- age   2:       1256 bytes,     997336 total
+ 109943K->3666K(249088K), 0.0025676 secs]
+7.235: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     529048 bytes,     529048 total
+- age   2:        872 bytes,     529920 total
+ 108623K->3210K(249088K), 0.0019271 secs]
+7.611: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     242064 bytes,     242064 total
+- age   2:        896 bytes,     242960 total
+ 108170K->2929K(249088K), 0.0015075 secs]
+8.001: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1619872 bytes,    1619872 total
+- age   2:        920 bytes,    1620792 total
+ 107889K->4275K(249088K), 0.0032641 secs]
+8.370: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     818272 bytes,     818272 total
+- age   2:       1136 bytes,     819408 total
+ 109235K->3492K(249088K), 0.0022986 secs]
+8.767: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1288768 bytes,    1288768 total
+- age   2:        704 bytes,    1289472 total
+ 108452K->3951K(249088K), 0.0032585 secs]
+9.127: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     774728 bytes,     774728 total
+- age   2:        872 bytes,     775600 total
+ 108911K->3449K(249088K), 0.0023922 secs]
+9.486: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     588520 bytes,     588520 total
+- age   2:        968 bytes,     589488 total
+ 108405K->3268K(249088K), 0.0019508 secs]
+9.839: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     410832 bytes,     410832 total
+- age   2:        896 bytes,     411728 total
+ 108228K->3094K(249088K), 0.0017086 secs]
+10.205: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     286640 bytes,     286640 total
+- age   2:        392 bytes,     287032 total
+ 108054K->2972K(249088K), 0.0020676 secs]
+10.595: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     821088 bytes,     821088 total
+- age   2:        704 bytes,     821792 total
+ 107912K->3495K(249088K), 0.0022933 secs]
+10.939: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     641216 bytes,     641216 total
+- age   2:        632 bytes,     641848 total
+ 108455K->3319K(249088K), 0.0020734 secs]
+11.268: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     166208 bytes,     166208 total
+- age   2:        896 bytes,     167104 total
+ 108279K->2855K(249088K), 0.0013301 secs]
+11.589: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1409128 bytes,    1409128 total
+- age   2:        536 bytes,    1409664 total
+ 107809K->4069K(249088K), 0.0030166 secs]
+11.905: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     876520 bytes,     876520 total
+- age   2:        632 bytes,     877152 total
+ 109029K->3549K(249088K), 0.0023327 secs]
+12.223: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     400776 bytes,     400776 total
+- age   2:        632 bytes,     401408 total
+ 108509K->3084K(249088K), 0.0019891 secs]
+12.562: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     926248 bytes,     926248 total
+- age   2:        632 bytes,     926880 total
+ 108044K->3597K(249088K), 0.0025361 secs]
+12.905: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     414024 bytes,     414024 total
+- age   2:        968 bytes,     414992 total
+ 108557K->3098K(249088K), 0.0018391 secs]
+13.234: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     955568 bytes,     955568 total
+- age   2:        656 bytes,     956224 total
+ 108058K->3626K(249088K), 0.0026850 secs]
+13.562: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     486184 bytes,     486184 total
+- age   2:        632 bytes,     486816 total
+ 108586K->3168K(249088K), 0.0018153 secs]
+13.870: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     983504 bytes,     983504 total
+- age   2:        968 bytes,     984472 total
+ 108128K->3654K(249088K), 0.0025285 secs]
+14.171: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     874512 bytes,     874512 total
+- age   2:        632 bytes,     875144 total
+ 108608K->3547K(249088K), 0.0024464 secs]
+14.515: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     907920 bytes,     907920 total
+- age   2:        968 bytes,     908888 total
+ 108507K->3580K(249088K), 0.0025252 secs]
+14.843: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     579320 bytes,     579320 total
+- age   2:        656 bytes,     579976 total
+ 108540K->3259K(249088K), 0.0019690 secs]
+15.171: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     521904 bytes,     521904 total
+- age   2:        968 bytes,     522872 total
+ 108219K->3203K(249088K), 0.0018466 secs]
+15.497: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     638120 bytes,     638120 total
+- age   2:        392 bytes,     638512 total
+ 108161K->3316K(249088K), 0.0021098 secs]
+15.832: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     754216 bytes,     754216 total
+- age   2:        632 bytes,     754848 total
+ 108261K->3430K(249088K), 0.0022698 secs]
+16.155: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     617216 bytes,     617216 total
+- age   2:        704 bytes,     617920 total
+ 108390K->3296K(249088K), 0.0023587 secs]
+16.546: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     824904 bytes,     824904 total
+- age   2:        952 bytes,     825856 total
+ 108256K->3499K(249088K), 0.0023193 secs]
+16.905: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     558264 bytes,     558264 total
+- age   2:        632 bytes,     558896 total
+ 108459K->3238K(249088K), 0.0021402 secs]
+17.233: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     237704 bytes,     237704 total
+- age   2:       1256 bytes,     238960 total
+ 108198K->2926K(249088K), 0.0017664 secs]
+17.593: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     296552 bytes,     296552 total
+- age   2:       1048 bytes,     297600 total
+ 107886K->2983K(249088K), 0.0016952 secs]
+17.899: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     746832 bytes,     746832 total
+- age   2:       1016 bytes,     747848 total
+ 107937K->3423K(249088K), 0.0022246 secs]
+18.207: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     771496 bytes,     771496 total
+- age   2:        440 bytes,     771936 total
+ 108383K->3447K(249088K), 0.0023050 secs]
+18.519: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     765456 bytes,     765456 total
+- age   2:        632 bytes,     766088 total
+ 108397K->3441K(249088K), 0.0022972 secs]
+18.822: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     487768 bytes,     487768 total
+- age   2:        632 bytes,     488400 total
+ 108398K->3170K(249088K), 0.0021740 secs]
+19.140: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     343928 bytes,     343928 total
+- age   2:        632 bytes,     344560 total
+ 108130K->3030K(249088K), 0.0016251 secs]
+19.499: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     420968 bytes,     420968 total
+- age   2:        728 bytes,     421696 total
+ 107990K->3105K(249088K), 0.0018307 secs]
+19.811: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1029464 bytes,    1029464 total
+- age   2:        656 bytes,    1030120 total
+ 108051K->3699K(249088K), 0.0027017 secs]
+20.124: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     549840 bytes,     549840 total
+- age   2:        896 bytes,     550736 total
+ 108658K->3231K(249088K), 0.0021858 secs]
+20.429: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     227680 bytes,     227680 total
+- age   2:        728 bytes,     228408 total
+ 108191K->2916K(249088K), 0.0014723 secs]
+20.764: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     632960 bytes,     632960 total
+- age   2:        712 bytes,     633672 total
+ 107876K->3312K(249088K), 0.0021989 secs]
+21.077: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     770704 bytes,     770704 total
+- age   2:        896 bytes,     771600 total
+ 108272K->3447K(249088K), 0.0023799 secs]
+21.405: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     909704 bytes,     909704 total
+- age   2:        632 bytes,     910336 total
+ 108394K->3582K(249088K), 0.0025534 secs]
+21.727: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     529224 bytes,     529224 total
+- age   2:        896 bytes,     530120 total
+ 108512K->3211K(249088K), 0.0018709 secs]
+22.030: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     940432 bytes,     940432 total
+- age   2:        392 bytes,     940824 total
+ 108171K->3612K(249088K), 0.0024503 secs]
+22.343: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     194472 bytes,     194472 total
+- age   2:        704 bytes,     195176 total
+ 108572K->2884K(249088K), 0.0014044 secs]
+22.655: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     428048 bytes,     428048 total
+- age   2:        392 bytes,     428440 total
+ 107844K->3112K(249088K), 0.0017363 secs]
+22.983: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     407456 bytes,     407456 total
+- age   2:        704 bytes,     408160 total
+ 108072K->3092K(249088K), 0.0017670 secs]
+23.280: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     696264 bytes,     696264 total
+- age   2:        656 bytes,     696920 total
+ 108052K->3374K(249088K), 0.0023869 secs]
+23.629: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     721056 bytes,     721056 total
+- age   2:        656 bytes,     721712 total
+ 108334K->3398K(249088K), 0.0021162 secs]
+23.925: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     479816 bytes,     479816 total
+- age   2:        632 bytes,     480448 total
+ 108355K->3163K(249088K), 0.0017430 secs]
+24.240: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     168760 bytes,     168760 total
+- age   2:        704 bytes,     169464 total
+ 108123K->2859K(249088K), 0.0018192 secs]
+24.544: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     605296 bytes,     605296 total
+- age   2:        392 bytes,     605688 total
+ 107819K->3285K(249088K), 0.0020318 secs]
+24.841: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1121800 bytes,    1121800 total
+- age   2:        632 bytes,    1122432 total
+ 108245K->3790K(249088K), 0.0027853 secs]
+25.146: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     681696 bytes,     681696 total
+- age   2:        632 bytes,     682328 total
+ 108745K->3360K(249088K), 0.0019653 secs]
+25.483: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     608528 bytes,     608528 total
+- age   2:        704 bytes,     609232 total
+ 108320K->3288K(249088K), 0.0019810 secs]
+25.811: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     219328 bytes,     219328 total
+- age   2:        896 bytes,     220224 total
+ 108248K->2909K(249088K), 0.0015932 secs]
+26.116: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     826144 bytes,     826144 total
+- age   2:        976 bytes,     827120 total
+ 107869K->3501K(249088K), 0.0022698 secs]
+26.439: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     270280 bytes,     270280 total
+- age   2:        704 bytes,     270984 total
+ 108459K->2958K(249088K), 0.0015270 secs]
+26.749: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     500912 bytes,     500912 total
+- age   2:        392 bytes,     501304 total
+ 107918K->3183K(249088K), 0.0018117 secs]
+27.073: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     821888 bytes,     821888 total
+- age   2:       1424 bytes,     823312 total
+ 108143K->3498K(249088K), 0.0022673 secs]
+27.380: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     422176 bytes,     422176 total
+- age   2:        392 bytes,     422568 total
+ 108458K->3106K(249088K), 0.0017349 secs]
+27.672: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     422968 bytes,     422968 total
+- age   2:        392 bytes,     423360 total
+ 108066K->3107K(249088K), 0.0017477 secs]
+27.983: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     364744 bytes,     364744 total
+- age   2:        392 bytes,     365136 total
+ 108064K->3050K(249088K), 0.0016094 secs]
+28.311: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     519920 bytes,     519920 total
+- age   2:        728 bytes,     520648 total
+ 108010K->3202K(249088K), 0.0019190 secs]
+28.627: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     452312 bytes,     452312 total
+- age   2:        896 bytes,     453208 total
+ 108162K->3136K(249088K), 0.0017455 secs]
+28.936: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     643336 bytes,     643336 total
+- age   2:        632 bytes,     643968 total
+ 108096K->3323K(249088K), 0.0021704 secs]
+29.248: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     447104 bytes,     447104 total
+- age   2:        632 bytes,     447736 total
+ 108283K->3131K(249088K), 0.0019170 secs]
+29.561: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     375040 bytes,     375040 total
+- age   2:        968 bytes,     376008 total
+ 108081K->3061K(249088K), 0.0017214 secs]
+29.873: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     623920 bytes,     623920 total
+- age   2:        896 bytes,     624816 total
+ 108021K->3304K(249088K), 0.0021335 secs]
+30.201: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     646856 bytes,     646856 total
+- age   2:        896 bytes,     647752 total
+ 108264K->3326K(249088K), 0.0021187 secs]
+30.530: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     429480 bytes,     429480 total
+- age   2:        728 bytes,     430208 total
+ 108286K->3114K(249088K), 0.0019301 secs]
+30.842: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     538128 bytes,     538128 total
+- age   2:        656 bytes,     538784 total
+ 108066K->3220K(249088K), 0.0019343 secs]
+31.160: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     640792 bytes,     640792 total
+- age   2:        896 bytes,     641688 total
+ 108180K->3321K(249088K), 0.0021165 secs]
+31.467: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     336520 bytes,     336520 total
+- age   2:        392 bytes,     336912 total
+ 108281K->3023K(249088K), 0.0016374 secs]
+31.763: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     628224 bytes,     628224 total
+- age   2:        464 bytes,     628688 total
+ 107968K->3308K(249088K), 0.0022520 secs]
+32.063: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     735432 bytes,     735432 total
+- age   2:        392 bytes,     735824 total
+ 108268K->3412K(249088K), 0.0025989 secs]
+32.373: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     537232 bytes,     537232 total
+- age   2:        704 bytes,     537936 total
+ 108357K->3219K(249088K), 0.0019114 secs]
+32.701: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     691616 bytes,     691616 total
+- age   2:        896 bytes,     692512 total
+ 108179K->3370K(249088K), 0.0022439 secs]
+33.014: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     818720 bytes,     818720 total
+- age   2:       1104 bytes,     819824 total
+ 108330K->3495K(249088K), 0.0022944 secs]
+33.311: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     631144 bytes,     631144 total
+- age   2:        632 bytes,     631776 total
+ 108455K->3311K(249088K), 0.0020139 secs]
+33.640: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     874248 bytes,     874248 total
+- age   2:        632 bytes,     874880 total
+ 108271K->3549K(249088K), 0.0023310 secs]
+33.950: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     680784 bytes,     680784 total
+- age   2:        632 bytes,     681416 total
+ 108505K->3360K(249088K), 0.0023268 secs]
+34.264: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     643488 bytes,     643488 total
+- age   2:        392 bytes,     643880 total
+ 108320K->3323K(249088K), 0.0022237 secs]
+34.576: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     588528 bytes,     588528 total
+- age   2:        632 bytes,     589160 total
+ 108283K->3270K(249088K), 0.0019469 secs]
+34.904: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     572112 bytes,     572112 total
+- age   2:       1280 bytes,     573392 total
+ 108230K->3254K(249088K), 0.0019592 secs]
+35.217: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     301960 bytes,     301960 total
+- age   2:       1040 bytes,     303000 total
+ 108214K->2990K(249088K), 0.0016077 secs]
+35.529: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     428416 bytes,     428416 total
+- age   2:        656 bytes,     429072 total
+ 107950K->3113K(249088K), 0.0018315 secs]
+35.829: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     332640 bytes,     332640 total
+- age   2:        728 bytes,     333368 total
+ 108073K->3020K(249088K), 0.0015563 secs]
+36.154: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     386080 bytes,     386080 total
+- age   2:        712 bytes,     386792 total
+ 107980K->3072K(249088K), 0.0016885 secs]
+36.467: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     965808 bytes,     965808 total
+- age   2:        728 bytes,     966536 total
+ 108032K->3638K(249088K), 0.0026339 secs]
+36.779: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     679896 bytes,     679896 total
+- age   2:        896 bytes,     680792 total
+ 108585K->3359K(249088K), 0.0021416 secs]
+37.092: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     757120 bytes,     757120 total
+- age   2:        728 bytes,     757848 total
+ 108311K->3434K(249088K), 0.0022369 secs]
+37.420: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     896888 bytes,     896888 total
+- age   2:        656 bytes,     897544 total
+ 108394K->3571K(249088K), 0.0024115 secs]
+37.732: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     534608 bytes,     534608 total
+- age   2:       1232 bytes,     535840 total
+ 108518K->3218K(249088K), 0.0019137 secs]
+38.061: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     775832 bytes,     775832 total
+- age   2:        896 bytes,     776728 total
+ 108178K->3453K(249088K), 0.0022721 secs]
+38.404: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     621968 bytes,     621968 total
+- age   2:        896 bytes,     622864 total
+ 108413K->3303K(249088K), 0.0020603 secs]
+38.701: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     782272 bytes,     782272 total
+- age   2:        656 bytes,     782928 total
+ 108263K->3459K(249088K), 0.0022455 secs]
+39.014: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     600472 bytes,     600472 total
+- age   2:        704 bytes,     601176 total
+ 108419K->3281K(249088K), 0.0021179 secs]
+39.342: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     669096 bytes,     669096 total
+- age   2:        896 bytes,     669992 total
+ 108213K->3349K(249088K), 0.0021167 secs]
+39.659: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     185384 bytes,     185384 total
+- age   2:        952 bytes,     186336 total
+ 108309K->2876K(249088K), 0.0013918 secs]
+39.960: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     922448 bytes,     922448 total
+- age   2:        464 bytes,     922912 total
+ 107836K->3596K(249088K), 0.0023279 secs]
+40.264: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     846768 bytes,     846768 total
+- age   2:        632 bytes,     847400 total
+ 108556K->3522K(249088K), 0.0023869 secs]
+40.561: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     539496 bytes,     539496 total
+- age   2:        632 bytes,     540128 total
+ 108482K->3222K(249088K), 0.0021377 secs]
+40.870: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     724160 bytes,     724160 total
+- age   2:        656 bytes,     724816 total
+ 108182K->3402K(249088K), 0.0021617 secs]
+41.181: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     341288 bytes,     341288 total
+- age   2:        968 bytes,     342256 total
+ 108362K->3029K(249088K), 0.0016427 secs]
+41.513: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     772816 bytes,     772816 total
+- age   2:       1040 bytes,     773856 total
+ 107989K->3450K(249088K), 0.0023084 secs]
+41.805: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     356520 bytes,     356520 total
+- age   2:        656 bytes,     357176 total
+ 108410K->3043K(249088K), 0.0015513 secs]
+42.123: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     793384 bytes,     793384 total
+- age   2:        632 bytes,     794016 total
+ 108003K->3470K(249088K), 0.0023282 secs]
+42.435: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     486408 bytes,     486408 total
+- age   2:       1232 bytes,     487640 total
+ 108430K->3171K(249088K), 0.0019662 secs]
+42.764: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     234936 bytes,     234936 total
+- age   2:        896 bytes,     235832 total
+ 108131K->2925K(249088K), 0.0016533 secs]
+43.076: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     641552 bytes,     641552 total
+- age   2:        976 bytes,     642528 total
+ 107885K->3322K(249088K), 0.0019790 secs]
+43.388: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     488552 bytes,     488552 total
+- age   2:        896 bytes,     489448 total
+ 108282K->3173K(249088K), 0.0019720 secs]
+43.701: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     645832 bytes,     645832 total
+- age   2:        704 bytes,     646536 total
+ 108133K->3326K(249088K), 0.0020139 secs]
+44.029: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     310832 bytes,     310832 total
+- age   2:        896 bytes,     311728 total
+ 108286K->2999K(249088K), 0.0016228 secs]
+44.326: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     778472 bytes,     778472 total
+- age   2:        656 bytes,     779128 total
+ 107959K->3455K(249088K), 0.0024229 secs]
+44.638: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     550568 bytes,     550568 total
+- age   2:        896 bytes,     551464 total
+ 108415K->3233K(249088K), 0.0020251 secs]
+44.934: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     878672 bytes,     878672 total
+- age   2:        728 bytes,     879400 total
+ 108187K->3553K(249088K), 0.0025414 secs]
+45.232: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     643144 bytes,     643144 total
+- age   2:        632 bytes,     643776 total
+ 108513K->3323K(249088K), 0.0024302 secs]
+45.545: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     401888 bytes,     401888 total
+- age   2:        896 bytes,     402784 total
+ 108283K->3088K(249088K), 0.0018243 secs]
+45.857: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     641432 bytes,     641432 total
+- age   2:        992 bytes,     642424 total
+ 108048K->3322K(249088K), 0.0020894 secs]
+46.170: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     828120 bytes,     828120 total
+- age   2:        656 bytes,     828776 total
+ 108282K->3504K(249088K), 0.0023003 secs]
+46.471: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     529728 bytes,     529728 total
+- age   2:       1280 bytes,     531008 total
+ 108464K->3213K(249088K), 0.0019257 secs]
+46.779: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     467744 bytes,     467744 total
+- age   2:        632 bytes,     468376 total
+ 108173K->3152K(249088K), 0.0018254 secs]
+47.073: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     447120 bytes,     447120 total
+- age   2:        896 bytes,     448016 total
+ 108112K->3132K(249088K), 0.0018354 secs]
+47.388: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     833408 bytes,     833408 total
+- age   2:        704 bytes,     834112 total
+ 108092K->3509K(249088K), 0.0024970 secs]
+47.685: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     301032 bytes,     301032 total
+- age   2:        896 bytes,     301928 total
+ 108465K->2990K(249088K), 0.0015927 secs]
+47.998: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     710784 bytes,     710784 total
+- age   2:        656 bytes,     711440 total
+ 107950K->3390K(249088K), 0.0021902 secs]
+48.310: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     265584 bytes,     265584 total
+- age   2:        968 bytes,     266552 total
+ 108350K->2955K(249088K), 0.0015963 secs]
+48.623: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     709280 bytes,     709280 total
+- age   2:        656 bytes,     709936 total
+ 107915K->3388K(249088K), 0.0022117 secs]
+48.920: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1055848 bytes,    1055848 total
+- age   2:        656 bytes,    1056504 total
+ 108348K->3726K(249088K), 0.0025361 secs]
+49.232: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     837432 bytes,     837432 total
+- age   2:        704 bytes,     838136 total
+ 108683K->3513K(249088K), 0.0024159 secs]
+49.545: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     344328 bytes,     344328 total
+- age   2:        896 bytes,     345224 total
+ 108473K->3032K(249088K), 0.0016904 secs]
+49.857: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     532704 bytes,     532704 total
+- age   2:        896 bytes,     533600 total
+ 107991K->3216K(249088K), 0.0019477 secs]
+50.149: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     666240 bytes,     666240 total
+- age   2:        656 bytes,     666896 total
+ 108169K->3346K(249088K), 0.0019687 secs]
+50.513: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1367648 bytes,    1367648 total
+- age   2:        704 bytes,    1368352 total
+ 108306K->4031K(249088K), 0.0029629 secs]
+50.841: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1370664 bytes,    1370664 total
+- age   2:        872 bytes,    1371536 total
+ 108991K->4034K(249088K), 0.0028850 secs]
+51.138: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     795320 bytes,     795320 total
+- age   2:        632 bytes,     795952 total
+ 108994K->3472K(249088K), 0.0023414 secs]
+51.435: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     691952 bytes,     691952 total
+- age   2:        464 bytes,     692416 total
+ 108432K->3371K(249088K), 0.0022279 secs]
+51.732: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     875840 bytes,     875840 total
+- age   2:        464 bytes,     876304 total
+ 108328K->3551K(249088K), 0.0022805 secs]
+52.029: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     669696 bytes,     669696 total
+- age   2:        632 bytes,     670328 total
+ 108491K->3350K(249088K), 0.0022972 secs]
+52.351: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     207576 bytes,     207576 total
+- age   2:        896 bytes,     208472 total
+ 108310K->2899K(249088K), 0.0014094 secs]
+52.688: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     667944 bytes,     667944 total
+- age   2:        392 bytes,     668336 total
+ 107859K->3348K(249088K), 0.0020746 secs]
+52.997: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     359752 bytes,     359752 total
+- age   2:        872 bytes,     360624 total
+ 108308K->3047K(249088K), 0.0016804 secs]
+53.294: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     581248 bytes,     581248 total
+- age   2:        896 bytes,     582144 total
+ 108007K->3263K(249088K), 0.0018896 secs]
+53.607: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     629160 bytes,     629160 total
+- age   2:        632 bytes,     629792 total
+ 108223K->3310K(249088K), 0.0020774 secs]
+53.919: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     751048 bytes,     751048 total
+- age   2:        968 bytes,     752016 total
+ 108270K->3429K(249088K), 0.0022467 secs]
+54.220: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     193872 bytes,     193872 total
+- age   2:        952 bytes,     194824 total
+ 108389K->2885K(249088K), 0.0013717 secs]
+54.549: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     490368 bytes,     490368 total
+- age   2:        464 bytes,     490832 total
+ 107838K->3174K(249088K), 0.0017865 secs]
+54.875: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     539760 bytes,     539760 total
+- age   2:        392 bytes,     540152 total
+ 108134K->3223K(249088K), 0.0018815 secs]
+55.216: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     421040 bytes,     421040 total
+- age   2:        392 bytes,     421432 total
+ 108183K->3107K(249088K), 0.0020444 secs]
+55.544: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1467432 bytes,    1467432 total
+- age   2:        656 bytes,    1468088 total
+ 108061K->4129K(249088K), 0.0031599 secs]
+55.997: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     606568 bytes,     606568 total
+- age   2:        872 bytes,     607440 total
+ 109089K->3288K(249088K), 0.0020838 secs]
+56.322: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     448176 bytes,     448176 total
+- age   2:        896 bytes,     449072 total
+ 108248K->3134K(249088K), 0.0017564 secs]
+56.638: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     598472 bytes,     598472 total
+- age   2:       1040 bytes,     599512 total
+ 108094K->3280K(249088K), 0.0019986 secs]
+56.950: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     617256 bytes,     617256 total
+- age   2:        632 bytes,     617888 total
+ 108240K->3298K(249088K), 0.0020693 secs]
+57.263: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     551424 bytes,     551424 total
+- age   2:        968 bytes,     552392 total
+ 108258K->3234K(249088K), 0.0019489 secs]
+57.561: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     536880 bytes,     536880 total
+- age   2:        656 bytes,     537536 total
+ 108194K->3220K(249088K), 0.0019631 secs]
+57.919: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     534976 bytes,     534976 total
+- age   2:        632 bytes,     535608 total
+ 108180K->3218K(249088K), 0.0018589 secs]
+58.232: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     855072 bytes,     855072 total
+- age   2:        632 bytes,     855704 total
+ 108178K->3531K(249088K), 0.0023031 secs]
+58.528: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     483224 bytes,     483224 total
+- age   2:        632 bytes,     483856 total
+ 108491K->3168K(249088K), 0.0018469 secs]
+58.820: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     752472 bytes,     752472 total
+- age   2:        896 bytes,     753368 total
+ 108128K->3431K(249088K), 0.0022589 secs]
+59.126: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     331472 bytes,     331472 total
+- age   2:        872 bytes,     332344 total
+ 108391K->3020K(249088K), 0.0016698 secs]
+59.466: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     609296 bytes,     609296 total
+- age   2:        872 bytes,     610168 total
+ 107980K->3291K(249088K), 0.0019891 secs]
+59.763: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     705216 bytes,     705216 total
+- age   2:        704 bytes,     705920 total
+ 108251K->3384K(249088K), 0.0021774 secs]
+60.060: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     892024 bytes,     892024 total
+- age   2:        392 bytes,     892416 total
+ 108344K->3567K(249088K), 0.0024674 secs]
+60.372: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     753808 bytes,     753808 total
+- age   2:        896 bytes,     754704 total
+ 108527K->3432K(249088K), 0.0023296 secs]
+60.685: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     814456 bytes,     814456 total
+- age   2:        896 bytes,     815352 total
+ 108392K->3491K(249088K), 0.0023902 secs]
+60.997: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     283640 bytes,     283640 total
+- age   2:        728 bytes,     284368 total
+ 108451K->2973K(249088K), 0.0015619 secs]
+61.310: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     203888 bytes,     203888 total
+- age   2:        392 bytes,     204280 total
+ 107933K->2895K(249088K), 0.0014552 secs]
+61.620: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     530768 bytes,     530768 total
+- age   2:        656 bytes,     531424 total
+ 107855K->3214K(249088K), 0.0020145 secs]
+61.919: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     172224 bytes,     172224 total
+- age   2:        728 bytes,     172952 total
+ 108174K->2864K(249088K), 0.0014144 secs]
+62.231: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1419496 bytes,    1419496 total
+- age   2:        392 bytes,    1419888 total
+ 107824K->4082K(249088K), 0.0029451 secs]
+62.532: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     476816 bytes,     476816 total
+- age   2:       1208 bytes,     478024 total
+ 109042K->3162K(249088K), 0.0018173 secs]
+63.148: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     742336 bytes,     742336 total
+- age   2:       1024 bytes,     743360 total
+ 108113K->3421K(249088K), 0.0023388 secs]
+63.466: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     220192 bytes,     220192 total
+- age   2:       1080 bytes,     221272 total
+ 108381K->2911K(249088K), 0.0014851 secs]
+63.778: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     731264 bytes,     731264 total
+- age   2:       2216 bytes,     733480 total
+ 107871K->3412K(249088K), 0.0021961 secs]
+64.098: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     850248 bytes,     850248 total
+- age   2:       1880 bytes,     852128 total
+ 108372K->3528K(249088K), 0.0022735 secs]
+64.419: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1326808 bytes,    1326808 total
+- age   2:        872 bytes,    1327680 total
+ 108488K->3992K(249088K), 0.0029096 secs]
+64.731: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     796960 bytes,     796960 total
+- age   2:        944 bytes,     797904 total
+ 108952K->3475K(249088K), 0.0023349 secs]
+65.037: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     648048 bytes,     648048 total
+- age   2:        896 bytes,     648944 total
+ 108435K->3330K(249088K), 0.0020382 secs]
+65.333: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1050544 bytes,    1050544 total
+- age   2:        392 bytes,    1050936 total
+ 108290K->3722K(249088K), 0.0027037 secs]
+65.638: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     610480 bytes,     610480 total
+- age   2:        704 bytes,     611184 total
+ 108682K->3293K(249088K), 0.0019159 secs]
+65.936: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     919808 bytes,     919808 total
+- age   2:        632 bytes,     920440 total
+ 108253K->3595K(249088K), 0.0024665 secs]
+66.231: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     454480 bytes,     454480 total
+- age   2:        704 bytes,     455184 total
+ 108555K->3140K(249088K), 0.0018413 secs]
+66.559: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     267848 bytes,     267848 total
+- age   2:        656 bytes,     268504 total
+ 108100K->2958K(249088K), 0.0015636 secs]
+66.864: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     973208 bytes,     973208 total
+- age   2:        656 bytes,     973864 total
+ 107906K->3647K(249088K), 0.0026869 secs]
+67.169: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     340440 bytes,     340440 total
+- age   2:        704 bytes,     341144 total
+ 108603K->3029K(249088K), 0.0015966 secs]
+67.477: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     819832 bytes,     819832 total
+- age   2:        656 bytes,     820488 total
+ 107989K->3497K(249088K), 0.0022914 secs]
+67.778: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     486944 bytes,     486944 total
+- age   2:        632 bytes,     487576 total
+ 108447K->3172K(249088K), 0.0018226 secs]
+68.075: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     740816 bytes,     740816 total
+- age   2:        392 bytes,     741208 total
+ 108129K->3420K(249088K), 0.0021751 secs]
+68.403: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     604096 bytes,     604096 total
+- age   2:        704 bytes,     604800 total
+ 108380K->3287K(249088K), 0.0019494 secs]
+68.723: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     617104 bytes,     617104 total
+- age   2:        896 bytes,     618000 total
+ 108242K->3300K(249088K), 0.0020274 secs]
+69.044: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     563848 bytes,     563848 total
+- age   2:        704 bytes,     564552 total
+ 108260K->3247K(249088K), 0.0019399 secs]
+69.356: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     464936 bytes,     464936 total
+- age   2:        632 bytes,     465568 total
+ 108207K->3151K(249088K), 0.0017547 secs]
+69.669: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     502368 bytes,     502368 total
+- age   2:        704 bytes,     503072 total
+ 108111K->3187K(249088K), 0.0018997 secs]
+69.981: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     574296 bytes,     574296 total
+- age   2:        392 bytes,     574688 total
+ 108147K->3257K(249088K), 0.0019782 secs]
+70.278: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     340672 bytes,     340672 total
+- age   2:        656 bytes,     341328 total
+ 108217K->3029K(249088K), 0.0016695 secs]
+70.579: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     593040 bytes,     593040 total
+- age   2:        728 bytes,     593768 total
+ 107989K->3276K(249088K), 0.0021137 secs]
+70.874: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     764608 bytes,     764608 total
+- age   2:        392 bytes,     765000 total
+ 108236K->3443K(249088K), 0.0021140 secs]
+71.184: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     655208 bytes,     655208 total
+- age   2:        704 bytes,     655912 total
+ 108403K->3337K(249088K), 0.0021542 secs]
+71.512: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     298944 bytes,     298944 total
+- age   2:        896 bytes,     299840 total
+ 108297K->2989K(249088K), 0.0015829 secs]
+71.817: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     675392 bytes,     675392 total
+- age   2:        656 bytes,     676048 total
+ 107947K->3356K(249088K), 0.0020095 secs]
+72.110: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     741848 bytes,     741848 total
+- age   2:        392 bytes,     742240 total
+ 108315K->3421K(249088K), 0.0021947 secs]
+72.408: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     914320 bytes,     914320 total
+- age   2:        392 bytes,     914712 total
+ 108375K->3589K(249088K), 0.0024106 secs]
+72.715: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     458152 bytes,     458152 total
+- age   2:        952 bytes,     459104 total
+ 108549K->3145K(249088K), 0.0018785 secs]
+73.028: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     469104 bytes,     469104 total
+- age   2:        704 bytes,     469808 total
+ 108105K->3155K(249088K), 0.0018765 secs]
+73.356: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     694136 bytes,     694136 total
+- age   2:        656 bytes,     694792 total
+ 108101K->3375K(249088K), 0.0020151 secs]
+73.668: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     241032 bytes,     241032 total
+- age   2:        872 bytes,     241904 total
+ 108335K->2932K(249088K), 0.0015292 secs]
+73.996: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     867240 bytes,     867240 total
+- age   2:        976 bytes,     868216 total
+ 107892K->3544K(249088K), 0.0024481 secs]
+74.309: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     727432 bytes,     727432 total
+- age   2:       1232 bytes,     728664 total
+ 108504K->3408K(249088K), 0.0021871 secs]
+74.621: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     307128 bytes,     307128 total
+- age   2:        872 bytes,     308000 total
+ 108368K->2997K(249088K), 0.0015429 secs]
+74.937: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     572864 bytes,     572864 total
+- age   2:       1352 bytes,     574216 total
+ 107957K->3257K(249088K), 0.0019449 secs]
+75.246: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1279600 bytes,    1279600 total
+- age   2:        392 bytes,    1279992 total
+ 108217K->3946K(249088K), 0.0029057 secs]
+75.559: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     809888 bytes,     809888 total
+- age   2:        632 bytes,     810520 total
+ 108906K->3488K(249088K), 0.0023319 secs]
+75.856: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     474160 bytes,     474160 total
+- age   2:        656 bytes,     474816 total
+ 108448K->3160K(249088K), 0.0018525 secs]
+76.184: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     803416 bytes,     803416 total
+- age   2:        656 bytes,     804072 total
+ 108120K->3481K(249088K), 0.0023109 secs]
+76.512: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     413824 bytes,     413824 total
+- age   2:        896 bytes,     414720 total
+ 108436K->3101K(249088K), 0.0017703 secs]
+76.825: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     722280 bytes,     722280 total
+- age   2:        464 bytes,     722744 total
+ 108061K->3402K(249088K), 0.0023397 secs]
+77.122: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     609864 bytes,     609864 total
+- age   2:        976 bytes,     610840 total
+ 108362K->3293K(249088K), 0.0022469 secs]
+77.434: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     742616 bytes,     742616 total
+- age   2:        896 bytes,     743512 total
+ 108253K->3422K(249088K), 0.0024051 secs]
+77.746: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     966440 bytes,     966440 total
+- age   2:        896 bytes,     967336 total
+ 108382K->3641K(249088K), 0.0025176 secs]
+78.082: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     712992 bytes,     712992 total
+- age   2:        944 bytes,     713936 total
+ 108601K->3393K(249088K), 0.0020827 secs]
+78.429: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     490600 bytes,     490600 total
+- age   2:        632 bytes,     491232 total
+ 108353K->3176K(249088K), 0.0017927 secs]
+78.728: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     690464 bytes,     690464 total
+- age   2:        464 bytes,     690928 total
+ 108123K->3371K(249088K), 0.0021221 secs]
+79.027: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     442000 bytes,     442000 total
+- age   2:        632 bytes,     442632 total
+ 108331K->3129K(249088K), 0.0019505 secs]
+79.340: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     382552 bytes,     382552 total
+- age   2:        896 bytes,     383448 total
+ 108089K->3071K(249088K), 0.0018310 secs]
+79.652: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     760648 bytes,     760648 total
+- age   2:        728 bytes,     761376 total
+ 108019K->3440K(249088K), 0.0023450 secs]
+79.951: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     433592 bytes,     433592 total
+- age   2:        632 bytes,     434224 total
+ 108400K->3120K(249088K), 0.0017642 secs]
+80.246: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     475496 bytes,     475496 total
+- age   2:        392 bytes,     475888 total
+ 108080K->3161K(249088K), 0.0019212 secs]
+80.575: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     621560 bytes,     621560 total
+- age   2:        656 bytes,     622216 total
+ 108121K->3304K(249088K), 0.0020413 secs]
+80.887: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     554104 bytes,     554104 total
+- age   2:        968 bytes,     555072 total
+ 108264K->3238K(249088K), 0.0019053 secs]
+81.184: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     807344 bytes,     807344 total
+- age   2:        920 bytes,     808264 total
+ 108198K->3486K(249088K), 0.0023380 secs]
+81.496: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     948272 bytes,     948272 total
+- age   2:        896 bytes,     949168 total
+ 108429K->3623K(249088K), 0.0025615 secs]
+81.824: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     227176 bytes,     227176 total
+- age   2:        704 bytes,     227880 total
+ 108583K->2919K(249088K), 0.0015407 secs]
+82.137: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     730672 bytes,     730672 total
+- age   2:        392 bytes,     731064 total
+ 107879K->3410K(249088K), 0.0022617 secs]
+82.449: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     971400 bytes,     971400 total
+- age   2:        920 bytes,     972320 total
+ 108370K->3646K(249088K), 0.0024260 secs]
+82.746: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     475096 bytes,     475096 total
+- age   2:        872 bytes,     475968 total
+ 108606K->3161K(249088K), 0.0019008 secs]
+83.059: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     781880 bytes,     781880 total
+- age   2:        656 bytes,     782536 total
+ 108121K->3461K(249088K), 0.0023794 secs]
+83.403: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     236648 bytes,     236648 total
+- age   2:        968 bytes,     237616 total
+ 108421K->2928K(249088K), 0.0016770 secs]
+83.733: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     947544 bytes,     947544 total
+- age   2:        920 bytes,     948464 total
+ 107888K->3623K(249088K), 0.0024305 secs]
+84.043: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1069256 bytes,    1069256 total
+- age   2:        632 bytes,    1069888 total
+ 108583K->3741K(249088K), 0.0025785 secs]
+84.340: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     771608 bytes,     771608 total
+- age   2:        632 bytes,     772240 total
+ 108694K->3451K(249088K), 0.0021268 secs]
+84.636: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     599072 bytes,     599072 total
+- age   2:        464 bytes,     599536 total
+ 108411K->3282K(249088K), 0.0020693 secs]
+84.965: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     552280 bytes,     552280 total
+- age   2:        632 bytes,     552912 total
+ 108242K->3237K(249088K), 0.0020025 secs]
+85.277: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     621888 bytes,     621888 total
+- age   2:       1304 bytes,     623192 total
+ 108197K->3305K(249088K), 0.0020899 secs]
+85.585: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     999056 bytes,     999056 total
+- age   2:        968 bytes,    1000024 total
+ 108265K->3673K(249088K), 0.0024961 secs]
+85.902: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     844816 bytes,     844816 total
+- age   2:        632 bytes,     845448 total
+ 108633K->3522K(249088K), 0.0023821 secs]
+86.231: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     451480 bytes,     451480 total
+- age   2:        896 bytes,     452376 total
+ 108482K->3138K(249088K), 0.0018860 secs]
+86.540: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     771544 bytes,     771544 total
+- age   2:        896 bytes,     772440 total
+ 108098K->3451K(249088K), 0.0022548 secs]
+86.840: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     945496 bytes,     945496 total
+- age   2:        704 bytes,     946200 total
+ 108411K->3621K(249088K), 0.0024707 secs]
+87.168: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     785248 bytes,     785248 total
+- age   2:       1136 bytes,     786384 total
+ 108581K->3465K(249088K), 0.0022034 secs]
+87.480: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     542096 bytes,     542096 total
+- age   2:        632 bytes,     542728 total
+ 108425K->3227K(249088K), 0.0018857 secs]
+87.777: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     220320 bytes,     220320 total
+- age   2:        392 bytes,     220712 total
+ 108187K->2912K(249088K), 0.0014519 secs]
+88.090: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     606608 bytes,     606608 total
+- age   2:        464 bytes,     607072 total
+ 107872K->3290K(249088K), 0.0019835 secs]
+88.405: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     823456 bytes,     823456 total
+- age   2:        896 bytes,     824352 total
+ 108250K->3502K(249088K), 0.0023335 secs]
+88.715: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     484696 bytes,     484696 total
+- age   2:        896 bytes,     485592 total
+ 108462K->3171K(249088K), 0.0018765 secs]
+89.035: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     604488 bytes,     604488 total
+- age   2:        896 bytes,     605384 total
+ 108131K->3288K(249088K), 0.0019678 secs]
+89.329: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     571512 bytes,     571512 total
+- age   2:        464 bytes,     571976 total
+ 108248K->3255K(249088K), 0.0019841 secs]
+89.631: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     742464 bytes,     742464 total
+- age   2:        632 bytes,     743096 total
+ 108215K->3422K(249088K), 0.0022327 secs]
+89.934: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1120344 bytes,    1120344 total
+- age   2:        872 bytes,    1121216 total
+ 108382K->3792K(249088K), 0.0029339 secs]
+90.261: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     430480 bytes,     430480 total
+- age   2:        968 bytes,     431448 total
+ 108752K->3118K(249088K), 0.0018273 secs]
+90.590: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     426544 bytes,     426544 total
+- age   2:        656 bytes,     427200 total
+ 108061K->3114K(249088K), 0.0017349 secs]
+90.896: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     408072 bytes,     408072 total
+- age   2:        392 bytes,     408464 total
+ 108074K->3096K(249088K), 0.0016279 secs]
+91.199: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     918552 bytes,     918552 total
+- age   2:        392 bytes,     918944 total
+ 108054K->3594K(249088K), 0.0024791 secs]
+91.511: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     623328 bytes,     623328 total
+- age   2:        968 bytes,     624296 total
+ 108554K->3306K(249088K), 0.0021813 secs]
+91.819: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     252832 bytes,     252832 total
+- age   2:        976 bytes,     253808 total
+ 108266K->2945K(249088K), 0.0014608 secs]
+92.121: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     559264 bytes,     559264 total
+- age   2:        392 bytes,     559656 total
+ 107897K->3243K(249088K), 0.0020631 secs]
+92.449: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     674960 bytes,     674960 total
+- age   2:       1280 bytes,     676240 total
+ 108199K->3357K(249088K), 0.0020782 secs]
+92.746: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     949864 bytes,     949864 total
+- age   2:        632 bytes,     950496 total
+ 108317K->3625K(249088K), 0.0024330 secs]
+93.058: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1098056 bytes,    1098056 total
+- age   2:       1080 bytes,    1099136 total
+ 108585K->3770K(249088K), 0.0027682 secs]
+93.371: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     485704 bytes,     485704 total
+- age   2:        968 bytes,     486672 total
+ 108714K->3172K(249088K), 0.0018857 secs]
+93.699: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     207584 bytes,     207584 total
+- age   2:        896 bytes,     208480 total
+ 108132K->2901K(249088K), 0.0014502 secs]
+94.011: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     878232 bytes,     878232 total
+- age   2:        656 bytes,     878888 total
+ 107861K->3556K(249088K), 0.0023933 secs]
+94.340: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     394680 bytes,     394680 total
+- age   2:        392 bytes,     395072 total
+ 108516K->3083K(249088K), 0.0016930 secs]
+94.642: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     294456 bytes,     294456 total
+- age   2:        728 bytes,     295184 total
+ 108035K->2985K(249088K), 0.0015351 secs]
+94.980: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     344176 bytes,     344176 total
+- age   2:        392 bytes,     344568 total
+ 107936K->3034K(249088K), 0.0016343 secs]
+95.292: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     415936 bytes,     415936 total
+- age   2:        632 bytes,     416568 total
+ 107994K->3104K(249088K), 0.0019681 secs]
+95.605: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     718856 bytes,     718856 total
+- age   2:        656 bytes,     719512 total
+ 108064K->3400K(249088K), 0.0022296 secs]
+95.933: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     464232 bytes,     464232 total
+- age   2:        728 bytes,     464960 total
+ 108360K->3151K(249088K), 0.0018776 secs]
+96.242: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     584280 bytes,     584280 total
+- age   2:        896 bytes,     585176 total
+ 108111K->3269K(249088K), 0.0020262 secs]
+96.558: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     946832 bytes,     946832 total
+- age   2:        632 bytes,     947464 total
+ 108229K->3623K(249088K), 0.0023036 secs]
+96.896: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     562280 bytes,     562280 total
+- age   2:        632 bytes,     562912 total
+ 108581K->3247K(249088K), 0.0019318 secs]
+97.191: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     597752 bytes,     597752 total
+- age   2:        632 bytes,     598384 total
+ 108207K->3282K(249088K), 0.0019676 secs]
+97.511: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     926008 bytes,     926008 total
+- age   2:        632 bytes,     926640 total
+ 108242K->3602K(249088K), 0.0027124 secs]
+97.839: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     626896 bytes,     626896 total
+- age   2:        896 bytes,     627792 total
+ 108562K->3310K(249088K), 0.0020888 secs]
+98.142: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     473800 bytes,     473800 total
+- age   2:        968 bytes,     474768 total
+ 108266K->3161K(249088K), 0.0017156 secs]
+98.449: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     590968 bytes,     590968 total
+- age   2:        632 bytes,     591600 total
+ 108121K->3275K(249088K), 0.0018812 secs]
+98.763: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     949808 bytes,     949808 total
+- age   2:        632 bytes,     950440 total
+ 108235K->3626K(249088K), 0.0027467 secs]
+99.145: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     628968 bytes,     628968 total
+- age   2:        896 bytes,     629864 total
+ 108573K->3313K(249088K), 0.0021788 secs]
+99.496: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     563200 bytes,     563200 total
+- age   2:        632 bytes,     563832 total
+ 108270K->3248K(249088K), 0.0019972 secs]
+99.799: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     990728 bytes,     990728 total
+- age   2:        656 bytes,     991384 total
+ 108208K->3666K(249088K), 0.0027897 secs]
+100.129: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     682056 bytes,     682056 total
+- age   2:        872 bytes,     682928 total
+ 108626K->3364K(249088K), 0.0021751 secs]
+100.460: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     907168 bytes,     907168 total
+- age   2:        712 bytes,     907880 total
+ 108324K->3584K(249088K), 0.0024788 secs]
+100.814: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     740632 bytes,     740632 total
+- age   2:        704 bytes,     741336 total
+ 108544K->3421K(249088K), 0.0024833 secs]
+101.277: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1584216 bytes,    1584216 total
+- age   2:        392 bytes,    1584608 total
+ 108376K->4245K(249088K), 0.0034049 secs]
+101.607: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1401064 bytes,    1401064 total
+- age   2:       1448 bytes,    1402512 total
+ 109205K->4067K(249088K), 0.0031105 secs]
+101.964: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     772448 bytes,     772448 total
+- age   2:        872 bytes,     773320 total
+ 109027K->3453K(249088K), 0.0022860 secs]
+102.277: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     674792 bytes,     674792 total
+- age   2:        656 bytes,     675448 total
+ 108410K->3357K(249088K), 0.0022017 secs]
+102.604: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     935504 bytes,     935504 total
+- age   2:        896 bytes,     936400 total
+ 108317K->3612K(249088K), 0.0025126 secs]
+103.058: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    2320008 bytes,    2320008 total
+- age   2:        392 bytes,    2320400 total
+ 108571K->4964K(249088K), 0.0041461 secs]
+103.402: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1663168 bytes,    1663168 total
+- age   2:       2312 bytes,    1665480 total
+ 109921K->4324K(249088K), 0.0034627 secs]
+103.745: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     573824 bytes,     573824 total
+- age   2:       1640 bytes,     575464 total
+ 109284K->3260K(249088K), 0.0020818 secs]
+104.089: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     866864 bytes,     866864 total
+- age   2:        712 bytes,     867576 total
+ 108205K->3545K(249088K), 0.0022793 secs]
+104.479: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     553640 bytes,     553640 total
+- age   2:        704 bytes,     554344 total
+ 108505K->3239K(249088K), 0.0023366 secs]
+104.865: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     666216 bytes,     666216 total
+- age   2:       1360 bytes,     667576 total
+ 108198K->3350K(249088K), 0.0021919 secs]
+105.329: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     429224 bytes,     429224 total
+- age   2:        632 bytes,     429856 total
+ 108310K->3117K(249088K), 0.0018575 secs]
+105.699: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     514128 bytes,     514128 total
+- age   2:        632 bytes,     514760 total
+ 108077K->3200K(249088K), 0.0020681 secs]
+106.261: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     661184 bytes,     661184 total
+- age   2:        392 bytes,     661576 total
+ 108160K->3344K(249088K), 0.0021508 secs]
+106.651: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     821688 bytes,     821688 total
+- age   2:        392 bytes,     822080 total
+ 108300K->3500K(249088K), 0.0023137 secs]
+106.947: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     819600 bytes,     819600 total
+- age   2:        632 bytes,     820232 total
+ 108460K->3499K(249088K), 0.0024704 secs]
+107.245: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     327656 bytes,     327656 total
+- age   2:        704 bytes,     328360 total
+ 108459K->3018K(249088K), 0.0016228 secs]
+107.558: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     222544 bytes,     222544 total
+- age   2:        896 bytes,     223440 total
+ 107978K->2916K(249088K), 0.0015189 secs]
+107.870: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     426272 bytes,     426272 total
+- age   2:        728 bytes,     427000 total
+ 107876K->3115K(249088K), 0.0018019 secs]
+108.183: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     852000 bytes,     852000 total
+- age   2:        656 bytes,     852656 total
+ 108075K->3530K(249088K), 0.0023492 secs]
+108.495: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     274808 bytes,     274808 total
+- age   2:        968 bytes,     275776 total
+ 108490K->2967K(249088K), 0.0015334 secs]
+108.764: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    2424656 bytes,    2424656 total
+- age   2:        392 bytes,    2425048 total
+ 107927K->5066K(249088K), 0.0043665 secs]
+109.136: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     314624 bytes,     314624 total
+- age   2:       1832 bytes,     316456 total
+ 110010K->3007K(249088K), 0.0015287 secs]
+109.449: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     381168 bytes,     381168 total
+- age   2:        392 bytes,     381560 total
+ 107967K->3070K(249088K), 0.0018304 secs]
+109.730: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     863536 bytes,     863536 total
+- age   2:        392 bytes,     863928 total
+ 108030K->3541K(249088K), 0.0024498 secs]
+110.023: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1447800 bytes,    1447800 total
+- age   2:        632 bytes,    1448432 total
+ 108501K->4112K(249088K), 0.0032786 secs]
+110.323: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     755456 bytes,     755456 total
+- age   2:        944 bytes,     756400 total
+ 109072K->3436K(249088K), 0.0025632 secs]
+110.636: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     603224 bytes,     603224 total
+- age   2:        896 bytes,     604120 total
+ 108396K->3288K(249088K), 0.0019740 secs]
+110.945: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     797600 bytes,     797600 total
+- age   2:        968 bytes,     798568 total
+ 108240K->3478K(249088K), 0.0022860 secs]
+111.261: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     496640 bytes,     496640 total
+- age   2:        872 bytes,     497512 total
+ 108438K->3184K(249088K), 0.0019399 secs]
+111.604: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     873736 bytes,     873736 total
+- age   2:        656 bytes,     874392 total
+ 108143K->3552K(249088K), 0.0023123 secs]
+111.910: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1373008 bytes,    1373008 total
+- age   2:        872 bytes,    1373880 total
+ 108512K->4039K(249088K), 0.0030297 secs]
+112.214: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     425552 bytes,     425552 total
+- age   2:       1328 bytes,     426880 total
+ 108999K->3115K(249088K), 0.0018452 secs]
+112.542: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     827664 bytes,     827664 total
+- age   2:        656 bytes,     828320 total
+ 108075K->3507K(249088K), 0.0022629 secs]
+112.839: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1304544 bytes,    1304544 total
+- age   2:        632 bytes,    1305176 total
+ 108460K->3973K(249088K), 0.0028216 secs]
+113.136: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1698640 bytes,    1698640 total
+- age   2:       1352 bytes,    1699992 total
+ 108933K->4358K(249088K), 0.0035010 secs]
+113.446: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     699072 bytes,     699072 total
+- age   2:       1880 bytes,     700952 total
+ 109318K->3383K(249088K), 0.0022911 secs]
+113.745: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     539344 bytes,     539344 total
+- age   2:        632 bytes,     539976 total
+ 108343K->3226K(249088K), 0.0019885 secs]
+114.058: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     443552 bytes,     443552 total
+- age   2:        656 bytes,     444208 total
+ 108186K->3132K(249088K), 0.0017133 secs]
+114.354: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     561336 bytes,     561336 total
+- age   2:        632 bytes,     561968 total
+ 108092K->3247K(249088K), 0.0020455 secs]
+114.666: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     312928 bytes,     312928 total
+- age   2:        968 bytes,     313896 total
+ 108207K->3005K(249088K), 0.0017963 secs]
+114.979: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     551360 bytes,     551360 total
+- age   2:        632 bytes,     551992 total
+ 107965K->3238K(249088K), 0.0020436 secs]
+115.276: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     808480 bytes,     808480 total
+- age   2:        976 bytes,     809456 total
+ 108198K->3489K(249088K), 0.0022690 secs]
+115.602: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     570744 bytes,     570744 total
+- age   2:        968 bytes,     571712 total
+ 108449K->3257K(249088K), 0.0019371 secs]
+115.899: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     684976 bytes,     684976 total
+- age   2:        632 bytes,     685608 total
+ 108209K->3368K(249088K), 0.0020410 secs]
+116.198: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     516528 bytes,     516528 total
+- age   2:        632 bytes,     517160 total
+ 108315K->3204K(249088K), 0.0018125 secs]
+116.512: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     213824 bytes,     213824 total
+- age   2:       1352 bytes,     215176 total
+ 108164K->2909K(249088K), 0.0014971 secs]
+116.807: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     692328 bytes,     692328 total
+- age   2:        712 bytes,     693040 total
+ 107869K->3376K(249088K), 0.0021478 secs]
+117.104: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     523464 bytes,     523464 total
+- age   2:        896 bytes,     524360 total
+ 108321K->3211K(249088K), 0.0020648 secs]
+117.417: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1052888 bytes,    1052888 total
+- age   2:        728 bytes,    1053616 total
+ 108171K->3728K(249088K), 0.0026665 secs]
+117.729: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     525976 bytes,     525976 total
+- age   2:        896 bytes,     526872 total
+ 108683K->3213K(249088K), 0.0020282 secs]
+118.049: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     530816 bytes,     530816 total
+- age   2:        728 bytes,     531544 total
+ 108173K->3218K(249088K), 0.0019028 secs]
+118.385: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     472688 bytes,     472688 total
+- age   2:        392 bytes,     473080 total
+ 108157K->3161K(249088K), 0.0019299 secs]
+118.698: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     627176 bytes,     627176 total
+- age   2:        632 bytes,     627808 total
+ 108121K->3312K(249088K), 0.0021316 secs]
+119.042: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     746696 bytes,     746696 total
+- age   2:        896 bytes,     747592 total
+ 108261K->3429K(249088K), 0.0026104 secs]
+119.354: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     847568 bytes,     847568 total
+- age   2:        656 bytes,     848224 total
+ 108358K->3527K(249088K), 0.0025811 secs]
+119.666: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     516032 bytes,     516032 total
+- age   2:        896 bytes,     516928 total
+ 108485K->3204K(249088K), 0.0020748 secs]
+119.981: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     437056 bytes,     437056 total
+- age   2:        920 bytes,     437976 total
+ 108164K->3126K(249088K), 0.0020519 secs]
+120.307: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     920040 bytes,     920040 total
+- age   2:        784 bytes,     920824 total
+ 108080K->3598K(249088K), 0.0026425 secs]
+120.604: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1060136 bytes,    1060136 total
+- age   2:        896 bytes,    1061032 total
+ 108535K->3735K(249088K), 0.0027925 secs]
+120.932: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     618808 bytes,     618808 total
+- age   2:        944 bytes,     619752 total
+ 108695K->3304K(249088K), 0.0021578 secs]
+121.276: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     237720 bytes,     237720 total
+- age   2:        896 bytes,     238616 total
+ 108264K->2932K(249088K), 0.0016899 secs]
+121.588: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1336904 bytes,    1336904 total
+- age   2:        656 bytes,    1337560 total
+ 107892K->4005K(249088K), 0.0033602 secs]
+121.908: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     888472 bytes,     888472 total
+- age   2:        656 bytes,     889128 total
+ 108965K->3567K(249088K), 0.0025830 secs]
+122.212: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     536808 bytes,     536808 total
+- age   2:        632 bytes,     537440 total
+ 108527K->3224K(249088K), 0.0021547 secs]
+122.526: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1051048 bytes,    1051048 total
+- age   2:        392 bytes,    1051440 total
+ 108184K->3726K(249088K), 0.0028747 secs]
+123.090: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     873456 bytes,     873456 total
+- age   2:        704 bytes,     874160 total
+ 108686K->3552K(249088K), 0.0026028 secs]
+123.448: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1145496 bytes,    1145496 total
+- age   2:       1080 bytes,    1146576 total
+ 108512K->3818K(249088K), 0.0031529 secs]
+123.807: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     704008 bytes,     704008 total
+- age   2:        704 bytes,     704712 total
+ 108774K->3387K(249088K), 0.0023179 secs]
+124.135: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     209664 bytes,     209664 total
+- age   2:        896 bytes,     210560 total
+ 108347K->2905K(249088K), 0.0015485 secs]
+124.448: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     474312 bytes,     474312 total
+- age   2:        656 bytes,     474968 total
+ 107865K->3163K(249088K), 0.0020254 secs]
+124.744: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     737640 bytes,     737640 total
+- age   2:        968 bytes,     738608 total
+ 108109K->3421K(249088K), 0.0023634 secs]
+125.052: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     587464 bytes,     587464 total
+- age   2:        632 bytes,     588096 total
+ 108370K->3274K(249088K), 0.0020821 secs]
+125.354: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     571736 bytes,     571736 total
+- age   2:        464 bytes,     572200 total
+ 108224K->3258K(249088K), 0.0019583 secs]
+125.666: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     344128 bytes,     344128 total
+- age   2:        896 bytes,     345024 total
+ 108218K->3036K(249088K), 0.0016974 secs]
+125.966: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     652104 bytes,     652104 total
+- age   2:        656 bytes,     652760 total
+ 107996K->3337K(249088K), 0.0020327 secs]
+126.276: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1443112 bytes,    1443112 total
+- age   2:       1304 bytes,    1444416 total
+ 108297K->4110K(249088K), 0.0032144 secs]
+126.604: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     692936 bytes,     692936 total
+- age   2:        872 bytes,     693808 total
+ 109059K->3377K(249088K), 0.0020997 secs]
+126.932: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     806768 bytes,     806768 total
+- age   2:        632 bytes,     807400 total
+ 108337K->3488K(249088K), 0.0024640 secs]
+127.235: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     362048 bytes,     362048 total
+- age   2:        896 bytes,     362944 total
+ 108448K->3054K(249088K), 0.0015907 secs]
+127.541: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     654136 bytes,     654136 total
+- age   2:        704 bytes,     654840 total
+ 108014K->3339K(249088K), 0.0020796 secs]
+127.859: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1012424 bytes,    1012424 total
+- age   2:        392 bytes,    1012816 total
+ 108299K->3688K(249088K), 0.0025277 secs]
+128.149: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     756856 bytes,     756856 total
+- age   2:        632 bytes,     757488 total
+ 108648K->3439K(249088K), 0.0022953 secs]
+128.463: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    2013840 bytes,    2013840 total
+- age   2:        704 bytes,    2014544 total
+ 108399K->4667K(249088K), 0.0037005 secs]
+128.760: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    2430936 bytes,    2430936 total
+- age   2:        872 bytes,    2431808 total
+ 109627K->5074K(249088K), 0.0047587 secs]
+129.088: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    2506728 bytes,    2506728 total
+- age   2:       1352 bytes,    2508080 total
+ 110034K->5149K(249088K), 0.0045685 secs]
+129.432: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     928344 bytes,     928344 total
+- age   2:       1856 bytes,     930200 total
+ 110109K->3608K(249088K), 0.0025422 secs]
+129.724: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     715808 bytes,     715808 total
+- age   2:        704 bytes,     716512 total
+ 108568K->3399K(249088K), 0.0022039 secs]
+130.025: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     575264 bytes,     575264 total
+- age   2:        632 bytes,     575896 total
+ 108350K->3262K(249088K), 0.0020385 secs]
+130.322: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     411272 bytes,     411272 total
+- age   2:        632 bytes,     411904 total
+ 108218K->3102K(249088K), 0.0018231 secs]
+130.666: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1016944 bytes,    1016944 total
+- age   2:        392 bytes,    1017336 total
+ 108062K->3693K(249088K), 0.0024514 secs]
+130.978: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     561776 bytes,     561776 total
+- age   2:        944 bytes,     562720 total
+ 108647K->3249K(249088K), 0.0019564 secs]
+131.264: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     521864 bytes,     521864 total
+- age   2:        392 bytes,     522256 total
+ 108209K->3210K(249088K), 0.0018765 secs]
+131.594: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     647800 bytes,     647800 total
+- age   2:        872 bytes,     648672 total
+ 108170K->3333K(249088K), 0.0019550 secs]
+131.889: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     959152 bytes,     959152 total
+- age   2:        944 bytes,     960096 total
+ 108293K->3637K(249088K), 0.0024347 secs]
+132.213: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     645656 bytes,     645656 total
+- age   2:        632 bytes,     646288 total
+ 108597K->3331K(249088K), 0.0020584 secs]
+132.525: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     426072 bytes,     426072 total
+- age   2:        896 bytes,     426968 total
+ 108280K->3117K(249088K), 0.0017592 secs]
+132.822: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     905704 bytes,     905704 total
+- age   2:        656 bytes,     906360 total
+ 108077K->3585K(249088K), 0.0026668 secs]
+133.119: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     717992 bytes,     717992 total
+- age   2:        656 bytes,     718648 total
+ 108545K->3401K(249088K), 0.0023905 secs]
+133.419: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1113064 bytes,    1113064 total
+- age   2:        896 bytes,    1113960 total
+ 108357K->3787K(249088K), 0.0027506 secs]
+133.728: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     511136 bytes,     511136 total
+- age   2:        872 bytes,     512008 total
+ 108747K->3200K(249088K), 0.0020153 secs]
+134.056: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     248832 bytes,     248832 total
+- age   2:       1640 bytes,     250472 total
+ 108160K->2944K(249088K), 0.0016119 secs]
+134.369: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     595752 bytes,     595752 total
+- age   2:        656 bytes,     596408 total
+ 107904K->3282K(249088K), 0.0020852 secs]
+134.666: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     908312 bytes,     908312 total
+- age   2:        896 bytes,     909208 total
+ 108242K->3587K(249088K), 0.0024570 secs]
+134.963: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     585528 bytes,     585528 total
+- age   2:        968 bytes,     586496 total
+ 108547K->3272K(249088K), 0.0020061 secs]
+135.260: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     963648 bytes,     963648 total
+- age   2:        392 bytes,     964040 total
+ 108232K->3641K(249088K), 0.0025880 secs]
+135.619: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     549048 bytes,     549048 total
+- age   2:        632 bytes,     549680 total
+ 108598K->3236K(249088K), 0.0019882 secs]
+135.931: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     480248 bytes,     480248 total
+- age   2:        728 bytes,     480976 total
+ 108196K->3169K(249088K), 0.0020078 secs]
+136.228: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1097248 bytes,    1097248 total
+- age   2:        656 bytes,    1097904 total
+ 108122K->3772K(249088K), 0.0026389 secs]
+136.541: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     687248 bytes,     687248 total
+- age   2:        632 bytes,     687880 total
+ 108732K->3371K(249088K), 0.0020969 secs]
+136.838: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     469560 bytes,     469560 total
+- age   2:        944 bytes,     470504 total
+ 108331K->3159K(249088K), 0.0018516 secs]
+137.166: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     975160 bytes,     975160 total
+- age   2:        896 bytes,     976056 total
+ 108095K->3653K(249088K), 0.0024836 secs]
+137.494: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     930008 bytes,     930008 total
+- age   2:        632 bytes,     930640 total
+ 108613K->3609K(249088K), 0.0024668 secs]
+137.790: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     679488 bytes,     679488 total
+- age   2:        632 bytes,     680120 total
+ 108569K->3364K(249088K), 0.0021975 secs]
+138.085: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1080064 bytes,    1080064 total
+- age   2:        464 bytes,    1080528 total
+ 108324K->3755K(249088K), 0.0026772 secs]
+138.400: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     763968 bytes,     763968 total
+- age   2:        632 bytes,     764600 total
+ 108715K->3446K(249088K), 0.0023159 secs]
+138.697: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     610888 bytes,     610888 total
+- age   2:        632 bytes,     611520 total
+ 108391K->3297K(249088K), 0.0021436 secs]
+139.009: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     368672 bytes,     368672 total
+- age   2:       1232 bytes,     369904 total
+ 108246K->3061K(249088K), 0.0016605 secs]
+139.313: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     602112 bytes,     602112 total
+- age   2:        656 bytes,     602768 total
+ 108021K->3288K(249088K), 0.0020181 secs]
+139.625: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1035488 bytes,    1035488 total
+- age   2:        632 bytes,    1036120 total
+ 108234K->3712K(249088K), 0.0026001 secs]
+139.931: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     741136 bytes,     741136 total
+- age   2:        944 bytes,     742080 total
+ 108672K->3424K(249088K), 0.0024137 secs]
+140.228: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     258808 bytes,     258808 total
+- age   2:        392 bytes,     259200 total
+ 108384K->2953K(249088K), 0.0015689 secs]
+140.547: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     908920 bytes,     908920 total
+- age   2:        656 bytes,     909576 total
+ 107913K->3588K(249088K), 0.0022704 secs]
+140.842: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     602888 bytes,     602888 total
+- age   2:        944 bytes,     603832 total
+ 108548K->3290K(249088K), 0.0018980 secs]
+141.143: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     676264 bytes,     676264 total
+- age   2:        632 bytes,     676896 total
+ 108250K->3361K(249088K), 0.0021452 secs]
+141.447: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     375832 bytes,     375832 total
+- age   2:        656 bytes,     376488 total
+ 108321K->3068K(249088K), 0.0018634 secs]
+141.745: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     493344 bytes,     493344 total
+- age   2:       1304 bytes,     494648 total
+ 107999K->3183K(249088K), 0.0017580 secs]
+142.056: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     514856 bytes,     514856 total
+- age   2:        632 bytes,     515488 total
+ 108136K->3203K(249088K), 0.0019212 secs]
+142.360: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     606440 bytes,     606440 total
+- age   2:        896 bytes,     607336 total
+ 108163K->3293K(249088K), 0.0019201 secs]
+142.670: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     732400 bytes,     732400 total
+- age   2:        704 bytes,     733104 total
+ 108253K->3416K(249088K), 0.0021536 secs]
+142.960: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1037664 bytes,    1037664 total
+- age   2:        392 bytes,    1038056 total
+ 108376K->3714K(249088K), 0.0027132 secs]
+143.259: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     778176 bytes,     778176 total
+- age   2:        872 bytes,     779048 total
+ 108674K->3461K(249088K), 0.0022260 secs]
+143.587: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1128696 bytes,    1128696 total
+- age   2:        968 bytes,    1129664 total
+ 108421K->3803K(249088K), 0.0028308 secs]
+143.947: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     470368 bytes,     470368 total
+- age   2:       1008 bytes,     471376 total
+ 108763K->3160K(249088K), 0.0018231 secs]
+144.259: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     545552 bytes,     545552 total
+- age   2:        896 bytes,     546448 total
+ 108120K->3234K(249088K), 0.0020042 secs]
+144.587: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     602672 bytes,     602672 total
+- age   2:        656 bytes,     603328 total
+ 108194K->3289K(249088K), 0.0020156 secs]
+144.896: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     402320 bytes,     402320 total
+- age   2:        896 bytes,     403216 total
+ 108249K->3094K(249088K), 0.0018491 secs]
+145.201: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     733360 bytes,     733360 total
+- age   2:        392 bytes,     733752 total
+ 108048K->3417K(249088K), 0.0020829 secs]
+145.529: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     862888 bytes,     862888 total
+- age   2:        632 bytes,     863520 total
+ 108377K->3543K(249088K), 0.0022497 secs]
+145.822: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     778656 bytes,     778656 total
+- age   2:        632 bytes,     779288 total
+ 108503K->3461K(249088K), 0.0021302 secs]
+146.119: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     430568 bytes,     430568 total
+- age   2:        872 bytes,     431440 total
+ 108421K->3121K(249088K), 0.0019145 secs]
+146.440: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     457888 bytes,     457888 total
+- age   2:       1352 bytes,     459240 total
+ 108081K->3149K(249088K), 0.0017304 secs]
+146.744: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     847128 bytes,     847128 total
+- age   2:        392 bytes,     847520 total
+ 108109K->3528K(249088K), 0.0024140 secs]
+147.040: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     371136 bytes,     371136 total
+- age   2:        632 bytes,     371768 total
+ 108488K->3063K(249088K), 0.0017846 secs]
+147.353: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     719680 bytes,     719680 total
+- age   2:        656 bytes,     720336 total
+ 108023K->3404K(249088K), 0.0022782 secs]
+147.665: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     483984 bytes,     483984 total
+- age   2:        656 bytes,     484640 total
+ 108364K->3173K(249088K), 0.0018321 secs]
+147.993: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     555128 bytes,     555128 total
+- age   2:        968 bytes,     556096 total
+ 108133K->3243K(249088K), 0.0019983 secs]
+148.297: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     838008 bytes,     838008 total
+- age   2:        656 bytes,     838664 total
+ 108203K->3519K(249088K), 0.0024523 secs]
+148.634: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     711392 bytes,     711392 total
+- age   2:        704 bytes,     712096 total
+ 108453K->3396K(249088K), 0.0021785 secs]
+148.946: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     972248 bytes,     972248 total
+- age   2:        896 bytes,     973144 total
+ 108356K->3651K(249088K), 0.0024428 secs]
+149.259: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     312968 bytes,     312968 total
+- age   2:        632 bytes,     313600 total
+ 108611K->3006K(249088K), 0.0017016 secs]
+149.587: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     703472 bytes,     703472 total
+- age   2:       1376 bytes,     704848 total
+ 107956K->3389K(249088K), 0.0022047 secs]
+149.884: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     537456 bytes,     537456 total
+- age   2:        896 bytes,     538352 total
+ 108349K->3226K(249088K), 0.0019111 secs]
+150.196: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     493608 bytes,     493608 total
+- age   2:        896 bytes,     494504 total
+ 108186K->3183K(249088K), 0.0019030 secs]
+150.509: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     535824 bytes,     535824 total
+- age   2:        656 bytes,     536480 total
+ 108143K->3224K(249088K), 0.0019055 secs]
+150.821: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     660344 bytes,     660344 total
+- age   2:        896 bytes,     661240 total
+ 108174K->3346K(249088K), 0.0019955 secs]
+151.134: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     453624 bytes,     453624 total
+- age   2:        632 bytes,     454256 total
+ 108306K->3144K(249088K), 0.0018072 secs]
+151.446: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     992656 bytes,     992656 total
+- age   2:        728 bytes,     993384 total
+ 108094K->3670K(249088K), 0.0027054 secs]
+151.743: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     660192 bytes,     660192 total
+- age   2:        632 bytes,     660824 total
+ 108630K->3346K(249088K), 0.0020268 secs]
+152.038: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     469240 bytes,     469240 total
+- age   2:        704 bytes,     469944 total
+ 108306K->3159K(249088K), 0.0017639 secs]
+152.345: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1349512 bytes,    1349512 total
+- age   2:        392 bytes,    1349904 total
+ 108119K->4019K(249088K), 0.0029998 secs]
+152.649: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     645800 bytes,     645800 total
+- age   2:       1112 bytes,     646912 total
+ 108955K->3332K(249088K), 0.0022140 secs]
+152.993: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     300264 bytes,     300264 total
+- age   2:       1488 bytes,     301752 total
+ 108287K->2995K(249088K), 0.0016002 secs]
+153.306: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1111136 bytes,    1111136 total
+- age   2:        656 bytes,    1111792 total
+ 107955K->3787K(249088K), 0.0026928 secs]
+153.622: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1059832 bytes,    1059832 total
+- age   2:        704 bytes,    1060536 total
+ 108742K->3736K(249088K), 0.0025604 secs]
+153.922: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     920824 bytes,     920824 total
+- age   2:        632 bytes,     921456 total
+ 108696K->3601K(249088K), 0.0022886 secs]
+154.243: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     853784 bytes,     853784 total
+- age   2:        872 bytes,     854656 total
+ 108561K->3535K(249088K), 0.0024257 secs]
+154.571: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     859472 bytes,     859472 total
+- age   2:       1232 bytes,     860704 total
+ 108490K->3541K(249088K), 0.0023358 secs]
+154.868: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     869592 bytes,     869592 total
+- age   2:        632 bytes,     870224 total
+ 108501K->3551K(249088K), 0.0024140 secs]
+155.166: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    2344208 bytes,    2344208 total
+- age   2:        632 bytes,    2344840 total
+ 108508K->4991K(249088K), 0.0042754 secs]
+155.446: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    2971784 bytes,    2971784 total
+- age   2:       1112 bytes,    2972896 total
+ 109951K->5604K(249088K), 0.0053431 secs]
+155.774: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    2131728 bytes,    2131728 total
+- age   2:       2072 bytes,    2133800 total
+ 110564K->4785K(249088K), 0.0039765 secs]
+156.103: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    2361544 bytes,    2361544 total
+- age   2:       1912 bytes,    2363456 total
+ 109745K->5009K(249088K), 0.0041282 secs]
+156.415: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    2001816 bytes,    2001816 total
+- age   2:       1880 bytes,    2003696 total
+ 109969K->4658K(249088K), 0.0040455 secs]
+156.727: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     733248 bytes,     733248 total
+- age   2:        872 bytes,     734120 total
+ 109618K->3418K(249088K), 0.0023760 secs]
+157.056: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     638440 bytes,     638440 total
+- age   2:        656 bytes,     639096 total
+ 108378K->3325K(249088K), 0.0022852 secs]
+157.368: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     643920 bytes,     643920 total
+- age   2:        896 bytes,     644816 total
+ 108285K->3331K(249088K), 0.0020575 secs]
+157.703: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     438832 bytes,     438832 total
+- age   2:        968 bytes,     439800 total
+ 108291K->3131K(249088K), 0.0017161 secs]
+158.009: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     908496 bytes,     908496 total
+- age   2:       1280 bytes,     909776 total
+ 108088K->3590K(249088K), 0.0026651 secs]
+158.337: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     217904 bytes,     217904 total
+- age   2:        896 bytes,     218800 total
+ 108550K->2915K(249088K), 0.0014781 secs]
+158.637: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     865192 bytes,     865192 total
+- age   2:        392 bytes,     865584 total
+ 107875K->3547K(249088K), 0.0022500 secs]
+158.951: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     173688 bytes,     173688 total
+- age   2:        944 bytes,     174632 total
+ 108507K->2872K(249088K), 0.0016234 secs]
+159.274: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     788576 bytes,     788576 total
+- age   2:        392 bytes,     788968 total
+ 107832K->3472K(249088K), 0.0023285 secs]
+159.595: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     686048 bytes,     686048 total
+- age   2:        728 bytes,     686776 total
+ 108432K->3372K(249088K), 0.0021008 secs]
+159.889: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     771984 bytes,     771984 total
+- age   2:        632 bytes,     772616 total
+ 108332K->3456K(249088K), 0.0022056 secs]
+160.198: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     591592 bytes,     591592 total
+- age   2:        632 bytes,     592224 total
+ 108416K->3280K(249088K), 0.0020262 secs]
+160.509: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     902072 bytes,     902072 total
+- age   2:        728 bytes,     902800 total
+ 108237K->3583K(249088K), 0.0023553 secs]
+160.836: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     594296 bytes,     594296 total
+- age   2:        632 bytes,     594928 total
+ 108543K->3282K(249088K), 0.0019880 secs]
+161.134: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     751840 bytes,     751840 total
+- age   2:        896 bytes,     752736 total
+ 108242K->3437K(249088K), 0.0022246 secs]
+161.448: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     871112 bytes,     871112 total
+- age   2:        656 bytes,     871768 total
+ 108397K->3553K(249088K), 0.0023685 secs]
+161.759: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     595472 bytes,     595472 total
+- age   2:        632 bytes,     596104 total
+ 108503K->3284K(249088K), 0.0020637 secs]
+162.071: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     243208 bytes,     243208 total
+- age   2:        896 bytes,     244104 total
+ 108244K->2940K(249088K), 0.0015421 secs]
+162.399: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     405992 bytes,     405992 total
+- age   2:        920 bytes,     406912 total
+ 107900K->3099K(249088K), 0.0018262 secs]
+162.699: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     618848 bytes,     618848 total
+- age   2:        656 bytes,     619504 total
+ 108059K->3306K(249088K), 0.0020262 secs]
+162.983: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     959552 bytes,     959552 total
+- age   2:        464 bytes,     960016 total
+ 108266K->3639K(249088K), 0.0024727 secs]
+163.274: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     720304 bytes,     720304 total
+- age   2:        632 bytes,     720936 total
+ 108599K->3406K(249088K), 0.0021112 secs]
+163.618: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     565248 bytes,     565248 total
+- age   2:        712 bytes,     565960 total
+ 108366K->3254K(249088K), 0.0019785 secs]
+163.915: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    2302104 bytes,    2302104 total
+- age   2:        464 bytes,    2302568 total
+ 108214K->4950K(249088K), 0.0041259 secs]
+164.227: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     618672 bytes,     618672 total
+- age   2:       1112 bytes,     619784 total
+ 109910K->3307K(249088K), 0.0020556 secs]
+164.541: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     384120 bytes,     384120 total
+- age   2:        896 bytes,     385016 total
+ 108267K->3078K(249088K), 0.0016580 secs]
+164.868: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     604992 bytes,     604992 total
+- age   2:        632 bytes,     605624 total
+ 108038K->3293K(249088K), 0.0020919 secs]
+165.164: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     211072 bytes,     211072 total
+- age   2:        728 bytes,     211800 total
+ 108253K->2908K(249088K), 0.0014857 secs]
+165.493: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     728184 bytes,     728184 total
+- age   2:       1304 bytes,     729488 total
+ 107868K->3414K(249088K), 0.0021933 secs]
+165.805: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     304440 bytes,     304440 total
+- age   2:        896 bytes,     305336 total
+ 108374K->3000K(249088K), 0.0015717 secs]
+166.118: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     431024 bytes,     431024 total
+- age   2:        784 bytes,     431808 total
+ 107960K->3123K(249088K), 0.0017499 secs]
+166.431: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     747040 bytes,     747040 total
+- age   2:       1040 bytes,     748080 total
+ 108083K->3432K(249088K), 0.0022902 secs]
+166.759: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1481472 bytes,    1481472 total
+- age   2:        872 bytes,    1482344 total
+ 108392K->4149K(249088K), 0.0034367 secs]
+167.063: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     755272 bytes,     755272 total
+- age   2:        968 bytes,     756240 total
+ 109109K->3440K(249088K), 0.0023319 secs]
+167.399: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1034664 bytes,    1034664 total
+- age   2:        704 bytes,    1035368 total
+ 108387K->3713K(249088K), 0.0026657 secs]
+167.711: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     943768 bytes,     943768 total
+- age   2:        896 bytes,     944664 total
+ 108673K->3624K(249088K), 0.0027540 secs]
+168.008: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     719648 bytes,     719648 total
+- age   2:        704 bytes,     720352 total
+ 108583K->3405K(249088K), 0.0021953 secs]
+168.318: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     586288 bytes,     586288 total
+- age   2:        896 bytes,     587184 total
+ 108365K->3275K(249088K), 0.0019556 secs]
+168.649: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1048016 bytes,    1048016 total
+- age   2:        872 bytes,    1048888 total
+ 108235K->3726K(249088K), 0.0026713 secs]
+168.930: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    2055952 bytes,    2055952 total
+- age   2:        392 bytes,    2056344 total
+ 108686K->4710K(249088K), 0.0046581 secs]
+169.227: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    2181760 bytes,    2181760 total
+- age   2:        656 bytes,    2182416 total
+ 109666K->4833K(249088K), 0.0045472 secs]
+169.555: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1904272 bytes,    1904272 total
+- age   2:        728 bytes,    1905000 total
+ 109791K->4562K(249088K), 0.0040927 secs]
+169.868: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     573640 bytes,     573640 total
+- age   2:        632 bytes,     574272 total
+ 109522K->3263K(249088K), 0.0019290 secs]
+170.164: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1116504 bytes,    1116504 total
+- age   2:        704 bytes,    1117208 total
+ 108217K->3793K(249088K), 0.0027621 secs]
+170.475: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     559088 bytes,     559088 total
+- age   2:        896 bytes,     559984 total
+ 108753K->3249K(249088K), 0.0019759 secs]
+170.805: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     559496 bytes,     559496 total
+- age   2:        952 bytes,     560448 total
+ 108206K->3249K(249088K), 0.0019645 secs]
+171.118: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     613000 bytes,     613000 total
+- age   2:        968 bytes,     613968 total
+ 108209K->3301K(249088K), 0.0020179 secs]
+171.430: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     725224 bytes,     725224 total
+- age   2:        656 bytes,     725880 total
+ 108261K->3411K(249088K), 0.0023721 secs]
+171.758: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     421736 bytes,     421736 total
+- age   2:        656 bytes,     422392 total
+ 108352K->3114K(249088K), 0.0018486 secs]
+172.086: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     560048 bytes,     560048 total
+- age   2:        728 bytes,     560776 total
+ 108063K->3250K(249088K), 0.0020139 secs]
+172.414: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     500576 bytes,     500576 total
+- age   2:        896 bytes,     501472 total
+ 108210K->3192K(249088K), 0.0019352 secs]
+172.727: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1218136 bytes,    1218136 total
+- age   2:        728 bytes,    1218864 total
+ 108130K->3892K(249088K), 0.0030149 secs]
+173.039: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     637632 bytes,     637632 total
+- age   2:        872 bytes,     638504 total
+ 108852K->3326K(249088K), 0.0021743 secs]
+173.367: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     866128 bytes,     866128 total
+- age   2:        896 bytes,     867024 total
+ 108286K->3549K(249088K), 0.0023875 secs]
+173.695: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     822688 bytes,     822688 total
+- age   2:        656 bytes,     823344 total
+ 108509K->3506K(249088K), 0.0023933 secs]
+174.005: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     823080 bytes,     823080 total
+- age   2:       1160 bytes,     824240 total
+ 108448K->3507K(249088K), 0.0022360 secs]
+174.303: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     745248 bytes,     745248 total
+- age   2:        632 bytes,     745880 total
+ 108467K->3430K(249088K), 0.0024109 secs]
+174.603: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1052864 bytes,    1052864 total
+- age   2:        632 bytes,    1053496 total
+ 108390K->3731K(249088K), 0.0025939 secs]
+174.911: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     592344 bytes,     592344 total
+- age   2:       1024 bytes,     593368 total
+ 108691K->3281K(249088K), 0.0019514 secs]
+175.227: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     373000 bytes,     373000 total
+- age   2:       1040 bytes,     374040 total
+ 108241K->3067K(249088K), 0.0017784 secs]
+175.562: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     742168 bytes,     742168 total
+- age   2:        728 bytes,     742896 total
+ 108022K->3427K(249088K), 0.0021989 secs]
+175.898: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     745096 bytes,     745096 total
+- age   2:        480 bytes,     745576 total
+ 108387K->3430K(249088K), 0.0022693 secs]
+176.252: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     711096 bytes,     711096 total
+- age   2:        656 bytes,     711752 total
+ 108376K->3397K(249088K), 0.0020346 secs]
+176.586: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     635824 bytes,     635824 total
+- age   2:        632 bytes,     636456 total
+ 108355K->3324K(249088K), 0.0021617 secs]
+176.914: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1231296 bytes,    1231296 total
+- age   2:        632 bytes,    1231928 total
+ 108284K->3905K(249088K), 0.0027573 secs]
+177.231: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1093952 bytes,    1093952 total
+- age   2:        872 bytes,    1094824 total
+ 108856K->3771K(249088K), 0.0027836 secs]
+177.586: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     712224 bytes,     712224 total
+- age   2:        872 bytes,     713096 total
+ 108731K->3398K(249088K), 0.0022207 secs]
+177.886: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     229728 bytes,     229728 total
+- age   2:        656 bytes,     230384 total
+ 108358K->2927K(249088K), 0.0014513 secs]
+178.185: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1048240 bytes,    1048240 total
+- age   2:        392 bytes,    1048632 total
+ 107887K->3726K(249088K), 0.0025825 secs]
+178.490: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     543032 bytes,     543032 total
+- age   2:        704 bytes,     543736 total
+ 108686K->3233K(249088K), 0.0019114 secs]
+178.797: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     561784 bytes,     561784 total
+- age   2:        392 bytes,     562176 total
+ 108193K->3251K(249088K), 0.0019201 secs]
+179.097: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     378400 bytes,     378400 total
+- age   2:        872 bytes,     379272 total
+ 108211K->3072K(249088K), 0.0017117 secs]
+179.395: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     625200 bytes,     625200 total
+- age   2:        464 bytes,     625664 total
+ 108032K->3313K(249088K), 0.0019690 secs]
+179.711: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     769000 bytes,     769000 total
+- age   2:        632 bytes,     769632 total
+ 108264K->3454K(249088K), 0.0022676 secs]
+180.033: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     705704 bytes,     705704 total
+- age   2:        896 bytes,     706600 total
+ 108393K->3392K(249088K), 0.0020737 secs]
+180.351: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     434176 bytes,     434176 total
+- age   2:        632 bytes,     434808 total
+ 108352K->3127K(249088K), 0.0018167 secs]
+180.664: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     925952 bytes,     925952 total
+- age   2:        728 bytes,     926680 total
+ 108087K->3607K(249088K), 0.0024850 secs]
+180.976: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     708272 bytes,     708272 total
+- age   2:        656 bytes,     708928 total
+ 108567K->3394K(249088K), 0.0020924 secs]
+181.273: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1011784 bytes,    1011784 total
+- age   2:        632 bytes,    1012416 total
+ 108354K->3691K(249088K), 0.0025375 secs]
+181.615: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     679696 bytes,     679696 total
+- age   2:        704 bytes,     680400 total
+ 108651K->3366K(249088K), 0.0022819 secs]
+181.914: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     642496 bytes,     642496 total
+- age   2:        392 bytes,     642888 total
+ 108326K->3330K(249088K), 0.0019782 secs]
+182.226: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     419768 bytes,     419768 total
+- age   2:        872 bytes,     420640 total
+ 108290K->3113K(249088K), 0.0018413 secs]
+182.539: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     866224 bytes,     866224 total
+- age   2:        656 bytes,     866880 total
+ 108073K->3549K(249088K), 0.0025964 secs]
+183.110: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     412104 bytes,     412104 total
+- age   2:        392 bytes,     412496 total
+ 108509K->3105K(249088K), 0.0017701 secs]
+183.445: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1127992 bytes,    1127992 total
+- age   2:       1080 bytes,    1129072 total
+ 108065K->3805K(249088K), 0.0028783 secs]
+183.804: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     923816 bytes,     923816 total
+- age   2:        704 bytes,     924520 total
+ 108765K->3605K(249088K), 0.0025439 secs]
+184.114: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     387496 bytes,     387496 total
+- age   2:        896 bytes,     388392 total
+ 108565K->3082K(249088K), 0.0016734 secs]
+184.419: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     201776 bytes,     201776 total
+- age   2:        392 bytes,     202168 total
+ 108042K->2900K(249088K), 0.0014108 secs]
+184.735: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1017296 bytes,    1017296 total
+- age   2:        392 bytes,    1017688 total
+ 107857K->3696K(249088K), 0.0024735 secs]
+185.054: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     580856 bytes,     580856 total
+- age   2:        872 bytes,     581728 total
+ 108656K->3271K(249088K), 0.0019902 secs]
+185.378: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     487952 bytes,     487952 total
+- age   2:        656 bytes,     488608 total
+ 108231K->3180K(249088K), 0.0018427 secs]
+185.695: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     530032 bytes,     530032 total
+- age   2:        392 bytes,     530424 total
+ 108140K->3221K(249088K), 0.0020796 secs]
+186.023: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     685696 bytes,     685696 total
+- age   2:        656 bytes,     686352 total
+ 108181K->3373K(249088K), 0.0021874 secs]
+186.318: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     678872 bytes,     678872 total
+- age   2:        968 bytes,     679840 total
+ 108324K->3367K(249088K), 0.0023721 secs]
+186.664: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     621720 bytes,     621720 total
+- age   2:        632 bytes,     622352 total
+ 108323K->3310K(249088K), 0.0022327 secs]
+186.976: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     705168 bytes,     705168 total
+- age   2:        896 bytes,     706064 total
+ 108248K->3392K(249088K), 0.0023363 secs]
+187.269: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     903112 bytes,     903112 total
+- age   2:        896 bytes,     904008 total
+ 108340K->3586K(249088K), 0.0025506 secs]
+187.617: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     454808 bytes,     454808 total
+- age   2:        952 bytes,     455760 total
+ 108546K->3148K(249088K), 0.0019340 secs]
+187.907: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     327936 bytes,     327936 total
+- age   2:        656 bytes,     328592 total
+ 108108K->3024K(249088K), 0.0016583 secs]
+188.226: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     717472 bytes,     717472 total
+- age   2:        392 bytes,     717864 total
+ 107977K->3404K(249088K), 0.0022039 secs]
+188.542: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     531928 bytes,     531928 total
+- age   2:        968 bytes,     532896 total
+ 108364K->3223K(249088K), 0.0018379 secs]
+188.840: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1458264 bytes,    1458264 total
+- age   2:        632 bytes,    1458896 total
+ 108183K->4127K(249088K), 0.0031093 secs]
+189.141: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     704816 bytes,     704816 total
+- age   2:        872 bytes,     705688 total
+ 109087K->3392K(249088K), 0.0021573 secs]
+189.460: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     697392 bytes,     697392 total
+- age   2:       1024 bytes,     698416 total
+ 108346K->3385K(249088K), 0.0021408 secs]
+189.757: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     515168 bytes,     515168 total
+- age   2:        632 bytes,     515800 total
+ 108327K->3207K(249088K), 0.0018198 secs]
+190.107: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     553960 bytes,     553960 total
+- age   2:        632 bytes,     554592 total
+ 108167K->3244K(249088K), 0.0019785 secs]
+190.413: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     878896 bytes,     878896 total
+- age   2:       1040 bytes,     879936 total
+ 108198K->3562K(249088K), 0.0029263 secs]
+190.710: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     508936 bytes,     508936 total
+- age   2:        392 bytes,     509328 total
+ 108507K->3200K(249088K), 0.0019902 secs]
+191.007: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     967416 bytes,     967416 total
+- age   2:        968 bytes,     968384 total
+ 108160K->3649K(249088K), 0.0024422 secs]
+191.316: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     212736 bytes,     212736 total
+- age   2:        872 bytes,     213608 total
+ 108609K->2911K(249088K), 0.0014792 secs]
+191.679: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     321360 bytes,     321360 total
+- age   2:        728 bytes,     322088 total
+ 107871K->3017K(249088K), 0.0016966 secs]
+191.983: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:    1054664 bytes,    1054664 total
+- age   2:        656 bytes,    1055320 total
+ 107977K->3733K(249088K), 0.0027794 secs]
+192.285: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     722392 bytes,     722392 total
+- age   2:        632 bytes,     723024 total
+ 108693K->3409K(249088K), 0.0021927 secs]
+192.597: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     892856 bytes,     892856 total
+- age   2:        392 bytes,     893248 total
+ 108355K->3575K(249088K), 0.0024224 secs]
+192.898: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     451104 bytes,     451104 total
+- age   2:        632 bytes,     451736 total
+ 108535K->3144K(249088K), 0.0017485 secs]
+193.226: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     381104 bytes,     381104 total
+- age   2:       1424 bytes,     382528 total
+ 108104K->3076K(249088K), 0.0016798 secs]
+193.558: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     868480 bytes,     868480 total
+- age   2:        896 bytes,     869376 total
+ 108036K->3552K(249088K), 0.0024511 secs]
+193.863: [GC
+Desired survivor size 6684672 bytes, new threshold 2 (max 2)
+- age   1:     857272 bytes,     857272 total
+- age   2:        632 bytes,     857904 total
+ 108512K->3541K(249088K), 0.0025059 secs]

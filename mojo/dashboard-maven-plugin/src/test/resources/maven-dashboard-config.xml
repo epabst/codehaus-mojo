@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration version="1.0">
+	<sections>
+		<section id="cobertura.summary" title="Cobertura Report Summary" groupId="org.codehaus.mojo" artifactId="cobertura-maven-plugin">
+			<historicgraphs>
+				<graph id="cobertura.currentweek" title="Cobertura current Week" startPeriod="Startof_thisweek" endPeriod="Endof_thisweek"/>
+				<graph id="cobertura.lastweek" title="Cobertura last Week" startPeriod="Startof_lastweek" endPeriod="Endof_lastweek"/>
+			</historicgraphs>
+		</section>
+		<section id="surefire.summary" title="Surefire Report Summary" groupId="org.apache.maven.plugins" artifactId="maven-surefire-report-plugin">
+			<historicgraphs>
+				<graph id="surefire.currentweek" title="Surefire current Week" startPeriod="Startof_thisweek" endPeriod="Endof_thisweek"/>
+				<graph id="surefire.lastweek" title="Surefire last Week" startPeriod="Startof_lastweek" endPeriod="Endof_lastweek"/>
+			</historicgraphs>
+		</section>
+		<section id="checkstyle.summary" title="Checkstyle Report Summary" groupId="org.apache.maven.plugins" artifactId="maven-checkstyle-plugin">
+			<historicgraphs>
+				<graph id="checkstyle.currentweek" title="Checkstyle current Week" startPeriod="Startof_thisweek" endPeriod="Endof_thisweek"/>
+				<graph id="checkstyle.lastweek" title="Checkstyle last Week" startPeriod="Startof_lastweek" endPeriod="Endof_lastweek"/>
+			</historicgraphs>
+		</section>
+		<section id="pmd.summary" title="PMD Report Summary" groupId="org.apache.maven.plugins" artifactId="maven-pmd-plugin">
+			<historicgraphs>
+				<graph id="pmd.currentweek" title="PMD current Week" startPeriod="Startof_thisweek" endPeriod="Endof_thisweek"/>
+				<graph id="pmd.lastweek" title="PMD last Week" startPeriod="Startof_lastweek" endPeriod="Endof_lastweek"/>
+			</historicgraphs>
+		</section>
+		<section id="cpd.summary" title="CPD Report Summary" groupId="org.apache.maven.plugins" artifactId="maven-pmd-plugin">
+			<historicgraphs>
+				<graph id="cpd.currentweek" title="Checkstyle current Week" startPeriod="Startof_thisweek" endPeriod="Endof_thisweek"/>
+				<graph id="cpd.lastweek" title="Checkstyle last Week" startPeriod="Startof_lastweek" endPeriod="Endof_lastweek"/>
+			</historicgraphs>
+		</section>
+		<section id="jdepend.summary" title="Top 10 Xref JDepend/Cobertura Report Summary" groupId="org.codehaus.mojo" artifactId="jdepend-maven-plugin">
+			<historicgraphs>
+				<graph id="jdepend.currentweek" title="JDepend current Week" startPeriod="Startof_thisweek" endPeriod="Endof_thisweek"/>
+				<graph id="jdepend.lastweek" title="JDepend last Week" startPeriod="Startof_lastweek" endPeriod="Endof_lastweek"/>
+			</historicgraphs>
+		</section>
+	</sections>
+</configuration>

@@ -1,0 +1,342 @@
++ Error stacktraces are turned on.
+Maven version: 2.0.3-SNAPSHOT
+[DEBUG] Building Maven user-level plugin registry from: '/home/jerome/.m2/plugin-registry.xml'
+[DEBUG] Building Maven global-level plugin registry from: '/home/jerome/local/lib/m2/conf/plugin-registry.xml'
+[INFO] Scanning for projects...
+[INFO] ----------------------------------------------------------------------------
+[INFO] Building Maven Smc Plugin
+[INFO]    task-segment: [install]
+[INFO] ----------------------------------------------------------------------------
+[DEBUG] maven-resources-plugin: resolved to version 2.1 from repository central
+[DEBUG] Retrieving parent-POM from the repository for project: null:maven-resources-plugin:maven-plugin:2.1
+[DEBUG] maven-compiler-plugin: resolved to version 2.0 from repository central
+[DEBUG] Retrieving parent-POM from the repository for project: null:maven-compiler-plugin:maven-plugin:2.0
+[DEBUG] maven-surefire-plugin: resolved to version 2.1.2 from repository central
+[DEBUG] Retrieving parent-POM from the repository for project: null:maven-surefire-plugin:maven-plugin:2.1.2
+[DEBUG] maven-jar-plugin: resolved to version 2.1-SNAPSHOT from local repository
+[DEBUG] Skipping disabled repository central
+[DEBUG] maven-jar-plugin: using locally installed snapshot
+[DEBUG] Retrieving parent-POM from the repository for project: null:maven-jar-plugin:maven-plugin:2.1-20060222.041253-3
+[DEBUG] maven-jar-plugin: using locally installed snapshot
+[DEBUG] Retrieving parent-POM from the repository for project: null:maven-jar-plugin:maven-plugin:2.1-20060222.041253-3
+[DEBUG] maven-jar-plugin: using locally installed snapshot
+[DEBUG] Retrieving parent-POM from the repository for project: null:maven-jar-plugin:maven-plugin:2.1-20060222.041253-3
+[DEBUG] maven-jar-plugin: using locally installed snapshot
+[DEBUG] maven-install-plugin: resolved to version 2.1 from repository central
+[DEBUG] Retrieving parent-POM from the repository for project: null:maven-install-plugin:maven-plugin:2.1
+[DEBUG] smc-maven-plugin: resolved to version 1.0-SNAPSHOT from local repository
+[DEBUG] Skipping disabled repository central
+[DEBUG] smc-maven-plugin: using locally installed snapshot
+[DEBUG] Retrieving parent-POM from the repository for project: null:smc-maven-plugin:maven-plugin:1.0-SNAPSHOT
+[DEBUG] Skipping disabled repository central
+[DEBUG] mojo-sandbox: using locally installed snapshot
+[DEBUG] Retrieving parent-POM from the repository for project: null:mojo-sandbox:pom:2-SNAPSHOT
+[DEBUG] smc-maven-plugin: using locally installed snapshot
+[DEBUG] maven-jar-plugin: using locally installed snapshot
+[DEBUG] Retrieving parent-POM from the repository for project: null:maven-jar-plugin:maven-plugin:2.1-20060222.041253-3
+[DEBUG] maven-jar-plugin: using locally installed snapshot
+[DEBUG] org.cb.maven.plugins.smc:test1:jar:0.1 (selected for null)
+[DEBUG]   net.sf.smc:smc:jar:4.3:compile (selected for compile)
+[DEBUG]   junit:junit:jar:3.8.1:test (selected for test)
+[DEBUG] org.codehaus.mojo:smc-maven-plugin:maven-plugin:1.0-SNAPSHOT:runtime (selected for runtime)
+[DEBUG]   org.codehaus.plexus:plexus-utils:jar:1.0.4:runtime (selected for runtime)
+[DEBUG]   net.sf.smc:smc:jar:4.3:runtime (selected for runtime)
+[DEBUG] Retrieving parent-POM from the repository for project: null:maven-project:jar:2.0
+[DEBUG]   org.apache.maven:maven-project:jar:2.0:runtime (selected for runtime)
+[DEBUG]     org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-8:runtime (selected for runtime)
+[DEBUG]       classworlds:classworlds:jar:1.1-alpha-2:runtime (selected for runtime)
+[DEBUG]       junit:junit:jar:3.8.1:runtime (selected for runtime)
+[DEBUG] Retrieving parent-POM from the repository for project: org.apache.maven:maven-artifact:jar:2.0
+[DEBUG]     org.apache.maven:maven-artifact:jar:2.0:runtime (selected for runtime)
+[DEBUG] Retrieving parent-POM from the repository for project: org.apache.maven:maven-model:jar:2.0
+[DEBUG]     org.apache.maven:maven-model:jar:2.0:runtime (selected for runtime)
+[DEBUG] Retrieving parent-POM from the repository for project: org.apache.maven:maven-artifact-manager:jar:2.0
+[DEBUG]     org.apache.maven:maven-artifact-manager:jar:2.0:runtime (selected for runtime)
+[DEBUG] Retrieving parent-POM from the repository for project: org.apache.maven:maven-repository-metadata:jar:2.0
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:2.0:runtime (selected for runtime)
+[DEBUG]       org.apache.maven.wagon:wagon-provider-api:jar:1.0-alpha-5:runtime (selected for runtime)
+[DEBUG] Retrieving parent-POM from the repository for project: null:maven-profile:jar:2.0
+[DEBUG]     org.apache.maven:maven-profile:jar:2.0:runtime (selected for runtime)
+[DEBUG] Retrieving parent-POM from the repository for project: org.apache.maven:maven-plugin-api:jar:2.0
+[DEBUG]   org.apache.maven:maven-plugin-api:jar:2.0:runtime (selected for runtime)
+[DEBUG]   commons-lang:commons-lang:jar:2.1:runtime (selected for runtime)
+[DEBUG] Configuring mojo 'org.codehaus.mojo:smc-maven-plugin:1.0-SNAPSHOT:smc' -->
+[DEBUG]   (f) debug = false
+[DEBUG]   (f) failOnError = true
+[DEBUG]   (f) fork = false
+[DEBUG]   (f) outputDirectory = /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/generated-sources/smc/smc
+[DEBUG]   (f) project = org.apache.maven.project.MavenProject@9fd2ed52
+[DEBUG]   (f) sourceDirectory = /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/src/main/smc
+[DEBUG]   (f) sync = true
+[DEBUG]   (f) verbose = false
+[DEBUG] -- end configuration --
+[INFO] [smc:smc {execution: default}]
+[DEBUG] Found 1 .sm file(s) to process.
+[DEBUG] Handling /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/src/main/smc/Test.sm
+[WARNING] file /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/generated-sources/smc/smc/org/codehaus/mojo/smc/test/Test.java
+[WARNING] file exists false
+[WARNING] file timestamp 0
+[WARNING] smFile timestamp 1143234682000
+[DEBUG] Adding outputDirectory to source root: /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/generated-sources/smc/smc
+[DEBUG] org.apache.maven.plugins:maven-resources-plugin:maven-plugin:2.1:runtime (selected for runtime)
+[DEBUG]   org.apache.maven:maven-model:jar:2.0:runtime (selected for runtime)
+[DEBUG]     org.codehaus.plexus:plexus-utils:jar:1.0.4:runtime (selected for runtime)
+[DEBUG]   org.apache.maven:maven-project:jar:2.0:runtime (selected for runtime)
+[DEBUG]     org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-8:runtime (selected for runtime)
+[DEBUG]       classworlds:classworlds:jar:1.1-alpha-2:runtime (selected for runtime)
+[DEBUG]       junit:junit:jar:3.8.1:runtime (selected for runtime)
+[DEBUG]     org.apache.maven:maven-artifact:jar:2.0:runtime (selected for runtime)
+[DEBUG]     org.apache.maven:maven-artifact-manager:jar:2.0:runtime (selected for runtime)
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:2.0:runtime (selected for runtime)
+[DEBUG]       org.apache.maven.wagon:wagon-provider-api:jar:1.0-alpha-5:runtime (selected for runtime)
+[DEBUG]     org.apache.maven:maven-profile:jar:2.0:runtime (selected for runtime)
+[DEBUG]   commons-io:commons-io:jar:1.0:runtime (selected for runtime)
+[DEBUG]   org.apache.maven:maven-plugin-api:jar:2.0:runtime (selected for runtime)
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-resources-plugin:2.1:resources' -->
+[DEBUG]   (f) filters = []
+[DEBUG]   (f) outputDirectory = /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/classes
+[DEBUG]   (f) project = org.apache.maven.project.MavenProject@9fd2ed52
+[DEBUG]   (f) resources = [org.apache.maven.model.Resource@1595f51]
+[DEBUG] -- end configuration --
+[INFO] [resources:resources]
+[INFO] Using default encoding to copy filtered resources.
+[DEBUG] org.cb.maven.plugins.smc:test1:jar:0.1 (selected for null)
+[DEBUG]   net.sf.smc:smc:jar:4.3:compile (selected for compile)
+[DEBUG]   junit:junit:jar:3.8.1:test (selected for test)
+[DEBUG] org.apache.maven.plugins:maven-compiler-plugin:maven-plugin:2.0:runtime (selected for runtime)
+[DEBUG]   org.codehaus.plexus:plexus-compiler-api:jar:1.5.1:runtime (selected for runtime)
+[DEBUG]     org.codehaus.plexus:plexus-utils:jar:1.0.4:runtime (selected for runtime)
+[DEBUG]     classworlds:classworlds:jar:1.1-alpha-2:runtime (selected for runtime)
+[DEBUG]     org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-8:runtime (selected for runtime)
+[DEBUG]       junit:junit:jar:3.8.1:runtime (selected for runtime)
+[DEBUG]   org.codehaus.plexus:plexus-compiler-manager:jar:1.5.1:runtime (selected for runtime)
+[DEBUG]   org.codehaus.plexus:plexus-compiler-javac:jar:1.5.1:runtime (selected for runtime)
+[DEBUG]   org.apache.maven:maven-plugin-api:jar:2.0:runtime (selected for runtime)
+[DEBUG]   org.apache.maven:maven-artifact:jar:2.0:runtime (selected for runtime)
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-compiler-plugin:2.0:compile' -->
+[DEBUG]   (f) basedir = /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1
+[DEBUG]   (f) buildDirectory = /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target
+[DEBUG]   (f) classpathElements = [/home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/classes, /home/jerome/.m2/repository/net/sf/smc/smc/4.3/smc-4.3.jar]
+[DEBUG]   (f) compileSourceRoots = [/home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/src/main/java, /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/generated-sources/smc/smc]
+[DEBUG]   (f) compilerId = javac
+[DEBUG]   (f) debug = true
+[DEBUG]   (f) fork = false
+[DEBUG]   (f) optimize = false
+[DEBUG]   (f) outputDirectory = /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/classes
+[DEBUG]   (f) outputFileName = test1-0.1
+[DEBUG]   (f) projectArtifact = org.cb.maven.plugins.smc:test1:jar:0.1
+[DEBUG]   (f) staleMillis = 0
+[DEBUG]   (f) verbose = false
+[DEBUG] -- end configuration --
+[INFO] [compiler:compile]
+[DEBUG] Using compiler 'javac'.
+[DEBUG] Source directories: [/home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/src/main/java
+ /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/generated-sources/smc/smc]
+[DEBUG] Classpath: [/home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/classes
+ /home/jerome/.m2/repository/net/sf/smc/smc/4.3/smc-4.3.jar]
+[DEBUG] Output directory: /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/classes
+[DEBUG] Classpath:
+[DEBUG]  /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/classes
+[DEBUG]  /home/jerome/.m2/repository/net/sf/smc/smc/4.3/smc-4.3.jar
+[DEBUG] Source roots:
+[DEBUG]  /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/src/main/java
+[DEBUG]  /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/generated-sources/smc/smc
+Compiling 1 source file to /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/classes
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-resources-plugin:2.1:testResources' -->
+[DEBUG]   (f) filters = []
+[DEBUG]   (f) outputDirectory = /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/test-classes
+[DEBUG]   (f) project = org.apache.maven.project.MavenProject@9fd2ed52
+[DEBUG]   (f) resources = [org.apache.maven.model.Resource@da6bf4]
+[DEBUG] -- end configuration --
+[INFO] [resources:testResources]
+[INFO] Using default encoding to copy filtered resources.
+[DEBUG] org.cb.maven.plugins.smc:test1:jar:0.1 (selected for null)
+[DEBUG]   net.sf.smc:smc:jar:4.3:compile (selected for compile)
+[DEBUG]   junit:junit:jar:3.8.1:test (selected for test)
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-compiler-plugin:2.0:testCompile' -->
+[DEBUG]   (f) basedir = /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1
+[DEBUG]   (f) buildDirectory = /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target
+[DEBUG]   (f) classpathElements = [/home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/classes, /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/test-classes, /home/jerome/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar, /home/jerome/.m2/repository/net/sf/smc/smc/4.3/smc-4.3.jar]
+[DEBUG]   (f) compileSourceRoots = [/home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/src/test/java]
+[DEBUG]   (f) compilerId = javac
+[DEBUG]   (f) debug = true
+[DEBUG]   (f) fork = false
+[DEBUG]   (f) optimize = false
+[DEBUG]   (f) outputDirectory = /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/test-classes
+[DEBUG]   (f) outputFileName = test1-0.1
+[DEBUG]   (f) staleMillis = 0
+[DEBUG]   (f) verbose = false
+[DEBUG] -- end configuration --
+[INFO] [compiler:testCompile]
+[DEBUG] Using compiler 'javac'.
+[DEBUG] Source directories: [/home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/src/test/java]
+[DEBUG] Classpath: [/home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/classes
+ /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/test-classes
+ /home/jerome/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar
+ /home/jerome/.m2/repository/net/sf/smc/smc/4.3/smc-4.3.jar]
+[DEBUG] Output directory: /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/test-classes
+[INFO] Nothing to compile - all classes are up to date
+[DEBUG] org.cb.maven.plugins.smc:test1:jar:0.1 (selected for null)
+[DEBUG]   net.sf.smc:smc:jar:4.3:compile (selected for compile)
+[DEBUG]   junit:junit:jar:3.8.1:test (selected for test)
+[DEBUG] org.apache.maven.plugins:maven-surefire-plugin:maven-plugin:2.1.2:runtime (selected for runtime)
+[DEBUG]   org.codehaus.plexus:plexus-utils:jar:1.0.4:runtime (selected for runtime)
+[DEBUG]   junit:junit:jar:3.8.1:runtime (selected for runtime)
+[DEBUG] Retrieving parent-POM from the repository for project: null:surefire:jar:1.5.2
+[DEBUG]   org.apache.maven.surefire:surefire:jar:1.5.2:runtime (selected for runtime)
+[DEBUG] Retrieving parent-POM from the repository for project: null:plexus-utils:jar:1.0.5
+[DEBUG]     org.codehaus.plexus:plexus-utils:jar:1.0.5:runtime (removed - nearer found: 1.0.4)
+[DEBUG] Retrieving parent-POM from the repository for project: null:surefire-booter:jar:1.5.2
+[DEBUG]   org.apache.maven.surefire:surefire-booter:jar:1.5.2:runtime (selected for runtime)
+[DEBUG]   org.apache.maven:maven-plugin-api:jar:2.0:runtime (selected for runtime)
+[DEBUG]   org.apache.maven:maven-artifact:jar:2.0:runtime (selected for runtime)
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-surefire-plugin:2.1.2:test' -->
+[DEBUG]   (f) basedir = /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1
+[DEBUG]   (f) childDelegation = true
+[DEBUG]   (f) classesDirectory = /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/classes
+[DEBUG]   (f) classpathElements = [/home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/classes, /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/test-classes, /home/jerome/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar, /home/jerome/.m2/repository/net/sf/smc/smc/4.3/smc-4.3.jar]
+[DEBUG]   (f) forkMode = none
+[DEBUG]   (f) jvm = java
+[DEBUG]   (f) localRepository = [local] -> file:///home/jerome/.m2/repository
+[DEBUG]   (f) pluginArtifacts = [junit:junit:jar:3.8.1:runtime, org.apache.maven.surefire:surefire:jar:1.5.2:runtime, org.apache.maven.surefire:surefire-booter:jar:1.5.2:runtime, org.codehaus.plexus:plexus-utils:jar:1.0.4:runtime, org.apache.maven:maven-plugin-api:jar:2.0:runtime, org.apache.maven:maven-artifact:jar:2.0:runtime]
+[DEBUG]   (f) printSummary = true
+[DEBUG]   (f) reportFormat = brief
+[DEBUG]   (f) reportsDirectory = /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/surefire-reports
+[DEBUG]   (f) testClassesDirectory = /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/test-classes
+[DEBUG]   (f) useFile = true
+[DEBUG] -- end configuration --
+[INFO] [surefire:test]
+[INFO] Setting reports dir: /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/surefire-reports
+[DEBUG] Test Classpath :
+[DEBUG] /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/test-classes
+[DEBUG] /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/classes
+[DEBUG] /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/classes
+[DEBUG] /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/test-classes
+[DEBUG] /home/jerome/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar
+[DEBUG] /home/jerome/.m2/repository/net/sf/smc/smc/4.3/smc-4.3.jar
+[DEBUG] Adding to surefire test classpath: /home/jerome/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar
+[DEBUG] Adding to surefire test classpath: /home/jerome/.m2/repository/org/apache/maven/surefire/surefire/1.5.2/surefire-1.5.2.jar
+[DEBUG] Adding to surefire test classpath: /home/jerome/.m2/repository/org/apache/maven/surefire/surefire-booter/1.5.2/surefire-booter-1.5.2.jar
+[DEBUG] Adding to surefire test classpath: /home/jerome/local/lib/m2/core/plexus-utils-1.1.jar
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+TestFSM.Stopped
+TestFSM.Started
+[surefire] Running org.codehaus.mojo.smc.test.TheTest
+[surefire] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.336 sec
+
+Results :
+[surefire] Tests run: 1, Failures: 0, Errors: 0
+
+[DEBUG] maven-jar-plugin: using locally installed snapshot
+[DEBUG] Retrieving parent-POM from the repository for project: null:maven-jar-plugin:maven-plugin:2.1-20060222.041253-3
+[DEBUG] org.apache.maven.plugins:maven-jar-plugin:maven-plugin:2.1-SNAPSHOT:runtime (selected for runtime)
+[DEBUG] Retrieving parent-POM from the repository for project: null:maven-archiver:jar:2.0.1
+[DEBUG]   org.apache.maven:maven-archiver:jar:2.0.1:runtime (selected for runtime)
+[DEBUG] Retrieving parent-POM from the repository for project: null:maven-project:jar:2.0.1
+[DEBUG]     org.apache.maven:maven-project:jar:2.0.1:runtime (selected for runtime)
+[DEBUG] Retrieving parent-POM from the repository for project: org.apache.maven:maven-model:jar:2.0.1
+[DEBUG]       org.apache.maven:maven-model:jar:2.0.1:runtime (selected for runtime)
+[DEBUG]         org.codehaus.plexus:plexus-utils:jar:1.0.5:runtime (selected for runtime)
+[DEBUG]           classworlds:classworlds:jar:1.1-alpha-2:runtime (selected for runtime)
+[DEBUG] Retrieving parent-POM from the repository for project: null:maven-profile:jar:2.0.1
+[DEBUG]       org.apache.maven:maven-profile:jar:2.0.1:runtime (selected for runtime)
+[DEBUG] Retrieving parent-POM from the repository for project: null:plexus-container-default:jar:1.0-alpha-9
+[DEBUG] Retrieving parent-POM from the repository for project: org.codehaus.plexus:plexus-containers:pom:1.0.3
+[DEBUG]         org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9:runtime (selected for runtime)
+[DEBUG]           org.codehaus.plexus:plexus-utils:jar:1.0.4:runtime (removed - nearer found: 1.0.5)
+[DEBUG]           junit:junit:jar:3.8.1:runtime (selected for runtime)
+[DEBUG]       org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-9:runtime (selected for runtime)
+[DEBUG]         org.codehaus.plexus:plexus-utils:jar:1.0.4:runtime (removed - nearer found: 1.0.5)
+[DEBUG]         classworlds:classworlds:jar:1.1-alpha-2:runtime (selected for runtime)
+[DEBUG]         junit:junit:jar:3.8.1:runtime (selected for runtime)
+[DEBUG]       org.codehaus.plexus:plexus-utils:jar:1.0.5:runtime (selected for runtime)
+[DEBUG] Retrieving parent-POM from the repository for project: org.apache.maven:maven-artifact-manager:jar:2.0.1
+[DEBUG]       org.apache.maven:maven-artifact-manager:jar:2.0.1:runtime (selected for runtime)
+[DEBUG] Retrieving parent-POM from the repository for project: org.apache.maven:maven-repository-metadata:jar:2.0.1
+[DEBUG]         org.apache.maven:maven-repository-metadata:jar:2.0.1:runtime (selected for runtime)
+[DEBUG]         org.apache.maven.wagon:wagon-provider-api:jar:1.0-alpha-5:runtime (selected for runtime)
+[DEBUG]           org.codehaus.plexus:plexus-utils:jar:1.0.4:runtime (removed - nearer found: 1.0.5)
+[DEBUG] Retrieving parent-POM from the repository for project: org.apache.maven:maven-artifact:jar:2.0.1
+[DEBUG]         org.apache.maven:maven-artifact:jar:2.0.1:runtime (selected for runtime)
+[DEBUG]       org.apache.maven:maven-artifact:jar:2.0.1:runtime (selected for runtime)
+[DEBUG] Retrieving parent-POM from the repository for project: null:plexus-archiver:jar:1.0-alpha-4
+[DEBUG] Retrieving parent-POM from the repository for project: org.codehaus.plexus:plexus-components:pom:1.1.4
+[DEBUG]     org.codehaus.plexus:plexus-archiver:jar:1.0-alpha-4:runtime (selected for runtime)
+[DEBUG]       org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-8:runtime (removed - nearer found: 1.0-alpha-9)
+[DEBUG]     org.apache.maven:maven-artifact:jar:2.0.1:runtime (selected for runtime)
+[DEBUG]   org.apache.maven:maven-project:jar:2.0.1:runtime (removed - nearer found: 2.0)
+[DEBUG]   org.apache.maven:maven-project:jar:2.0:runtime (selected for runtime)
+[DEBUG]     org.codehaus.plexus:plexus-utils:jar:1.0.4:runtime (selected for runtime)
+[DEBUG]     org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-8:runtime (selected for runtime)
+[DEBUG]       classworlds:classworlds:jar:1.1-alpha-2:runtime (selected for runtime)
+[DEBUG]       junit:junit:jar:3.8.1:runtime (selected for runtime)
+[DEBUG]     org.apache.maven:maven-artifact:jar:2.0:runtime (removed - nearer found: 2.0.1)
+[DEBUG]     org.apache.maven:maven-model:jar:2.0:runtime (selected for runtime)
+[DEBUG]     org.apache.maven:maven-artifact-manager:jar:2.0:runtime (selected for runtime)
+[DEBUG]       org.apache.maven:maven-artifact:jar:2.0:runtime (removed - nearer found: 2.0.1)
+[DEBUG]       org.apache.maven:maven-repository-metadata:jar:2.0:runtime (selected for runtime)
+[DEBUG]       org.apache.maven.wagon:wagon-provider-api:jar:1.0-alpha-5:runtime (selected for runtime)
+[DEBUG]     org.apache.maven:maven-profile:jar:2.0:runtime (selected for runtime)
+[DEBUG]   org.apache.maven:maven-plugin-api:jar:2.0:runtime (selected for runtime)
+[DEBUG]   commons-lang:commons-lang:jar:2.1:runtime (selected for runtime)
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-jar-plugin:2.1-SNAPSHOT:jar' -->
+[DEBUG]   (f) classesDirectory = /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/classes
+[DEBUG]   (f) finalName = test1-0.1
+[DEBUG]   (f) outputDirectory = /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target
+[DEBUG]   (f) project = org.apache.maven.project.MavenProject@9fd2ed52
+[DEBUG] -- end configuration --
+[INFO] [jar:jar]
+[INFO] Building jar: /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/test1-0.1.jar
+[DEBUG] adding directory META-INF/
+[DEBUG] adding entry META-INF/MANIFEST.MF
+[DEBUG] adding directory org/
+[DEBUG] adding directory org/codehaus/
+[DEBUG] adding directory org/codehaus/mojo/
+[DEBUG] adding directory org/codehaus/mojo/smc/
+[DEBUG] adding directory org/codehaus/mojo/smc/test/
+[DEBUG] adding entry org/codehaus/mojo/smc/test/Test.class
+[DEBUG] adding entry org/codehaus/mojo/smc/test/TestContext$TestState.class
+[DEBUG] adding entry org/codehaus/mojo/smc/test/TestContext$TestFSM.class
+[DEBUG] adding entry org/codehaus/mojo/smc/test/TestContext$TestFSM_Default$TestFSM_Stopped.class
+[DEBUG] adding entry org/codehaus/mojo/smc/test/TestContext$TestFSM_Default$TestFSM_Started.class
+[DEBUG] adding entry org/codehaus/mojo/smc/test/TestContext$TestFSM_Default.class
+[DEBUG] adding entry org/codehaus/mojo/smc/test/TestContext$1.class
+[DEBUG] adding entry org/codehaus/mojo/smc/test/TestContext.class
+[DEBUG] adding directory META-INF/maven/
+[DEBUG] adding directory META-INF/maven/org.cb.maven.plugins.smc/
+[DEBUG] adding directory META-INF/maven/org.cb.maven.plugins.smc/test1/
+[DEBUG] adding entry META-INF/maven/org.cb.maven.plugins.smc/test1/pom.xml
+[DEBUG] adding entry META-INF/maven/org.cb.maven.plugins.smc/test1/pom.properties
+[DEBUG] org.apache.maven.plugins:maven-install-plugin:maven-plugin:2.1:runtime (selected for runtime)
+[DEBUG]   org.apache.maven:maven-artifact-manager:jar:2.0:runtime (selected for runtime)
+[DEBUG]     org.codehaus.plexus:plexus-utils:jar:1.0.4:runtime (selected for runtime)
+[DEBUG]     org.codehaus.plexus:plexus-container-default:jar:1.0-alpha-8:runtime (selected for runtime)
+[DEBUG]       classworlds:classworlds:jar:1.1-alpha-2:runtime (selected for runtime)
+[DEBUG]       junit:junit:jar:3.8.1:runtime (selected for runtime)
+[DEBUG]     org.apache.maven:maven-artifact:jar:2.0:runtime (selected for runtime)
+[DEBUG]     org.apache.maven:maven-repository-metadata:jar:2.0:runtime (selected for runtime)
+[DEBUG]     org.apache.maven.wagon:wagon-provider-api:jar:1.0-alpha-5:runtime (selected for runtime)
+[DEBUG]   org.apache.maven:maven-project:jar:2.0:runtime (selected for runtime)
+[DEBUG]     org.apache.maven:maven-model:jar:2.0:runtime (selected for runtime)
+[DEBUG]     org.apache.maven:maven-profile:jar:2.0:runtime (selected for runtime)
+[DEBUG]   org.apache.maven:maven-plugin-api:jar:2.0:runtime (selected for runtime)
+[DEBUG]   org.apache.maven:maven-artifact:jar:2.0:runtime (selected for runtime)
+[DEBUG] Configuring mojo 'org.apache.maven.plugins:maven-install-plugin:2.1:install' -->
+[DEBUG]   (f) artifact = org.cb.maven.plugins.smc:test1:jar:0.1
+[DEBUG]   (f) attachedArtifacts = []
+[DEBUG]   (f) localRepository = [local] -> file:///home/jerome/.m2/repository
+[DEBUG]   (f) packaging = jar
+[DEBUG]   (f) pomFile = /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/pom.xml
+[DEBUG] -- end configuration --
+[INFO] [install:install]
+[INFO] Installing /home/jerome/Dev/OSS/m2/mojo-ssh/mojo-sandbox/smc-maven-plugin/src/test/projects/project1/target/test1-0.1.jar to /home/jerome/.m2/repository/org/cb/maven/plugins/smc/test1/0.1/test1-0.1.jar
+[INFO] ----------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ----------------------------------------------------------------------------
+[INFO] Total time: 6 seconds
+[INFO] Finished at: Fri Mar 24 22:53:56 CET 2006
+[INFO] Final Memory: 4M/9M
+[INFO] ----------------------------------------------------------------------------

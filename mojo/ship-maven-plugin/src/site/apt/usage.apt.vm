@@ -1,0 +1,42 @@
+ ~~ Licensed to the Apache Software Foundation (ASF) under one
+ ~~ or more contributor license agreements.  See the NOTICE file
+ ~~ distributed with this work for additional information
+ ~~ regarding copyright ownership.  The ASF licenses this file
+ ~~ to you under the Apache License, Version 2.0 (the
+ ~~ "License"); you may not use this file except in compliance
+ ~~ with the License.  You may obtain a copy of the License at
+ ~~
+ ~~   http://www.apache.org/licenses/LICENSE-2.0
+ ~~
+ ~~ Unless required by applicable law or agreed to in writing,
+ ~~ software distributed under the License is distributed on an
+ ~~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ ~~ KIND, either express or implied.  See the License for the
+ ~~ specific language governing permissions and limitations
+ ~~ under the License.
+
+ -----
+ Usage
+ -----
+ Stephen Connolly
+ ------
+ 2010-11-24
+ ------
+
+Usage
+
+  The plugin offers goals for helping with continuous deployment.
+
+  In continuous deployment, releases should be deployed continuously.  The kind of deployment that continuous deployment
+  refers to is distinct from deployment to the maven repository, for the sake of clarity, we will call it <<<shipping>>>
+
+* Basic Usage
+
+  Put your script for shipping in <<<src/ship/script>>>. You can use either Groovy or Bean Shell scripts.
+
+  The script will be passed an array of <<<File>>> objects called <<<artifacts>>> which is the selected artifacts
+  of the selected version (which need not be the project version).
+
+  Configure the <<<shipScript>>> to the name of the ship script.
+
+  When you are ready to ship, just invoke the <<<ship:ship>>> goal

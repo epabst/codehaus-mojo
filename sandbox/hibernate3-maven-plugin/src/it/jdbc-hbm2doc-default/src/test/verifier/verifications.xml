@@ -1,0 +1,7 @@
+<verifications>
+  <files>
+    <file>
+      <location>target/site/hibernate3/entities/it/Person.html</location>
+    </file>
+  </files>
+</verifications>

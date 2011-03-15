@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+	<parent>
+		<groupId>org.codehaus.mojo.cruisecontrol.testprojects</groupId>
+		<artifactId>project1</artifactId>
+		<version>1.0</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.codehaus.mojo.cruisecontrol.testprojects</groupId>
+	<artifactId>module2</artifactId>
+	<version>1.0</version>
+	<name>module2</name>
+	<scm>
+		<connection>scm:svn:svn://localhost/project1/module2</connection>
+	</scm>
+	<ciManagement>
+		<system>cruisecontrol</system>
+	</ciManagement>
+</project>

@@ -1,0 +1,74 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.cb.maven.plugins.smc</groupId>
+  <artifactId>test2</artifactId>
+  <version>0.1</version>
+  <packaging>jar</packaging>
+  <name>Maven Smc Plugin</name>
+  <inceptionYear>2006</inceptionYear>
+  <licenses>
+    <license>
+      <name>Apache License 2</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>Jerome Lacoste</name>
+      <id>jerome</id>
+      <email>jerome@coffeebreaks.org</email>
+      <organization>CoffeeBreaks</organization>
+      <organizationUrl>http://www.coffeebreaks.org</organizationUrl>
+      <roles>
+        <role>Java Developer</role>
+      </roles>
+      <timezone>+1</timezone>
+    </developer>
+  </developers>
+
+  <dependencies>
+    <dependency>
+      <groupId>net.sf.smc</groupId>
+      <artifactId>smc</artifactId>
+      <version>4.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <!-- for manual tests. Can't be automated in the unit tests as the plugin's not installed. What about integration tests? -->
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>smc-maven-plugin</artifactId>
+        <executions>
+           <execution>
+              <goals>
+                 <goal>smc</goal>
+              </goals>
+           </execution>
+        </executions>
+        <configuration>
+          <sync>true</sync>>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>smc-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </reporting>
+</project>

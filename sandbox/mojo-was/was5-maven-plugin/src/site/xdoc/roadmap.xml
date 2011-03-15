@@ -1,0 +1,20 @@
+<document>
+	<properties>
+		<author email="hermod.opstvedt@dnbnor.no">Hermod Opstvedt</author>
+		<title>WAS 5 Plugin for Maven 2</title>
+	</properties>
+	<body>
+		<section name="Road map">
+			<p>
+				The road map for this plugin is simply to maintain the current 5.x compatibility. The plan is also to some more of the
+				Ant tasks that come with WebSphere, such as ValidateModule and DefaultBindings.
+			</p>
+			<subsection name="Future directions">
+				<p>Future directions include:</p>
+				<ul>
+					<li>Support for WAS 6</li>
+				</ul>
+			</subsection>
+		</section>
+	</body>
+</document>

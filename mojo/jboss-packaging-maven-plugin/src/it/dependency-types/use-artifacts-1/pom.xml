@@ -1,0 +1,80 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.codehaus.mojo.jboss.tests</groupId>
+    <artifactId>dependency-types-test</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>use-artifacts-1</artifactId>
+  <packaging>pom</packaging>
+
+  <name>Artifact Consumer</name>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jboss-packaging-maven-plugin</artifactId>
+        <version>@pom.version@</version>
+        <extensions>true</extensions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+        <version>2.1</version>
+        <executions>
+          <execution>
+            <id>copy-deps</id>
+            <phase>generate-resources</phase>
+            <goals>
+              <goal>copy-dependencies</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  
+  <dependencies>
+    <dependency>
+      <groupId>org.codehaus.mojo.jboss.tests</groupId>
+      <artifactId>create-artifacts</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>jboss-sar</type>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.mojo.jboss.tests</groupId>
+      <artifactId>create-artifacts</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>jboss-har</type>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.mojo.jboss.tests</groupId>
+      <artifactId>create-artifacts</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>jboss-par</type>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.mojo.jboss.tests</groupId>
+      <artifactId>create-artifacts</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>jboss-esb</type>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.mojo.jboss.tests</groupId>
+      <artifactId>create-artifacts</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>jboss-spring</type>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.mojo.jboss.tests</groupId>
+      <artifactId>create-artifacts</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <type>jboss-aop</type>
+    </dependency>
+
+  </dependencies>
+
+</project>

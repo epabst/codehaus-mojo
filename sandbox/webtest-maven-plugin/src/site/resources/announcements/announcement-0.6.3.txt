@@ -1,0 +1,24 @@
+The webtest-maven-plugin-team is pleased to announce the webtest-maven-plugin-0.6.3.maven-plugin release!
+
+Canoo WebTest plugin for M2. Canoo WebTest is a free Java tools for functional
+    testing of web applications and the plugin allows to run Canoo Webtests from
+    within a Maven build.
+
+Documentation and Downloads:
+o The current version can be downloaded from http://people.apache.org/~sgoeschl/download/maven-plugins/webtest-maven-plugin/webtest-maven-plugin-0.6.3-project.tar.gz
+o The current version can be found at http://people.apache.org/~sgoeschl/download/maven-plugins/webtest-maven-plugin/site/
+
+Changes in this version include:
+
+New features:
+o Added the goal 'webtest:verify-filecontent'
+
+Changes:
+o Updated the usage section of the plugin documentation.
+o Upgrading to the official Canoo WebTest 2.6 release.
+o The goal 'webtest:verify' was renamed to 'webtest:verify-result' to
+avoid name clashes.
+
+
+Have fun!
+-webtest-maven-plugin-team

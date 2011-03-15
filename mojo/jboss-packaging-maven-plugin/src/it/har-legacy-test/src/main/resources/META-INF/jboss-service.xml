@@ -1,0 +1,9 @@
+<mbean code="org.jboss.hibernate.jmx.Hibernate"
+       name="jboss.har:service=${artifactId}">
+       <attribute name="DatasourceName">java:/jdbc/DefaultDS</attribute>
+       <attribute name="SessionFactoryName">java:/hibernate/har-legacy-test</attribute>
+       <attribute name="Dialect">org.hibernate.dialect.HSQLDialect</attribute>
+       <attribute name="CacheProviderClass">org.hibernate.cache.HashtableCacheProvider</attribute>
+       <attribute name="Hbm2ddlAuto">false</attribute>
+       <attribute name="ShowSqlEnabled">false</attribute>
+</mbean>

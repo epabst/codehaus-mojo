@@ -1,0 +1,46 @@
+ ------
+ UTF8 To ASCII Example
+ ------
+ Dan T. Tran
+ <dantran@gmail.com>
+ ------
+ 2010-03-04
+ ------
+
+UTF8 To ASCII Example
+
+  This example converts all UTF8 files in the <<<src/main/native2ascii>>> directory,
+  and places them in <<<target/native2ascii>>>.  The final JAR file will include those
+  converted files automatically.
+
+---------------------------
+<project>
+  [...]
+  <build>
+    [...]
+    <plugins>
+      [...]
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>native2ascii-maven-plugin</artifactId>
+        </executions>
+          <execution>
+            <goals>
+              <goal>native2ascii</goal>
+            </goals>
+            <!-- specific configurations -->
+            <configuration>
+              <encoding>UTF8</encoding>
+            </configuration>
+          </execution>
+          [...]
+        </executions>
+        [...]
+      </plugin>
+      [...]
+    </plugins>
+    [...]
+  </build>
+  [...]
+</project>
+---------------------------

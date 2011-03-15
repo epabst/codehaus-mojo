@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<git-settings>
+  <![CDATA[ will had the option --no-verify to the commit command can be helpfull to ignore trailing spaces issues with cygwin and the release plugin ]]>
+  <commitNoVerify>false</commitNoVerify>
+</git-settings>

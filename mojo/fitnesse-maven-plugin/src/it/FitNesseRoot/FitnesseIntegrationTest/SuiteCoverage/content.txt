@@ -1,0 +1,5 @@
+Couverture de test...
+
+^SetUp
+
+^TestSimpleClass1

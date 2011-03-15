@@ -1,0 +1,72 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.codehaus.mojo.jboss.tests</groupId>
+    <artifactId>dependency-types-test</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>create-artifacts</artifactId>
+  <packaging>jar</packaging>
+
+  <name>Create JBoss Packaging Artifacts</name>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jboss-packaging-maven-plugin</artifactId>
+        <version>@pom.version@</version>
+        <extensions>true</extensions>
+        <executions>
+          <execution>
+            <id>jboss-sar</id>
+            <phase>package</phase>
+            <goals>
+              <goal>sar</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>jboss-har</id>
+            <phase>package</phase>
+            <goals>
+              <goal>har</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>jboss-par</id>
+            <phase>package</phase>
+            <goals>
+              <goal>par</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>jboss-esb</id>
+            <phase>package</phase>
+            <goals>
+              <goal>esb</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>jboss-spring</id>
+            <phase>package</phase>
+            <goals>
+              <goal>spring</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>jboss-aop</id>
+            <phase>package</phase>
+            <goals>
+              <goal>aop</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <primaryArtifact>false</primaryArtifact>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

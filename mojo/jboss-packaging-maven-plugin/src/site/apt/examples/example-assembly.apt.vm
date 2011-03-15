@@ -1,0 +1,83 @@
+ ------
+ Assembly Plugin Example
+ ------
+ Paul Gier <pgier at apache.org>
+ ------
+ August 4, 2009
+ ------
+
+Maven Assembly Plugin Example
+
+  The Maven Assembly Plugin can be used to create the various JBoss packaging types. This is useful
+  for example if you have a complex configuration, or if multiple aop, esb, har, par, sar, or spring
+  artifacts should be created for a single build. The Assembly Plugin should then be configured with
+  the JBoss Packaging Plugin as a dependency, to allow for the Assembly Plugin to correctly handle
+  the JBoss-specific archive formats.
+  
++---------
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      ...
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <version>2.2</version>
+        <executions>
+          <execution>
+            <id>my-sar</id>
+            <goals>
+              <goal>single</goal>
+            </goals>
+            <phase>package</phase>
+              <configuration>
+                <descriptors>
+                  <descriptor>src/assembly/my-sar.xml</descriptor>
+                </descriptors>
+              </configuration>
+          </execution>
+        </executions>
+        <dependencies>
+          <dependency>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>jboss-packaging-maven-plugin</artifactId>
+            <version>${project.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+      ...
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
++---------
+
+  The assembly descriptor can then be configured with the "sar" format, as shown in the following example.
+  
++---------
+
+<assembly>
+  <id>my-sar</id>
+  <formats>
+    <format>sar</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <fileSets>
+    <fileSet>
+      <directory>target/classes</directory>
+      <outputDirectory>/</outputDirectory>
+    </fileSet>
+  </fileSets>
+  <dependencySets>
+    <dependencySet>
+      <outputFileNameMapping>${artifact.artifactId}.jar</outputFileNameMapping>
+      <outputDirectory>lib</outputDirectory>
+    </dependencySet>
+  </dependencySets>
+</assembly>
+
++---------
+  

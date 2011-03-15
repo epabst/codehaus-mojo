@@ -1,0 +1,9 @@
+!|org.codehaus.mojo.fitnesse.integration.Simple1Fixture||
+|value|check?||
+|-1|false|should pass|
+|0|false|should pass|
+|1|true|should pass|
+|2|true|should pass|
+|-1|true|should not pass|
+
+

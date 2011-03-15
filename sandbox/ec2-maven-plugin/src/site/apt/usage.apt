@@ -1,0 +1,88 @@
+ ------
+ Maven EC2 Plugin - Usage
+ ------
+ Carlos Sanchez
+ ------
+ 23 July 2009
+ -----
+
+Usage Scenarios
+
+  Listed below are the various scenarios where the EC2 plugin can be used
+  along with the proper way to configure the project(s) involved.
+
+  Make sure you add the Codehaus snapshot repository to your pluginRepositories
+  section to use the plugin snapshots.
+
++-------+
+  <pluginRepositories>
+    <pluginRepository>
+      <id>codehaus.org</id>
+      <name>Maven Codehaus Development Plugin Repository</name>
+      <url>http://snapshots.repository.codehaus.org</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+    </pluginRepository>
+  </pluginRepositories>
++-------+
+
+
+Start images before integration tests run
+
+  Start one instance of the ami "ami-xxxxxxxx" during the pre-integration-test phase,
+  passing "xyz" as user data. Wait for the instance to be available and shut it down
+  when the build finishes, whether the build succeeds or not.
+  
+  You can run "mvn -DaccessKeyId=myAccessKeyId -DsecretAccessKey=mySecretAccessKey install"
+  to pass the necessary keys.
+
++-------+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>ec2-maven-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <configuration>
+          <!-- pass these with -D
+            <accessKeyId></accessKeyId>
+            <secretAccessKey></secretAccessKey>
+          -->
+          <launchConfigurations>
+            <launchConfiguration>
+
+              <!-- EC2 API parameters -->
+              <imageId>ami-xxxxxxxx</imageId>
+              <minCount>1</minCount>
+              <maxCount>1</maxCount>
+              <keyName>my-keypar</keyName>
+              <userDataString>xyz</userDataString>
+              <!--
+                <securityGroup>
+                  <group>default</group>
+                </securityGroup>
+                <AvailabilityZone></AvailabilityZone>
+                <instanceType>DEFAULT</instanceType>
+                <kernelId></kernelId>
+                <ramdiskId></ramdiskId>
+                <blockDeviceMappings>
+                  <blockDeviceMapping></blockDeviceMapping>
+                </blockDeviceMappings>
+                <elasticIp></elasticIp>
+              -->
+
+              <wait>true</wait> <!-- wait for the instance to start -->
+              <terminate>true</terminate> <!-- terminate the instance at the end of the build -->
+            </launchConfiguration>
+          </launchConfigurations>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>pre-integration-test</phase>
+            <goals>
+              <goal>start</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
++-------+
+

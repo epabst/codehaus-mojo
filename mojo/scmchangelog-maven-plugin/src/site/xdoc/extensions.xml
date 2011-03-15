@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+  <properties>
+    <author email="ehsavoie73@gmail.com">Emmanuel Hugonnet</author>
+    <title>Extensions</title>
+  </properties>
+  <head>
+    <meta/>
+  </head>
+  <body>
+    <section name="Introduction">
+      <subsection name="Overview">
+        <p>
+          We have tried to make this plugin extensible to be adaptable.
+          There are three ways to extend it:
+          <ul>
+            <li>add grammars.</li>
+            <li>add bug trackers.</li>
+            <li>add other scm.</li>
+          </ul>
+        </p>
+      </subsection>
+      <subsection name="How does it work?">
+        <p>
+          Well it is quite simple:
+          <ol>
+            <li>we build the scm connection in the same way as the maven-scm-plugin. So, in theory, it should be possibleo use others SCM, provided you override the two commands we use to produce our expected elements.</li>
+            <li>we do a <code>list</code> command on the tags repository. This gives us a list of tags (that we are considering as releases).</li>
+            <li>for each tag, we execute a <code>log</code> command between its startrevision and end revision. This way we get a list of log entries.</li>
+            <li>we parse thelog entries. Those who match the grammar's patterns give us a list of Messages.</li>
+            <li>we build the report with this list of issues.</li>
+          </ol>
+        </p>
+      </subsection>
+    </section>
+    <section name="Extensions">
+      <subsection name="Bug Tracker">
+        <p>
+          The bug trackers are defined in the class <code>org.codehaus.mojo.scmchangelog.tracker.BugTrackers</code>.
+          They implement the interface <code>org.codehaus.mojo.scmchangelog.tracker.BugTrackLinker</code> whose only method is here to provide a link to the bug description for this bug tracker with the bug id as parameter.<br/>
+          We provide three examples of bug trackers: SourceForge, JIRA, and Bugzilla. Our bug trackers use the issue management url from the pom, but you can also define your own through the plugin's configuration.          
+        </p>
+      </subsection>
+      <subsection name="Grammar">
+        <p>
+          The grammars are defined in the class <code>org.codehaus.mojo.scmchangelog.changelog.log.GrammarEnum</code>.
+          They implement the interface <code>org.codehaus.mojo.scmchangelog.changelog.log.SvnGrammar</code> with three methods:
+          <ul>
+            <li><code>Message extractMessage( String content )</code>: where we extract the issues from the comment.</li>
+            <li><code> boolean hasMessage( String content )</code>: where we test for issues from the comment. If none is found the comment will ignored.</li>
+            <li><code>String getIssueSeparator()</code>: which returns the separator of issue comment, if the comment is about several issues.</li>
+          </ul>
+          We provide two examples of grammar: <code>org.codehaus.mojo.scmchangelog.changelog.log.grammar.ManuSvnGrammar</code> and <code>org.codehaus.mojo.scmchangelog.changelog.log.grammar.RemySvnGrammar</code>.
+          They are extensions of <code>org.codehaus.mojo.scmchangelog.changelog.log.grammar.AbstractSvnGrammar</code>, a helper class for regexp based grammars.
+        </p>
+      </subsection>
+      <subsection name="SCM">
+        <p>
+          To be frank, I don't know how hard it would be to use another SCM. 
+          We are using Maven's SCM API to be independant from the SCM.
+          To be able to use another SCM, one would have to provide the command and the consumer for the <code>list</code> and <code>changelog</code> commands.
+          And we would have to update the code so that our ScmProviders would be used instead of those of the SCM API.
+        </p>The changelog command must be modified to return a list of BetterChangeSet instead of a list of ChangeSet. This is because ChangeSet doesn't store the revision number.
+      </subsection>
+    </section>
+  </body>
+</document>

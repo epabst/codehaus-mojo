@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+
+<model>
+  <id>buildinfo</id>
+  <name>BuildInfo</name>
+  <description><![CDATA[
+    Defines the model for capturing environmental information about a build execution.
+  ]]></description>
+  <defaults>
+    <default>
+      <key>package</key>
+      <value>org.codehaus.mojo.buildinfo.model</value>
+    </default>
+  </defaults>
+  <classes>
+    <class rootElement="true" xml.tagName="buildinfo">
+      <name>BuildInfo</name>
+      <description><![CDATA[
+	    Captures all environment information for a build execution.
+      ]]></description>
+      <version>1.0.0</version>
+      <fields>
+        <field>
+          <name>systemProperties</name>
+          <version>1.0.0</version>
+          <description><![CDATA[
+             The list of system properties that were captured for the build execution.
+          ]]></description>
+          <type>Properties</type>
+          <association>
+            <type>String</type>
+            <multiplicity>*</multiplicity>
+          </association>
+        </field>
+      </fields>
+    </class>
+  </classes>
+</model>
+

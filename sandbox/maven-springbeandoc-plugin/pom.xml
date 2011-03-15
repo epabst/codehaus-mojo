@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <artifactId>maven-springbeandoc-plugin</artifactId>
+  <version>1.0.8-SNAPSHOT</version>
+  <parent>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>mojo-sandbox-parent</artifactId>
+    <version>5</version>
+  </parent>
+  <prerequisites>
+    <maven>2.0.6</maven>
+  </prerequisites>
+  <modelVersion>4.0.0</modelVersion>
+  <packaging>maven-plugin</packaging>
+  <name>Spring BeanDoc Plugin</name>
+  <description>
+    ${project.name} is a Maven plugin for Spring BeanDoc
+  </description>
+  <inceptionYear>2006</inceptionYear>
+  <url>http://mojo.codehaus.org/${project.artifactId}</url>
+  <developers>
+    <developer>
+      <id>jdlandsh</id>
+      <name>Jurgen De Landsheer</name>
+      <email>jurgen.de.landsheer@gmail.com</email>
+      <organization>UGent</organization>
+      <organizationUrl>http://www.UGent.be/</organizationUrl>
+      <roles>
+        <role>Initial plugin author</role>
+      </roles>
+      <timezone>+1</timezone>
+    </developer>
+    <developer>
+      <id>slonopotamus</id>
+      <name>Marat Radchenko</name>
+      <email>slonopotamusorama@gmail.com</email>
+      <url>http://slonopotamus.org</url>
+      <roles>
+        <role>Developer</role>
+      </roles>
+      <timezone>+3</timezone>
+    </developer>
+  </developers>
+  <contributors>
+    <contributor>
+      <name>Markus Knittig</name>
+      <email>markus@myd0.de</email>
+    </contributor>
+  </contributors>
+  <licenses>
+    <license>
+      <name>The MIT License</name>
+      <!-- Dirty hack to prevent docck from complaining -->
+      <url>${project.scm.url}/LICENSE.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <repositories>
+    <repository>
+      <id>spring-beandoc</id>
+      <url>http://spring-beandoc.sourceforge.net/repo</url>
+    </repository>
+  </repositories>
+  <dependencies>
+    <!-- BeanDoc -->
+    <dependency>
+      <groupId>org.springframework.beandoc</groupId>
+      <artifactId>spring-beandoc</artifactId>
+      <version>0.8.1</version>
+      <exclusions>
+        <exclusion>
+          <groupId>com.ibm.icu</groupId>
+          <artifactId>icu4j</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+    <!-- For directory scanner -->
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-utils</artifactId>
+      <version>1.5.6</version>
+    </dependency>
+    <!-- Maven API -->
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-project</artifactId>
+      <version>2.0.6</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <version>2.0.6</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.reporting</groupId>
+      <artifactId>maven-reporting-api</artifactId>
+      <version>2.0.6</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven.reporting</groupId>
+      <artifactId>maven-reporting-impl</artifactId>
+      <version>2.0.4.1</version>
+    </dependency>
+    <!-- Test dependencies -->
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.2</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>${project.groupId}</groupId>
+        <artifactId>${project.artifactId}</artifactId>
+        <version>${project.version}</version>
+        <configuration>
+          <!--<resources>
+            <resource>classpath:org/springframework/beandoc/client/beandoc.xml</resource>
+          </resources>-->
+          <sourceDirectories>
+            <sourceDirectory>src/test/resources/beandocxmldir</sourceDirectory>
+          </sourceDirectories>
+          <includes>
+            <include>**/*.xml</include>
+          </includes>
+          <title>${project.name} ${project.version} Bean docs</title>
+          <javadocLocations>
+            <javadocLocation>
+              <packagename>org.codehaus.mojo.springbeandoc</packagename>
+              <location>${project.build.directory}/site/apidocs</location>
+            </javadocLocation>
+          </javadocLocations>
+          <executable>${graphVizExecutable}</executable>
+          <graphsOutputType>png</graphsOutputType>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
+  <properties>
+    <project.build.java.target>1.5</project.build.java.target>
+    <graphVizExecutable>/usr/bin/dot</graphVizExecutable>
+  </properties>
+</project>

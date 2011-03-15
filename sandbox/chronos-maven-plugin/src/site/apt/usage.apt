@@ -1,0 +1,159 @@
+ ------
+ Usage
+ ------
+ Kent Soelvsten
+ ------
+ Dec 20, 2007
+ ------
+
+
+Usage
+
+* Basic Configuration
+
+  The recommended basic configuration is as follows. Note that you need to specify a path to an external
+  jmeter installation.
+  JMeter can be downloaded from http://jakarta.apache.org/site/downloads/downloads_jmeter.cgi.
+  
+   Though this example show the path defined directly inside the pom, our advise is to
+  define it in your settings.xml instead.
+  
+  An easy way to create the test script (.jmx file) is by launching the jmeter gui using eg.
+  mvn install chronos:jmetergui -Dmeter.home=/Applications/Utilities/Java/jakarta-jmeter-2.3.1
+  which automatically makes the classpath of your maven project available for jmeter.	
+
+  Example:
+  
+-------------------
+<project>
+  ...  
+	<properties>
+		<jmeter.home>/Applications/Utilities/Java/jakarta-jmeter-2.3.1</jmeter.home>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>chronos-maven-plugin</artifactId>
+				<version>1.0-SNAPSHOT</version>
+				<configuration>
+					<input>${basedir}/src/main/resources/simplewebplan.jmx</input>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>jmeter</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<reporting>
+	    ...
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>chronos-maven-plugin</artifactId>
+				<version>1.0-SNAPSHOT</version>
+			</plugin>
+		</plugins>
+	</reporting>
+-------------------
+
+* Basic configuration with checks
+
+  The plugin has a check mojo enabling you to control whether performance targets
+  have been met.
+
+  Example:
+  
+-------------------
+<project>
+  ...
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>chronos-maven-plugin</artifactId>
+				<version>1.0-SNAPSHOT</version>
+				<configuration>
+				    <input>${basedir}/src/main/resources/simplewebplan.jmx</input>
+				    <responsetimeaverage>550.0</responsetimeaverage>
+				    <maxthroughput>3.2</maxthroughput>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>jmeter</goal>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+-------------------
+
+* Customized report
+
+  The plugin contains several possibilities to customize the information shown in the report.
+  Default is to show as much information as possible.
+  
+  This example is a report with not very much information...
+
+-------------------
+<project>
+  ...
+	<build>
+		<plugins>
+		    ...
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>chronos-maven-plugin</artifactId>
+				<version>1.0-SNAPSHOT</version>
+				<configuration>
+					<input>${basedir}/src/main/resources/simplewebplan.jmx</input>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>jmeter</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>chronos-maven-plugin</artifactId>
+				<version>1.0-SNAPSHOT</version>
+				<configuration>
+				    <description>This is the description of the generated report</description>
+				    <title>Report title</title>
+				    <showaverage>false</showaverage>
+				    <showpercentile>false</showpercentile>
+				    <showinfotable>false</showinfotable>
+				    <showtimeinfo>false</showtimeinfo>
+				    <showsummary>true</showsummary>
+				    <showdetails>false</showdetails>
+				    <showresponse>true</showresponse>
+				    <showhistogram>true</showhistogram>
+				    <showthroughput>false</showthroughput>
+				    <showgc>false</showgc>
+				</configuration>
+				<reportSets>
+				  <reportSet>
+				    <reports>
+				      <report>report</report>
+				    </reports>
+				  </reportSet>
+				</reportSets>
+			</plugin>
+		</plugins>
+	</reporting>
+</project>
+-------------------

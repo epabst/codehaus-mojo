@@ -1,0 +1,52 @@
+ ----
+Usage
+ ----
+Carlos Sanchez
+ ----
+2010-02-16
+ ----
+
+Usage
+
+  To use in a project add the following plugin configuration
+  to your <<<pom.xml>>> file:
+
+------
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      ...
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>xjc-maven-plugin</artifactId>
+        <version>1.0-beta-2-SNAPSHOT</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>xjc</goal>
+            </goals>
+            <configuration>
+              <task><![CDATA[
+                <xjc schema="src/main/resources/com/acme/services.xsd" package="com.acme"/>
+              ]]></task>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      ...
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
+------
+
+
+  This example configuration refers to a schema path relative to the project
+  directory. All of the XJC output files will be generated in the
+  <<<target/generated>>> directory. Note also that the Ant task is placed inside
+  a CDATA section - hopefully this won't be necessary in a future version.
+
+  As a reminder the Sun XJC task will be used to generate the source files.

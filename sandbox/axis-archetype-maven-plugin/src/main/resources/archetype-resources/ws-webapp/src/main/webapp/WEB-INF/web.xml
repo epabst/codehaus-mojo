@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!-- 
+ Copyright 2006 The Mojo Team (mojo.codehaus.org)
+
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+
+<!DOCTYPE web-app
+   PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+   "http://java.sun.com/j2ee/dtds/web-app_2.3.dtd">
+
+<web-app>
+  <display-name>Axis Archetype Web Service</display-name>
+  
+  <!-- Axis Web Service -->
+  <listener>
+    <listener-class>org.apache.axis.transport.http.AxisHTTPSessionListener</listener-class>
+  </listener>
+  <servlet>
+    <servlet-name>AxisServlet</servlet-name>
+    <display-name>Apache-Axis Servlet</display-name>
+    <servlet-class>org.apache.axis.transport.http.AxisServlet</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>AxisServlet</servlet-name> 
+    <url-pattern>/services/*</url-pattern> 
+  </servlet-mapping>
+  
+  
+  <!-- General config -->
+  
+  <welcome-file-list>
+    <welcome-file>app</welcome-file>
+  </welcome-file-list>
+  
+  <session-config>
+    <!--  Default to 5 minute session timeouts --> 
+    <session-timeout>5</session-timeout> 
+  </session-config>
+  
+  <!-- 
+    currently the W3C havent settled on a media type for WSDL;
+    http://www.w3.org/TR/2003/WD-wsdl12-20030303/#ietf-draft
+    for now we go with the basic 'it's XML' response 
+  --> 
+  <mime-mapping>
+    <extension>wsdl</extension> 
+    <mime-type>text/xml</mime-type> 
+  </mime-mapping>
+  <mime-mapping>
+    <extension>xsd</extension> 
+    <mime-type>text/xml</mime-type> 
+  </mime-mapping>
+  
+  <security-constraint>
+    <web-resource-collection>
+      <web-resource-name>templates</web-resource-name>
+      <url-pattern>/templates/*</url-pattern>
+    </web-resource-collection>
+    <web-resource-collection>
+      <web-resource-name>logs</web-resource-name>
+      <url-pattern>/logs/*</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+      <role-name>admin</role-name>
+    </auth-constraint>
+  </security-constraint>
+  
+  <login-config>
+    <auth-method>BASIC</auth-method>
+    <realm-name>Templates</realm-name>
+  </login-config>
+</web-app>

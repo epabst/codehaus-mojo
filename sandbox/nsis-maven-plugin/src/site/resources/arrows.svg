@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="744.09448819"
+   height="1052.3622047"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   sodipodi:docname="arrows.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     gridtolerance="10000"
+     guidetolerance="10"
+     objecttolerance="10"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="208.02125"
+     inkscape:cy="700.96243"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1240"
+     inkscape:window-height="835"
+     inkscape:window-x="6"
+     inkscape:window-y="2" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#0082ff;fill-rule:evenodd;stroke:#000000;stroke-width:7;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 184.85793,104.8391 L 199.57643,213.18265 L 141.60841,206.43315 L 218.07778,283.06147 L 295.97601,197.48633 L 231.47115,212.57575 L 242.80516,102.59411 L 184.85793,104.8391 z"
+       id="arrow_down"
+       sodipodi:nodetypes="cccccccc"
+       inkscape:export-filename="C:\code\apache\nsis-maven-plugin\src\site\resources\arrow_down.png"
+       inkscape:export-xdpi="27.889999"
+       inkscape:export-ydpi="27.889999"
+       inkscape:label="#path2433" />
+    <path
+       sodipodi:nodetypes="cccccccc"
+       id="arrow_right"
+       d="M 398.49394,234.84329 L 506.83749,220.12479 L 500.08799,278.09281 L 576.71631,201.62344 L 491.14117,123.72521 L 506.23059,188.23007 L 396.24895,176.89606 L 398.49394,234.84329 z"
+       style="fill:#0082ff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:7;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       inkscape:export-filename="C:\code\apache\nsis-maven-plugin\src\site\resources\arrow_right.png"
+       inkscape:export-xdpi="27.886637"
+       inkscape:export-ydpi="27.886637"
+       inkscape:label="#path3211" />
+    <path
+       style="fill:#0082ff;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:7;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 398.70478,333.83824 C 551.15207,316.47353 648.04097,516.29161 473.19883,520.1401 L 479.94833,578.10812 L 403.32002,501.63875 L 488.89515,423.74052 L 473.80573,488.24538 C 523.59826,490.19157 564.29943,394.15297 406.00054,392.05855 L 398.70478,333.83824 z"
+       id="arrow_next"
+       sodipodi:nodetypes="cccccccc"
+       inkscape:export-filename="C:\code\apache\nsis-maven-plugin\src\site\resources\arrow_next.png"
+       inkscape:export-xdpi="28.176359"
+       inkscape:export-ydpi="28.176359"
+       inkscape:label="#path3213" />
+  </g>
+</svg>

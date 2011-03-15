@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+
+<!--
+  ~ The MIT License
+  ~
+  ~ Copyright 2009 The Codehaus.
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of
+  ~ this software and associated documentation files (the "Software"), to deal in
+  ~ the Software without restriction, including without limitation the rights to
+  ~ use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+  ~ of the Software, and to permit persons to whom the Software is furnished to do
+  ~ so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
+<document>
+  <properties>
+    <title>Unix Maven Plugin</title>
+    <author email="trygvis@codehaus.org">Trygve Laugstol</author>
+  </properties>
+  <body>
+    <section name="Unix Maven Plugin">
+      <p>
+        The unix-maven-plugin is a Maven plugin for producing installation packages for UNIX platforms.
+      </p>
+      <subsection name="Highlights">
+        <p>
+          The plugin currently support the following packaging formats and platforms:
+        </p>
+        <ul>
+          <li>
+            <code>deb</code> - Debian and Debian-based platforms like Ubuntu
+          </li>
+          <li>
+            <code>pkg</code> - Platforms with System V packaging tools like Solaris and HP-UX. Only Solaris is tested.
+          </li>
+          <li>
+            <code>rpm</code> - RedHat, Fedora and other platforms using RPM. Many platforms have RPM even if they use
+            another format as their primary format.
+          </li>
+        </ul>
+        <p>
+          Other features:
+        </p>
+        <ul>
+          <li>
+            <b>Simplified assembly</b>: The plugin supports advanced assembly features without requiring the Maven
+            Assembly Plugin. See <a href="overview/assembly-operations.html">Assembly Operations</a>.
+          </li>
+          <li>
+            <b>Repository index generation</b>: Goals for running dpkg-scanpackages
+          </li>
+        </ul>
+      </subsection>
+    </section>
+  </body>
+</document>

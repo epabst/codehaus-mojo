@@ -1,0 +1,128 @@
+ ------
+ General Translation
+ ------
+ ------
+ $Rev$ $Date$
+
+~~
+~~ Licensed to the Apache Software Foundation (ASF) under one
+~~ or more contributor license agreements.  See the NOTICE file
+~~ distributed with this work for additional information
+~~ regarding copyright ownership.  The ASF licenses this file
+~~ to you under the Apache License, Version 2.0 (the
+~~ "License"); you may not use this file except in compliance
+~~ with the License.  You may obtain a copy of the License at
+~~
+~~  http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~ Unless required by applicable law or agreed to in writing,
+~~ software distributed under the License is distributed on an
+~~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+~~ KIND, either express or implied.  See the License for the
+~~ specific language governing permissions and limitations
+~~ under the License.
+~~
+
+General Translation
+
+ <<NOTE:>> The examples below, unless otherwise specified, all assume that the
+ Maven build is invoked with a life-cycle phase:
+
++----------+
+mvn install
++----------+
+
+ Due to the use of executions configurations, invoking the named goals from the 
+ command-line will fail to function correctly.
+
+* Translate Class Files
+
+ Specify a <<<fileset>>> which includes the <<class>> files to be translated.
+
++----------+
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>retrotranslator-maven-plugin</artifactId>
+    <executions>
+        <execution>
+            <phase>process-classes</phase>
+            <goals>
+                <goal>translate</goal>
+            </goals>
+            <configuration>
+                <filesets>
+                    <fileset>
+                        <directory>${project.build.outputDirectory}</directory>
+                        <includes>
+                            <include>**/*.class</include>
+                        </includes>
+                    </fileset>
+                </filesets>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
++----------+
+
+ Specify a <<<jarfileset>>> which includes the <<jar>> files to be translated.
+
++----------+
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>retrotranslator-maven-plugin</artifactId>
+    <executions>
+        <execution>
+            <phase>process-classes</phase>
+            <goals>
+                <goal>translate</goal>
+            </goals>
+            <configuration>
+                <jarfilesets>
+                    <jarfileset>
+                        <directory>${pom.basedir}/lib</directory>
+                        <includes>
+                            <include>**/*.jar</include>
+                        </includes>
+                    </jarfileset>
+                </jarfilesets>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
++----------+
+
+* Translate and Verify
+
+ Notice the <<<$\{path_to_rt.jar\}>>> variable inside the \<verifyClasspath> element - you have to set
+ this variable inside your <<<.m2/settings.xml>>> file to point to pre-JRE-1.5 rt.jar for the verification
+ process to find it.
+
++----------+
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>retrotranslator-maven-plugin</artifactId>
+    <executions>
+        <execution>
+            <phase>process-classes</phase>
+            <goals>
+                <goal>translate</goal>
+            </goals>
+            <configuration>
+                <filesets>
+                    <fileset>
+                        <directory>${project.build.outputDirectory}</directory>
+                        <includes>
+                            <include>**/*.class</include>
+                        </includes>
+                    </fileset>
+                </filesets>
+                <verify>true</verify>
+                <verifyClasspath>
+                    <element>${path_to_rt.jar}</element>
+                </verifyClasspath>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
++----------+
+

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<pluginMetadata xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 ../../../../../../maven-plugin-tools-model/target/generated-site/xsd/plugin-metadata-1.0.0.xsd ">
+  <mojos>
+    <mojo>
+      <call>generate-buildinfo</call>
+      <goal>ant-write</goal>
+      <phase>package</phase>
+      <description>Write the environment information for the current build execution to an XML file.</description>
+      <parameters>
+        <parameter>
+          <name>buildinfo.systemProperties</name>
+          <expression>${buildinfo.systemProperties}</expression>
+          <required>false</required>
+          <readonly>false</readonly>
+        </parameter>
+        <parameter>
+          <name>buildinfo.outputFile</name>
+          <defaultValue>${project.build.directory}/${project.artifactId}-${project.version}-buildinfo.xml</defaultValue>
+          <required>true</required>
+          <readonly>false</readonly>
+        </parameter>
+      </parameters>
+    </mojo>
+  </mojos>
+</pluginMetadata>

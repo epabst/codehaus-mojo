@@ -1,0 +1,50 @@
+ ------
+ Introduction
+ ------
+ Author
+ ------
+ DD MMMM YYYY
+ ------
+
+
+FitNesse Maven plugin
+
+* Limitation
+
+  The plugin can't executed the {{{run-mojo.html}fitnesse:run}} with FitNesse 20060719. See  {{{http://jira.codehaus.org/browse/MOJO-778}MOJO-778}} for more information.
+
+* Goals Overview
+
+  General Information about the goals.
+
+  * {{{run-mojo.html}fitnesse:run}} execute locally FitNesse 'Suites' and/or ''Tests''.
+  
+  * {{{remotecall-mojo.html}fitnesse:remotecall}} get result of remote FitNesse execution.
+  
+  * {{{fitnesse-mojo.html}fitnesse:fitnesse}} create FitNesse report.
+
+* Usage
+
+  Instructions on how to use the FitNesse plugin can be found on the {{{usage.html}usage page}}.
+
+* FAQ
+
+  The FAQ can be found {{{faq.html}here}}.
+  
+  If you don't use Maven2 for you build, but you're interested by executing remote FitNesse page locally? See {{{faq.html#DoINeedAWholeMaven2Build}there}}.
+
+* Examples
+
+  To provide you with better understanding of some usages of the Plugin Name,
+  you can take a look into the following examples:
+
+  * {{{examples/simple.html}Example of remote execution of FitNesse with a simple Jar artifact.}}
+
+  * {{{examples/multiproject.html}Example of local execution of FitNesse with a multiproject.}}
+  
+  * {{{examples/minimalist.html}Example of simple project that allow local execution of remote server. This simple project may be use for non Maven2 build.}}
+  
+* Other Links
+  
+  * The {{{http://fitnesse.org}FitNesse}} site.
+  

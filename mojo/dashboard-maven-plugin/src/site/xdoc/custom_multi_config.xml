@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<document>
+  <properties>
+    <author email="dvicente72@gmail.com">David Vicente</author>
+    <title>Maven Dashboard Report Plugin : Multimodule Configuration for a custom dashboard configuration file</title>
+  </properties>
+  <!-- Optional HEAD element, which is copied as is into the XHTML <head> element -->
+  <head>
+    <meta/>
+  </head>
+  <body>
+    <!-- The body of the document contains a number of sections -->
+    <section name="About Custom Configuration of
+			historic support for Multimodules project">
+		<p><b>Thanks to the <a href="http://maven.apache.org/plugins/maven-checkstyle-plugin/">Checkstyle plugin</a> team for this part of documentation</b></p>
+
+    	<subsection name="Setup a custom configuration for Multimodules project">
+			<p>Configuring the Dashboard plugin for use within large multimodule projects can be done, but will require a little setup.</p>
+			<p>Example will use a mysterious project called 'whizbang'.</p>
+			<source>
+       <![CDATA[
+whizbang
+|-- pom.xml
+|-- core
+|   `-- pom.xml
+|-- gui
+|   `-- pom.xml
+|-- jmx
+|   `-- pom.xml
+`-- src
+       ]]>
+      	</source>
+      	<p>First: setup a sub project to house your build tools.</p>
+      	<source>
+       <![CDATA[
+whizbang
+|-- pom.xml
+|-- build-tools
+|   `-- pom.xml
+|-- core
+|   `-- pom.xml
+|-- gui
+|   `-- pom.xml
+|-- jmx
+|   `-- pom.xml
+`-- src
+       ]]>
+      	</source>
+      	<p>Next, include the resources you want in the build-tools jar file. In this example, the build-tools jar will contain the
+  resources, such as your custom dashboard xml config file and other config files  as Checkstyle .... .</p>
+  <source>
+<![CDATA[
+whizbang
+|-- pom.xml
+|-- build-tools
+|   |-- src
+|   |   `-- main
+|   |       `-- resources
+|   |           `-- whizbang
+|   |               |-- myDashboardConfig.xml
+|   |               |-- checkstyle.xml
+|   |               `-- LICENSE.TXT
+|   `-- pom.xml
+|-- core
+|-- gui
+|-- jmx
+`-- src
+       ]]>
+      	</source>
+      	<p><b>TIP: put the resources into a subdirectory that you can ensure will be unique, and not conflict with anyone else.</b></p>
+      	<p>Now, include the dashboard configuration in the top level pom.xml</p>
+      	<source>
+<![CDATA[
+<project>
+	[....]
+	<build>
+		<extensions>
+			<extension>
+				<groupId>com.example.whizbang</groupId>
+				<artifactId>build-tools</artifactId>
+				<version>1.0</version>
+			</extension>
+		</extensions>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>dashboard-maven-plugin</artifactId>
+				<version>1.0-SNAPSHOT</version>
+				<configuration>
+					<dialect>
+						org.hibernate.dialect.DerbyDialect
+					</dialect>
+					<driverClass>
+						org.apache.derby.jdbc.ClientDriver
+					</driverClass>
+					<connectionUrl>
+						jdbc:derby://localhost:1527/myDB;create=true
+					</connectionUrl>
+					<username>usr</username>
+					<password>usr</password>
+					]]>
+					<font color="red">
+						<b><![CDATA[<configLocation>whizbang/myDashboardConfig.xml</configLocation>]]></b>
+					</font>
+					<![CDATA[
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.derby</groupId>
+						<artifactId>derbyclient</artifactId>
+						<version>10.2.1.6</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>dashboard-maven-plugin</artifactId>
+				<version>1.0-SNAPSHOT</version>
+			</plugin>
+		</plugins>
+	</reporting>
+</project>
+       ]]>
+      	</source>
+      	<p>Once you are done with that, ensure that you do not include the dashboard-maven-plugin in your sub modules, as their definition
+  and configuration, will override the top level parent pom's definition.</p>
+
+  <p>Based on the Dashboard plugin configuration above, the value of <b><![CDATA[<configLocation>]]></b> will be resolved
+  from the classpath. The build-tools jar was included in the classpath when it was declared as an extension of the project.</p>
+
+  <p><b>Note:</b> For the classpath reference, the build-tools was referred to as an extension and not as a plugin
+  dependency. This is due to the fact that if it is declared as a plugin dependency, Maven will not download it from the
+  internal repository and would just look for it in ibiblio.</p>
+	<p>Lastly, kick off a build of the site.</p>
+	<source>
+	mvn site
+	mvn dashboard:dashboard
+	</source>
+	<p>Every sub project will use the same Dashboard setup and configuration.</p>
+      	</subsection>
+    </section>
+  </body>
+</document>

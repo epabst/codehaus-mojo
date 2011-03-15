@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="Maven IzPack Plugin">
+  <bannerLeft>
+      <name>Mojo</name>
+      <src>http://mojo.codehaus.org/images/mojo_logo.png</src>
+      <href>http://mojo.codehaus.org</href>
+  </bannerLeft>
+   <bannerRight>
+      <name>Codehaus</name>
+      <src>http://mojo.codehaus.org/images/codehaus-small.png</src>
+      <href>http://www.codehaus.org</href>
+   </bannerRight>
+  <body>
+    <links>
+         <item name="IzPack" href="http://www.izforge.com/izpack/"/>
+         <item name="IzPack wiki" href="http://openfacts.berlios.de/index-en.phtml?title=IzPack"/>
+         <item name="Mojo" href="http://mojo.codehaus.org"/>
+         <item name="Maven" href="http://maven.apache.org/"/>
+    </links>
+    <menu name="Mojo">
+         <item name="Back to Mojo" href="http://mojo.codehaus.org"/>
+    </menu>
+    <menu name="Maven IzPack Plugin">
+      <item name="Plugin Goals" href="index.html"/>
+      <item name="Introduction" href="intro.html"/>
+      <item name="Javadoc" href="apidocs/index.html"/>
+    </menu>
+
+    ${reports}
+
+  </body>
+</project>

@@ -1,0 +1,22 @@
+<jmeterTestPlan version="1.1" properties="1.7">
+  <hashTree>
+    <TestPlan>
+      <elementProp name="TestPlan.user_defined_variables" elementType="org.apache.jmeter.config.Arguments">
+        <stringProp name="TestElement.gui_class">org.apache.jmeter.config.gui.ArgumentsPanel</stringProp>
+        <stringProp name="TestElement.test_class">org.apache.jmeter.config.Arguments</stringProp>
+        <collectionProp name="Arguments.arguments"/>
+        <stringProp name="TestElement.name">User Defined Variables</stringProp>
+        <boolProp name="TestElement.enabled">true</boolProp>
+      </elementProp>
+      <stringProp name="TestElement.gui_class">org.apache.jmeter.control.gui.TestPlanGui</stringProp>
+      <stringProp name="TestPlan.user_define_classpath">/Users/kent/Documents/projects/jmeterreport/target/test-classes/jmeterreport-tests.jar</stringProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <stringProp name="TestElement.test_class">org.apache.jmeter.testelement.TestPlan</stringProp>
+      <stringProp name="TestElement.name">Test Plan</stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestElement.enabled">true</boolProp>
+      <stringProp name="TestPlan.comments"></stringProp>
+    </TestPlan>
+    <hashTree/>
+  </hashTree>
+</jmeterTestPlan>

@@ -1,0 +1,34 @@
+  ------
+ Maven 2 Hibernate3 Plugin - Simple Configuration
+ ------
+ Johann Reyes
+ <jreyes@hiberforum.org>
+ ------
+ July 23, 2007
+
+Overview
+
+  This is an example configuration to use with the <<hbmtemplate>> goal.
+
+Example
+
++---
+<project>
+...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>hibernate3-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <configuration>
+          <componentProperties>
+            <template>src/main/resources/CustomPojo.ftl</template>
+          </componentProperties>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+...
+</project>
++---

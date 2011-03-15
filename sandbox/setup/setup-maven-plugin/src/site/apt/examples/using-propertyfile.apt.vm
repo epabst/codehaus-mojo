@@ -1,0 +1,29 @@
+Using a propertyfile
+
+  You can use a propertyfile to set properties in the template.
+  The basename of the property it the same as it's target xml-file, but then with the extension '.properties'.
+  So if you're working with the 'settings.xml', you could use a file called 'settings.properties'
+  
+  settings.properties
+  
+-------------------------
+ 
+  codehaus.username=Duke
+  codehaus.password=s3cr3t
+  
+-------------------------
+
+  settings.xml
+  
+-------------------------
+
+ <settings>
+   <servers>
+     <server>
+       <username>${codehaus.username}</username>
+       <password>${codehaus.password}</password>
+     </server>
+   </servers>
+ </settings>
+ 
+-------------------------  

@@ -1,0 +1,14 @@
+import java.io.*;
+import java.util.*;
+
+import org.codehaus.plexus.util.*;
+
+File jbossHome = new File( basedir, "jboss" );
+System.out.println( "Deleting " + jbossHome );
+FileUtils.deleteDirectory( jbossHome );
+
+File jbossDeploy = new File( jbossHome, "server/default/deploy" );
+System.out.println( "Create JBoss deploy directory " + jbossDeploy );
+jbossDeploy.mkdirs();
+
+return true;

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF8"?>
+<cvs-settings>
+  <compressionLevel>1</compressionLevel>
+  <useCvsrc>true</useCvsrc>
+  <useForceTag>false</useForceTag>
+  <traceCvsCommand>true</traceCvsCommand>
+  <changeLogCommandDateFormat>changeLogCommandDateFormat_defaultTemplate</changeLogCommandDateFormat>
+  <temporaryFilesDirectory>temporaryFilesDirectory_defaultTemplate</temporaryFilesDirectory>
+  <cvsVariables>
+    <key>cvsVariables_defaultTemplate</key>
+  </cvsVariables>
+</cvs-settings>

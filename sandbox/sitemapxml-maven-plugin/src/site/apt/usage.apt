@@ -1,0 +1,25 @@
+Using the plugin in your pom.xml
+
+  To use the plugin your pom.xml you should use:
+  
++--------------------------------------------------------------------------------+
+  ...
+  <build>
+    <plugins>
+    ...
+		<plugin>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>sitemapxml-maven-plugin</artifactId>
+			<configuration>
+  			    <domainbase>http://www.foo.bar/</domainbase>
+			</configuration>				
+		</plugin>
+	...
+    </plugins>
+  </build>
+  ...
++--------------------------------------------------------------------------------+
+
+  As you can see I just defined the <<domainbase>> parameter since the <<input>> and <<target>> parameters
+  have default values. If you have a normal maven project you should be ok with that.
+  

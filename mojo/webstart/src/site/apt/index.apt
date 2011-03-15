@@ -1,0 +1,13 @@
+   ------
+   Introduction
+   ------
+   Jerome Lacoste
+   ------
+   2008-09-23
+   ------
+
+
+Webstart Maven Plugin
+
+  This set of modules provide functionality related to the {{{webstart-maven-plugin}Webstart Maven Plugin}}.
+

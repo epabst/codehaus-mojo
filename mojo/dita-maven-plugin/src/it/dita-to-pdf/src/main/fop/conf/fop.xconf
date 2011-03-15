@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+
+<!--
+
+This is an example configuration file for FOP.
+This file contains the same settings as the default values
+and will have no effect if used unchanged.
+
+Relative config url's will be resolved relative to
+the location of this file.
+
+-->
+
+<fop version="1.0">
+  <strict-validation>false</strict-validation>
+</fop>
+

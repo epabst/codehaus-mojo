@@ -1,0 +1,3 @@
+# Tasks waiting to be done...
+
+Add EMMA report generation for multi projects, aggregating submodules data.

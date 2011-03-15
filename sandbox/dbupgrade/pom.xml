@@ -1,0 +1,173 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+  	<artifactId>mojo-sandbox-parent</artifactId>
+  	<groupId>org.codehaus.mojo</groupId>
+  	<version>8</version>
+  </parent>
+  
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.codehaus.mojo.dbupgrade</groupId>
+  <artifactId>dbupgrade</artifactId>
+  <version>1.0-beta-1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  
+  <name>DBUpgrade Parent</name>
+  
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  
+  <scm>
+    <connection>scm:svn:http://svn.codehaus.org/mojo/trunk/mojo/dbupgrade</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/dbupgrade</developerConnection>
+    <url>http://svn.codehaus.org/mojo/trunk/mojo/dbupgrade</url>
+  </scm>
+  
+  <developers>
+    <developer>
+      <id>dtran</id>
+      <name>Dan T. Tran</name>
+      <email>dantran@gmail.com</email>
+      <organization />
+      <roles>
+        <role>Developer</role>
+      </roles>
+    </developer>
+  </developers>
+  
+  
+  <dependencyManagement>
+  
+    <dependencies>
+
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-plugin-api</artifactId>
+        <version>2.0.6</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.codehaus.plexus</groupId>
+        <artifactId>plexus-container-default</artifactId>
+        <version>1.0-alpha-9</version>
+      </dependency>
+  
+      <dependency>
+        <groupId>org.codehaus.plexus</groupId>
+        <artifactId>plexus-utils</artifactId>
+        <version>2.0.1</version>
+      </dependency>    
+
+      <dependency>
+        <groupId>commons-lang</groupId>
+        <artifactId>commons-lang</artifactId>
+        <version>2.4</version>
+      </dependency>    
+
+      <dependency>
+        <groupId>bcel</groupId>
+        <artifactId>bcel</artifactId>
+        <version>5.1</version>
+      </dependency>
+
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-project</artifactId>
+        <version>2.0.6</version>
+      </dependency>    
+
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-model</artifactId>
+        <version>2.0.6</version>
+      </dependency>    
+
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-artifact</artifactId>
+        <version>2.0.6</version>
+      </dependency>    
+      
+
+      <dependency>
+        <groupId>org.codehaus.mojo.dbupgrade</groupId>
+        <artifactId>dbupgrade-core</artifactId>
+        <version>${project.version}</version>
+      </dependency>    
+
+    </dependencies>
+       
+  </dependencyManagement>
+  
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.2</version>
+      <scope>test</scope>
+    </dependency>    
+  </dependencies>
+       
+  <properties>
+    <mojo.java.target>1.5</mojo.java.target>
+  </properties>
+  
+  <build>
+  
+    <defaultGoal>install</defaultGoal>
+    
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <artifactId>maven-eclipse-plugin</artifactId>
+          <version>2.8</version>
+          <configuration>
+            <workspace>${basedir}</workspace>
+            <workspaceCodeStylesURL>
+              http://svn.apache.org/repos/asf/maven/plugins/trunk/maven-eclipse-plugin/src/optional/eclipse-config/maven-styles.xml
+            </workspaceCodeStylesURL>
+          </configuration>
+        </plugin>
+        
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>validate</phase>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <requireJavaVersion>
+                  <version>[1.5,)</version>
+                </requireJavaVersion>
+                <requireMavenVersion>
+                  <version>[2.0.4,)</version>
+                </requireMavenVersion>
+              </rules>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+        
+      </plugins>
+    </pluginManagement>
+
+    
+  </build>
+  
+  
+  
+  <modules>
+    <module>dbupgrade-core</module>
+    <module>dbupgrade-maven-plugin</module>
+  </modules>
+  
+  
+</project>

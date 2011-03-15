@@ -1,0 +1,64 @@
+Test code generation
+
+ To generate source code for tests, than needs to be executed during test phase of your build,
+ bind script-maven-plugin into generate-test-sources phase:
+
++---
+...
+<plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>script-maven-plugin</artifactId>
+  <executions>
+    <execution>
+      <phase>generate-test-sources</phase>
+      <goals><goal>execute</goal></goals>
+      <configuration>
+        <language>groovy</language>
+        <passProjectAsProperty>true</passProjectAsProperty>
+        <engine>org.codehaus.groovy.bsf.GroovyEngine</engine>
+        <script>
+          File root = new File("target/test-generate");
+          File dir = new File(root, "example/test");
+          dir.mkdirs();
+          File testCode = new File(dir, "ExampleTest.java");
+          FileWriter writer = new FileWriter(testCode);
+          writer.write("package example.test;\n");
+          writer.write("import junit.framework.TestCase;\n");
+          writer.write("public class ExampleTest extends TestCase {\n");
+          writer.write("  public void testSuccess() {\n");
+          writer.write("  }\n");
+          writer.write("  public void testFailure() {\n");
+          writer.write("    fail(\"regards from failed test\");\n");
+          writer.write("  }\n");
+          writer.write("}\n");
+          writer.close();
+          project.addTestCompileSourceRoot(root.getAbsolutePath());
+        </script>
+      </configuration>
+    </execution>
+  </executions>
+  <dependencies>
+    <dependency>
+       <groupId>groovy</groupId>
+       <artifactId>groovy-all</artifactId>
+       <version>1.0-jsr-04</version>
+     </dependency>
+  </dependencies>
+</plugin>
+...
++--
+
+ Of course, project with above snipped won't pass tests:
+
++--
+...
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running example.test.ExampleTest
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.047 sec <<< FAILURE!
+
+Results :
+Tests run: 2, Failures: 1, Errors: 0, Skipped: 0
+...
++--

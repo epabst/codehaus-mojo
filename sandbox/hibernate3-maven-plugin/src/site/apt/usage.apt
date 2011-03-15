@@ -1,0 +1,73 @@
+ ------
+ Usage
+ ------
+ Johann Reyes
+ <jreyes@vaporwarecorp.com>
+ ------
+ 2009-03-11
+ ------
+
+
+Hibernate3 Maven Plugin
+
+  This plugin uses the {{{http://www.hibernate.org/hib_docs/tools/reference/en/html/ant.html}Hibernate3 Ant Tasks}}
+  and the {{{http://maven.apache.org/plugins/maven-antrun-plugin/}AntRun Maven Plugin}} as a base. With these two,
+  makes it more easy to use the plugin coming from an Ant enviorement to Maven. 
+
+* hbm2cfgxml
+
+  The <<hbm2cfgxml>> generates a hibernate.cfg.xml. Intended to be used together with a <<jdbcconfiguration>> when
+  performing reverse engineering, but can be used with any kind of configuration. The <<hbm2cfgxml>> will contain the
+  properties used and adds mapping entries for each mapped class.
+
+--------------------------
+  <build>
+    [...]
+    <plugins>
+      [...]
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>hibernate3-maven-plugin</artifactId>
+        <configuration>
+          <hibernatetool>
+            <jdbcconfiguration packagename="it"/>
+          </hibernatetool>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>hsqldb</groupId>
+            <artifactId>hsqldb</artifactId>
+            <version>1.8.0.7</version>
+            <scope>runtime</scope>
+          </dependency>
+        </dependencies>
+      </plugin>
+      [...]
+    </plugins>
+  </build>
+--------------------------
+
+* hbm2dao
+
+  The <<hbm2dao>>
+
+--------------------------
+  <build>
+    [...]
+    <plugins>
+      [...]
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>hibernate3-maven-plugin</artifactId>
+        <version>3.0-SNAPSHOT</version>
+        <configuration>
+          <hibernatetool>
+            <annotationconfiguration/>
+            <hbm2dao jdk5="true" ejb3="true"/>
+          </hibernatetool>
+        </configuration>
+      </plugin>
+      [...]
+    </plugins>
+  </build>
+--------------------------

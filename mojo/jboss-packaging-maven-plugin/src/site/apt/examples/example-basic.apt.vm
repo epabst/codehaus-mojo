@@ -1,0 +1,76 @@
+ ------
+ Basic Examples
+ ------
+ Paul Gier <pgier at apache.org>
+ ------
+ April 11 2008
+ ------
+
+Basic Examples
+
+  The JBoss packaging types can be used by first enabling the packaging with a build extension, and then
+  setting the project <<<packaging>>> to one of the JBoss types (jboss-[aop|esb|har|par|sar|spring]). For example,
+  to generate a <<<sar>>> file, the <<<jboss-sar>>> packaging type is used.
+  
++---------
+<project>
+  ...
+  <packaging>jboss-sar</packaging>
+  ...
+  <build>
+    ...
+    <plugins>
+      ...
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jboss-packaging-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <!-- Enable packaging types and lifecycle bindings. -->
+        <extensions>true</extensions>
+        ...
+      </plugin>
+      ...
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
++---------
+
+* Including and excluding dependencies
+
+  The JBoss packaging types will often include some dependencies that should be
+  added to the "lib" directory.
+  
+  By default only dependencies with a <<compile>> or <<runtime>> scope will be included 
+  in the generated archive.  The excludes parameter can also be used to prevent
+  certain dependency artifacts from being included.
+  
++---------
+<project>
+  ...
+  <packaging>jboss-sar</packaging>
+  ...
+  <build>
+    ...
+    <plugins>
+      ...
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jboss-packaging-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <extensions>true</extensions>
+        <configuration>
+          <excludes>
+            <exclude>groupId:artifactId</exclude> <!-- if you want to exclude an artifact from the sar -->
+          </excludes>
+        </configuration>
+      </plugin>
+      ...
+    </plugins>
+    ...
+  </build>
+  ...
+</project>  
++---------
+  

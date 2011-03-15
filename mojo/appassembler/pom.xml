@@ -1,0 +1,152 @@
+<!--
+  ~ The MIT License
+  ~
+  ~ Copyright 2005-2007 The Codehaus.
+  ~
+  ~ Permission is hereby granted, free of charge, to any person obtaining a copy of
+  ~ this software and associated documentation files (the "Software"), to deal in
+  ~ the Software without restriction, including without limitation the rights to
+  ~ use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+  ~ of the Software, and to permit persons to whom the Software is furnished to do
+  ~ so, subject to the following conditions:
+  ~
+  ~ The above copyright notice and this permission notice shall be included in all
+  ~ copies or substantial portions of the Software.
+  ~
+  ~ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  ~ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  ~ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  ~ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  ~ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  ~ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  ~ SOFTWARE.
+  -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>mojo-parent</artifactId>
+    <version>27</version>
+  </parent>
+  <artifactId>appassembler</artifactId>
+  <packaging>pom</packaging>
+  <groupId>org.codehaus.mojo.appassembler</groupId>
+  <version>1.2-SNAPSHOT</version>
+  <name>Appassembler</name>
+  <inceptionYear>2006</inceptionYear>
+  <issueManagement>
+    <system>jira</system>
+    <url>http://jira.codehaus.org/browse/MAPPASM</url>
+  </issueManagement>
+  <developers>
+    <developer>
+      <id>kristian</id>
+      <name>Kristian Nordal</name>
+      <email>kristian.nordal@gmail.com</email>
+      <timezone>+1</timezone>
+    </developer>
+    <developer>
+      <id>trygvis</id>
+      <name>Trygve Laugstoel</name>
+      <email>trygvis@inamo.no</email>
+      <timezone>+1</timezone>
+    </developer>
+    <developer>
+      <id>kaare</id>
+      <name>Kaare Nilsen</name>
+      <email>kaare.nilsen@gmail.com</email>
+      <timezone>+1</timezone>
+    </developer>
+    <developer>
+      <id>dantran</id>
+      <name>Dan Tran</name>
+      <email>dantran@gmail.com</email>
+    </developer>
+    <developer>
+      <id>brett</id>
+      <name>Brett Porter</name>
+      <email>brett@apache.org</email>
+    </developer>
+    <developer>
+      <id>david</id>
+      <name>David J. M. Karlsen</name>
+      <email>david@codehaus.org</email>
+      <organization>Codehaus</organization>
+      <organizationUrl>http://www.codehaus.org</organizationUrl>
+      <timezone>+1</timezone>
+      <url>http://www.davidkarlsen.com</url>
+      <roles>
+        <role>Small fixes and changes</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>sherriff</id>
+      <name>Erik Drolshammer</name>
+      <email>erik-dev@fjas.no</email>
+      <timezone>+1</timezone>
+    </developer>
+  </developers>  
+  <licenses>
+    <license>
+      <name>The MIT License</name>
+      <url>http://svn.codehaus.org/mojo/trunk/mojo/appassembler/LICENSE.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <modules>
+    <module>appassembler-maven-plugin</module>
+    <module>appassembler-model</module>
+    <module>appassembler-booter</module>
+  </modules>
+  <scm>
+    <connection>scm:svn:http://svn.codehaus.org/mojo/trunk/mojo/appassembler</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/appassembler</developerConnection>
+    <url>http://fisheye.codehaus.org/browse/mojo/trunk/mojo/appassembler</url>
+  </scm>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>aggregate</report>
+              <report>test-aggregate</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-changes-plugin</artifactId>
+        <version>2.1</version>
+        <configuration>
+          <onlyCurrentVersion>true</onlyCurrentVersion>          
+          <sortColumnNames>Type,Key</sortColumnNames>
+        </configuration>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>jira-report</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <configuration>
+            <preparationGoals>clean install</preparationGoals>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+</project>

@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
+<article lang="es">
+  <title>Nombre del proyecto - Cliente</title>
+
+  <subtitle>Especificación de requerimientos software</subtitle>
+
+  <articleinfo>
+    <abstract>
+      <para>Especificación de requerimientos software</para>
+    </abstract>
+
+    <date>22/11/2004</date>
+
+    <author>
+      <surname>Example Inc.</surname>
+    </author>
+
+    <copyright>
+      <year>2004</year>
+
+      <holder>Example Inc.</holder>
+    </copyright>
+
+    <revhistory>
+      <revision>
+        <revnumber>1</revnumber>
+
+        <date>22/11/2004</date>
+
+        <revdescription>
+          <para>Primera versión</para>
+        </revdescription>
+      </revision>
+    </revhistory>
+  </articleinfo>
+
+  <section>
+    <title>Introducción</title>
+
+    <remark>La introducción del documento de especificación de requerimientos
+    software [SRS] proporciona una visión general del SRS al completo. Incluye
+    el propósito, alcance, definiciones, acrónimos, abreviaturas, referencias,
+    y visión general del SRS. Nota: El SRS captura todos los requerimientos
+    software de un sistema, o una porción del sistema. A continuación se
+    incluye un esquema típico para un proyecto utilizando modelado mediante
+    casos de uso. Este artefacto consta de un paquete conteniendo un conjunto
+    de casos de uso del modelo de casos de uso, además de especificaciones
+    adicionales y otra información de soporte aplicable a la porción del
+    sistema en cuestión. Existen diferentes esquemas aplicables a la
+    realización de un SRS. Se puede consultar [IEEE93] para un mayor detalle
+    de estas explicaciones, así como otras opciones en la organización de un
+    SRS.</remark>
+
+    <para>Esto es una prueba de enlaces:</para>
+
+    <itemizedlist>
+      <listitem>
+        <para><olink targetdoc="nested-UCS3.xml"
+        targetptr="puntosExtension">Enlace a documento 3</olink></para>
+      </listitem>
+
+      <listitem>
+        <para><olink targetdoc="other-UCS1.xml">Enlace a documento
+        1</olink></para>
+      </listitem>
+
+      <listitem>
+        <para><olink targetdoc="other-pass-UCS2.xml">Enlace a documento
+        2</olink></para>
+      </listitem>
+    </itemizedlist>
+
+    <section>
+      <title>Propósito</title>
+
+      <remark>En este apartado se ha de especificar el propósito del documento
+      de Especificación de Requerimientos Software (SRS). El SRS describe de
+      forma completa el comportamiento externo de la aplicación o subsistema
+      identificado. Así mismo describe también requerimientos no funcionales,
+      restricciones de diseño, y otros factores necesarios para proporcionar
+      una descripción completa y adecuada de los requerimientos para el
+      software a desarrollar.</remark>
+    </section>
+
+    <section>
+      <title>Alcance</title>
+
+      <remark>Este apartado contiene una breve descripción de la aplicación
+      software a la que esta Especificación de Requerimientos Software se
+      aplica, las características o agrupamiento de subsistemas, con que
+      modelos de casos de uso está asociado, y cualquier otra cosa afectada o
+      influenciada por este documento.</remark>
+    </section>
+
+    <section>
+      <title>Definiciones, acrónimos y abreviaturas</title>
+
+      <remark>Este apartado proporciona las definiciones de todos los
+      términos, acrónimos, y abreviaturas requeridas para poder interpretas la
+      Especificación de Requerimientos Software. Esta información puede ser
+      proporcionada mediante una referencia al Glosario de proyecto.</remark>
+    </section>
+
+    <section>
+      <title>Referencias</title>
+
+      <remark>Este apartado proporciona una lista completa de todos los
+      documentos referenciados en cualquier lugar de la Especificación de
+      Requerimientos Software. Estos documentos se han de identificar por
+      título, número de informe (si es aplicable), fecha, y organización que
+      lo publica. Se han de especificar las fuentes de las que las referencias
+      pueden ser obtenidas. Esta información puede ser proporcionada mediante
+      una referencia a un apéndice o a otro documento.</remark>
+    </section>
+
+    <section>
+      <title>Visión general</title>
+
+      <remark>Este apartado describe lo que contiene el resto del documento de
+      Especificación de Requerimientos Software y explica como se encuentra
+      organizado el documento.</remark>
+    </section>
+  </section>
+
+  <section>
+    <title>Descripción general</title>
+
+    <remark>Esta sección de la Especificación de Requerimientos Software
+    describe los factores generales que afectan al producto y sus
+    requerimientos. Esta sección no incluye requerimientos específicos. En su
+    lugar, proporciona un background para esos requerimientos, que se definen
+    en detalle en la sección 3, y hacen su comprensión más fácil. Incluye
+    cosas como perspectivas del producto, funciones del producto,
+    características de los usuarios, restricciones, presunciones y
+    dependencias, y subconjuntos de requerimientos.</remark>
+
+    <section>
+      <title>Resumen del modelo de casos de uso</title>
+
+      <remark>Este apartado contiene una visión general del modelo de casos de
+      uso o del subconjunto del modelo de casos de uso aplicable al subsistema
+      a característica en cuestión. Esto incluye una lista de nombres y
+      descripciones breves de todos los casos de uso y actores, junto con los
+      correspondientes diagramas y relaciones.</remark>
+    </section>
+
+    <section>
+      <title>Presunciones y dependencias</title>
+
+      <remark>Este apartado describe las presunciones en cuanto a
+      disponibilidad de cualquier característica técnica clave, subsistema o
+      componente, o cualquier otra presunción relacionada con el proyecto
+      sobre las que se puede basar la viabilidad del software descrito en esta
+      Especificación de Requerimientos Software.</remark>
+    </section>
+  </section>
+
+  <section>
+    <title>Requerimientos específicos</title>
+
+    <remark>Esta sección de la Especificación de Requerimientos Software
+    contiene todos los requerimientos software en un nivel de detalle
+    suficiente para permitir a los desarrolladores diseñar un sistema que
+    satisfaga estos requerimientos y a los probadores probar que el sistema
+    satisface estos requerimientos. Con la utilización del modelado basado en
+    casos de uso, estos requerimientos se capturan en casos de uso con sus
+    correspondientes especificaciones adicionales cuando sea el caso.</remark>
+
+    <section>
+      <title>Especificaciones de casos de uso</title>
+
+      <remark>En el modelado con casos de uso, los casos de uso normalmente
+      definen la mayoría de los requerimientos funcionales del sistema, junto
+      con algunos requerimientos no funcionales. Para cada caso de uso en el
+      modelo de casos de uso incluido anteriormente, o subconjunto, en este
+      apartado se ha de incluir, o referir, la especificación del caso de uso
+      en cuestión. Es importante asegurarse de que cada requerimiento está
+      etiquetado de una forma clara.</remark>
+    </section>
+
+    <section>
+      <title>Requerimientos adicionales</title>
+
+      <remark>Las especificaciones adicionales capturan requerimientos que no
+      se encuentran incluidos en los casos de uso. Los requerimientos
+      específicos de estas especificaciones adicionales aplicables a este
+      subsistema o característica deben ser incluidos aquí y refinados hasta
+      el nivel de detalle necesario para describir el subsistema o
+      característica. Estos requerimientos pueden ser capturados directamente
+      en este documento, o incluirlos en otro documento de Especificaciones
+      Adicionales, haciendo referencia a él en este punto. Es importante
+      asegurarse de que cada requerimiento está etiquetado de una forma
+      clara.</remark>
+    </section>
+  </section>
+
+  <section>
+    <title>Información de soporte</title>
+
+    <remark>La información de soporte hace que la Especificación de
+    Requerimientos Software sea más fácil de utilizar. Incluye:</remark>
+
+    <itemizedlist>
+      <listitem>
+        <remark>Tabla de contenidos</remark>
+      </listitem>
+
+      <listitem>
+        <remark>Índice</remark>
+      </listitem>
+
+      <listitem>
+        <remark>Apéndices</remark>
+      </listitem>
+    </itemizedlist>
+
+    <remark>En esta sección se pueden incluir “storyboards” de casos de uso o
+    prototipos de interfaz de usuario. Cuando se incluyan apéndices, la
+    Especificación de Requerimientos Software debe indicar de forma explícita
+    si estos apéndices se consideran parte de los requerimientos.</remark>
+  </section>
+</article>

@@ -1,0 +1,31 @@
+Using arguments
+
+ When running a setup goal (or any other plugin goal of Maven) you can add arguments by added <<<-Dkey=value>>>
+ To see the availabe keys you can have to look at the online plugin description and look per goal for <<<Expression>>>.
+ For instance the following property
+ 
+---
+ 
+ <detail:>
+
+  If <<<true>>>, display all settable properties for each goal.
+
+  
+  * <Type>: boolean
+   
+  * <Required>: No
+  
+  * <Expression>: ${detail}
+  
+  * <Default>: false 
+ 
+---
+ 
+ This means you can add <<<-Ddetail=true>>> after your Maven execution. 
+ Be aware that you have to use the use the value after <Expression> between the ${ and }.
+ The name might be the same, but this value can be used inside the configuration-section of the pom.xml of the project.  
+ 
+ There's a second option to see the available options. Most modern plugins have a generated help-goal.
+ By calling this goal including the details, you will see all the options and their description.
+ 
+ For instance: <<<mvn setup:help -Ddetail=true>>> 

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>mojo-parent</artifactId>
+    <groupId>org.codehaus.mojo</groupId>
+    <version>23</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>xslt-maven-plugin</artifactId>
+  <packaging>maven-plugin</packaging>
+  <name>XSLT Maven Plugin (Retired)</name>
+  <version>1.1-SNAPSHOT</version>
+  <description>
+    Transforms XML source files using an XSL style sheet.
+  </description>
+  <prerequisites>
+    <maven>2.0.3</maven>
+  </prerequisites>
+  <inceptionYear>2005</inceptionYear>
+
+  <developers>
+    <developer>
+      <id>ctaggart</id>
+      <name>Cameron Taggart</name>
+      <email>cameron.taggart@gmail.com</email>
+    </developer>
+    <developer>
+      <id>jesse</id>
+      <name>Jesse McConnell</name>
+      <email>jesse.mcconnell@gmail.com</email>
+    </developer>
+  </developers>
+
+  <licenses>
+    <license>
+      <name>Apache License 2</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <scm>
+    <connection>scm:svn:http://svn.codehaus.org/mojo/retired/mojo/xslt-maven-plugin/</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/retired/mojo/xslt-maven-plugin/</developerConnection>
+    <url>http://svn.codehaus.org/mojo/trunk/retired/xslt-maven-plugin/</url>
+  </scm>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <version>2.0.3</version>
+    </dependency>
+    <dependency>
+      <groupId>plexus</groupId>
+      <artifactId>plexus-utils</artifactId>
+      <version>1.0.3</version>
+    </dependency>
+  </dependencies>
+</project>

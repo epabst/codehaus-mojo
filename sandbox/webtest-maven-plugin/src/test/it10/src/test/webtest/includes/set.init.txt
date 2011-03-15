@@ -1,0 +1,3 @@
+<!-- Adding the ANT taskdef -->
+
+<taskdef resource="webtestTaskdefs.properties" />

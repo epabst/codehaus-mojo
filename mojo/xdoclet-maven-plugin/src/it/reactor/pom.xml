@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.codehaus.mojo.xdoclet</groupId>
+  <artifactId>test</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <modules>
+    <module>sub-a</module>
+    <module>sub-b</module>
+    <module>sub-c</module>
+  </modules>
+</project>

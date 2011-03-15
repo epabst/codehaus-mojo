@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+      <groupId>org.codehaus.mojo.enchanter</groupId>
+      <artifactId>enchanter</artifactId>
+      <version>1.0-beta-1-SNAPSHOT</version>
+  </parent>
+ 
+  <artifactId>enchanter-scripting</artifactId>
+  
+  <packaging>pom</packaging>
+
+  <name>Enchanter Scripting Parent</name>
+
+  <modules>
+    <module>enchanter-beanshell</module>
+    <module>enchanter-ruby</module>
+    <module>enchanter-python</module>
+  </modules>
+  
+  <dependencies>
+    <dependency>
+      <groupId>org.codehaus.mojo.enchanter</groupId>
+      <artifactId>enchanter-core</artifactId>
+    </dependency>
+  </dependencies>
+  
+  <build>
+  
+   <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <index>true</index>
+            <manifest>
+              <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+              <mainClass>org.twdata.enchanter.Main</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+    
+  </build>
+
+</project>

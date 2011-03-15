@@ -1,0 +1,30 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.codehaus.mojo.ruby.test</groupId>
+  <artifactId>it-project-02-0</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <build>
+    <plugins>
+      <plugin>
+		<groupId>org.codehaus.mojo</groupId>
+        <artifactId>jruby-maven-plugin</artifactId>
+        <version>1.0-beta-4-SNAPSHOT</version>
+        <configuration>
+          <ruby>require 'java';
+	        $LOAD_PATH.each { |p| puts p }
+	        # raise StandardError
+		  </ruby>
+          <!-- ruby>require 'rdoc/rdoc'</ruby -->
+		  <libraryPaths>
+			<libraryPath>/usr/local/lib/site_ruby/1.8</libraryPath>
+			<libraryPath>/usr/local/lib/site_ruby/1.8/i486-linux</libraryPath>
+			<libraryPath>/usr/local/lib/site_ruby/1.8/i386-linux</libraryPath>
+			<libraryPath>/usr/local/lib/site_ruby</libraryPath>
+			<libraryPath>/usr/lib/ruby/1.8</libraryPath>
+			<libraryPath>/usr/lib/ruby/1.8/i486-linux</libraryPath>
+		  </libraryPaths>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

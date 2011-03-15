@@ -1,0 +1,44 @@
+ ------
+ Maven 2 Kodo Plugin
+ ------
+
+How to use
+
+ Brief examples on how to use the kodo:enhance goal.
+ 
+* How to use kodo:enhance
+
+   This goal is meant to be bound to a lifecycle and configured in your pom.xml. It will resolve the artifact from the repository and place a copy in the specified location. Multiple artifacts can be defined in a single execution. A default location is specified but can be overriden for each ArtifactItem by setting the optional location field.
+
+-------------------
+<project>
+
+  ...
+  <build>
+   <plugins>
+      <plugin>
+	<groupId>org.codehaus.mojo</groupId>
+	<artifactId>kodo-maven-plugin</artifactId>
+	<version>1.0-alpha-1-SNAPSHOT</version>
+	<executions>
+	 <execution>
+	  <phase>compile</phase>
+	   <configuration>
+	   <!-- Optional extra items for classpath -->
+		<extraClassPathItems>
+		  <extraClassPathItem>target/someFolder</extraClassPathItem>
+ 		  <extraClassPathItem>target/someJar.jar</extraClassPathItem>
+		  <extraClassPathItem>target/classes/foo.class</extraClassPathItem>
+		</extraClassPathItems>
+	   </configuration>
+	   <goals>
+	     <goal>enhance</goal>
+	   </goals>
+	 </execution>
+	</executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
+
+  For full documentation, click {{{index.html}here}}.

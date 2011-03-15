@@ -1,0 +1,62 @@
+ ------
+ Maven 2 JasperReports Plugin
+ ------
+
+
+
+Examples
+
+
+  The following build configuration shows how to compile all jrxml files using jasperreports-2.0.5 at default location 
+  (ie src/main/jasperreports ), and place the output files under target/jasper directory to be picked up by maven as a resource directory.
+
+-------------------
+
+  <dependencies>
+    <dependency>
+      <groupId>jasperreports</groupId>
+      <artifactId>jasperreports</artifactId>
+      <version>2.0.5</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+
+    <resources>
+      <resource>
+        <directory>src/main/resources</directory>
+      </resource>
+      <resource>
+        <directory>target/jasper</directory>
+      </resource>
+    </resources>
+  
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jasperreports-maven-plugin</artifactId>
+        <configuration>
+           <outputDirectory>${project.build.directory}/jasper</outputDirectory>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>compile-reports</goal>
+            </goals>
+          </execution>
+        </executions>
+       <dependencies>
+         <dependency>
+           <groupId>jasperreports</groupId>
+           <artifactId>jasperreports</artifactId>
+           <version>2.0.5</version>
+         </dependency>
+       </dependencies>
+      </plugin>
+    </plugins>
+    
+  </build>
+
+
+-------------------
+

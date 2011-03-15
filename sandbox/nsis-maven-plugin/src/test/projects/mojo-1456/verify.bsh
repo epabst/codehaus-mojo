@@ -1,0 +1,24 @@
+import java.io.*;
+import java.util.*;
+import java.util.jar.*;
+import java.util.regex.*;
+
+try
+{
+    File logFile = new File( basedir, "build.log" );
+  	BufferedReader reader = new BufferedReader( new FileReader( logFile ) );
+	for ( String line = reader.readLine(); line != null; line = reader.readLine() )
+    {
+        if ( line.trim().startsWith( "[WARNING] setupScript contains the property 'OutFile'." ) )
+        {
+        	return true;
+        }
+    }
+}
+catch( Throwable t )
+{
+    t.printStackTrace();
+    return false;
+}
+System.out.println( "FAILURE! " );
+return false;

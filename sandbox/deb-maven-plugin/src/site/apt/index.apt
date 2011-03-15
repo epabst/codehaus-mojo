@@ -1,0 +1,85 @@
+~~
+~~
+~~  Copyright 2007  The Apache Software Foundation
+~~
+~~  Licensed under the Apache License, Version 2.0 (the "License");
+~~  you may not use this file except in compliance with the License.
+~~  You may obtain a copy of the License at
+~~
+~~  http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~  Unless required by applicable law or agreed to in writing, software
+~~  distributed under the License is distributed on an "AS IS" BASIS,
+~~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+~~  See the License for the specific language governing permissions and
+~~  limitations under the License.
+~~
+~~
+
+           ----------------
+           Maven DEB Plugin
+           ----------------
+
+The Maven DEB Plugin
+
+  This Plugin is a collection of several Debian Packaging tasks. Currently
+  it offers the following goals:
+
+    * {{{./deb-mojo.html}deb}} for packaging jar artifacts in DEB packages
+
+    * {{{./package-binary-mojo.html}package-binary}} for packaging arbitrary binaries as Debian Packages
+    
+    * {{{./attach-deb-mojo.html}attach-deb}} 
+    
+  This plugin depends on the presence of chmod, dpkg, and fakeroot.  Consequently, it is 
+  a Debian (or Debian variant) specific plugin as it relies on fakeroot being avaiable on
+  the PATH.
+      
+Background on DEB Format
+
+  From Wikipedia: "{{{http://en.wikipedia.org/wiki/Deb_(file_format)}Debian packages}} are standard 
+  Unix archives that include two gzipped or 
+  bzipped tar archives: one that holds the control information and another that contains the 
+  data."
+  
+
+What Works?
+
+  You can currently create a simple DEB package using the "deb" goal on a project that produces
+  a JAR file.   This DEB file produced by this plugin will deposit JAR files and (optionally)
+  JavaDoc in a directory structure consistent with the few Java libraries currently distributed by the Debian
+  team.   For more information about this stright-forward use case see {{{./using-deb.html}Generating DEB Packages}}.
+  
+  Alternatively, you can use the Maven DEB plugin to produce any DEB package with an arbitrary structure by using 
+  the package-binary goal with the assembly plugin.  The package-binary plugin will take any directory containing a 
+  file system and turn it into a DEB file.   The assembly plugin allows you to create a distribution format of arbitrary
+  structure in an unpacked directory.  To use the DEB plugin in this way, you will need to associate the directory 
+  goal of the assemby plugin with the package phase of the lifecycle and follow this with a call to the package-binary
+  goal of the DEB plugin.
+
+
+What Doesn't Work?
+
+  This DEB Plugin does not automatically generate supporting files other than the control file.  
+  The developers of this plugin are currently working on the following features for a full
+  release:
+  
+    * Richer definition of Dependencies
+
+       * Support for Pre-Depends
+
+       * Allow for versionless Dependencies
+
+       * Support Depends, Recommends, Suggests, Conflicts, Replaces, and Provides
+
+    * postinst, preinst, postrm, prerm scripts
+
+    * conffiles.ex - For configuration files
+
+    * cron.d.ex - For scheduled tasks
+
+    * init.d.ex - For system startup scripts
+
+    * Automatic production of a 'copyright' file
+
+    * Automatic generation of a 'changelog' archive      	

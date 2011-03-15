@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>solaris-examples</artifactId>
+    <version>1.0-alpha-2-SNAPSHOT</version>
+  </parent>
+  <groupId>org.codehaus.mojo.solaris.example</groupId>
+  <artifactId>myapp</artifactId>
+  <version>1.0-alpha-2-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>My App</name>
+  <description>This example shows how to use the maven-solaris-plugin.</description>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.0</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <modules>
+    <module>myapp-core</module>
+    <module>myapp-server</module>
+  </modules>
+  <profiles>
+    <profile>
+      <id>solaris</id>
+      <activation>
+        <os>
+          <name>sunos</name>
+        </os>
+      </activation>
+      <modules>
+        <module>myapp-pkg</module>
+      </modules>
+    </profile>
+  </profiles>
+</project>

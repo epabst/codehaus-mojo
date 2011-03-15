@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!--
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ -->
+<document>
+  <properties>
+    <title>About</title>
+    <author email="hohwille@users.sourceforge.net">J&#246;rg Hohwiller</author>
+  </properties>
+  <body>
+    <section name="About">
+      <p>
+        The solaris-maven-plugin is a Maven plugin for producing System V packages.
+      </p>
+      <subsection name="Highlights">
+        <ul>
+          <li>Generation of the prototype file</li>
+          <li>Execute <code>pkgmk</code> on the assembled package</li>
+          <li>Execute <code>pkgtrans</code> on the assembled package</li>
+          <li>Installation and deployment of the generated <code>.pkg</code> into the repository</li>
+        </ul>
+      </subsection>
+    </section>
+<!-- I'm pretty sure people already know why they would like to create Solaris package so I feel that this section
+is a bit too much.
+    <section name="Why?">
+      <p>
+        For many projects, especially in business, the build-process is not intended to end with a binary artifact (jar,
+        war, etc.) or universal distribution. Further there is the need for a configuration-management that is able to
+        build deployment packages for the targeted operating system in a precise and reproduceable way.
+      </p>
+      <p>
+        These packages allow to install, update and uninstall the software in an automated and ordered way. Further the
+        packaging allows to controll installation dependencies and custom scripts for installation and deinstallation
+        e.g. to ensure that an installed service is restarted after a reboot.
+      </p>
+      <p>
+        Additional needs in this context are to separate a single application into different deployment packages. E.g.
+        if the configuration (that may be specific for the target machine) is separated into an extra package, the
+        deployment package for the actual software can be tested in a test-environment. After successful quality
+        assurance the same package can go in production without further customization.
+      </p>
+    </section>
+-->
+    <section name="Requirements">
+      <p>
+        The solaris-maven-plugin requires that the pkg-tools (pkgmk and pkgtrans) for solaris are installed and
+        in your PATH.
+      </p>
+    </section>
+    <section name="Getting Started">
+      <p>
+        To get started with the solaris-maven-plugin read the <a href="usage.html">usage</a> guide.
+      </p>
+    </section>
+  </body>
+</document>

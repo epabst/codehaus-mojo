@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <groupId>org.codehaus.mojo.archetypes</groupId>
+    <artifactId>mojo-archetypes</artifactId>
+    <version>5</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>netbeans-platform-app-archetype</artifactId>
+  <version>1.9-SNAPSHOT</version>
+  <packaging>maven-archetype</packaging>
+  <name>NetBeans Platform Application Archetype</name>
+  <description>Archetype for sample application based on NetBeans Platform. Creates parent POM with branding and empty NBM project.</description>
+  <scm>
+    <connection>scm:svn:http://svn.codehaus.org/mojo/trunk/mojo/mojo-archetypes/netbeans-platform-app-archetype</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/mojo-archetypes/netbeans-platform-app-archetype</developerConnection>
+    <url>http://fisheye.codehaus.org/browse/mojo/trunk/mojo/mojo-archetypes/netbeans-platform-app-archetype</url>
+  </scm>
+</project>

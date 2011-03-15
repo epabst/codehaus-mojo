@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration version="1.0">
+	<sections>
+		<section id="cobertura.summary" title="Cobertura Report Summary" groupId="org.codehaus.mojo" artifactId="cobertura-maven-plugin">
+			<historicgraphs>
+				<graph id="cobertura.currentweek" title="Cobertura current Week" timeUnit="day" startPeriod="Startof_thisweek" endPeriod="Endof_thisweek"/>
+				<graph id="cobertura.previousweek" title="Cobertura previous Week" timeUnit="day" startPeriod="Startof_lastweek" endPeriod="Endof_lastweek"/>
+				<graph id="cobertura.currentmonth" title="Cobertura Current Month" timeUnit="day" startPeriod="Startof_thismonth" endPeriod="Endof_thismonth" />
+			</historicgraphs>
+		</section>
+		<section id="clover.summary" title="Clover Report Summary" groupId="org.apache.maven.plugins" artifactId="maven-clover-plugin">
+			<historicgraphs>
+				<graph id="clover.currentweek" title="Clover current Week" timeUnit="day" startPeriod="Startof_thisweek" endPeriod="Endof_thisweek"/>
+				<graph id="clover.previousweek" title="Clover previous Week" timeUnit="day" startPeriod="Startof_lastweek" endPeriod="Endof_lastweek"/>
+			</historicgraphs>
+		</section>
+		<section id="surefire.summary" title="Surefire Report Summary" groupId="org.apache.maven.plugins" artifactId="maven-surefire-report-plugin">
+			<historicgraphs>
+				<graph id="surefire.currentweek" title="Surefire current Week" timeUnit="day" startPeriod="Startof_thisweek" endPeriod="Endof_thisweek"/>
+				<graph id="surefire.previousweek" title="Surefire previous Week" timeUnit="day" startPeriod="Startof_lastweek" endPeriod="Endof_lastweek"/>
+			</historicgraphs>
+		</section>
+		<section id="checkstyle.summary" title="Checkstyle Report Summary" groupId="org.apache.maven.plugins" artifactId="maven-checkstyle-plugin">
+			<historicgraphs>
+				<graph id="checkstyle.currentweek" title="Checkstyle current Week" timeUnit="day" startPeriod="Startof_thisweek" endPeriod="Endof_thisweek"/>
+				<graph id="checkstyle.previousweek" title="Checkstyle previous Week" timeUnit="day" startPeriod="Startof_lastweek" endPeriod="Endof_lastweek"/>
+			</historicgraphs>
+		</section>
+		<section id="pmd.summary" title="PMD Report Summary" groupId="org.apache.maven.plugins" artifactId="maven-pmd-plugin">
+			<historicgraphs>
+				<graph id="pmd.currentweek" title="PMD current Week" timeUnit="day" startPeriod="Startof_thisweek" endPeriod="Endof_thisweek"/>
+				<graph id="pmd.previousweek" title="PMD previous Week" timeUnit="day" startPeriod="Startof_lastweek" endPeriod="Endof_lastweek"/>
+			</historicgraphs>
+		</section>
+		<section id="cpd.summary" title="CPD Report Summary" groupId="org.apache.maven.plugins" artifactId="maven-pmd-plugin">
+			<historicgraphs>
+				<graph id="cpd.currentweek" title="CPD current Week" timeUnit="day" startPeriod="Startof_thisweek" endPeriod="Endof_thisweek"/>
+				<graph id="cpd.previousweek" title="CPD previous Week" timeUnit="day" startPeriod="Startof_lastweek" endPeriod="Endof_lastweek"/>
+			</historicgraphs>
+		</section>
+		<section id="findbugs.summary" title="FindBugs Report Summary" groupId="org.codehaus.mojo" artifactId="findbugs-maven-plugin">
+			<historicgraphs>
+				<graph id="findbugs.currentweek" title="FindBugs current Week" timeUnit="day" startPeriod="Startof_thisweek" endPeriod="Endof_thisweek"/>
+				<graph id="findbugs.previousweek" title="FindBugs previous Week" timeUnit="day" startPeriod="Startof_lastweek" endPeriod="Endof_lastweek"/>
+			</historicgraphs>
+		</section>
+		<section id="taglist.summary" title="Taglist Report Summary" groupId="org.codehaus.mojo" artifactId="taglist-maven-plugin">
+            <historicgraphs>
+				<graph id="taglist.currentweek" title="Taglist current Week" timeUnit="day" startPeriod="Startof_thisweek" endPeriod="Endof_thisweek"/>
+				<graph id="taglist.previousweek" title="Taglist previous Week" timeUnit="day" startPeriod="Startof_lastweek" endPeriod="Endof_lastweek"/>
+			</historicgraphs>
+        </section>
+	</sections>
+</configuration>

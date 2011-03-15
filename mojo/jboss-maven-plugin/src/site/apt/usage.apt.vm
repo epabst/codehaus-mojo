@@ -1,0 +1,87 @@
+ ------
+ Usage
+ ------
+ Jeff Genender
+ <jgenender@apache.org>
+ ------
+ October 3, 2005
+ ------
+
+Usage
+
+  This page describes some of the common use cases of the JBoss Maven Plugin.
+  The plugin can be configured via command line parameters or by adding 
+  information to the POM.  
+  
+----------
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>jboss-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <configuration>
+          <jbossHome>/usr/jboss-4.2.3.GA</jbossHome>
+          <serverName>all</serverName>
+          <fileName>target/my-project.war</fileName>
+        </configuration>
+      </plugin>
+      ...
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
+----------
+
+  Detailed information about available configuration parameters for each
+  plugin goal can be found on the {{{./plugin-info.html}plugin info page}}.
+
+* Starting and Stopping The Server
+  
+  The JBoss Maven Plugin can be used to start and stop an instance of the JBoss
+  Application Server.  To get started, you must first configure the location
+  of the JBoss installation using either the <<JBOSS_HOME>> environment variable, 
+  the command line parameter <<env.JBOSS_HOME>>, or via the plugin parameter 
+  <<jbossHome>>.
+
+  The server can be started using the {{{../start-mojo.html}start}} goal.
+  
++---------
+  mvn jboss:start
++---------
+
+  And stopped using the {{{../stop-mojo.html}stop}} goal.
+ 
++---------
+  mvn jboss:stop
++---------
+  
+  More information about plugin options and starting and stopping the server
+  can be found on the {{{./examples/start-stop-examples.html}examples page}}.
+
+
+* Deploying and Undeploying Applications
+
+  Applications can be deployed and undeployed to the server using either JMX or
+  by copying the files directly to the server's deploy directory.  To deploy via
+  JMX over HTTP, you can use the deploy goal.
+  
++---------
+  mvn jboss:deploy
++---------
+  
+  The <<hard-deploy>> goal can be used to copy the file directly to the deploy 
+  directory of a local server.
+  
++---------
+  mvn jboss:hard-deploy
++---------
+  
+  More information the deploy and undeploy goals can be found on the 
+  {{{./examples/deploy-undeploy-examples.html}examples page}}.
+  
+  

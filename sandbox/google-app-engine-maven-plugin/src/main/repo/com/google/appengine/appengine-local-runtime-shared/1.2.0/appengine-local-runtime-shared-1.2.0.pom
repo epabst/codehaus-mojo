@@ -1,0 +1,79 @@
+<project> 
+ 
+  <modelVersion>4.0.0</modelVersion> 
+  <groupId>com.google.appengine</groupId> 
+  <artifactId>appengine-local-runtime</artifactId> 
+  <version>1.2.0</version> 
+  <packaging>jar</packaging> 
+ 
+  <name>Google App Engine Java SDK local runtime</name> 
+  <url>http://code.google.com/intl/en/appengine/docs/java/</url> 
+  <description>App Engine applications can be implemented using the Java programming language, and other languages that use the Java Virtual Machine.</description> 
+  <licenses> 
+    <license> 
+      <name>The Apache Software License, Version 2.0</name> 
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url> 
+      <distribution>repo</distribution> 
+    </license> 
+  </licenses> 
+ 
+  <dependencies>
+	<dependency>
+	  <!-- md5sum checked -->
+      <groupId>org.apache.geronimo.specs</groupId>
+	  <artifactId>geronimo-el_1.0_spec</artifactId>
+	  <version>1.0.1</version>
+	</dependency>
+	<dependency>
+	  <!-- md5sum checked -->
+      <groupId>org.apache.geronimo.specs</groupId>
+	  <artifactId>geronimo-jsp_2.1_spec</artifactId>
+	  <version>1.0.1</version>
+	</dependency>
+	<dependency>
+	  <!-- md5sum checked -->
+      <groupId>org.apache.geronimo.specs</groupId>
+	  <artifactId>geronimo-servlet_2.5_spec</artifactId>
+	  <version>1.2</version>
+	</dependency>
+	<dependency>
+	  <!-- SDK md5sum doesn't match maven repo one -->
+      <groupId>commons-el</groupId>
+      <artifactId>commons-el</artifactId>
+      <version>1.0</version>
+    </dependency>
+    <dependency>
+	  <!-- SDK md5sum doesn't match maven repo one -->
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.1.1</version>
+    </dependency>
+    <dependency>
+	  <!-- SDK md5sum doesn't match maven repo one -->
+      <groupId>tomcat</groupId>
+      <artifactId>jasper-compiler</artifactId>
+      <version>5.5.28</version>
+    </dependency>
+    <dependency>
+	  <!-- SDK md5sum doesn't match maven repo one -->
+      <groupId>tomcat</groupId>
+      <artifactId>jasper-runtime</artifactId>
+      <version>5.5.28</version>
+    </dependency>
+       
+    <!-- jsp dependencies -->
+    <dependency>
+      <!-- SDK md5sum doesn't match maven repo one -->
+	  <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.1.2</version>
+    </dependency>
+    <dependency>
+	  <!-- SDK md5sum doesn't match maven repo one -->
+      <groupId>taglibs</groupId>
+      <artifactId>standard</artifactId>
+      <version>1.1.2</version>
+    </dependency>
+   </dependencies>
+ 
+</project> 

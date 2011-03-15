@@ -1,0 +1,149 @@
+ ~~ Licensed to the Apache Software Foundation (ASF) under one
+ ~~ or more contributor license agreements.  See the NOTICE file
+ ~~ distributed with this work for additional information
+ ~~ regarding copyright ownership.  The ASF licenses this file
+ ~~ to you under the Apache License, Version 2.0 (the
+ ~~ "License"); you may not use this file except in compliance
+ ~~ with the License.  You may obtain a copy of the License at
+ ~~
+ ~~   http://www.apache.org/licenses/LICENSE-2.0
+ ~~
+ ~~ Unless required by applicable law or agreed to in writing,
+ ~~ software distributed under the License is distributed on an
+ ~~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ ~~ KIND, either express or implied.  See the License for the
+ ~~ specific language governing permissions and limitations
+ ~~ under the License.
+
+ -----
+ Usage
+ -----
+ Stephen Connolly
+ ------
+ 2009-08-21
+ ------
+
+Usage
+
+  The plugin offers goals to serve up a bag of pom files as a remote repository for maven plugin integration testing.
+
+* Basic Usage
+
+  See the {{{examples/basic.html}Basic usage}} example.
+
+  By default, the Mock Repository Maven Plugin will look in <<<src/mock-repo>>> for <<<pom>>> files matching the ANT
+  pattern <<<**/*.pom>>> and any associated artifacts (in the same directory as the <<<pom>>> file to which they
+  are associated, and named using the pattern <<<artifactId-version*>>>).  If you want to use a different directory,
+  you will need to configure this in your projects <<<pom.xml>>>, e.g.
+
++---+
+<project>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>mock-repository-maven-plugin</artifactId>
+        <version>${pluginVersion}</version>
+        <configuration>
+          <sourceDirectory>${basedir}/src/somefolder</sourceDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
++---+
+
+  The port that is bound can be controlled from the <<<pom.xml>>> file or from the command line, e.g., to use port 12345
+  either
+
++---+
+<project>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>mock-repository-maven-plugin</artifactId>
+        <version>${pluginVersion}</version>
+        <configuration>
+          <port>12345</port>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
++---+
+
+or
+
++---+
+mvn -Dmock-repository.port=12345 ...
++---+
+
+** Start hosting a mock repository
+
+  To host a repository from the command line, you just invoke the <<<mock-repository:start>>> goal.  Note that the
+  repository will be served until either Maven terminates, or the <<<mock-repository:stop>>> goal is called.  If
+  you are trying to test the repository manually, you probably want to turn off daemon mode, e.g.
+
++---+
+mvn -Dmock-repository.daemon=false mock-repository:start
++---+
+
+  To host a repository as part of your build you bind an execution of the <<<start>>> goal to a lifecycle phase, e.g.
+
++---+
+<project>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>mock-repository-maven-plugin</artifactId>
+        <version>${pluginVersion}</version>
+        <executions>
+          <execution>
+            <id>start</id>
+            <phase>pre-integration-test</phase>
+            <goals>
+              <goal>start</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
++---+
+
+  After the repository has started, a project property will be set to the port that the repository is being served on.
+  By default the property will be called <<<mock-repository.port>>> but you can change the name of the property that
+  is set using the <<<propertyName>>> configuration property.  Note that the property will only be defined AFTER
+  the <<<start>>> goal has executed.
+
+** Stop hosting a mock repository
+
+  To stop hosting a repository as part of your build you bind an execution of the <<<stop>>> goal to a lifecycle phase,
+  e.g.
+
++---+
+<project>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>mock-repository-maven-plugin</artifactId>
+        <version>${pluginVersion}</version>
+        <executions>
+          <execution>
+            <id>stop</id>
+            <phase>post-integration-test</phase>
+            <goals>
+              <goal>stop</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>
++---+
+

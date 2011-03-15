@@ -1,0 +1,161 @@
+~~
+~~
+~~  Copyright 2005  The Apache Software Foundation
+~~
+~~  Licensed under the Apache License, Version 2.0 (the "License");
+~~  you may not use this file except in compliance with the License.
+~~  You may obtain a copy of the License at
+~~
+~~  http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~  Unless required by applicable law or agreed to in writing, software
+~~  distributed under the License is distributed on an "AS IS" BASIS,
+~~  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+~~  See the License for the specific language governing permissions and
+~~  limitations under the License.
+~~
+~~
+
+           ----------------------
+           Creating DEB Packages
+           ----------------------
+
+  
+  The Maven 2 DEB Plugin can be used to produce a Debian package from any project that
+  can be packaged as a JAR.   Debian packages can be used on most 
+  {{{http://en.wikipedia.org/wiki/Deb_(file_format)}Debian-based Linux Disributions}} including 
+  Ubuntu and Knoppix.   Please note that the "deb" goal is only relevant to projects with:
+  
+------
+<packaging>jar</packaging>
+------
+  
+Standard Format for Java Libraries
+
+  Debian maintains a few common Java libraries from very widely used projects such as the 
+  {{{http://jakarta.apache.org/commons}Jakarta Commons}}.   You can take a look at the contents
+  of the {{{http://packages.debian.org/cgi-bin/search_contents.pl?searchmode=filelist&word=libcommons-lang-java&version=unstable&arch=all}current (unstable) libcommons-lang-java 2.1}}:
+
+-------
+usr/share/doc/libcommons-lang-java/api/org/apache/commons/lang/ArrayUtils.html
+usr/share/doc/libcommons-lang-java/api/org/apache/commons/lang/BitField.html
+usr/share/doc/libcommons-lang-java/api/org/apache/commons/lang/BooleanUtils.html
+<snip/>
+usr/share/doc/libcommons-lang-java/api/org/apache/commons/lang/time/DurationFormatUtils.html
+usr/share/doc/libcommons-lang-java/api/org/apache/commons/lang/time/FastDateFormat.html
+usr/share/doc/libcommons-lang-java/api/org/apache/commons/lang/time/StopWatch.html
+usr/share/doc/libcommons-lang-java/api/org/apache/commons/lang/time/classes.html
+usr/share/doc/libcommons-lang-java/api/org/apache/commons/lang/time/package-summary.html
+usr/share/doc/libcommons-lang-java/api/org/apache/commons/lang/time/tree.html
+usr/share/doc/libcommons-lang-java/api/org/apache/commons/lang/tree.html
+usr/share/doc/libcommons-lang-java/api/overview-summary.html
+usr/share/doc/libcommons-lang-java/api/package-list	   
+usr/share/doc/libcommons-lang-java/api/resources/gjdoc.js  
+usr/share/doc/libcommons-lang-java/api/resources/gjdochtml-clean-color1.css
+usr/share/doc/libcommons-lang-java/api/resources/gjdochtml-clean-layout.css
+usr/share/doc/libcommons-lang-java/api/resources/inherit.png
+usr/share/doc/libcommons-lang-java/api/resources/xhtml11-target10.dtd
+usr/share/doc/libcommons-lang-java/api/serialized-form.html
+usr/share/doc/libcommons-lang-java/api/tree.html	   
+usr/share/doc/libcommons-lang-java/changelog.Debian.gz	   
+usr/share/doc/libcommons-lang-java/copyright		   
+usr/share/java/commons-lang-2.1.jar			   
+usr/share/java/commons-lang.jar				   
+-------
+
+  Looking at the package contents, you will notice that this Debian package contains two things: a JAR and some JavaDoc.
+  By default, this Maven DEB plugin will generate a DEB file which puts the JAR artifact in 
+  /usr/share/java/${project.groupId}/${project.artifactId}-${project.version}.jar.  You can override this setting if
+  you want to put your JAR files in a different locations (libTargetDirectory).   You will also notice that 
+  this commons-lang DEB contains JavaDoc.  The Maven DEB plugin has the ability to package JavaDoc with your
+  projects DEB file, but to do this, you will need to add some simple configuration to your pom.xml to bind
+  javadoc:javadoc to the package stage in your project's lifecycle.   The following document will 
+  show you how to configure Maven 2 to produce DEB packages to this standard format
+  
+Creating DEB Packages using Maven 2
+
+  Creating a standard Debian package from your project without customized dependencies or JavaDoc is as simple
+  as adding the following XML to your project's pom.xml:
+
+-----------------------------------------------------------------------------------
+  <build>
+    <groupId>org.test</groupId>
+    <artifactId>some-lib</artifactId>
+    <version>1.0</version>
+    <plugins>
+      ...
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>deb-maven-plugin</artifactId>
+        <configuration>
+          <description>A test project</description>
+	      <maintainer>Tim OBrien &lt;tobrien@discursive.com&gt;</maintainer>
+	      <section>libs</section>
+	      <priority>optional</priority>	
+	      <architecture>all</architecture>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>deb</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      ...
+    </plugins>
+  </build>
+-----------------------------------------------------------------------------------
+
+  This plugin declaration will associate the deb-maven-plugin with your project, and the "deb" goal will
+  be automatically associated with the "package" phase of your project's lifecycle.  Running "mvn package"
+  will product the file "org.test-some-lib-1.0-1.deb" in ${basedir}/target.    You can see the contents 
+  of this file by running "dpkg -c target/org.test-some-lib-1.0-1.deb".  This file will contain:
+  
+---
+drwxr-xr-x root/root         0 2007-02-06 17:34 ./
+drwxr-xr-x root/root         0 2007-02-06 17:34 ./usr/
+drwxr-xr-x root/root         0 2007-02-06 17:34 ./usr/share/
+drwxr-xr-x root/root         0 2007-02-06 17:34 ./usr/share/java/
+drwxr-xr-x root/root         0 2007-02-06 17:34 ./usr/share/java/org.test/
+-rw-r--r-- root/root      2224 2007-02-06 17:34 ./usr/share/java/org.test/test-1.0.jar	
+---
+
+  And, the control file will be populated with the configuration you passed to the deb-maven-plugin.  
+  To see the results of the control file, run "dpkg -I target/org.test-some-lib-1.0-1.deb", you should see:
+
+---
+ new debian package, version 2.0.
+ size 2270 bytes: control archive= 283 bytes.
+     192 bytes,     8 lines      control              
+ Section: libs
+ Priority: optional
+ Maintainer: Tim OBrien <tobrien@discursive.com>
+ Package: test-test
+ Version: 1.0-1
+ Architecture: all
+ Depends: log4j-log4j (=1.2.13)
+ Description: A test project
+---
+  
+Generating a Debian Package with JavaDoc
+
+  If you want to generate a Debian package with JavaDoc, include the following XML in your project's pom.xml:
+  
+---
+    <plugin>
+      <artifactId>maven-javadoc-plugin</artifactId>
+	  <executions>
+	    <execution>
+	      <phase>package</phase>
+	      <goals>
+	        <goal>javadoc</goal>
+	      </goals>
+	    </execution>
+	  </executions>
+    </plugin>
+---
+
+  This will run Javadoc generation during the package phase.   Creating Javadoc at ${basedir}/target/site/apidocs
+  (Unsure whether this needs to go before the plugin declaration for deb-maven-plugin.)  To be safe, put this at 
+  the beginning of the plugin definitions.

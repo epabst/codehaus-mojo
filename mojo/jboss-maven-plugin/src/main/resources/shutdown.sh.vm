@@ -1,0 +1,5 @@
+#! /bin/sh
+
+# Shell script that stops the jboss server
+
+${jbossHome}/bin/shutdown.sh -S

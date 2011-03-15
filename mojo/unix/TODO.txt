@@ -1,0 +1,222 @@
+= TODO =
+
+o Support group, user and modes on files and directories in all formats
+ - Default values for user, group and mode: part 1 done, need to be implemented in the mojo
+ - Deb: Won't be done until replaced with Java
+ - Pkg: ok
+ - RPM: OK
+
+o Dependency generation
+
+o Signing support
+ - Deb:
+ - Pkg:
+ - Rpm:
+
+o Add repository index creation
+ - Deb: dpkg-scanpackages wrapper implemented. Should be re-implemented in Java..
+ - Pkg: buildcat from pkgutil (?)
+ - Rpm: (?) - sherriff had some notes on how to do this
+
+o Package compression:
+ - Deb: Built-in (the data.tar.gz file is already gzipped).
+ - Pkg:
+ - Rpm: are there any tools that support this?
+
+o Replace the binaries with Java implementations
+ - Deb:
+   DONE: dpkg -c
+ - Pkg:
+ - Rpm:
+
+o Scripts:
+ - Filtering. Both of project.* elements and package.* elements
+
+o Support Defaults per platform. The Defaults object should probably be in the common project
+
+o The includes/excludes algorithm is most likely wrong, it should first check for includes and then check for excludes.
+  Perhaps verify against an ant build.xml file.
+
+o Support depending on nested archives: tar.gz, tar.bz2, etc (only zip files are supported now)
+
+o Expand the "unix-from-jar-project" test to build multiple packages of the same type
+
+o Make sure all bugs for the plugins are implemented.
+ - Including new features
+
+o Add a "platform" concept.
+  - A platform is:
+    - A packaging format
+    - Defaults for file and directory security
+  - Current platforms (should be pre-defined):
+    - platform=debian
+      - format=deb
+    - platform=ubuntu
+      - format=deb
+    - platform=solaris
+      - format=pkg
+    - platform=fedora
+      - format=rpm
+    - platform=redhat
+      - format=rpm
+  - Possible platforms
+    - ArchLinux
+    - OpenBSD packages
+    - OpenSolaris
+      - format=ipkg
+
+o Add a "modulation" contept. (one modulation per <package> defined)
+  Much like 'classifiers' in Maven, might be smart to use the same concept.
+  - Support src/main/files per classifier
+
+o Make sure the result of setLastModified is asserted
+
+o Make sure that timestamps are preserved for all assembly operations
+
+== Refactorings ==
+
+== Functional Java ==
+
+o Add Option.someE(String msg) like Either.XProjection.valueE();
+o Add Hash.keySet() that return a Set
+
+o Figure out why there is no parMap(Stream). If reasonable, document it on Stream.
+o P.identity{1,8}
+
+o Create FjFile:
+ - Iterable<File> listFiles
+ - Iterable<File> findFiles(includes, excludes)
+
+== Pkg ==
+
+o Support "i" and "e" files
+
+o Generate entries for parent directories.
+ - Need some way to say how far up to generte (you don't want to specify /usr, /opt, etc)
+ - Set permission modes on parent directories.
+
+== RPM ==
+
+o <description> => %description
+
+o <organization> => %vendor
+
+= Documentation =
+(More notes and TODOs in the site/ directory)
+
+o Explain possible workflow and where the different Mojos fit in
+
+o Need *lots* of includes/excludes examples, with regexp rewriting
+
+== Integration Test ==
+
+o Make sure that all the validate scripts are using the latest Deb/Pkg/Rpm tools to verify all the contents of the
+generated packages.
+
+== Use cases supported ==
+
+o Building single packages as a standalone project.
+ - Use packaging={deb,rpm,pkg}
+
+o Building the same package with different format as a separate project.
+ - Figure out how to handle the "primary" artifact.
+  - Just create a JAR with the assembly?
+  - Does it matter? Will Maven really see the difference as long as it is only the type that is different?
+  - Would it be possible to use "tar.gz" as a form of "generic package"
+
+o Building packages as a part of a JAR project.
+ - Use package-{deb,rpm,pkg}-attached
+
+o Support building multiple packages as a standalone project
+ - This should be implemented
+
+= Release Procedure =
+
+o Update Change Log.
+ - Scan through changes in svn and hg since last tag
+o Update front page with status.
+o Update change log on site from this file.
+o Subversion properties
+ - Expand keywords: find . -name \*.java|grep -v target|xargs svn propset svn:keywords "Id"
+ - Set svn:eol-style: find . -name \*.java|grep -v target|xargs svn ps svn:eol-style native
+o Make sure the handbook is build. Consider moving it out to a separate trunk.
+
+= Change Log =
+
+== For 1.0-alpha-5 ==
+
+o MUNIX-13: Support 'tar' format
+  Create integration tests similar to the existing tests
+o DONE: MUNIX-14: Rename "pkg" to "sysv-pkg"
+o DONE: MUNIX-23: Rename "dpkg" to "deb"
+  "deb" is the format that is supported, "dpkg" is the name of the tool set to create it.
+o DONE: MUNIX-19: default copy-directory
+o DONE: MUNIX-26: Make commons-logging log to the Maven logger.
+o Document how to use the u-m-p in a development process. Explain the goals for creating index files, and how to
+  run these tools automatically on commit hooks etc.
+o Documentation:
+  - Document 'tags' feature
+   - %doc and %config for RPM
+   - class for PKG
+o DONE: Consider moving all of the plugin classes into "o.c.m.u.maven.plugin" and move the files in ".maven.core"
+  back into the "maven" package.
+o MUNIX-27: The pkg tools has to assert that the file was created
+o DONE: MUNIX-28: The "pkg" format uses the pkginfo NAME to locate scripts, should use the classifier of the package
+o DONE: MUNIX-20: Support per-package defaults too
+
+=== Nits ===
+
+o Consider creating a class that represent a complete set of attributes on a file.
+  There has been a few surprises ("some() on None" exceptions) where the attribute was missing. Might be possible to
+  require that FileAttributes in unix-core require all fields to be set, and that any null fields must be set by a
+  default before given to the core.
+o Make the pkg stuff die when the source files has a space in the path names. pkgmk dies on prototypes like this:
+  f none /foo/bar.war=/var/opt/hudson/workspace/Myapp - Integration tests/bar.war 0644 root sys
+
+== For 1.0-alpha-4 ==
+
+o DONE: MUNIX-12: Support 'zip' format
+o DONE: MUNIX-6: set-attributes doesn't pick up paths that aren't explicitly created with mkdirs
+  set-attributes now work on any directory that is created before the operation is run.
+o DONE: MUNIX-3, MUNIX-4: Implement support for "%config" and "%doc" in RPM, file classes in solaris.
+ - Check how this work in debian
+o DONE: MUNIX-15: Improve the error message is an artifact can't be found.
+ - Create special exception that is caught in the mojo.
+o DONE: Run the plugin through a profiler
+o DONE: Re-implement the FsFileCollector to use a tree internally representing a file system
+  - Makes it easier to debug, should be possible to write out the entire tree as a part of the building process
+  - Makes it easier to implement proper mkdirs
+o MUNIX-16: Scripts documentation
+ - src/main/unix/scripts, common vs package specific directories
+o DONE: Document the flow of the assembly operations. Like:
+  1) Find files
+  2) Match against include and exclude
+  3) Rewrite with pattern
+  4) Set attributes
+  - Explain that the operations is supposed to work just like a normal file systems. The order of the operations is
+    significant.
+o DONE: MUNIX-17: Go over how versions and revisions are handles.
+ - In pkginfo a SNAPSHOT is not resolved to a specific timestamp.
+ - Document how version, revision etc are calculated. For both releases and snapshots
+o DONE: MUNIX-18: Simplify the script mechanism
+o DONE: Update mapping.xml, it is outdated now
+
+== For 1.0-alpha-3 ==
+
+o DONE: Make sure all files has copyright statement.
+o DONE: unix-ar: Remove CloseableIterable
+o It should be validated that the toDir doesn't go outside the package root
+  - Isn't this implicitly handled by RelativePath? If not, add validation there
+o DONE: toDir should default to "/"
+o DONE: New assembly operation structure:
+ - <copy>+<path> with path == file -> <copy-file>
+ - <copy>+<path> with path == directory -> <copy-directory>
+ - <extract>+<path> with path == file -> <extract-file>
+ - <extract>+<path> with path == directory -> <extract-directory>
+o DONE: Pkg: support all installation file types
+  Suppored files: depend, checkinstall, compver, copyright, request, space
+o DONE: Implement symlinks
+o DONE: Support chmod assembly operation
+ - Has to support includes/excludes
+o DONE: Assembly Operation documentation
+ - Document each assembly operation separately

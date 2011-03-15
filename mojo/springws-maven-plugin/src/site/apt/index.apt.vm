@@ -1,0 +1,32 @@
+ ------
+ Introduction
+ ------
+ David J. M. Karlsen <david@codehaus.org>
+ ------
+ 13 Apr 2009
+ ------
+
+
+springws maven plugin
+
+  This plugin can be used to extract .wsdl files from your Spring WS configuration.
+  It will look for all WsdlDefinition beans and export these definitions to files.
+  
+* Goals Overview
+
+  General Information about the goals.
+
+  * {{{springws-mojo.html}springws:springws}} Extract wsdl files from configuration.
+
+* Usage
+
+  Instructions on how to use the ${project.artifactId} maven plugin can be found on the {{{usage.html}usage page}}.
+
+* Examples
+
+  To provide you with better understanding of some usages of the ${project.artifactId} maven plugin,
+  you can take a look into the following examples:
+
+  * {{{examples/extract-wsdl.html}Extract wsdl files.}}
+
+  

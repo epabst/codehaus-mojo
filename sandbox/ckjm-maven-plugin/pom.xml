@@ -1,0 +1,125 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>mojo-sandbox</artifactId>
+    <groupId>org.codehaus.mojo</groupId>
+    <version>4</version>
+  </parent>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>ckjm-maven-plugin</artifactId>
+  <packaging>maven-plugin</packaging>
+  <version>1.0.0-SNAPSHOT</version>
+  <name>Ckjm Maven Mojo</name>
+  <url>http://mojo.codehaus.org/ckjm-maven-plugin</url>
+  <inceptionYear>2007</inceptionYear>
+  <organization>
+    <name>CodeHaus</name>
+    <url>http://www.codehaus.org</url>
+  </organization>
+  <prerequisites>
+    <maven>2.0</maven>
+  </prerequisites>
+  <description>
+    This plugin executes the Ckjm utility to calculate Chidamber and Kemerer object-oriented metrics by processing the bytecode of compiled Java files.
+  </description>
+  <issueManagement>
+    <system>JIRA</system>
+    <url>http://jira.codehaus.org/browse/MOJO</url>
+  </issueManagement>
+  <developers>
+    <developer>
+      <id>wf</id>
+      <name>Wayne Fay</name>
+      <email>wfay@codehaus.org</email>
+      <url>http://codehaus.org/~wfay/</url>
+      <organization />
+      <roles>
+        <role>Documentation</role>
+        <role>Java Developer</role>
+      </roles>
+      <timezone>-5</timezone>
+    </developer>
+  </developers>
+  <contributors>
+    <contributor>
+      <name>Diomidis D. Spinellis</name>
+      <email>dds@aueb.gr</email>
+      <url>http://www.spinellis.gr/</url>
+      <organization />
+      <roles>
+        <role>Ckjm Creator</role>
+      </roles>
+      <timezone/>
+    </contributor>
+  </contributors>
+  <licenses>
+    <license>
+      <name>Apache License 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <version>2.0</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>gr.spinellis</groupId>
+      <artifactId>ckjm</artifactId>
+      <version>1.8</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.bcel</groupId>
+      <artifactId>bcel</artifactId>
+      <version>5.2</version>
+      <scope>compile</scope>
+    </dependency>
+    <!--dependency>
+      <groupId>org.apache.ant</groupId>
+      <artifactId>ant</artifactId>
+      <version>1.7.0</version>
+      <scope>compile</scope>
+    </dependency-->
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-utils</artifactId>
+      <version>1.4.5</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-docck-plugin</artifactId>
+        <!--executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions-->
+      </plugin>
+    </plugins>
+  </build>
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+        <version>1.1.1</version>
+        <configuration/>
+      </plugin>
+    </plugins>
+  </reporting>
+</project>

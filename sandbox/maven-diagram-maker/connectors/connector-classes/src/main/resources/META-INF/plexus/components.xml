@@ -1,0 +1,126 @@
+<component-set>
+	<components>
+		<component>
+			<role>
+				org.apache.maven.diagrams.connector_api.descriptor.ConnectorDescriptor
+			</role>
+			<role-hint>connector-classes</role-hint>
+			<implementation>
+				org.apache.maven.diagrams.connector_api.descriptor.DefaultConnectorDescriptor
+			</implementation>
+			<configuration>
+				<name>connector-classes</name>
+				<description>Classes graph connector</description>
+				<groupId>org.apache.maven.diagram.connectors</groupId>
+				<artifactId>connector-classes</artifactId>
+				<version>0.1-SNAPSHOT</version>
+				<configurationClassName>
+					org.apache.maven.diagrams.connectors.classes.config.ClassesConnectorConfiguration
+				</configurationClassName>
+				<!--  providedInterfaces>
+					<interface>static</interface-->
+				<!--interface>listener</interface-->
+				<!-- /providedInterfaces -->
+				<mappings>
+					<!--mapping>
+						<tagName>dependency</name>
+						<className>org.codehaus.plexus.component.repository.ComponentDependency</className>
+						</mapping-->
+
+					<mapping>
+						<tagName>aggregating</tagName>
+						<className>
+							org.apache.maven.diagrams.connectors.classes.config.AggregateEdgeType
+						</className>
+					</mapping>
+					<mapping>
+						<tagName>implemmenting</tagName>
+						<className>
+							org.apache.maven.diagrams.connectors.classes.config.ImplementEdgeType
+						</className>
+					</mapping>
+					<mapping>
+						<tagName>inheritance</tagName>
+						<className>
+							org.apache.maven.diagrams.connectors.classes.config.InheritanceEdgeType
+						</className>
+					</mapping>
+					<mapping>
+						<tagName>include</tagName>
+						<className>
+							org.apache.maven.diagrams.connectors.classes.config.IncludeClasses
+						</className>
+						<converterClassName>
+							org.apache.maven.diagrams.connectors.classes.config.IncludeClassesConverter
+						</converterClassName>
+					</mapping>
+					<mapping>
+						<tagName>exclude</tagName>
+						<className>
+							org.apache.maven.diagrams.connectors.classes.config.ExcludeClasses
+						</className>
+					</mapping>
+				</mappings>
+			</configuration>
+		</component>
+
+		<component>
+			<role>
+				org.apache.maven.diagrams.connector_api.DiagramConnector
+			</role>
+			<role-hint>connector-classes</role-hint>
+			<implementation>
+				org.apache.maven.diagrams.connectors.classes.ClassesConnector
+			</implementation>
+			<requirements>
+				<requirement>
+					<role>
+						org.apache.maven.diagrams.connector_api.descriptor.ConnectorDescriptor
+					</role>
+					<role-hint>connector-classes</role-hint>
+				</requirement>
+				<requirement>
+					<role>
+						org.apache.maven.diagrams.connectors.classes.edge_source.EdgeSource
+					</role>
+					<field-name>edgeSources</field-name>
+				</requirement>
+				<!--  requirement>
+					<role>
+					org.apache.maven.project.MavenProject
+					</role>
+					</requirement-->
+			</requirements>
+
+		</component>
+
+		<!-- Edge Sources -->
+		<component>
+			<role>
+				org.apache.maven.diagrams.connectors.classes.edge_source.EdgeSource
+			</role>
+			<implementation>
+				org.apache.maven.diagrams.connectors.classes.edge_source.AggregateEdgeSource
+			</implementation>
+			<role-hint>AggregateEdgeType</role-hint>
+		</component>
+		<component>
+			<role>
+				org.apache.maven.diagrams.connectors.classes.edge_source.EdgeSource
+			</role>
+			<implementation>
+				org.apache.maven.diagrams.connectors.classes.edge_source.ImplementEdgeSource
+			</implementation>
+			<role-hint>ImplementEdgeType</role-hint>
+		</component>
+		<component>
+			<role>
+				org.apache.maven.diagrams.connectors.classes.edge_source.EdgeSource
+			</role>
+			<implementation>
+				org.apache.maven.diagrams.connectors.classes.edge_source.InheritanceEdgeSource
+			</implementation>
+			<role-hint>InheritanceEdgeType</role-hint>
+		</component>
+	</components>
+</component-set>

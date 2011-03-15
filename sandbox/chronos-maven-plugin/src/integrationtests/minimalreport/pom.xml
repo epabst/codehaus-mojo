@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>org.codehaus.mojo.chronos.it</groupId>
+	<artifactId>jmeterrun</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>jmeterrun</name>
+	<url>http://maven.apache.org</url>
+	<properties>
+		<jmeter.home>/Applications/Utilities/Java/jakarta-jmeter-2.3.1</jmeter.home>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>chronos-maven-plugin</artifactId>
+				<version>1.0-SNAPSHOT</version>
+				<configuration>
+					<input>${basedir}/src/main/resources/simplewebplan.jmx</input>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>jmeter</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>chronos-maven-plugin</artifactId>
+				<version>1.0-SNAPSHOT</version>
+				<configuration>
+				    <description>This is the description of the generated report</description>
+				    <title>Report title</title>
+				    <showaverage>false</showaverage>
+				    <showpercentile>false</showpercentile>
+				    <showinfotable>false</showinfotable>
+				    <showtimeinfo>false</showtimeinfo>
+				    <showsummary>true</showsummary>
+				    <showdetails>false</showdetails>
+				    <showresponse>true</showresponse>
+				    <showhistogram>true</showhistogram>
+				    <showthroughput>false</showthroughput>
+				    <showgc>false</showgc>
+				</configuration>
+				<reportSets>
+				  <reportSet>
+				    <reports>
+				      <report>report</report>
+				    </reports>
+				  </reportSet>
+				</reportSets>
+				
+			</plugin>
+		</plugins>
+	</reporting>
+</project>

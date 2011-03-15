@@ -1,0 +1,28 @@
+ ------
+ Maven 2 Simian plugin 
+ ------
+ <miguel.griffa@gmail.com>
+ ------
+ January 10, 2006
+ ------
+
+ This plugins adds a similarity analysis report to a project by using the Simian 
+ tool (http://www.redhillconsulting.com.au/products/simian).
+ 
+Usage:
+
+-------------------
+<project>
+   ...
+      <build>
+         <plugins>
+            <plugin>
+               <groupId>org.codehaus.mojo</groupId>
+               <artifactId>simian-maven-plugin</artifactId>
+            </plugin>
+         </plugins>
+         ...
+      </build>
+   ...
+</project>
+-------------------

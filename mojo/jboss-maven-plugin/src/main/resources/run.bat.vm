@@ -1,0 +1,6 @@
+@REM Shell script that starts jboss with all the copied folders and stuff.
+
+@if "%OS%" == "Windows_NT" setlocal
+@set NOPAUSE=true
+@set "JAVA_OPTS=${javaOpts} -Djboss.server.home.dir=${jbossServerHome} -Djboss.server.home.url=file:${jbossServerHome}"
+@call ${jbossHome}\bin\run.bat -c ${serverName} ${options}

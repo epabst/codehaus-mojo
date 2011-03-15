@@ -1,0 +1,73 @@
+<component-set>
+	<components>
+		<component>
+			<role>
+				org.apache.maven.diagrams.connector_api.descriptor.ConnectorDescriptor
+			</role>
+			<role-hint>connector-dependencies</role-hint>
+			<implementation>
+				org.apache.maven.diagrams.connector_api.descriptor.DefaultConnectorDescriptor
+			</implementation>
+			<configuration>
+				<name>connector-dependencies</name>
+				<description>
+					Dependencies diagram connector
+				</description>
+				<groupId>org.apache.maven.diagram.connectors</groupId>
+				<artifactId>connector-dependencies</artifactId>
+				<version>0.1-SNAPSHOT</version>
+				<configurationClassName>
+					org.apache.maven.diagrams.connectors.dependencies.config.DependenciesConnectorConfiguration
+				</configurationClassName>
+				<!--  providedInterfaces>
+					<interface>static</interface-->
+				<!--interface>listener</interface-->
+				<!-- /providedInterfaces -->
+				<mappings></mappings>
+			</configuration>
+		</component>
+
+		<component>
+			<role>
+				org.apache.maven.diagrams.connector_api.DiagramConnector
+			</role>
+			<role-hint>connector-dependencies</role-hint>
+			<implementation>
+				org.apache.maven.diagrams.connectors.dependencies.DependenciesConnector
+			</implementation>
+			<requirements>
+				<requirement>
+					<role>
+						org.apache.maven.diagrams.connector_api.descriptor.ConnectorDescriptor
+					</role>
+					<role-hint>connector-dependencies</role-hint>
+				</requirement>
+				<requirement>
+					<role>
+						org.apache.maven.artifact.factory.ArtifactFactory
+					</role>
+				</requirement>
+				<requirement>
+					<role>
+						org.apache.maven.artifact.metadata.ArtifactMetadataSource
+					</role>
+				</requirement>
+				<requirement>
+					<role>
+						org.apache.maven.artifact.resolver.ArtifactCollector
+					</role>
+				</requirement>
+				<requirement>
+					<role>
+						org.apache.maven.shared.dependency.tree.DependencyTreeBuilder
+					</role>
+				</requirement>
+				<!--  requirement>
+					<role>
+					org.apache.maven.project.MavenProject
+					</role>
+					</requirement-->
+			</requirements>
+		</component>
+	</components>
+</component-set>

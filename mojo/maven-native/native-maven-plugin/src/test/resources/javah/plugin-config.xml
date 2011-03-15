@@ -1,0 +1,19 @@
+<project>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>native-maven-plugin</artifactId>
+        <configuration>
+          <project implementation="org.codehaus.mojo.natives.plugin.stubs.ProjectStub"/>
+          <javahProvider>noop</javahProvider>
+          <workingDirectory>${basedir}</workingDirectory>          
+          <javahOutputDirectory>target/javah</javahOutputDirectory>
+          <!--  force classpatht to be computed -->
+          <classNames><className>dummy</className></classNames>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

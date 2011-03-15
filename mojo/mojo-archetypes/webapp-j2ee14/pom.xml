@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <groupId>org.codehaus.mojo.archetypes</groupId>
+    <artifactId>mojo-archetypes</artifactId>
+    <version>5</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>webapp-j2ee14</artifactId>
+  <version>1.2-SNAPSHOT</version>
+  <packaging>maven-archetype</packaging>
+  <name>J2EE 1.4 web application archetype</name>
+  <description>J2EE 1.4 web application archetype</description>
+  <scm>
+    <connection>scm:svn:http://svn.codehaus.org/mojo/trunk/mojo/mojo-archetypes/webapp-j2ee14</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/mojo-archetypes/webapp-j2ee14</developerConnection>
+    <url>http://fisheye.codehaus.org/browse/mojo/trunk/mojo/mojo-archetypes/webapp-j2ee14</url>
+  </scm>
+</project>

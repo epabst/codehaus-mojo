@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE project SYSTEM "../dtd/Project.dtd">
+
+<project default="all">
+
+  &init;
+  
+  <!-- 
+   |
+   | Add additional targets here
+   |
+   -->
+
+  <target name="all" >   
+    <antcall target="GoogleTest"/>
+  </target>
+  
+  <target name="GoogleTest">
+		<webtest name="check that WebTest is Google's top 'WebTest' result">
+      &config;
+			<invoke url="http://www.google.com/ncr" description="Go to Google (in English)"/>
+			<verifyTitle text="Google" />
+			<setInputField name="q" value="WebTest" />
+			<clickButton label="I'm Feeling Lucky" />
+			<verifyTitle text="Canoo WebTest" />
+		</webtest>
+	</target>
+  
+</project>

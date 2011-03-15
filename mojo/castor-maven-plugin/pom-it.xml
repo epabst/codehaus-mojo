@@ -1,0 +1,114 @@
+<project>
+  <parent>
+    <artifactId>mojo</artifactId>
+    <groupId>org.codehaus.mojo</groupId>
+    <version>5</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>castor-maven-plugin</artifactId>
+  <packaging>maven-plugin</packaging>
+  <name>Maven Castor Plugin</name>
+  <version>1.0.1-SNAPSHOT</version>
+  <inceptionYear>2005</inceptionYear>
+  <developers>
+    <developer>
+      <id>jtolentino</id>
+      <name>john tolentino</name>
+      <email>john.tolentino@mergere.com</email>
+      <url>http://www.mergere.com</url>
+      <organization>Mergere, Inc.</organization>
+      <timezone>+8 GMT</timezone>
+    </developer>
+    <developer>
+      <id>brozow</id>
+      <name>Matt Brozowski</name>
+      <email>brozow@opennms.org</email>
+      <url>http://www.opennms.org</url>
+      <organization>The OpenNMS Group</organization>
+      <timezone>-5 GMT</timezone>
+    </developer>
+  </developers>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-it-plugin</artifactId>
+        <configuration>
+        <integrationTestsDirectory>${basedir}/../../../MAVEN/M2-Source/maven-core-it</integrationTestsDirectory>
+					<includes>
+						<include>it0*/pom.xml</include>
+					</includes>
+					<excludes>
+						<exclude>it007*/pom.xml</exclude>
+						<exclude>it008*/pom.xml</exclude>
+					</excludes>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>integration-test</phase>
+            <goals>
+              <goal>test</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<configuration>
+							<tasks>
+								<echo>Packaging maven-it-plugin-test</echo>
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+    </plugins>
+  </build>
+  <dependencies>
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-compiler-api</artifactId>
+      <version>1.5.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-project</artifactId>
+      <version>2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <version>2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>castor</groupId>
+      <artifactId>castor</artifactId>
+      <version>0.9.6</version>
+    </dependency>
+    <dependency>
+      <groupId>plexus</groupId>
+      <artifactId>plexus-utils</artifactId>
+      <version>1.0.1</version>
+    </dependency>
+    <dependency>
+      <groupId>xerces</groupId>
+      <artifactId>xerces</artifactId>
+      <version>1.4.0</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.0.4</version>
+    </dependency>
+  </dependencies>
+</project>

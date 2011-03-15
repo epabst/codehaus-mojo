@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<faqs id="FAQ" title="Frequently Asked Questions">
+   <part id="General">
+      <faq id="FitNesse">
+            <question>What is FitNesse?</question>
+            <answer>
+               <p>
+                  <a href="http://fitnesse.org"><i>FitNesse</i></a> is an acceptance testing framework and wiki.
+               </p>
+            </answer>
+      </faq>
+      <faq id="FitNessePlugin">
+            <question>What does this plugin ?</question>
+            <answer>
+               <p>
+                  This plugin allows to run fitnesse during your build (remotly or locally) and creates a report into your site.
+               </p>
+            </answer>
+      </faq>
+      <faq id="Difference">
+            <question>What is the difference between the couple of <a href="run-mojo.html"><i>goal fitnesse:run</i></a>
+             and <a href="remotecall-mojo.html"><i>fitnesse:remotecall</i></a>?</question>
+            <answer>
+               <p>
+                  If you have a fitnesse server, say <i>http://fitnesseSrv:80</i>, when you call the <a href="run-mojo.html"><i>goal fitnesse:run</i></a>
+                  goal you will request the Fitnesse page content (only the Fit test definition) from <i>fitnesseSrv</i>, 
+                  then you will execute your tests locally (where fitnesse is running).<BR/>
+                  When you call <a href="remotecall-mojo.html"><i>fitnesse:remotecall</i></a> you will execute 
+                  your Fitnesse Test or Suite on <i>fitnesseSrv</i>, then the plugin will copy the page result locally. In 
+                  this case it's exactly similar to the execution of fitnesse with its GUI, when you click on the button <i>Test</i> ou <i>Suite</i>.
+               </p>
+            </answer>
+      </faq>
+      <faq id="WhenUse">
+            <question>When should I use <a href="run-mojo.html"><i>goal fitnesse:run</i></a> or 
+            <a href="remotecall-mojo.html"><i>fitnesse:remotecall</i></a>?</question>
+            <answer>
+               <p>
+                  It depend of what you want :-).<BR/>
+                  If your are a developer that built new code on your desktop and if you want to confront this brand new code with a Fitnesse test, 
+                  <a href="run-mojo.html"><i>goal fitnesse:run</i></a> is exactlly what you need. You will be able to test your code without having to upload it 
+                  onto the FitNesse server. This is especially interesting when your connection between your desktop and the FitNesse server is 
+                  not at the top or if you doesn't want to publish this a code for the moment.<BR/>
+                  If your want to aggregate the FitNesse result (with a Maven report) to your build in the same manner that your should run FitNesse with 
+                  <i>Test</i> ou <i>Suite</i> button, you should use the <a href="remotecall-mojo.html"><i>fitnesse:remotecall</i></a> goal.<BR/>
+                  If you want to aggregate FitNesse test into your code coverage report, your should execute the FitNesse tests on the same server than your 
+                  unit-test (the localhost). In this case the goal <a href="run-mojo.html"><i>fitnesse:run</i></a> goal seems to be the good one, except if the FitNesse 
+                  server and the build server are the same (then both are good).
+               </p>
+            </answer>
+      </faq>
+      <faq id="TestCoverage">
+            <question>How to add my FitNesse test to my code coverage report?</question>
+            <answer>
+               <p>
+                  We provide a <a href="examples/multiproject.html">Clover exemple</a>. You can use the same mecanism with other framework (clover has the advantage 
+                  to automatically install its instrumented jars with a '-clover' extension in your local repository). <BR/>
+                  Your should use the <a href="run-mojo.html"><i>goal fitnesse:run</i></a> goal for that.<BR/>
+                  More information can be found at <a href="http://confluence.atlassian.com/display/CLOVER/Clover-for-Maven+2">Atlassian Clover 2 Maven 2 plugin</a>. 
+                  Note that the <a href="http://maven.apache.org/plugins/maven-clover-plugin/">Apache Clover 1 Maven 2 plugin</a> is now deprecated.
+               </p>
+            </answer>
+      </faq>
+      <faq id="DoINeedAWholeMaven2Build">
+            <question>I am interested by the local execution, but my build is not built atop Maven2?</question>
+            <answer>
+               <p>
+                  First, your may consider to migrate your build to Maven2, its the better build tool :-).<BR/>
+                  Otherwise your may use this plugin without having a full Maven2 build. In fact you only need to have a very simple pom.xml for running it, 
+                  this pom can be obtain with the <a href="examples/minimalist.html">minimalist example</a>.<BR/>
+                  This use may resolve what I call the FitNesse paradoxe: FitNesse has a centralized repository for tests (the server local folders) 
+                  when development is a decentralized activity (each developer onto his own desktop). If (and I consider that as a good practice) you decide to 
+                  promote only well test code to your centralized repository, your can't check this code without boring and dangerous manipulations: manual copy of the 
+                  FitNesse working files.<BR/>
+                  See <a href="run-mojo.html"><i>goal fitnesse:run</i></a> for more information about this usage and configuration, 
+                  specially the <a href="run-mojo.html#classPathSubstitutions">classpath modification</a>.
+               </p>
+            </answer>
+      </faq>
+      <faq id="Jdk">
+            <question>How can I use a fork Jvm and/or pass arguments to my Jvm ?</question>
+            <answer>
+               <p>
+                    The plugin never run the tests in the same Jvm than FitNesse. It could be a remote one (case of the remote ) or another Jvm on the 
+                    same computer (). 
+                    You can specifed your local Jvm with <a href="run-mojo.html#jdk">this option</a> and 
+                    pass argument to it with <a href="run-mojo.html#jdk">this one</a>.
+               </p>
+            </answer>
+      </faq>
+
+   </part>
+</faqs>

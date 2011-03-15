@@ -1,0 +1,39 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.codehaus.mojo.ruby.it</groupId>
+  <artifactId>it00-ruby-plugin</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>maven-plugin</packaging>
+  <name>Ruby Integration Test 00</name>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>jruby-maven-plugin</artifactId>
+	  <version>1.0-beta-4-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <version>1.0-SNAPSHOT</version>
+      <artifactId>jruby-stdlib</artifactId>
+    </dependency>
+  </dependencies>
+  <build>
+	<scriptSourceDirectory>src/main/ruby</scriptSourceDirectory>
+	<plugins>
+	  <plugin>
+		<artifactId>maven-plugin-plugin</artifactId>
+		<configuration>
+		  <prefix>jruby</prefix>
+		</configuration>
+		<dependencies>
+		  <dependency>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>jruby-maven-plugin</artifactId>
+			<version>1.0-beta-4-SNAPSHOT</version>
+		  </dependency>
+		</dependencies>
+	  </plugin>
+	</plugins>
+  </build>
+</project>

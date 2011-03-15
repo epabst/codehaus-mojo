@@ -1,0 +1,193 @@
+~~
+~~
+~~     Copyright 2007 Apache Software Foundation
+~~
+~~     Licensed under the Apache License, Version 2.0 (the "License");
+~~     you may not use this file except in compliance with the License.
+~~     You may obtain a copy of the License at
+~~
+~~       http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~     Unless required by applicable law or agreed to in writing, software
+~~     distributed under the License is distributed on an "AS IS" BASIS,
+~~     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+~~     See the License for the specific language governing permissions and
+~~     limitations under the License. 
+~~
+~~
+           -----------------------------
+           Merging contents into web.xml
+           -----------------------------
+
+Merging contents into web.xml
+
+  The application designer contains and requires its own file
+  <<<WEB-INF/web.xml>>>. To configure your own servlets, filters,
+  resources, or mappings, you may create your own, application
+  specific <<<web.xml>>>. The Maven CIS plugin will detect this
+  file and merge its contents into the actual <<<web.xml>>>.
+
+  In other words, the original <<<web.xml>>> gets replaced by a copy,
+  which includes the contents of your <<<web.xml>>> files.
+
+  We'll make this somewhat clearer by looking at some example files.
+  First of all, let's have a look at the <<<web.xml>>> file, which
+  is distributed with the application designer:
+
+---------------------------------------------------------------------------
+<web-app id="CompositeIntegratorServer">
+    <display-name>crossvision Application Designer/ Application Composer</display-name>
+    ...
+    <servlet id="Connector">
+        <servlet-name>Connector</servlet-name>
+        <display-name>Connector</display-name>
+        <servlet-class>com.softwareag.cis.server.Connector</servlet-class>
+            ...
+            <init-param id="CISHOME">
+                <param-name>cis.home</param-name>
+                <param-value>REALPATH</param-value>
+            </init-param>
+            ...
+            <init-param id="CISLOG">
+                <param-name>cis.log</param-name>
+                <param-value>REALPATH/../../../log/</param-value>
+            </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet id="StartCISPage">
+        <servlet-name>StartCISPage</servlet-name>
+        <display-name>StartCISPage</display-name>
+        <servlet-class>com.softwareag.cis.server.StartCISPage</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    ...
+</web-app>
+---------------------------------------------------------------------------
+
+  The application designer specifies a lot of servlets, which it
+  needs. Of course, you must not replace these servlet specifications.
+
+  Now, suggest that your application "MyDirectory" is based on a servlet
+  called "BlobServlet". To activate this servlet, create a file
+  <<<src/main/cis/MyDirectory/web.xml>>> with the following contents:
+
+---------------------------------------------------------------------------
+<web-app>
+  <servlet>
+    <servlet-name>MyServlet</servlet-name>
+    <servlet-class>com.foo.MyServlet</servlet-class>
+  </servlet>
+</web-app>
+---------------------------------------------------------------------------
+
+  As you can see, this is basically a snippet with the things you
+  wish to add to the actual <<<web.xml>>>.
+
+  And finally, here's the <<<web.xml>>> file, that the Maven CIS
+  plugin generates:
+
+---------------------------------------------------------------------------
+<web-app id="CompositeIntegratorServer">
+    <display-name>crossvision Application Designer/ Application Composer</display-name>
+    ...
+    <servlet id="Connector">
+        <servlet-name>Connector</servlet-name>
+        <display-name>Connector</display-name>
+        <servlet-class>com.softwareag.cis.server.Connector</servlet-class>
+            ...
+            <init-param id="CISHOME">
+                <param-name>cis.home</param-name>
+                <param-value>REALPATH</param-value>
+            </init-param>
+            ...
+            <init-param id="CISLOG">
+                <param-name>cis.log</param-name>
+                <param-value>REALPATH/../../../log/</param-value>
+            </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet id="StartCISPage">
+        <servlet-name>StartCISPage</servlet-name>
+        <display-name>StartCISPage</display-name>
+        <servlet-class>com.softwareag.cis.server.StartCISPage</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    ...
+    <servlet>
+      <servlet-name>MyServlet</servlet-name>
+      <servlet-class>com.foo.MyServlet</servlet-class>
+    </servlet>
+    ...
+</web-app>
+---------------------------------------------------------------------------
+
+* {Overwriting CIS settings}
+
+  Some parts of the original <<<web.xml>>> file are overwritable.
+  In particular, the connector servlet has some initialization
+  parameters, which you would like to change.
+
+  Overwriting this settings is done by supplying a servlet with
+  the same name and class in your own <<<web.xml>>>. For example,
+  suggest that we change our own <<<web.xml>>> like this:
+
+---------------------------------------------------------------------------
+<web-app>
+    <servlet>
+        <servlet-name>MyServlet</servlet-name>
+        <servlet-class>com.foo.MyServlet</servlet-class>
+    </servlet>
+    <servlet id="Connector">
+        <servlet-name>Connector</servlet-name>
+        <display-name>Connector</display-name>
+        <servlet-class>com.softwareag.cis.server.Connector</servlet-class>
+            <init-param id="CISHOME">
+                <param-name>cis.home</param-name>
+                <param-value>C:/Program Files/cis</param-value>
+            </init-param>
+            <init-param id="CISLOG">
+                <param-name>cis.log</param-name>
+                <param-value>C:/Data/logs/</param-value>
+            </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+</web-app>
+---------------------------------------------------------------------------
+
+  This would overwrite the connector servlet, as specified by the
+  application designer. However, all other servlets would remain
+  unchanged. In other words, the generated <<<web.xml>>> would look
+  like this:
+
+---------------------------------------------------------------------------
+<web-app id="CompositeIntegratorServer">
+    <display-name>crossvision Application Designer/ Application Composer</display-name>
+    ...
+    <servlet id="Connector">
+        <servlet-name>Connector</servlet-name>
+        <display-name>Connector</display-name>
+        <servlet-class>com.softwareag.cis.server.Connector</servlet-class>
+            <init-param id="CISHOME">
+                <param-name>cis.home</param-name>
+                <param-value>C:/Program Files/cis</param-value>
+            </init-param>
+            <init-param id="CISLOG">
+                <param-name>cis.log</param-name>
+                <param-value>C:/Data/logs/</param-value>
+            </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet id="StartCISPage">
+        <servlet-name>StartCISPage</servlet-name>
+        <display-name>StartCISPage</display-name>
+        <servlet-class>com.softwareag.cis.server.StartCISPage</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    ...
+    <servlet>
+      <servlet-name>MyServlet</servlet-name>
+      <servlet-class>com.foo.MyServlet</servlet-class>
+    </servlet>
+    ...
+</web-app>
+---------------------------------------------------------------------------

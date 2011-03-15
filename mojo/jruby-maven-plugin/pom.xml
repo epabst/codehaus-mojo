@@ -1,0 +1,149 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>mojo</artifactId>
+    <groupId>org.codehaus.mojo</groupId>
+    <version>14</version>
+  </parent>
+  <artifactId>jruby-maven-plugin</artifactId>
+  <version>1.0-beta-5-SNAPSHOT</version>
+  <packaging>maven-plugin</packaging>
+  <name>JRuby Mojo Support</name>
+  <inceptionYear>2005</inceptionYear>
+
+  <developers>
+    <developer>
+      <id>eredmond</id>
+      <name>Eric Redmond</name>
+      <email>eric.redmond@gmail.com</email>
+      <roles>
+        <role>Developer</role>
+      </roles>
+    </developer>
+  </developers>
+  <contributors>
+    <contributor>
+      <name>Kakutani Shintaro</name>
+    </contributor>
+  </contributors>
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+    </license>
+  </licenses>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-jruby-factory</artifactId>
+      <version>1.0-beta-2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-tools-api</artifactId>
+      <version>2.0.5</version>
+    </dependency>
+    <!-- used for rdoc -->
+    <dependency>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>jruby-stdlib</artifactId>
+      <version>1.8.5</version>
+    </dependency>
+  </dependencies>
+
+  <repositories>
+    <repository>
+      <id>codehaus</id>
+      <url>http://repository.codehaus.org/</url>
+    </repository>
+  </repositories>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-invoker-plugin</artifactId>
+        <executions>
+          <execution>
+            <id>antbased-packaging-clean</id>
+            <phase>pre-clean</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <goals>
+                <goal>clean</goal>
+              </goals>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-clean-plugin</artifactId>
+        <configuration>
+          <verbose>true</verbose>
+          <filesets>
+            <fileset>
+              <directory>src/projects</directory>
+              <includes>
+                <include>**/build.log</include>
+              </includes>
+            </fileset>
+          </filesets>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <artifactId>maven-plugin-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>cim</report>
+              <report>issue-tracking</report>
+              <report>license</report>
+              <report>mailing-list</report>
+              <report>scm</report>
+              <report>project-team</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+    </plugins>
+  </reporting>
+
+  <profiles>
+    <profile>
+      <id>run-its</id>
+      <!-- run the 'integration-test' phase with this profile to test the plugin after installation -->
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-invoker-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>jruby-plugin-test</id>
+                <phase>integration-test</phase>
+                <goals>
+                  <goal>run</goal>
+                </goals>
+                <configuration>
+                  <goals>
+                    <goal>validate</goal>
+                  </goals>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+</project>

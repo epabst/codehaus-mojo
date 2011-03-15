@@ -1,0 +1,34 @@
+  ------
+ Maven 2 Hibernate3 Plugin - Phase Embedding
+ ------
+ Johann Reyes
+ <jreyes@hiberforum.org>
+ ------
+ February 05, 2007
+
+Overview
+
+  This example output the result of the <<hbm2ddl>> goal to a file.
+
+Example
+
++---
+<project>
+...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>hibernate3-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <configuration>
+          <componentProperties>
+            <outputfilename>schema.sql</outputfilename>
+          </componentProperties>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+...
+</project>
++---

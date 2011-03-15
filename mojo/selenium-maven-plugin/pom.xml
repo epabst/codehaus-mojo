@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one or more
+    contributor license agreements.  See the NOTICE file distributed with
+    this work for additional information regarding copyright ownership.
+    The ASF licenses this file to You under the Apache License, Version 2.0
+    (the "License"); you may not use this file except in compliance with
+    the License.  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!-- $Id$ -->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>mojo-parent</artifactId>
+    <version>27</version>
+  </parent>
+
+  <artifactId>selenium-maven-plugin</artifactId>
+  <name>Maven Selenium Plugin</name>
+  <version>1.2-SNAPSHOT</version>
+  <packaging>maven-plugin</packaging>
+
+  <url>http://mojo.codehaus.org/selenium-maven-plugin</url>
+
+  <scm>
+    <connection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/selenium-maven-plugin</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/selenium-maven-plugin</developerConnection>
+    <url>http://fisheye.codehaus.org/browse/mojo/trunk/mojo/selenium-maven-plugin</url>
+  </scm>
+
+  <prerequisites>
+    <maven>2.0.9</maven>
+  </prerequisites>
+  
+  <properties>
+    <selenium-server.version>1.0.3</selenium-server.version>
+    <selenium-client.version>1.0.2</selenium-client.version>
+    <gmaven.version>1.3</gmaven.version>
+    <groovy.version>1.7.5</groovy.version>
+  </properties>  
+
+  <inceptionYear>2006</inceptionYear>
+
+  <description>
+        Support for using Selenium with Maven 2/3.
+    </description>
+
+  <issueManagement>
+    <system>jira</system>
+    <url>http://jira.codehaus.org/browse/MSELENIUM</url>
+  </issueManagement>
+
+  <licenses>
+    <license>
+      <name>Apache License 2</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <id>user57</id>
+      <name>Jason Dillon</name>
+      <email>jason@planet57.com</email>
+      <roles>
+        <role>Maintainer</role>
+        <role>Avid Crack Smoker</role>
+      </roles>
+    </developer>
+
+    <developer>
+      <id>evenisse</id>
+      <name>Emmanuel Venisse</name>
+      <email>evenisse@codehaus.org</email>
+      <roles>
+        <role>Emeritus Developer</role>
+      </roles>
+    </developer>
+  </developers>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.codehaus.gmaven</groupId>
+      <artifactId>gmaven-mojo</artifactId>
+      <version>${gmaven.version}</version>
+      <exclusions>
+        <exclusion>
+          <artifactId>groovy-all-minimal</artifactId>
+          <groupId>org.codehaus.groovy</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>org.codehaus.gmaven</groupId>
+      <artifactId>gmaven-mojo-support</artifactId>
+      <version>${gmaven.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.codehaus.groovy</groupId>
+      <artifactId>groovy-all</artifactId>
+      <version>${groovy.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-project</artifactId>
+      <version>2.0.5</version>
+      <scope>provided</scope>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <version>2.0.5</version>
+      <scope>provided</scope>
+    </dependency>    
+
+    <dependency>
+      <groupId>org.seleniumhq.selenium.server</groupId>
+      <artifactId>selenium-server</artifactId>
+      <version>${selenium-server.version}</version>
+      <classifier>standalone</classifier>
+      <!-- <scope>runtime</scope> -->
+      <exclusions>
+        <exclusion>
+          <groupId>org.seleniumhq.selenium.server</groupId>
+          <artifactId>selenium-server-coreless</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.seleniumhq.selenium.core</groupId>
+          <artifactId>selenium-core</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>org.seleniumhq.selenium.client-drivers</groupId>
+      <artifactId>selenium-java-client-driver</artifactId>
+      <version>${selenium-client.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-lang</groupId>
+      <artifactId>commons-lang</artifactId>
+      <version>2.4</version>
+    </dependency>
+
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.14</version>
+      <scope>runtime</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <defaultGoal>install</defaultGoal>
+
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.codehaus.gmaven</groupId>
+          <artifactId>gmaven-plugin</artifactId>
+          <version>${gmaven.version}</version>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-remote-resources-plugin</artifactId>
+          <version>1.0</version>
+          <executions>
+            <execution>
+              <goals>
+                <goal>process</goal>
+              </goals>
+              <configuration>
+                <resourceBundles>
+                  <resourceBundle>org.apache:apache-jar-resource-bundle:1.4</resourceBundle>
+                </resourceBundles>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <configuration>
+            <redirectTestOutputToFile>true</redirectTestOutputToFile>
+          </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-docck-plugin</artifactId>
+          <version>1.0-beta-2</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-remote-resources-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.gmaven</groupId>
+        <artifactId>gmaven-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>generateStubs</goal>
+              <goal>compile</goal>
+              <goal>generateTestStubs</goal>
+              <goal>testCompile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-plugin-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>descriptor</goal>
+              <goal>helpmojo</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- TODO: Uncomment after there are example files... <plugin> <groupId>org.apache.maven.plugins</groupId> <artifactId>maven-docck-plugin</artifactId> 
+        <executions> <execution> <goals> <goal>check</goal> </goals> </execution> </executions> </plugin> -->
+    </plugins>
+  </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-plugin-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <configuration>
+          <quiet>true</quiet>
+          <links>
+            <link>http://java.sun.com/j2ee/1.4/docs/api</link>
+          </links>
+          <tags>
+            <tag>
+              <name>goal</name>
+              <placement>Xt</placement>
+            </tag>
+            <tag>
+              <name>phase</name>
+              <placement>Xt</placement>
+            </tag>
+            <tag>
+              <name>execute</name>
+              <placement>Xt</placement>
+            </tag>
+            <tag>
+              <name>requiresDependencyResolution</name>
+              <placement>Xt</placement>
+            </tag>
+            <tag>
+              <name>parameter</name>
+              <placement>Xf</placement>
+            </tag>
+            <tag>
+              <name>required</name>
+              <placement>Xf</placement>
+            </tag>
+            <tag>
+              <name>readonly</name>
+              <placement>Xf</placement>
+            </tag>
+            <tag>
+              <name>component</name>
+              <placement>Xf</placement>
+            </tag>
+            <tag>
+              <name>plexus.component</name>
+              <placement>Xf</placement>
+            </tag>
+            <tag>
+              <name>plexus.requirement</name>
+              <placement>Xf</placement>
+            </tag>
+          </tags>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </reporting>
+
+  <profiles>
+    <profile>
+      <id>run-its</id>
+
+      <activation>
+        <property>
+          <name>!maven.test.skip</name>
+        </property>
+        <os>
+          <family>windows</family>
+        </os>
+      </activation>
+
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-invoker-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>install</goal>
+                  <goal>run</goal>
+                </goals>
+                <configuration>
+                  <goals>
+                    <goal>clean</goal>
+                    <goal>verify</goal>
+                  </goals>
+                  <cloneAllFiles>true</cloneAllFiles>
+                  <cloneProjectsTo>${project.build.directory}/it</cloneProjectsTo>
+                  <pomExcludes>
+                    <!-- disabled because it doesn't close down -->
+                    <pomExcludes>browserSessionReuse*/pom.xml</pomExcludes>
+
+                    <!-- Disable the selenese tests for now, they don't really work -->
+                    <pomExclude>selenese*/pom.xml</pomExclude>
+
+                    <!-- Disable the Xvfb tests, as they are not very portable -->
+                    <pomExclude>xvfb*/pom.xml</pomExclude>
+                  </pomExcludes>
+                  <localRepositoryPath>${project.build.directory}/local-repo</localRepositoryPath>
+                  <settingsFile>src/it/settings.xml</settingsFile>
+                  <properties>
+                    <selenium-client.version>${selenium-client.version}</selenium-client.version>
+                    <gmaven.version>${gmaven.version}</gmaven.version>
+                    <groovy.version>${groovy.version}</groovy.version>
+                  </properties>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+  </profiles>
+
+
+</project>

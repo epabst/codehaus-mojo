@@ -1,0 +1,5 @@
+$conn.connect("www.twdata.org", "mrdon")
+$conn.waitFor(":~>")
+$conn.sendLine("date")
+puts "Server date is "+$conn.getLine()
+$conn.disconnect()

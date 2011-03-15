@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <description>the description</description>
+   <feature url="features/org.codehaus.mojo.pde.afeature_1.0.0.20080101.jar" id="org.codehaus.mojo.pde.afeature" version="1.0.0.20080101"/>
+</site>

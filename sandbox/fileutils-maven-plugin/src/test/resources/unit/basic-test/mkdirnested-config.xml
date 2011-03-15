@@ -1,0 +1,14 @@
+<project>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>fileutils-maven-plugin</artifactId>
+        <configuration>
+          <scripts>
+            mkdir target/test/nested
+          </scripts>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

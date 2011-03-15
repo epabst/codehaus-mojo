@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Copyright (C) 2007 the original author or authors.
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+-->
+
+<!-- $Id$ -->
+
+<faqs id="FAQ" title="Frequently Asked Questions">
+
+    <part id="General">
+        <faq id="why-shitty">
+            <question>
+                Why is this plugin called the <tt>shitty-maven-plugin</tt>?
+            </question>
+            <answer>
+                <p>
+                    Well, there is no really good reason for it... I spent a while
+                    trying to think up a clever name, and eventually (maybe after a
+                    few beers) started thinking of acronym names and I quickly came
+                    up with SHITTY... because IMO this plugin is really super helpful
+                    for all of my integration testing needs, so eh... why not.  It
+                    does make me giggle a little each time I talk about the shitty-maven-plugin
+                    too, which is a side bonus ;-)
+                </p>
+            </answer>
+        </faq>
+    </part>
+
+    <part id="Testing">
+        <faq id="how-to-setup">
+            <question>
+                My tests require some kinda complicated setup before they will run correctly.
+                How should I handle this?
+            </question>
+            <answer>
+                <p>
+                    If you've got a bunch of complicated stuff to create for your tests then
+                    you probably want to look at using a <tt>setup.groovy</tt> script to
+                    perform some pre-test execution setup logic.
+                </p>
+            </answer>
+        </faq>
+        
+        <faq id="how-to-validate">
+            <question>
+                How can I easily validate that my test has actually done what it should have?
+            </question>
+            <answer>
+                <p>
+                    The easiest way to validate test results is to use a <tt>validate.groovy</tt>
+                    script to perform some post-test execution validation logic.
+                </p>
+            </answer>
+        </faq>
+    </part>
+    
+</faqs>

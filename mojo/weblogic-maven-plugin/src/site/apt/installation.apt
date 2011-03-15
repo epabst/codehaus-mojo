@@ -1,0 +1,94 @@
+                                    ------
+                             Weblogic Plugin Installation
+                                    ------
+                                   Scott Ryan
+                                   Jon Osborn
+                                    ------
+                                 Dec 7, 2009
+
+Maven 2 Weblogic Plugin
+
+  Since the Weblogic plugin uses some third party jars that are not hosted on the 
+  maven repositories you will need to manually install the jars into your
+  local repository yourself.  This document decsribes that process for both the 
+  9.0 plugin and the WL 10.0 plugin. Since weblogic 10, bea has packaged the dependencies in two ways.
+  They added the wl_home/modules directory where all of the jars are and they also package a wseeclient.zip
+  with the dependencies. My experience (Jon) is that the wseeclient.zip file does not include all of the dependencies
+  required, so I prefer to upload all of the jar files from modules.
+
+
+* Basic Weblogic Plugin Installation.
+
+  The recommended Basic 8.0-9.0 Weblogic installation process is as follows.
+
+-------------------
+Copy the weblogic.jar and webservices.jar from your Weblogic installation 
+BEA_HOME/weblogicxx/server/lib into a directory and rename the files as follows:
+
+weblogic-9.0.jar
+webservices-9.0.jar
+
+You can use any version that begins with a 9 or above such as 9.2.1, etc.  The plugin will
+recognize any version above 9 as valid for this plugin.
+
+Then run the following commands from that directory to install the jar into your local repository
+
+mvn install:install-file -DgroupId=weblogic -DartifactId=weblogic -Dversion=9.0  -Dpackaging=jar -Dfile=weblogic-9.0.jar
+mvn install:install-file -DgroupId=weblogic -DartifactId=webservices -Dversion=9.0  -Dpackaging=jar -Dfile=webservices-9.0.jar
+
+Now you should be ready to run!!! Remember to version your weblogic artifacts so you can change the versions later
+if you upgrade.
+
+-------------------
+
+  For weblogic 10 and 11, BEA rearranged the dependencies and the way weblogic deals with libraries, etc.
+  Since many of the libraries are required for various parts of the pluging (appc, jspc, etc), and it
+  is a royal pain to figure out which jar files are actually required, I have found the following procedure useful:
+
+  * Upload the artifacts into the repository.
+    This is a pain so I wrote a quick perl script to get it done. The script takes the /bea/modules directory
+    as the argument then outputs two files. The mvn.txt file is for the dependencies you need to have in the
+    plugin for them to be resolved adn the repo.bat file is a list of maven commands to upload all of the
+    files into the repository. Linux users would have to remove the 'call' statement. This will execute in
+    cygwin for those windows folks or it should work on a linux machine:
+=====================
+    #!/usr/bin/perl -w
+    # use strict;
+
+    print "RUNNING!\r\n";
+
+    my $dir = "$ARGV[0]";
+
+    opendir(DIR, $dir) || die("Cannot open directory '$ARGV[0]'"); open (MVNFILE, '>mvn.txt'); open (BATFILE, '>repo.bat');
+
+     my @files =  readdir(DIR);
+     foreach my $fileName (@files){
+       if ($fileName =~ /([^\_]+)\_(.*)\.jar$/){
+          my $f = $1;
+          my $v = $2;
+          print BATFILE "call mvn deploy:deploy-file -DgroupId=weblogic -DartifactId=$f -Dversion=$v -Dpackaging=jar -Dfile=$dir/$fileName -DrepositoryId=eyemed-central -Durl=http://embuild01:8080/artifactory/ext-releases\r\n";
+          print MVNFILE "\n";
+          print MVNFILE "<dependency>\n";
+          print MVNFILE "    <groupId>weblogic</groupId>\n";
+          print MVNFILE "    <artifactId>$f</artifactId>\n";
+          print MVNFILE "    <version>$v</version>\n";
+          print MVNFILE "    <scope>provided</scope>\n";
+          print MVNFILE "</dependency>\n";
+          print "Processed: $fileName\r\n"
+       } else {
+          #print "NO MATCH $fileName\r\n";
+       }
+     }
+
+    close( MVNFILE );
+    close( BATFILE );
+=====================
+
+  * Put the dependencies into your pom.xml for the plugin dependencies.
+  * Optionally, you can add the dependencies to the pom.xml for weblogic.jar in your repository and just use
+    that as your dependency.
+
+  You should be good to go for weblogic 10. We are still working through some issues with the plugin so please post
+  jira items as you find them
+
+-------------------

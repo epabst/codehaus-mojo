@@ -1,0 +1,15 @@
+ ------
+ Welcome
+ ------
+
+About ArgoUML Maven Plugin
+
+ ArgoUML Maven Plugin allows exporting ArgoUML model files into images.
+
+ It is intended for placing ArgoUML models on Maven-generated sites.
+
+ See {{{examples.html}examples}} or {{{usage.html}usage instructions}}.
+
+Getting
+
+ ArgoUML Maven Plugin is available via {{{http://snapshots.repository.codehaus.org/org/codehaus/mojo/argouml-maven-plugin/}mojo snapshot repository}}.

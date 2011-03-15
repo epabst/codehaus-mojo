@@ -1,0 +1,12 @@
+ ------
+ Maven 2 Jaxws maven plugin
+ ------
+ Dan T. Tran
+ <dantran@gmail.com>
+ ------
+ December 02, 2006
+
+NOTICE:
+
+  All works related to this plugin has been transferred to 
+  {{{https://jax-ws-commons.dev.java.net/jaxws-maven-plugin}https://jax-ws-commons.dev.java.net/jaxws-maven-plugin}}

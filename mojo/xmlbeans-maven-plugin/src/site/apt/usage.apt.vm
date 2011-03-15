@@ -1,0 +1,173 @@
+ ------
+ Usage
+ ------
+ ------
+ $Id: usage.apt 6588 2008-03-28 12:22:57Z bentmann $
+
+~~ 
+~~ Licensed to the Apache Software Foundation (ASF) under one
+~~ or more contributor license agreements.  See the NOTICE file
+~~ distributed with this work for additional information
+~~ regarding copyright ownership.  The ASF licenses this file
+~~ to you under the Apache License, Version 2.0 (the
+~~ "License"); you may not use this file except in compliance
+~~ with the License.  You may obtain a copy of the License at
+~~
+~~  http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~ Unless required by applicable law or agreed to in writing,
+~~ software distributed under the License is distributed on an
+~~ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+~~ KIND, either express or implied.  See the License for the
+~~ specific language governing permissions and limitations
+~~ under the License.
+~~ 
+
+Usage
+
+ Before you begin it may be necessary to familiarize yourself with the XMLBeans.
+A good tutorial can be found {{{http://xmlbeans.apache.org/documentation/index.html}here}}.
+
+*Basic Usage
+ 
+ Basic usage consists of adding a reference to the plugins section of your 
+Maven 2 project as shown here.
+
+--------------------------------------------
+  <plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>xmlbeans-maven-plugin</artifactId>
+    <version>${project.version}</version>
+    <executions>
+       <execution>
+          <goals>
+             <goal>xmlbeans</goal>
+          </goals>
+       </execution>
+    </executions>
+    <inherited>true</inherited>
+    <configuration>
+       <schemaDirectory>src/main/xsd</schemaDirectory>
+    </configuration>
+  </plugin>
+--------------------------------------------
+
+*Available Goals
+
+ The goals available are are xmlbeans:xmlbeans and xmlbeans:xmlbeans-test.
+
+*Multiple XSDConfig Directories
+
+ By default, the plugin looks for the src/main/xsd directory to exist, so it 
+isn't necessary to specify it. Nor do you need to specify src/main/xsdconfig, 
+the assumed location of any xsd config files to use during the parsing and
+creation of the object model. However, you can add additional xsdconfig 
+directories as shown below.
+
+--------------------------------------------
+  <plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>xmlbeans-maven-plugin</artifactId>
+    <version>${project.version}</version>
+    <executions>
+       <execution>
+          <goals>
+             <goal>xmlbeans</goal>
+          </goals>
+       </execution>
+    </executions>
+    <inherited>true</inherited>
+    <configuration>
+       <xmlConfigs>
+          <xmlConfig implementation="java.io.File">src/main/xsdconfig</xmlConfig>
+          <xmlConfig implementation="java.io.File">
+             src/main/xsdconfig2/explicit.xsdconfig
+          </xmlConfig>
+       </xmlConfigs>
+    </configuration>
+  </plugin>
+--------------------------------------------
+
+*Test Compile Support
+
+ XML Beans models may be generated for the test compile as well. Although the 
+schemaDirectory is defined in the example below, the default xsd directory for 
+the test cycle is in fact src/test/xsd.
+
+--------------------------------------------
+  <plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>maven-xmlbeans-plugin</artifactId>
+    <version>${project.version}</version>
+    <executions>
+       <execution>
+          <goals>
+             <goal>xmlbeans-test</goal>
+          </goals>
+       </execution>
+    </executions>
+    <inherited>true</inherited>
+    <configuration>
+       <schemaDirectory>src/test/xsd</schemaDirectory>
+    </configuration>
+  </plugin>
+--------------------------------------------
+
+*Schema Jar Support
+
+ Schemas located within an artifact jar your project is dependent upon can be 
+used as source schemas. In the example below the geronimo-tomcat jar is 
+expected to be a listed depedency of the project. Any schemas ending with .xsd 
+or .XSD will be extracted from the artifact and an object model of these 
+schemas will be produced. Also in the example, the memory max of the schema 
+compiler is set - this may be needed for large schema sets.
+
+--------------------------------------------
+  <plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>xmlbeans-maven-plugin</artifactId>
+    <version>${project.version}</version>
+    <executions>
+       <execution>
+          <goals>
+             <goal>xmlbeans</goal>
+          </goals>
+       </execution>
+    </executions>
+    <configuration>
+       <memoryInitialSize>50m</memoryInitialSize>
+       <memoryMaximumSize>80m</memoryMaximumSize>
+       <xsdJars>
+          <xsdJar implementation="java.lang.String">geronimo:geronimo-tomcat</xsdJar>
+       </xsdJars>
+    </configuration>
+  </plugin>
+--------------------------------------------
+
+*Relocating Generated Sources
+
+ In some cases it's necessary to customize where the generated sources produced
+by the plugin are stored. This can be done by explicitly defining the source
+generation directory. The default is target/generated-sources/xmlbeans.
+
+--------------------------------------------
+  <plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>xmlbeans-maven-plugin</artifactId>
+    <version>${project.version}</version>
+    <executions>
+       <execution>
+          <goals>
+             <goal>xmlbeans</goal>
+          </goals>
+       </execution>
+    </executions>
+    <configuration>
+       <sourceGenerationDirectory>
+         target/generated/xmlbeans
+       </sourceGenerationDirectory>
+    </configuration>
+  </plugin>
+--------------------------------------------
+
+

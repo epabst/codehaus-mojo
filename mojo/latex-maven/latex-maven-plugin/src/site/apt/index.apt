@@ -1,0 +1,84 @@
+    ------------
+    Introduction
+    ------------
+    Julien Ponge
+    ------------
+    2011-01-27
+    ------------
+
+~~ Copyright 2010 INRIA / CITI Laboratory / Amazones Research Team.
+~~
+~~ Licensed under the Apache License, Version 2.0 (the "License");
+~~ you may not use this file except in compliance with the License.
+~~ You may obtain a copy of the License at
+~~
+~~     http://www.apache.org/licenses/LICENSE-2.0
+~~
+~~ Unless required by applicable law or agreed to in writing, software
+~~ distributed under the License is distributed on an "AS IS" BASIS,
+~~ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+~~ See the License for the specific language governing permissions and
+~~ limitations under the License.
+
+
+LaTeX Mojo
+
+  The LaTeX Maven Mojo is useful for building a set of LaTeX documents.
+
+  It builds PDF documents using <pdflatex>, and has optional support for <bibtex>.
+
+* Goals Overview
+
+  General information about the goals.
+
+  * {{{latex-mojo.html}latex:latex}} build the LaTeX documents.
+
+* Quickstart
+
+  You can quickly get started by generating your LaTeX project from our artifact:
+
+------------------------------------------------------------------------------------------------------------------------
+mvn archetype:create \
+    -DarchetypeGroupId=org.codehaus.mojo \
+    -DarchetypeArtifactId=latex-maven-archetype \
+    -DarchetypeVersion=1.1 \
+    -DgroupId=org.myorganization \
+    -DartifactId=papers
+-----------------------------------------------------------------------------------------------------------------------
+
+  You can then run the <<<latex:latex>>> goal:
+
+-----------------------------------------------------------------------------------------------------------------------
+cd papers
+mvn latex:latex
+-----------------------------------------------------------------------------------------------------------------------
+
+* Usage
+
+  The convention is that your LaTeX documents source code is located in <<<src/main/latex>>> like in the following
+  example:
+
+[images/layout.png] Documents source layout example.
+
+  Any folder is expected to match a LaTeX document to compile whose main file name matches the folder name.
+  In this example, <<<sample.tex>>> is contained in <<<sample>>>, which produces a PDF document named
+  <<<sample.pdf>>> in the Maven output directory (<<<target>>>).
+
+  You can specify as many folder documents as you want (e.g., <<<document1/document1.tex>>>,
+  <<<document2/document2.tex>>>, and so on).
+
+  A special folder called <<<common>>> can be used for sharing files across documents. The files contained here
+  will be copied to each document folder at compilation time. Going back to the previous example,
+  <<<sample/sample.tex>>> can refer directly to <<<foo.txt>>> (not <<<common/foo.txt>>>).
+
+  Finally, BibTeX is supported when a BibTeX file name matches the document name (e.g., <<<sample/sample.bib>>>).  
+
+* Feedback
+
+  If you feel like the plugin is missing a feature or has a defect, you can fill a feature request or bug report in our
+  {{{issue-tracking.html}issue tracker}}. When creating a new issue, please provide a comprehensive description of your
+  concern. Especially for fixing bugs it is crucial that the developers can reproduce your problem. For this reason,
+  entire debug logs, POMs or most preferably little demo projects attached to the issue are very much appreciated.
+  Of course, patches are welcome, too. Contributors can check out the project from our
+  {{{source-repository.html}source repository}} and will find supplementary information in the
+  {{{http://maven.apache.org/guides/development/guide-helping.html}guide to helping with Maven}}.

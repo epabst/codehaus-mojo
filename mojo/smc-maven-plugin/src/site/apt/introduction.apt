@@ -1,0 +1,11 @@
+ ------
+ Maven 2 SMC Plugin
+ ------
+
+Maven 2 SMC Plugin
+
+  This plugin provides the capability to convert *.sm files into Java code with the goal "smc:smc".
+  It also allows to generate diagrams and html representing these pages.
+
+  To learn how to use the plugin, click {{{howto.html}here}}.
+

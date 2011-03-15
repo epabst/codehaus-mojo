@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd">
+<article lang="es">
+  <title>Nombre del proyecto - Cliente 2</title>
+
+  <subtitle>Especificación de caso de uso - Nombre del caso de uso</subtitle>
+
+  <articleinfo>
+    <abstract>
+      <para>Especificación del caso de uso</para>
+    </abstract>
+
+    <date>22/11/2004</date>
+
+    <author>
+      <surname>Example Inc.</surname>
+    </author>
+
+    <copyright>
+      <year>2004</year>
+
+      <holder>Example Inc.</holder>
+    </copyright>
+
+    <revhistory>
+      <revision>
+        <revnumber>1</revnumber>
+
+        <date>22/11/2004</date>
+
+        <revdescription>
+          <para>Primera versión</para>
+        </revdescription>
+      </revision>
+    </revhistory>
+  </articleinfo>
+
+  <section>
+    <title>Nombre del caso de uso</title>
+
+    <remark>La siguiente plantilla está pensada para la Especificación de un
+    Caso de Uso (UCS), que contiene una descripción textual del caso de uso.
+    Este documento puede ser utilizado con una herramienta de control de
+    requerimientos para especificar y marcar los requerimientos dentro de las
+    propiedades del caso de uso. Los diagramas de caso de uso pueden ser
+    desarrollados con una herramienta de modelado visual.</remark>
+
+    <section>
+      <title>Descripción breve</title>
+
+      <remark>La descripción ha de resumir de una forma concisa el propósito
+      del caso de uso. En la mayoría de los casos un párrafo será suficiente
+      para realizar esta descripción.</remark>
+    </section>
+  </section>
+
+  <section>
+    <title>Flujo de eventos</title>
+
+    <section>
+      <title>Flujo básico: nombre del flujo</title>
+
+      <remark>El caso de uso comienza cuando el actor hace algo. Siempre es un
+      actor en que inicia el caso de uso. El caso de uso describe lo que el
+      actor hace y lo que el sistema hace en respuesta. Se describe en la
+      forma de un diálogo entre el actor y el sistema. El caso de uso describe
+      lo que pasa en el sistema, pero no cómo o por qué. Si se intercambia
+      información, se ha de ser específico acerca de la información que se
+      pasa hacia y desde el sistema. Por ejemplo, no es muy útil decir que el
+      actor introduce información de un cliente. Es mejor especificar que el
+      actor introduce el nombre y la dirección del cliente. Un Glosario de
+      Términos puede ser útil para mantener la complejidad del caso de uso
+      dentro de unos márgenes manejables, definiendo cosas como Información
+      del Cliente en ese glosario para evitar que la especificación del caso
+      de uso entre demasiado en detalle. Las alternativas simples al flujo del
+      caso de uso pueden ser descritas dentro del propio texto del caso de
+      uso. Si el flujo alternativo puede ser descrito con unas pocas frases,
+      merece la pena incluirlo directamente en el Flujo de Eventos. Si la
+      alternativa es más compleja, es mejor utilizar el apartado de Flujos
+      Alternativos para describir el flujo alternativo al completo. A veces
+      puede ser muy beneficioso incluir gráficos, como por ejemplo partes del
+      interfaz gráfico, flujos de proceso, etc. De forma similar, para
+      comportamientos dependientes de estado puede ser interesante incluir
+      diagramas de transiciones de estado para clarificar el funcionamiento
+      del sistema en lugar de páginas y páginas de texto. En cualquier caso,
+      se ha de intentar que los elementos utilizado sean perfectamente
+      entendibles: se trata de clarificar, no de confundir. A continuación se
+      incluye un ejemplo de especificación de un flujo básico de un caso de
+      uso.</remark>
+
+      <table>
+        <title>Flujo básico</title>
+
+        <tgroup cols="4">
+          <colspec colname="actionStep" colwidth="10pt" />
+
+          <colspec colname="action" />
+
+          <colspec colname="responseStep" colwidth="10pt" />
+
+          <colspec colname="response" />
+
+          <thead>
+            <row>
+              <entry>#</entry>
+
+              <entry>Acción</entry>
+
+              <entry>#</entry>
+
+              <entry>Respuesta</entry>
+            </row>
+          </thead>
+
+          <tbody>
+            <row>
+              <entry>1</entry>
+
+              <entry><para>El actor inicia el caso de uso realizando una
+              cierta acción.</para></entry>
+
+              <entry>2</entry>
+
+              <entry><para>El sistema presenta un formulario, presentando los
+              siguientes datos:</para><itemizedlist>
+                  <listitem>
+                    <para>Dato1</para>
+                  </listitem>
+
+                  <listitem>
+                    <para>Dato2</para>
+                  </listitem>
+
+                  <listitem>
+                    <para>Dato3</para>
+                  </listitem>
+                </itemizedlist></entry>
+            </row>
+
+            <row>
+              <entry>3</entry>
+
+              <entry><para>El actor introduce los siguientes
+              datos:</para><itemizedlist>
+                  <listitem>
+                    <para>Dato1</para>
+                  </listitem>
+
+                  <listitem>
+                    <para>Dato2</para>
+                  </listitem>
+
+                  <listitem>
+                    <para>Dato3</para>
+                  </listitem>
+                </itemizedlist><para> Y solicita cierta acción.</para></entry>
+
+              <entry>4</entry>
+
+              <entry><para>El sistema guarda los datos y los hace disponibles
+              para otros actores.</para></entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+    </section>
+
+    <section>
+      <title>Flujos alternativos</title>
+
+      <section>
+        <title>Flujo alternativo 1</title>
+
+        <remark>Las alternativas al flujo más complejas se describen dentro de
+        este apartado. Los Flujos Alternativos son comportamiento alternativo.
+        Cada flujo alternativo representa un comportamiento alternativo debido
+        normalmente a excepciones que ocurren en el flujo básico. Pueden ser
+        tan largos como sea necesario para describir todos los eventos
+        asociados con el comportamiento alternativo. Cuando un flujo
+        alternativo finaliza, se continúa con el flujo de eventos básico a no
+        ser que se indique lo contrario.</remark>
+
+        <table>
+          <title>Flujo alternativo</title>
+
+          <tgroup cols="4">
+            <colspec colname="actionStep" colwidth="10pt" />
+
+            <colspec colname="action" />
+
+            <colspec colname="responseStep" colwidth="10pt" />
+
+            <colspec colname="response" />
+
+            <thead>
+              <row>
+                <entry>#</entry>
+
+                <entry>Acción</entry>
+
+                <entry>#</entry>
+
+                <entry>Respuesta</entry>
+              </row>
+            </thead>
+
+            <tbody>
+              <row>
+                <entry>1</entry>
+
+                <entry><para>El actor inicia el caso de uso realizando una
+                cierta acción.</para></entry>
+
+                <entry>2</entry>
+
+                <entry><para>El sistema presenta un formulario, presentando
+                los siguientes datos:</para><itemizedlist>
+                    <listitem>
+                      <para>Dato1</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>Dato2</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>Dato3</para>
+                    </listitem>
+                  </itemizedlist></entry>
+              </row>
+
+              <row>
+                <entry>3</entry>
+
+                <entry><para>El actor introduce los siguientes
+                datos:</para><itemizedlist>
+                    <listitem>
+                      <para>Dato1</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>Dato2</para>
+                    </listitem>
+
+                    <listitem>
+                      <para>Dato3</para>
+                    </listitem>
+                  </itemizedlist><para> Y solicita cierta
+                acción.</para></entry>
+
+                <entry>4</entry>
+
+                <entry><para>El sistema guarda los datos y los hace
+                disponibles para otros actores.</para></entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+
+        <section>
+          <title>Nombre de subflujo alternativo 1</title>
+
+          <remark>Un flujo alternativo puede tener a su vez subflujos para
+          clarificar su funcionamiento.</remark>
+        </section>
+      </section>
+
+      <section>
+        <title>Flujo alternativo 2</title>
+
+        <remark>Puede haber, y seguramente habrá, un cierto número de flujos
+        alternativos en un caso de uso. Es recomendable mantener cada flujo
+        alternativo por separado para aumentar la claridad de la
+        especificación. El uso de flujos alternativos mejora la legibilidad
+        del caso de uso, además de prevenir la descomposición de casos de uso
+        en jerarquías de casos de uso. Hay que recordar que las
+        especificaciones de casos de uso no son más que descripciones
+        textuales cuyo principal propósito es documentar el comportamiento de
+        un sistema de una forma clara, concisa y entendible.</remark>
+      </section>
+    </section>
+  </section>
+
+  <section>
+    <title>Requerimientos especiales</title>
+
+    <remark>Un requerimiento especial es típicamente un requerimiento no
+    funcional específico a un caso de uso, pero que no se puede especificar de
+    una forma fácil o natural dentro del flujo de eventos del caso de uso.
+    Ejemplos de estos requerimientos pueden ser requerimientos acerca de
+    aspectos legales o normativos, estándares de aplicaciones, y atributos de
+    calidad del sistema a construir, incluyendo usabilidad, fiabilidad,
+    rendimiento o requerimientos de soporte. Adicionalmente, otros
+    requerimientos, como sistemas operativos, entornos, requerimientos de
+    compatibilidad, y restricciones de diseño, deberían ser capturados en esta
+    sección.</remark>
+
+    <section>
+      <title>Requerimiento especial 1</title>
+
+      <remark>Descripción del requerimiento</remark>
+    </section>
+  </section>
+
+  <section>
+    <title>Precondiciones</title>
+
+    <remark>Una precondición de un caso de uso es el estado en el que el
+    sistema ha de encontrarse antes de que el caso de uso pueda ser
+    iniciado.</remark>
+
+    <section>
+      <title>Precondición 1</title>
+
+      <remark>Descripción de la precondición</remark>
+    </section>
+  </section>
+
+  <section>
+    <title>Poscondiciones</title>
+
+    <remark>Una poscondición de una caso de uso es una lista de posibles
+    estados en los que el sistema puede quedar tras la finalización de un caso
+    de uso.</remark>
+
+    <section>
+      <title>Poscondición 1</title>
+
+      <remark>Descripción de la poscondición</remark>
+    </section>
+  </section>
+
+  <section>
+    <title>Validaciones</title>
+
+    <remark>Normalmente la interacción entre un actor y el sistema provocará
+    un intercambio de información entre ambos. En esta sección se puede
+    especificar los datos obligatorios y las validaciones que el sistema
+    realizará sobre los datos que el actor ha de proporcionarle para llevar a
+    cabo el caso de uso.</remark>
+
+    <table>
+      <title>Validación</title>
+
+      <tgroup cols="3">
+        <colspec colname="field" />
+
+        <colspec colname="mandatory" />
+
+        <colspec colname="validation" />
+
+        <spanspec nameend="mandatory" namest="field"
+                  spanname="fieldGroupHeader" />
+
+        <thead>
+          <row>
+            <entry>Campo</entry>
+
+            <entry>Obligatorio</entry>
+
+            <entry>Validación</entry>
+          </row>
+        </thead>
+
+        <tbody>
+          <row>
+            <entry>Id</entry>
+
+            <entry>S</entry>
+
+            <entry>Validamos este campo mediante tal validación</entry>
+          </row>
+
+          <row>
+            <entry spanname="fieldGroupHeader">Dirección</entry>
+
+            <entry>Validamos este campo mediante tal validación</entry>
+          </row>
+
+          <row>
+            <entry>Calle</entry>
+
+            <entry>S</entry>
+
+            <entry>Validamos este campo mediante tal validación</entry>
+          </row>
+
+          <row>
+            <entry>Código postal</entry>
+
+            <entry>S</entry>
+
+            <entry>Validamos este campo mediante tal validación</entry>
+          </row>
+
+          <row>
+            <entry>Ciudad</entry>
+
+            <entry>N</entry>
+
+            <entry>Validamos este campo mediante tal validación</entry>
+          </row>
+
+          <row>
+            <entry>País</entry>
+
+            <entry>N</entry>
+
+            <entry>Validamos este campo mediante tal validación</entry>
+          </row>
+        </tbody>
+      </tgroup>
+    </table>
+  </section>
+
+  <section>
+    <title>Puntos de extensión</title>
+
+    <remark>En esta sección se incluirán los puntos de extensión del caso de
+    uso. Una extensión a un caso de uso puede verse como un flujo alternativo
+    en el caso de uso con la suficiente entidad y valor proporcionado al actor
+    como para considerarlo un caso de uso por sí mismo.</remark>
+
+    <section>
+      <title>Punto de extensión 1</title>
+
+      <remark>Dentro de este apartado se describirá el punto de extensión del
+      caso de uso, como si de una especificación de caso de uso se tratara.
+      Existe la posibilidad de hacer referencia a otro documento de
+      especificación de caso de uso, que contenga la especificación completa
+      del caso de uso utilizado en este punto de extensión.</remark>
+    </section>
+  </section>
+</article>

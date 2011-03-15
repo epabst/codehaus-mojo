@@ -1,0 +1,25 @@
+ ------
+ Maven 2 VisiBroker Plugin
+ ------
+ Dan T. Tran
+ <dantran@gmail.com>
+ ------
+ September 29, 2005
+
+VisiBroker Maven Plugin
+
+  This plugin is a Maven adapter of VisiBroker command line tools. 
+
+* Usage
+  
+  Instructions on how to use the Visibroker Maven Plugin can be found {{{usage.html}here}}.
+  
+* Goals Overview
+  
+  
+   
+* Examples
+
+  
+
+

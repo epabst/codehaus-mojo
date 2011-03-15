@@ -1,0 +1,61 @@
+import java.io.*;
+import java.util.*;
+import java.util.jar.*;
+import org.codehaus.plexus.util.*;
+
+boolean result = true;
+
+try
+{
+    File target = new File( basedir, "sar-module/target" );
+    if ( !target.exists() || !target.isDirectory() )
+    {
+        System.err.println( "target file is missing or not a directory." );
+        return false;
+    }
+    
+    File sartifact = new File ( target, "sar-module-1.0-SNAPSHOT.sar" );
+    if ( !sartifact.exists() || sartifact.isDirectory() )
+    {
+        System.err.println( "artifact file is missing or a directory." );
+        return false;
+    }    
+    
+    String[] jarContents = new String[] { "lib/ejb-module-1.0-SNAPSHOT-client.jar", 
+            "META-INF/MANIFEST.MF",
+            "META-INF/jboss-service.xml" };
+    
+    List contents = new ArrayList( Arrays.asList(jarContents) );
+
+    JarFile jar = new JarFile( sartifact );
+    Enumeration jarEntries = jar.entries();
+    while ( jarEntries.hasMoreElements() )
+    {
+        JarEntry entry = (JarEntry) jarEntries.nextElement();
+        if ( !entry.isDirectory() )
+        {
+            // Only compare files
+            contents.remove( entry.getName() );
+        }
+    }
+
+    if  ( ! contents.isEmpty() )
+    {
+    	System.out.println( "Some files not found in sar" );
+        for ( int i = 0; i < contents.size(); i++ )
+        {
+            System.out.println( "File[" + contents.get(i) + "] not found in jar archive" );
+        }    
+    	return false;
+    }
+    
+    result = true;
+    
+}
+catch( Throwable e )
+{
+    e.printStackTrace();
+    result = false;
+}
+
+return result;

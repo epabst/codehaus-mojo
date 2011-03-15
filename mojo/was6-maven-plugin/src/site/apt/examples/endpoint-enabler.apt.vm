@@ -1,0 +1,21 @@
+Generating bindings for EARs
+
+  The enpointEnabler goal generates webservices routing based on IBMs enptEnabler task. 
+To generate the endpoint routing, put the following in the plugins section of your POM:
+
++--
+
+<plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>was6-maven-plugin</artifactId>
+  <version>${project.version}</version>
+  <executions>
+    <execution>
+      <goals>
+        <goal>endpointEnabler</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
+
++--

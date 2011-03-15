@@ -1,0 +1,34 @@
+ ------
+ Maven 2 Natural Docs Plugin - Introduction
+ ------
+ Tim Astle
+ <timothy.astle@caris.com>
+ ------
+ 2010-10-05
+ ------
+
+
+Natural Docs Maven Plugin
+
+  This plugin is designed to run {{{http://www.naturaldocs.org/}Natural Docs}} from Maven.  It requires that {{{http://www.naturaldocs.org/download.html}Natural Docs is installed and is running on your system}}.
+  
+  Natural Docs is a documentation system similar to Doxygen or JavaDocs and is used by various developers to produce API level documentation.  It is commonly used to generate documentation for JavaScript APIs.
+
+* Goals Overview
+
+  General information about the goals.
+
+  * {{{./generate-mojo.html}naturaldocs:generate}}: Create documentation.
+
+* Usage
+
+  Instructions on how to use the Natural Docs Plugin can be found on the {{{./usage.html}usage page}}.
+
+* Examples
+
+  To provide you with better understanding of some usages of the Plugin Name,
+  you can take a look into the following examples:
+
+  * {{{./examples/basic-configuration.html}Basic configuration.}}
+
+  * {{{./examples/advanced-configuration.html}Advanced configuration. }}

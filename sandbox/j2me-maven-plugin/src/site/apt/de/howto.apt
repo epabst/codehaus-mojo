@@ -1,0 +1,252 @@
+ -------------------------------
+ Benutzung des Maven J2ME Plugin
+ -------------------------------
+ Frank Seidinger
+ -------------------------------
+ 2006-06-08
+ -------------------------------
+
+{Bearbeitung der Klassen}
+
+  Der Vorgang zum preverify der übersetzten Klassen, kann mit Hilfe des
+<<<preverify>>> Ziels des maven-j2me-plugin durchgeführt werden. Dazu muss eine
+Plugin-Konfiguration im Projektmodell (pom) erstellt werden:
+
++---
+...
+<plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>j2me-maven-plugin</artifactId>
+  <executions>
+    <execution>
+      <configuration>
+        <sdkPath>${j2me.sdkPath}</sdkPath>
+      </configuration>
+      <goals>
+        <goal>preverify</goal>
+        <goal>create-jad</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
+...
++---
+
+  Die Konfiguration ist einfach gehalten und macht maven die beiden Ziele
+<<<preverify>>> und <<<create-jad>>> des maven-j2me-plugin bekannt. Wir werden
+uns erst mal auf das <<<preverify>>> Ziel konzentrieren und kehren später zum
+<<<create-jad>>> Ziel zurück.
+
+  Sie werden bemerkt haben, dass die Konfiguration einen Parameter mit dem Namen
+<<<j2me.sdkPath>>> verwendet. Hinter diesem Parameter verbirgt sich der Pfad zum
+Verzeichnis, in dem das J2ME SDK auf Ihrem Rechner installiert wurde. Wenn Sie
+das Sun WTK (wireless tool kit) verwenden, wird der Wert des Parameters in etwa
+so ausehen:
+
+---
+/home/user/WTK2.2
+---
+
+  Oder auf der Windows Plattform:
+  
+---
+C:\WTK2.2
+---
+
+  Um den preverify Vorgang auszuführen, müssen Sie das Ziel <<<preverify>>> in
+maven ausführen. Das Plugin sucht dann in dem von Ihnen angegebenen Verzeichnis
+nach einem Unterverzeichnis mit dem Namen <<<bin>>>. Im <<<bin>>> Verzeichnis
+legt das J2ME SDK alle Hilfsprogramme ab, die zum Bau einer J2ME Applikation
+benötigt werden. Das Plugin durchsucht das <<<bin>>> Verzeichnis nach einem
+ausführbaren Programm mit dem Namen <<<preverify>>> oder <<<preverify.exe>>> auf
+der Windows Platform. Konnte das Programm gefunden werden, wird es vom Plugin
+ausgeführt, um die übersetzten Klassen zu konvertieren.
+
+  Das maven-j2me-plugin binded das <<<previrify>>> Ziel an die
+<<<process-classes>>> Phase des standard build lifecycle. Damit wird
+sichergestellt, dass das Ziel nach der erfolgreichen Übersetzung der Java
+Klassen Ihres Projekts aufgerufen wird. Um den preverify Vorgang durchzuführen,
+müssen Sie die folgende Eingabe machen:
+
+---
+mvn process-classes -Dj2me.sdkPath=/home/user/WTK2.2
+---
+
+{Erzeugen der JAR-Datei}
+
+  In diesem Abschnitt lernen Sie, wie Sie eine JAR-Datei für Ihre
+J2ME-Applikation erstellen können, die den für Ihr Mobilgerät geforderten
+Kriterien entspricht. Um die Erzeugung der JAR-Datei selbst, müssen Sie sich
+nicht kümmern. Sie können dafür das maven-jar-plugin verwenden, dass bereits
+standardmäßig vom build lifecycle aufgerufen wird.
+
+  Die einzige Sache, um die Sie sich selbst kümmern müssen, ist das Manifest,
+das Ihrer JAR-Datei hinzugefügt wird. Für eine J2ME konforme JAR-Datei muss das
+Manifest einige J2ME spezifische Einträge enthalten. Sie können dem Manifest
+diese Einträge durch die Konfiguration des maven-jar-plugin hinzufügen:
+  
+---+
+...
+<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-jar-plugin</artifactId>
+  <configuration>
+    <archive>
+      <manifestEntries>
+        <MIDlet-1>Midlet Name, /icons/myIcon.png, MyApp</MIDlet-1>
+        <MIDlet-Name>${j2me.midlet.name}</MIDlet-Name>
+        <MIDlet-Vendor>${j2me.midlet.vendor}</MIDlet-Vendor>
+        <MIDlet-Version>${j2me.midlet.version}</MIDlet-Version>
+        <MicroEdition-Configuration>${j2me.midlet.configuration}</MicroEdition-Configuration>
+        <MicroEdition-Profile>${j2me.midlet.profile}</MicroEdition-Profile>
+      </manifestEntries>
+    </archive>
+  </configuration>
+</plugin>      
+...
+---+
+
+  Die erste J2ME-Applikation, die in Ihrer JAR-Datei enthalten ist, wird dem
+Mobilgerät durch den Manifest-Eintrag <<<\<MIDlet-1\>>>> bekannt gemacht. Der
+Wert dieses Eintrags besteht aus einer durch Kommata getrennten Liste mit drei
+Parametern. Der erste Parameter beschreibt den Namen der Applikation. Das
+Mobilgerät verwendet diesen Namen zur Anzeige und Beschriftung der Applikation.
+Der zweite Parameter beschreibt den relativen Pfad zu einer Ikone, die ebenfalls
+vom Mobilgerät zur Anzeige der Applikation verwendet wird. Der dritte Parameter
+trägt den Namen der Klasse, die zum Start der Applikation aufgerufen werden
+muss.
+
+  Wenn Sie Ihrer JAR-Datei weitere Applikationen hinzufügen möchten, müssen Sie
+für jede Applikation einen weiteren Eintrag zur Beschreibung hinzufügen. Die
+Einträge werden dazu durchnummeriert und beginnen, wie der erste Eintrag zeigt
+mit einer eins. Das heißt, dass die nachfolgenden Einträge mit
+<<<\<MIDlet-2\>>>>, <<<\<MIDlet-3\>>>>, usw. fortgeführt werden.
+
+  Die Bedeutung der restlichen Einträg aus dem Beispiel, können der folgenden
+Tabelle entnommen werden:
+
+*----------------------------+------------------------------------------+----------------------+
+| <<Eintrag>>                | <<Beschreibung>>                         | <<Beispiel>>         |
+*----------------------------+------------------------------------------+----------------------+
+| MIDlet-Name                | Der Name des Midlet (Applikation)        | Mein Midlet          |
+*----------------------------+------------------------------------------+----------------------+
+| MIDlet-Vendor              | Der Name des Herstellers des Midlet      | Ihr Name/Ihre Firma  |
+*----------------------------+------------------------------------------+----------------------+
+| MIDlet-Version             | Die Softwareversion des Midlet           | 0.1                  |
+*----------------------------+------------------------------------------+----------------------+
+| MicroEdition-Configuration | Die vom Midlet benötigte Konfiguration   | CLDC-1.0 or CLDC-1.1 |
+*----------------------------+------------------------------------------+----------------------+
+| MicroEdition-Profile       | Das vom Midlet benötigte Profil          | MIDP-1.0 or MIDP-2.0 |
+*----------------------------+------------------------------------------+----------------------+
+
+  Wie Sie vielleicht bemerkt haben, werden die Werte für die Manifest-Einträge
+im Beispiel nicht fest eingegeben, sondern aus Properties entnommen, die mit
+<<<j2me.midlet.*>>> bezeichnet werden. Wie bereits im Kapitel [[[#Bearbeitung
+der Klassen} Bearbeitung der Klassen]] beschrieben wurde, können diese
+Properties auf der Kommandozeile übergeben werden. Daneben gibt es noch einen
+eleganteren Weg zur Eingabe der Properties, der später im Kapitel [[[#Verwendung
+von Profilen] Verwendung von Profilen]] beschrieben wird.
+
+{Erzeugung des Java Descriptors}
+
+  Bevor eine J2ME-Applikation auf ein Mobilgerät gebracht werden kann, muss für
+die Applikation ein sogenannter Java Descriptor erzeugt werden. Er teilt dem
+Mobilgerät wichtige Eigenschaften der Applikatio mit, die dem Benutzer bei der
+Installation präsentiert werden. Der Java Descriptor ist eine einfache
+Textdatei, die die Dateierweiterung ".jad" trägt. Der Inhalt is den im Manifest
+beschriebenen Einträgen sehr ähnlich. Ein typischer Java Descriptor könnte z.B.
+so aussehen:
+
++---
+MIDlet-Name: Meine Applikation
+MIDlet-Vendor: Mein Name oder meine Firma
+MIDlet-Version: 0.1
+MicroEdition-Configuration: CLDC-1.1
+MicroEdition-Profile: MIDP-2.0
+MIDlet-Jar-URL: MyApp-0.1-SNAPSHOT.jar
+MIDlet-Jar-Size: 5344
++---
+
+  Eine ungewöhnliche Sache am Java Descriptor ist der Eintrag
+<<<MIDlet-Jar-Size>>>. Der Wert dieses Eintrags muss exakt der Größe in Bytes
+entsprechen, die die JAR-Datei Ihrer Applikation trägt. Ohne eine automatische
+Generierung des Java Descriptors, müsste dieser Wert nach jeder Übersetzung und
+Erzeugung der JAR-Datei manuell angepasst werden. Dazu dient das
+<<<create-jad>>> Ziel des maven-j2me-plugin. Das Plugin bindet das
+<<<create-jad>>> Ziel an die Phase <<<package>>> des standard build lifecycle.
+Es wird dadurch direkt im Anschluss an das <<<maven-jar-plugin>>> aufgerufen.
+  
+  Um das <<<create-jad>>> Ziel auszuführen, müssen Sie maven mit dem Ziel <<<package>>> aufrufen und
+alle benötigten Properties auf der Kommandozeile übergeben. Der Aufruf sieht dann etwa so aus:
+
+---
+mvn package -Dj2me.sdkPath=/home/user/WTK2.2 -Dj2me.midlet.name=XXX ...
+---
+
+  Das Plugin kommt ohne eine spezielle Konfiguration des <<<create-jad>>> Ziels aus, da Sie die benötigten
+Informationen bereits im Kapitel [[[Bearbeitung der Klassen] Bearbeitung der Klassen}} eingegeben haben.
+  
+{Verwendung von Profilen}
+
+  Wenn Sie die vom maven-j2me-plugin benötigten Properties nicht für jeden Lauf
+des Plugins eingeben möchten, haben Sie die Möglichkeit diese in Form eines
+Profil anzugeben. Die Erstellung eines Profils ist nicht schwer und bietet den
+weiteren Vorteil, dass Sie die Properties mit ihren Werten in der  Projektdatei
+Ihres Projekts dokumentiert haben. Lassen Sie uns einen Blick auf ein Profil
+werfen:
+  
++---
+...
+<profiles>
+  <profile>
+    <id>j2me</id>
+    <activation>
+      <property>
+        <name>j2me</name>
+        <value>true</value>
+      </property>
+    </activation>
+    <properties>
+      <j2me.sdkPath>/home/user/WTK2.2</j2me.sdkPath>
+      <!-- <j2me.midlet.vendor>${project.organization.name}</j2me.midlet.vendor> -->
+      <j2me.midlet.vendor>your name/company</j2me.midlet.vendor>
+      <j2me.midlet.name>${project.name}</j2me.midlet.name>
+      <j2me.midlet.version>0.1</j2me.midlet.version>
+      <j2me.midlet.configuration>CLDC-1.1</j2me.midlet.configuration>
+      <j2me.midlet.profile>MIDP-2.0</j2me.midlet.profile>
+    </properties>
+  </profile>
+</profiles>
+...
++---
+
+  Die Aktivierung eines Profils ist jetzt nur noch von einem einzigen Property
+mit dem Namen <<<j2me>>> abhängig. Natürlich können Sie auch jeden anderen,
+gültigen Namen dieses Property wählen. Sie können das Profil in Ihrer
+Projektdatei oder einer übergeordneten Projektdatei ablegen. Möchten Sie das
+Profil für alle Projekte nutzen, tragen Sie es einfach in Ihrer settings.xml
+ein. Sobald das Profil bekannt ist, müssen Sie maven auf der Kommandozeile nur
+noch wie im folgenden Beispiel aufrufen:
+
+---
+mvn package -Dj2me=true
+---
+
+  Zum Schluss möchte ich Ihnen noch ein paar Hinweise aus der Erfahrung während
+meiner Arbeit mit dem Plugin geben:
+  
+  * Obwohl es Sinn machen würde, die im Projekt eingetragene Softwareversion auch für
+die Softwareversion der J2ME-Applikation zu verwenden, wurde das in den
+Beispielen nicht gezeigt. Stattdessen wird eine eigene Softwareversion für die
+J2ME-Applikation definiert. Der Grund hierfür liegt in einer Beschränkung der
+Installationsroutienen einige Mobilgeräte. Die Beschränkung sorgt dafür, dass
+die im Descriptor eingetragene Softwareversion nur aus Zahlen und Punkten
+bestehen darf. Wird von maven eine Snapshot-Version erstellt, bekommt auch die
+Versionsnummer des Projekts das Suffix "-SNAPSHOT" angefügt und bricht damit das
+Versionsformat.
+  
+  * Zum Zeitpunkt der Erstellung dieses Dokuments, führt der Ausdruck
+<<<${project.organization.name}>>> zum gleichen Wert wie <<<${project.name}>>>,
+obwohl im Beispiel eine Organisation konfiguriert ist. In einer späteren maven
+Version könnte dieser Fehler behoben sein. Es wäre dann möglich die bereits
+konfigurierte Organisation als Vorgabe für den Midlet-Vendor zu verwenden.

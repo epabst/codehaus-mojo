@@ -1,0 +1,12 @@
+<hibernate-configuration xmlns="urn:jboss:hibernate-deployer:1.0">
+
+   <session-factory name="java:/hibernate/${artifactId}" bean="jboss.har:service=${artifactId}">
+      <property name="datasourceName">java:jdbc/DefaultDS</property>
+      <property name="dialect">org.hibernate.dialect.HSQLDialect</property>
+      <property name="hbm2ddlAuto">false</property>
+      <depends>jboss:service=Naming</depends>
+      <depends>jboss:service=TransactionManager</depends>
+      <depends>jboss.jca:service=DataSourceBinding,name=jdbc/DefaultDS</depends>
+   </session-factory>
+
+</hibernate-configuration>

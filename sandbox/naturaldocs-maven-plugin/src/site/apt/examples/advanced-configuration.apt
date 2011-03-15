@@ -1,0 +1,53 @@
+ ------
+ Maven 2 Natural Docs Plugin - Advanced Configuration
+ ------
+ Tim Astle
+ <timothy.astle@caris.com>
+ ------
+ 2010-10-05
+ ------
+
+Advanced Configuration Example
+
+ Below is an example in which you would want to generate a report and configure all of the possible available settings.
+
++--
+<project>
+  ...
+  <build>
+    ...
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo.naturaldocs</groupId>
+        <artifactId>naturaldocs-maven-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <configuration>
+          <naturalDocsHome>C:\Program Files\NaturalDocs-1.5</naturalDocsHome>
+          <input>src/main/javascript/your-library</input>
+          <project>src/main/documentation/settings</project>
+          <outputFormat>FramedHTML</outputFormat>
+          <output>${project.build.directory}/my-custom-location/naturaldocs</output>
+          <excludeImport>src/main/javascript/your-library/bad-stuff</excludeImport>
+          <images>src/main/javascript/your-library/images</images>
+          <style>
+            <param>test.css</param>
+            <param>abc.css</param>
+          </style>
+          <rebuild>true</rebuild>
+          <rebuildOutput>true</rebuildOutput>
+          <tabLength>5</tabLength>
+          <highlight>All</highlight>
+          <documentedOnly>true</documentedOnly>
+          <onlyFileTitles>true</onlyFileTitles>
+          <noAutoGroup>true</noAutoGroup>
+          <characterSet>UTF-8</characterSet>
+          <quiet>true</quiet>
+        </configuration>
+      </plugin>
+      ...
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
++--

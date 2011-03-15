@@ -1,0 +1,5 @@
+Example: In-Memory
+ 
+ To istantiate a dbms on-the-fly, that is without having it
+ to save internal informations on schemas or data eventually
+ inserted into it, it's enough to use the {{{../usage.html} default settings}}.

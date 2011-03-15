@@ -1,0 +1,226 @@
+<?xml version="1.0"?>
+<!--
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ -->
+<document>
+  <properties>
+    <title>Best Practices and Examples</title>
+    <author email="trygvis@codehaus.org">Trygve Laugstol</author>
+    <author email="hohwille@users.sourceforge.net">J&#246;rg Hohwiller</author>
+  </properties>
+  <body>
+    <section name="Best Practices and Examples">
+      <ul>
+        <li><a href="Example_Prototype_File">Example Prototype File</a></li>
+        <li><a href="Example_pkginfo">Example pkginfo</a></li>
+        <li><a href="Prototype_Generation">Prototype Generation</a></li>
+        <li><a href="Creating_Solaris_Packages_of_Other_Artifacts">Creating Solaris Packages of Other Artifacts</a></li>
+      </ul>
+      <subsection name="Example Prototype File">
+        <p>
+          As most of the prototype file will be generated this is sufficient for most cases:
+        </p>
+        <source>
+i pkginfo
+!include generated-prototype</source>
+        <p>
+          If you have special entries/requirements that the plugin doesn't support add those to this file.
+        </p>
+      </subsection>
+      <subsection name="Example pkginfo">
+        <p>
+          The <code>pkginfo</code> file will be interpolated when it is copied to the package. Interpolating the version
+          is very useful so you don't have to update the file on each release.
+        </p>
+        <source>
+PKG=...
+NAME=...
+DESC="${project.description}"
+VERSION=${project.version}
+ARCH=none
+CLASSES=none
+CATEGORY=application</source>
+      </subsection>
+      <subsection name="Prototype Generation">
+        <p>
+          Given this directory structure in target/solaris/assembled-pkg:
+        </p>
+        <source><![CDATA[
+.
+|-- etc
+|   `-- opt
+|       `-- myapp
+|           `-- myapp.conf
+|-- generated-prototype
+|-- opt
+|   `-- myapp
+|       |-- META-INF
+|       |   `-- MANIFEST.MF
+|       |-- bin
+|       |   `-- myapp
+|       `-- etc
+|           `-- myapp.conf
+|-- pkginfo
+`-- prototype]]></source>
+        <p>
+          and this configuration in the POM:
+        </p>
+        <source><![CDATA[
+<generatedPrototype>
+  <directoryCollection>
+    <mode>?</mode>
+    <user>?</user>
+    <group>?</group>
+    <includes>
+      <include>opt</include>
+    </includes>
+  </directoryCollection>
+  <fileCollection>
+    <mode>0755</mode>
+    <includes>
+      <include>opt/myapp/bin/*</include>
+    </includes>
+  </fileCollection>
+  <fileEntry>
+    <path>/etc/opt/myapp/myapp.conf</path>
+    <mode>0700</mode>
+    <user>root</user>
+    <group>root</group>
+  </fileEntry>
+</generatedPrototype>]]></source>
+        <p>
+          you will get this <code>generated-prototype</code> file:
+        </p>
+        <source><![CDATA[
+d none /etc 0755 myapp myapp
+d none /etc/opt 0755 myapp myapp
+d none /etc/opt/myapp 0755 myapp myapp
+f none /etc/opt/myapp/myapp.conf 0700 root root
+d none /opt ? ? ?
+d none /opt/myapp 0755 myapp myapp
+d none /opt/myapp/META-INF 0755 myapp myapp
+f none /opt/myapp/META-INF/MANIFEST.MF 0664 myapp myapp
+d none /opt/myapp/bin 0755 myapp myapp
+f none /opt/myapp/bin/myapp 0755 myapp myapp
+d none /opt/myapp/etc 0755 myapp myapp
+f none /opt/myapp/etc/myapp.conf 0664 myapp myapp]]></source>
+        <p>
+          Note that the file <code>/etc/opt/myapp/myapp.conf</code> is included the default filter but was overridden
+          with the &lt;fileEntry&gt; element.
+        </p>
+      </subsection>
+      <subsection name="Creating Solaris Packages of Other Artifacts">
+        <p>
+          A common use-case for the plugin is to take a generic distribution in the form of either a tarball
+          (tar.gz/tar.bz2) or a JAR file and turn that into a pkg file suitable for installation on a Solaris machine.
+        </p>
+        <p>
+          The following shows an example project structure and files that you need to use to do that.
+        </p>
+        <p>
+          <i>
+            Note that this use case is so common that the plugin might add support for doing this directly without
+            the use of the assembly plugin in the future.
+          </i>
+        </p>
+        <source><![CDATA[
+.
+|-- pom.xml
+`-- src
+    `-- main
+        |-- assembly
+        |   `-- pkg.xml
+        |-- resources
+        |   `-- etc
+        |       `-- opt
+        |           `-- myapp
+        |               `-- myapp.conf
+        `-- resources-solaris
+            |-- pkginfo
+            `-- prototype]]></source>
+        <p>
+          The POM includes the following dependency section which make sure the assembly plugin can use it. It is also
+          important to get the build order correct if you are creating the bundle and the package in the same build.
+        </p>
+        <source><![CDATA[
+<dependency>
+  <groupId>${groupId}</groupId>
+  <artifactId>myapp</artifactId>
+  <version>1.1</version>
+</dependency>]]></source>
+        <p>
+          Configure the assembly plugin like this:
+        </p>
+        <source><![CDATA[
+<plugin>
+  <artifactId>maven-assembly-plugin</artifactId>
+  <version>2.2-beta-2</version>
+  <executions>
+    <execution>
+      <phase>generate-sources</phase>
+      <goals>
+        <goal>directory-inline</goal>
+      </goals>
+    </execution>
+  </executions>
+  <configuration>
+    <finalName>solaris/assembled</finalName>
+    <ignoreDirFormatExtensions>true</ignoreDirFormatExtensions>
+    <descriptors>
+      <descriptor>src/main/assembly/pkg.xml</descriptor>
+    </descriptors>
+  </configuration>
+</plugin>]]></source>
+        <p>
+          <i>Note that at least version 2.2-beta-2 of the assembly plugin is required!</i>
+        </p>
+        <p>
+          The <code>pkg.xml</code> must include at least the artifact we've listed, but can include any number of
+          artifacts. The assembly id and format is significant. Also make sure you use a correct
+          <code>outputDirectory</code>.
+          <source><![CDATA[
+<assembly>
+  <id>pkg</id>
+  <formats>
+    <format>directory</format>
+  </formats>
+  <includeBaseDirectory>false</includeBaseDirectory>
+  <dependencySets>
+    <dependencySet>
+      <useProjectArtifact>false</useProjectArtifact>
+      <includes>
+        <include>org.codehaus.mojo.solaris:myapp</include>
+      </includes>
+      <unpack>true</unpack>
+      <outputDirectory>/opt/myapp</outputDirectory>
+    </dependencySet>
+  </dependencySets>
+</assembly>]]></source>
+        </p>
+        <p>
+          The last step is to configure the prototype file generation, see
+          <a href="Prototype_Generation">Prototype Generation</a> for an example.
+        </p>
+        <p>
+          After everything is set up a simple <code>mvn install</code> should download the artifact, generate the
+          prototype, interpolate the pkginfo file and unpack the jar file.
+        </p>
+      </subsection>
+    </section>
+  </body>
+</document>

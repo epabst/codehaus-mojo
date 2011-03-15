@@ -1,0 +1,37 @@
+ ------
+ Forking the execution
+ ------
+ Mark Hobson
+ <markhobson@gmail.com>
+ ------
+ 23 April 2008
+ ------
+
+
+Forking the execution
+
+ By default, the Apt Maven Plugin executes apt within the current process.  To execute apt as a separate process, use
+ the <<<fork>>> configuration parameter as follows:
+ 
+---
+<project>
+  ...
+    <build>
+      ...
+      <plugins>
+        ...
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>apt-maven-plugin</artifactId>
+          <version>${project.version}</version>
+          <configuration>
+            <fork>true</fork>
+          </configuration>
+        </plugin>
+        ...
+      </plugins>
+      ...
+    </build>
+  ...
+</project>
+---

@@ -1,0 +1,115 @@
+							-----
+							Pom Tools Plugin
+							-----
+							David Hawkins dhawkins@codehaus.org
+							-----
+							Date
+							-----
+ 
+  This plugin is used for dependency management and pom editing via the command
+  line.  The initial goal was to create a plugin which would display a list of 
+  a project's dependencies and determine if any of them needed to be updated to
+  a later version. Another goal was to present a list of versions available
+  for a dependency so that editing a dependency did not require browing the
+  ibiblio.com site. By diving into the project dependencies, transitive 
+  dependencies and dependency resolution were also nice fits for the plugin.
+
+  You can execute the plugin for your project by issuing the following command:
+  
+----  
+    mvn pomtools:console -DemulateTerminal=true
+----
+
+  The <<emulateTerminal=true>> will make the plugin act as a quasi-ansi terminal
+  with clear screen and a few other things which make the UI a little nicer.
+  However it should work fine with or without the terminal option.
+
+Highlights:
+
+  * Displays project dependencies and the latest version of each. (You can
+    enable/disable the use of snapshots when determining the latest version)
+    You have the option of setting all to the latest version or manually 
+    editing each.
+  
+  * Transitive dependencies
+  
+      * Starting Points - display a tree of the transitive dependencies that 
+        are included by a dependency. (see example below)
+        
+      * End Points - displays a list of all transitive dependencies that are
+        included in the compilation classpath.  Each dependency will show if
+        there are any conflicting versions of the groupId:artifactId that were
+        evaluated when resolving the artifacts.  You can also dive into any
+        transitive dependency and view a tree of all the possible paths that 
+        can include that dependency.
+      
+  * Edit nearly any element of the pom via a console user interface. Includes
+    list of values for fields with constrained values.
+  
+  * All model fields are discovered via reflection and editors are dynamic so
+    that future changes to the model should work without modification of this
+    plugin.
+  
+  * When adding/editing dependencies and plugins you are shown a list of
+    available versions to select from.
+  
+  * Dependency versions can be ranges and the versions selected by the range 
+    are displayed in the list of versions.
+  
+  * Performs validation on the model via the DefaultModelValidator. Will not
+    save a pom that will not validate.
+  
+  * You can make changes to the model and view how they affect transitive
+    dependencies without actually saving the model. This allows you to tweak
+    the settings or even revert all of your changes.
+
+
+Examples:
+
+*Transitive Dependency Starting Point
+
+  Here is an example of viewing the transitive dependency tree for maven-profile.
+  This example is showing both active and inactive dependencies.  Inactive 
+  dependencies are transitive dependencies that were not selected for inclusion
+  by Maven's resolver because they were supplied by another dependency.
+
+[images2/start-point-detail.gif]
+
+*Transitive Dependency End Points
+
+  This example is viewing a list of all the transitive dependencies for this project. 
+  The list is also showing that the Maven resolver encountered conflicting versions
+  while resolving both <log4j:log4j> and <plexus:plexus-container-default>.\
+  <plexus:plexus-container-default> resolved to version <<1.0-alpha-7>>, but
+  there is another dependency which needs  version <<1.0-alpha-8>>.  
+
+[images2/end-points-screen.gif]
+
+
+  By selecting item <<12)>> (<plexus:plexus-container-default>) from the list, you are
+  presented with the screen below which lists all of the possible paths that include
+  this transitive dependency. As you can see from the example below, <my-app2> 
+  has an indirect dependency while <velocity> has a direct dependency.
+  The Maven resolver is going to pick the nearest version by default and that is why
+  version <<1.0-alpha-7>> is <<\<\<\< (selected)>>. 
+  If you selected item <<2)>>, the pomtools plugin would add an exclusion to <velocity> 
+  so that the other version would be selected. \
+  See {{{http://maven.apache.org/guides/introduction/introduction-to-artifact-resolution.html}
+  Introduction to the Dependency Mechanism}} for more information on transitive dependency resolution.
+  
+[images2/end-point-detail.gif]  
+  
+*Version Ranges
+
+  In this example, I specified a version range of "[1.2.5,]" and the list
+  displays the versions which are selected by this range.
+
+[images2/version-range.gif]
+
+*Help
+
+  All screen have help information which lists the available commands for the screen.
+  Some screens have additional help information which give more detailed information.
+  
+[images2/sample-help-screen.gif]  
+  

@@ -1,0 +1,18 @@
+<document>
+	<properties>
+		<author email="hermod.opstvedt@dnbnor.no">
+			Hermod Opstvedt
+		</author>
+		<title>WAS 5 Plugin for Maven 2</title>
+	</properties>
+	<body>
+		<section name="Introduction">
+			<p>
+				This plugin is a Maven 2 implementation of the Ant tasks
+				that come with a WebSphere installation. These task
+				enable you to control WebSphere and deployment when
+				running Maven 2 builds.
+			</p>
+		</section>
+	</body>
+</document>

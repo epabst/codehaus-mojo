@@ -1,0 +1,2 @@
+clean
+process-test-classes

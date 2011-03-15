@@ -1,0 +1,39 @@
+  ------
+  Introduction
+  ------
+  Raphaël Piéroni
+  ------
+  Mon Aug 9 2005
+  ------
+
+Netbeans Freeform Maven Plugin
+
+=====================
+
+ This plugin is deprecated. See {{{http://mojo.codehaus.org/plugins.html}the Mojo plugins page for information and alternatives}}.
+
+=====================
+
+Introduction
+
+  This plugin is for generating a Netbeans project from a Maven 2 project.
+
+  The Netbeans IDE 4.x (http://www.netbeans.org) defines a project type called 
+  freeform. The Freeform project type in Netbeans is a Java project using the
+  source tree you define. It uses an Ant script to call the Ant targets given with
+  the Java sources.
+
+  This plugin take the POM of a Maven project and its tree to create the two
+  files needed by Netbeans to view a directory as a Freeform project. These files
+  are the Netbeans project descriptor and the Ant build file.
+
+* Goals Overview
+
+   The Netbeans Freeform Maven Plugin has one goal:
+
+   * {{{generate-netbeans-project-mojo.html} netbeans-freeform:generate-netbeans-project}}
+     Integrate the use of Maven 2 with Netbeans 4.x.
+
+* Usage
+
+  Instructions on how to use the Netbeans Freeform Maven Plugin can be found on the {{{usage.html}usage page}}.

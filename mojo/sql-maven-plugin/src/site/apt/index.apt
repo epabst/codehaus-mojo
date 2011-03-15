@@ -1,0 +1,35 @@
+ ------
+ Introduction
+ ------
+ Dan T. Tran
+ <dantran@gmail.com>
+ ------
+ 2010-02-15
+ ------
+
+SQL Maven Plugin
+
+  Use this plugin to execute SQL statements in a combination of strings,
+  a list of files and/or a set of files through <<<sqlCommand>>>, <<<srcFiles>>>, and
+  <<<fileset>>> configurations respectively.
+
+
+* Goals Overview
+
+  * {{{execute-mojo.html}sql:execute}} Execute SQL statements.
+
+  []
+
+
+* Usage
+
+  Instructions on how to use the SQL Maven Plugin can be found on the {{{usage.html}usage page}}.
+
+
+* Examples
+
+  * {{{examples/execute.html}Executions.}}
+
+  * {{{examples/settings.html}Hide username/password in <<<settings.xml>>>.}}
+
+  []

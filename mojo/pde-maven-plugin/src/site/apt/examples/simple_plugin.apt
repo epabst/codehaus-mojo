@@ -1,0 +1,128 @@
+ ------
+ Creating a Simple Plugin
+ ------
+ Barrie Treloar
+ <baerrach@gmail.com>
+ ------
+ November 23, 2006
+ 
+Overview
+
+  The goal of this example is to create a simple Eclipse PDE plugin and
+  to successfully build it with pde-maven-plugin.
+
+Steps
+
+* Create the Project
+
++---
+  File > New > Project...
+  
+  Plug-in Development > Plug-in Project (Next)
+  
+  Project name: "test.pde_maven_plugin.simple_plugin"
+  Uncheck "Use default location" and set Location to "<Your Workspace>\PDE_Plugin_Tutorial\plugins\test.pde_maven_plugin.simple_plugin"
+  Source folder: "src/main/java"
+  Output folder: "target/classes"
+  (Next)
+  
+  The defaults for "Plug-in Content" are ok.
+  (Next)
+  
+  Choose "Hello, World" as the template to use.
+  (Next)
+  
+  The defaults for "Sample Action Set" are ok.
+  (Finish)
++---
+  
+  If you have never started Plug-in Development before then the "Open Associated Perspective" 
+  popup will appear.  Click "Remember my decision" and "Yes" to always change to the 
+  "Plug-in Development perspective"
+  
+* Confirm the Project works
+
+  Ensure that your Target Platform (under Window > Preferences > Plug-in Development > Target Platform)
+  is set to your Eclipse SDK installation directory, or else your build will likely fail 
+  (as your RCP Target normally doesnt include the Eclipse Workbench)
+  
+  If the "test.pde_maven_plugin.simple_plugin" editor is not already open then open "plugin.xml" and 
+  ensure you are on the "Overview" tab.
+  
+  Select "Launch an Eclipse application" from the Testing area of the Overview tab.
+  
+  Verify that "Sample Menu" is available from the Menubar.
+  
+  Verify that selecting "Sample Menu > Sample Action" displays a pop-up with "Hello, Eclipse world".
+  Click OK to dismiss the pop-up and close the launched Eclipse application.
+  
+* Create pom.xml
+
+  Now that we know the plugin project works, we can create the pom.xml to get this running in Maven.
+  
++---
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>test.pde_maven_plugin</groupId>
+  <artifactId>simple_plugin</artifactId>
+  <packaging>zip</packaging>
+  <name>Simple Plugin PDE Example</name>
+  <version>1.0-SNAPSHOT</version>
+  <description>A Simple Plugin PDE Example</description>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>pde-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+          <eclipseInstall>D:\eclipse-3.2</eclipseInstall>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
++---
+  
+* Run mvn install
+
+  Everything is setup and ready to go.  Type "mvn install" to build your pde plugin from the command line.
+  
+  When everything is complete you should see that your plugin zip file "test.pde_maven_plugin.simple_plugin_1.0.0.zip"
+  gets installed into your local maven repository as "simple_plugin-1.0-SNAPSHOT.zip"
+  
++---
+[INFO] Installing <Your Workspace>\PDE_Plugin_Tutorial\plugins\test.pde_maven_plugin.simple_plugin\test.pde_maven_plugin.simple_plugin_1.0.0.zip 
+ to <Your M2 REPO>\.m2\repository\test\pde-maven-plugin\simple-plugin\1.0-SNAPSHOT\simple_plugin-1.0-SNAPSHOT.zip
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 16 seconds
+[INFO] Finished at: Fri Nov 24 08:54:54 CST 2006
+[INFO] Final Memory: 5M/9M
+[INFO] ------------------------------------------------------------------------
++---
+
+* Test out your plugin
+
+  If you are feeling really brave, make a copy of your eclipse installation (D:\Copy of eclipse-3.2 will do) and
+  run this new version to see that it works and does not include your plugin.
+  
+  Browse to your m2 repository and copy \<Your\ M2\ REPO\>\.m2\repository\test\pde_maven_plugin\simple_plugin\1.0-SNAPSHOT\simple_plugin-1.0-SNAPSHOT.zip
+  to the plugins directory of your Eclipse copy (D:\Copy of eclipse-3.2\plugins)
+  
+  You now need to run Eclipse with the "-clean" option to force it to reload its plugin cache. The easiest way
+  is to edit the "eclipse.ini" file and add "-clean" on a line by itself before the "-vm" argument. e.g:
+  
++---
+-clean
+-vm
+D:\Programs\Java\jdk1.5.0_08\bin\javaw.exe
+-vmargs
+-Xms80m
+-Xmx1000m
++---  
+  
+  Run Eclipse and see your "Sample Menu" is available.

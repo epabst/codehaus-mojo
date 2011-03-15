@@ -1,0 +1,31 @@
+<plexus>
+  <components>
+    <component>
+      <role>org.apache.maven.plugin.Mojo</role>
+      <role-hint>jruby</role-hint>
+      <implementation>/hello.rb</implementation>
+      <component-factory>jruby-mojo</component-factory>
+      <requirements>
+        <requirement>
+          <role>org.codehaus.plexus.component.factory.ComponentFactory</role>
+          <role-hint>jruby-mojo</role-hint>
+          <field-name>factory</field-name>
+        </requirement>
+      </requirements>
+      <configuration>
+        <item>2</item>
+      </configuration>
+    </component>
+
+    <component>
+      <role>org.codehaus.plexus.component.factory.ComponentFactory</role>
+      <implementation>org.codehaus.mojo.ruby.JRubyMojoComponentFactory</implementation>
+      <role-hint>jruby-mojo</role-hint>
+	  <configuration>
+	    <requires>
+	    	<require>mojo_require.rb</require>
+	    </requires>
+	  </configuration>
+    </component>
+  </components>
+</plexus>

@@ -1,0 +1,15 @@
+<project>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>pde-maven-plugin</artifactId>
+        <configuration>
+           <project implementation="org.codehaus.mojo.pde.stubs.ProjectStub"/>
+           <eclipseInstall>src/test/resources/baseLocation</eclipseInstall>>
+           <pdeDirectory>src/test/resources/feature</pdeDirectory>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

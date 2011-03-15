@@ -1,0 +1,77 @@
+ ------
+ Configuring a factory
+ ------
+ Mark Hobson
+ <markhobson@gmail.com>
+ ------
+ 23 April 2008
+ ------
+
+
+Configuring a factory
+
+ By default, the Apt Maven Plugin will attempt to 
+ {{{http://java.sun.com/j2se/1.5.0/docs/guide/apt/GettingStarted.html#Discovery}discover}} an annotation processor 
+ factory within the project's classpath using 
+ {{{http://java.sun.com/j2se/1.5.0/docs/guide/jar/jar.html#Service%20Provider}service provider configuration files}}.
+ To explicitly set an annotation processor factory, use the <<<factory>>> configuration parameter as follows:
+ 
+---
+<project>
+  ...
+    <build>
+      ...
+      <plugins>
+        ...
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>apt-maven-plugin</artifactId>
+          <version>${project.version}</version>
+          <configuration>
+            <factory>com.acme.Factory</factory>
+          </configuration>
+        </plugin>
+        ...
+      </plugins>
+      ...
+    </build>
+  ...
+</project>
+---
+
+ This tells the Apt Maven Plugin to use the <<<com.acme.Factory>>> annotation processor factory, which must reside 
+ within the project's dependencies.
+
+ Annotation processor factory dependencies can also be specified local to the Apt Maven Plugin to keep them out of the 
+ project's main dependencies.  For example, if <<<com.acme.Factory>>> resided within the deployed artifact 
+ <<<com.acme:apt:1.0>>>, then configure the pom as follows:
+ 
+---
+<project>
+  ...
+    <build>
+      ...
+      <plugins>
+        ...
+        <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>apt-maven-plugin</artifactId>
+          <version>${project.version}</version>
+          <configuration>
+            <factory>com.acme.Factory</factory>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>com.acme</groupId>
+              <artifactId>apt</artifactId>
+              <version>1.0</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+        ...
+      </plugins>
+      ...
+    </build>
+  ...
+</project>
+---

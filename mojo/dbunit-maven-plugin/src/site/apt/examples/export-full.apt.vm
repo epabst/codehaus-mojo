@@ -1,0 +1,74 @@
+ ------
+ Getting Started
+ ------
+ Dan Tran
+ <dantran@gmail.com>
+ ------
+ January 05, 2007
+ 
+ 
+ 
+Clean-Insert Example
+ 
+   The following example exports all tables to a dataset file after test phase.
+   
+------------------------------------------
+
+<project>
+  [...]
+  <build>
+    [...]
+    <plugins>
+      [...]
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>dbunit-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        
+        <!--jar file that has the jdbc driver -->
+        <dependencies>
+          <dependency>
+            <groupId>your.vendor.group</groupId>
+            <artifactId>your.vendor.artifactId</artifactId>
+            <version>x.y</version>
+          </dependency>
+        </dependencies>
+        
+        <!-- common configurations -->
+        <configuration>
+          <driver>com.vendor.jdbc.Driver</driver>
+          <url>jdbc:vendor:mydatabase</url>
+          <username>a.username</username>
+          <password>a.password</password>
+          [....]
+        </configuration>
+        
+        <executions>
+          <execution>
+            <phase>test</phase>
+            <goals>
+              <goal>export</goal>
+            </goals>
+            <!-- specific configurations -->
+            <configuration>
+              <format>xml</format>
+              <dest>target/dbunit/export.xml</dest>
+            </configuration>
+          </execution>
+          [...]
+        </executions>
+        
+        [...]
+      </plugin>
+      [...]
+    </plugins>
+    [...]
+  </build>
+  [...]
+</project>
+   
+
+
+------------------------------------------   
+ 
+ 

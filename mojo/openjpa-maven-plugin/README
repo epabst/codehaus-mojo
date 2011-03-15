@@ -1,0 +1,6 @@
+Building the openjpa-maven-plugin with all integration tests
+needs a running MySQL installation with a database named
+testdb set up. This is needed for the modifyDatabase IT 
+which writes to the database while the plugin runs.
+
+The database User is currently setup to use 'root' with no password.

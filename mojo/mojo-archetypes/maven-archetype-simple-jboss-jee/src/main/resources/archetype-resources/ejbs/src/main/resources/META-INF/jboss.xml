@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<jboss>
+  <jmx-name>${groupId}:module=${artifactId}-ejbs.jar</jmx-name>
+  <enterprise-beans>
+    <!-- MDB
+    <message-driven>
+      <ejb-name>mdbName</ejb-name>
+      <configuration-name>Standard Message Driven Bean</configuration-name>
+      <destination-jndi-name>mdbDestinationJndi</destination-jndi-name>
+    </message-driven>
+    -->
+
+    <!-- SLSB
+    <session>
+      <ejb-name>slsbName</ejb-name>
+      <configuration-name>Standard Stateful SessionBean</configuration-name>
+      <jndi-name>slsbJndiName</jndi-name>
+    </session>
+    -->
+  </enterprise-beans>
+</jboss>

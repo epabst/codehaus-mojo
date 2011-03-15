@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+
+<!--
+xmlns= defines the default namespace, ie elements from williams1000 schema
+xmlns:xsi makes elements from the schema namespace available, ready for the next bit...
+xsi:schemaLocation consists of two parts. the first part defines the schema namespace and the second part associates the
+    physical schema file with that namespace
+-->
+
+<services
+    xmlns="http://www.williams1000.com/command"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.williams1000.com/command http://agwilliams1000.dyndns.org/services.xsd">
+
+    <name>com.williams1000.delicious.DeliciousService</name>
+    <resourceBundle>com.williams1000.delicious.messages</resourceBundle>
+    <listener>
+	    <name>com.williams1000.delicious.DefaultDeliciousListener</name>
+    </listener>
+
+    <service>
+        <name>setUser</name>
+        <type>java.lang.Void</type>
+        <params>
+            <param>
+                <name>user</name>
+                <type>java.lang.String</type>
+            </param>
+            <param>
+                <name>password</name>
+                <type>java.lang.String</type>
+                <secret>true</secret>
+            </param>
+        </params>
+    </service>
+
+    <service>
+        <name>fetchDates</name>
+        <type>java.lang.Void</type>
+        <params>
+            <param>
+                <name>tags</name>
+                <type>java.lang.String</type>
+            </param>
+        </params>
+    </service>
+
+    <service>
+        <name>fetchPosts</name>
+        <type>java.lang.Void</type>
+        <params>
+            <param>
+                <name>tags</name>
+                <type>java.lang.String</type>
+            </param>
+            <param>
+                <name>date</name>
+                <type>java.lang.String</type>
+            </param>
+            <param>
+                <name>url</name>
+                <type>java.lang.String</type>
+            </param>
+        </params>
+    </service>
+
+    <service>
+        <name>fetchRecentPosts</name>
+        <type>java.lang.Void</type>
+        <params>
+            <param>
+                <name>tags</name>
+                <type>java.lang.String</type>
+            </param>
+            <param>
+                <name>count</name>
+                <type>java.lang.String</type>
+            </param>
+        </params>
+    </service>
+
+    <service>
+        <name>fetchAllPosts</name>
+        <type>java.lang.Void</type>
+        <params>
+            <param>
+                <name>tags</name>
+                <type>java.lang.String</type>
+            </param>
+        </params>
+    </service>
+
+    <service>
+        <name>fetchUpdateTime</name>
+        <type>java.lang.Void</type>
+    </service>
+
+    <service>
+        <name>addPost</name>
+        <type>java.lang.Void</type>
+        <params>
+            <param>
+                <name>url</name>
+                <type>java.lang.String</type>
+            </param>
+            <param>
+                <name>description</name>
+                <type>java.lang.String</type>
+            </param>
+            <param>
+                <name>tags</name>
+                <type>java.lang.String</type>
+            </param>
+            <param>
+                <name>extended</name>
+                <type>java.lang.String</type>
+            </param>
+            <param>
+                <name>replace</name>
+                <type>java.lang.Boolean</type>
+            </param>
+        </params>
+    </service>
+
+    <service>
+        <name>addBookmarks</name>
+        <type>java.lang.Void</type>
+        <params>
+            <param>
+                <name>linksPage</name>
+                <type>java.lang.String</type>
+                <file>true</file>
+            </param>
+            <param>
+                <name>replace</name>
+                <type>java.lang.Boolean</type>
+            </param>
+        </params>
+    </service>
+
+    <service>
+        <name>deletePost</name>
+        <type>java.lang.Void</type>
+        <params>
+            <param>
+                <name>url</name>
+                <type>java.lang.String</type>
+            </param>
+        </params>
+    </service>
+
+    <service>
+        <name>fetchUpdateTime</name>
+        <type>java.lang.Void</type>
+    </service>
+
+    <service>
+        <name>fetchTags</name>
+        <type>java.lang.Void</type>
+    </service>
+
+    <service>
+        <name>renameTag</name>
+        <type>java.lang.Void</type>
+        <params>
+            <param>
+                <name>oldName</name>
+                <type>java.lang.String</type>
+            </param>
+            <param>
+                <name>newName</name>
+                <type>java.lang.String</type>
+            </param>
+        </params>
+    </service>
+</services>

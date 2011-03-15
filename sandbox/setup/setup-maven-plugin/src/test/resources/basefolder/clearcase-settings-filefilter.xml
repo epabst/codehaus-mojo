@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF8"?>
+<clearcase-settings>
+  <useVWSParameter>${clearcase-settings.useVWSParameter}</useVWSParameter>
+  <changelogUserFormat>${clearcase-settings.changelogUserFormat}</changelogUserFormat>
+  <clearcaseType>${clearcase-settings.clearcaseType}</clearcaseType>
+  <viewstore>${clearcase-settings.viewstore}</viewstore>
+</clearcase-settings>

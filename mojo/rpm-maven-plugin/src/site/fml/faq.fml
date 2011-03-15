@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+-->
+<faqs id="FAQ" title="Frequently Asked Questions">
+  <part id="General">
+    <title>General</title>
+    <faq id="config">
+      <question>How do I mark a file as config?</question>
+      <answer>
+        <p>
+            Use the <a href="map-params.html#configuration">
+            configuration</a> option in the <a href="map-params.html">
+            Mapping</a>.
+        </p>
+      </answer>
+    </faq>
+    <faq id="soft links">
+      <question>How do I create softlinks as part of the RPM?</question>
+      <answer>
+        <p>
+            Use the <a href="map-params.html#softlinkSources">
+            softlink source</a> option in the <a href="map-params.html">
+            Mapping</a>. This will create the soft link in %install and list
+            the link in the %files.
+        </p>
+      </answer>
+    </faq>
+    <faq id="multiple rpms">
+        <question>How can I provide multiple rpms (i.e. different architectures) from one project (pom)?</question>
+        <answer>
+            <p>
+                Set the <i>packaging</i> type to <i>pom</i> and use multiple executions
+                of the <a href="attached-rpm-mojo.html">attached-rpm</a> goal.<br/>
+                In each execution, you need to define a unique
+                <a href="attached-rpm-mojo.html#classifier">classifier</a>.
+            </p>
+        </answer>
+    </faq>
+    <faq id="calculated version and release">
+        <question>Can I access the calculated project version and release attributes?</question>
+        <answer>
+            <p>
+                Yes! The <a href="version-mojo.html">version</a> goal will set the calculated version and release to
+                properties. This goal will execute by default as part of the default rpm build lifecycle (for project or 
+                packaging type of rpm).
+            </p>
+        </answer>
+    </faq>
+  </part>
+</faqs>

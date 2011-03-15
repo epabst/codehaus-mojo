@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beansProjectDescription>
+  <version>1</version>
+  <configSuffixes>
+    <#list configSuffixes as configSuffixe>
+    <configSuffix>${configSuffixe}</configSuffix>
+    </#list>
+  </configSuffixes>
+  <enableImports>${enableImports}</enableImports>
+  <configs>
+    <#list configs as config>
+    <config>${config}</config>
+    </#list>
+  </configs>
+  <configSets>
+    <configSet>
+      <name>${name}</name>
+      <allowBeanDefinitionOverriding>${allowBeanDefinitionOverriding}</allowBeanDefinitionOverriding>
+      <incomplete>${incomplete}</incomplete>
+      <configs>
+       <#list configs as config>
+       <config>${config}</config>
+       </#list>
+      </configs>
+    </configSet>
+  </configSets>
+</beansProjectDescription>

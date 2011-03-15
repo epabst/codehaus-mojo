@@ -1,0 +1,33 @@
+SpringIDE Maven Plugin
+
+  springide-maven-plugin is a Maven 2 plugin to configure SpringIDE (spring integration in Eclipse)
+
+Usage:
+
+-------------------
+<project>
+   ...
+      <build>
+         <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>springide-maven-plugin</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
+                <configuration>
+                  <includes>**/applicationContext*.xml</includes>
+                  <excludes>**/applicationContext-invalid.xml</excludes>
+                </configuration>
+          </plugin>
+       </plugins>
+       ...
+     </build>
+   ...
+</project>
+-------------------
+
+    The plugin will scan the project source folder, resources and target/generated-* folders for
+    spring context files, as described by the includes/excludes parameters. By default, it scans
+    for applicationContext*.xml and all xml files in META-INF/spring.
+
+    running mvn springide:generate will create the SpringIDE configuration. A simple eclipse project refresh will update
+    the spring views.

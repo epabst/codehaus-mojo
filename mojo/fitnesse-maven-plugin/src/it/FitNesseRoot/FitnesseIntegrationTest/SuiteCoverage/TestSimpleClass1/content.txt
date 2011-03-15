@@ -1,0 +1,5 @@
+!|org.codehaus.mojo.fitnesse.integration.Simple1Fixture||
+|value|check?|
+|-1|false|
+|0|false|
+|1|true|

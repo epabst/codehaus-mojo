@@ -1,0 +1,42 @@
+ ------
+ Maven 2 Native Plugin - Buidl Lifecycle
+ ------
+ Dan T. Tran
+ <dantran@gmail.com>
+ ------
+ September 29, 2005
+
+Build Lifecycle
+
+   The Eclipse PDE build lifecycle consists of the following phases with corresponding goals:
+
+*-----------------------+---------------------------------------------------------------+
+| <Phase>               | <Goal>
+*-----------------------+---------------------------------------------------------------+
+| initialize            |
+*-----------------------+---------------------------------------------------------------+
+| generate-sources      |
+*-----------------------+---------------------------------------------------------------+
+| process-sources       | 
+*-----------------------+---------------------------------------------------------------+
+| compile               | {{{ext-mojo.html}org.codehaus.mojo:pde-maven-plugin:ext}}
+*-----------------------+---------------------------------------------------------------+
+| process-test-resources| org.apache.maven.plugins:maven-resources-plugin:testResources
+*-----------------------+---------------------------------------------------------------+
+| test-compile          | org.apache.maven.plugins:maven-compiler-plugin:testCompile
+*-----------------------+---------------------------------------------------------------+
+| test                  | org.apache.maven.plugins:maven-surefire-plugin:test
+|                       | {{{test-mojo.html}org.codehaus.mojo:pde-maven-plugin:test}}
+*-----------------------+---------------------------------------------------------------+
+| package               | 
+*-----------------------+---------------------------------------------------------------+
+| install               | org.apache.maven.plugins:maven-install-plugin:install
+*-----------------------+---------------------------------------------------------------+
+| deploy                | org.apache.maven.plugins:maven-deploy-plugin:deploy
+*-----------------------+---------------------------------------------------------------+
+
+    
+
+
+
+

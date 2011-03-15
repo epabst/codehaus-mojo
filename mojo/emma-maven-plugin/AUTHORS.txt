@@ -1,0 +1,19 @@
+# The format of this file was inspired by the Linux kernel CREDITS file.
+# 
+# Authors and contributors are listed alphabetically.
+# 
+# The fields are: name (N), email (E), web-address (W), SCM account login (C),
+# PGP key ID and fingerprint (P), description (D), and snail-mail address (S).
+
+N: Stephen CONNOLLY
+E: stephen.alan.connolly@gmail.com
+C: stephenconnolly
+D: Contributor
+
+N: Maxim GORDIENKO
+D: Contributor (fix for MOJO-1068)
+
+N: Alexandre ROMAN
+E: alexandre.roman@gmail.com
+C: romale
+D: Project owner

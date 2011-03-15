@@ -1,0 +1,30 @@
+<project>
+  <parent>
+    <artifactId>parent-app</artifactId>
+    <groupId>com.mycompany.app</groupId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>my-app</artifactId>
+  <name>Maven Quick Start Archetype</name>
+  <version>1.0-SNAPSHOT</version>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.mycompany.app</groupId>
+      <artifactId>my-lib1</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.mycompany.app</groupId>
+      <artifactId>my-lib2</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
+</project>

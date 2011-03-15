@@ -1,0 +1,47 @@
+ ------
+ Introduction to Axis Archetype
+ ------
+ Raphaël Piéroni
+ ------
+ jeudi 02 mars 2006
+ ------      
+
+The Axis Archetype
+~~~~~~~~~~~~~~~~~~
+
+  This archetype provides a bunch of Maven 2 projects.
+
+  These projects are: 
+
+  * parent project which contains the other projects.
+
+  * api project which uses java2wsdl to create the WebService descriptor from a Java interface. 
+  It provides a jar file with the compiled interface and the wsdl file.
+
+  * server side project which uses wsdl2java to create the server side classes of the WebService.
+  It uses the wsdl file contained in the api jar file. It provides a jar file with the compiled classes.
+
+  * webapp project which uses the server side jar file to provide a deployable WebService.
+
+  * client side project which uses wsdl2java to create the client side stubs fo accessing the WebService.
+  It uses the wsdl file contained inthe api jar file. It use cargo to deploy the WebService webapp in
+  tomcat before running the tests.
+
+  []
+
+  To have the projects generated run: 
+
++----------+
+  mvn archetype:create 
+    -DarchetypeGroupId=org.codehaus.mojo.archetypes 
+    -DarchetypeArtifactId=axis-archetype 
+    -DarchetypeVersion=1.0-SNAPSHOT 
+    -DgroupId=<my.groupid> 
+    -DartifactId=<my-artifactId>
++----------+
+
+  Then change directory to <my-artifactId> and run:
+
++----------+
+  mvn install
++----------+

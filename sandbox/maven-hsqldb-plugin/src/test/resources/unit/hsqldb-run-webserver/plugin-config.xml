@@ -1,0 +1,18 @@
+<project>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-hsqldb-plugin</artifactId>
+        <configuration>
+        	<dbName>test</dbName>
+        	<mode>webserver</mode>
+        	<!-- hsql custom settings -->
+        	<silent>true</silent>
+        	<trace>true</trace>
+			<tls>true</tls>
+			<port>8080</port>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

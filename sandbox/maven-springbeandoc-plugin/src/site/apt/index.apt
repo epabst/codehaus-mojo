@@ -1,0 +1,13 @@
+ ------
+ Welcome to Spring BeanDoc Plugin
+ ------
+
+About Spring BeanDoc Plugin
+
+ Spring BeanDoc Plugin is a Maven plugin for {{{http://spring-beandoc.sourceforge.net/}Spring BeanDoc}}
+
+ It generates {{{springbeandoc/index.html}pretty reports}} for Spring configuration files.
+
+Getting
+
+ Spring BeanDoc Plugin is available via {{{http://snapshots.repository.codehaus.org/org/codehaus/mojo/maven-springbeandoc-plugin/}mojo snapshot repository}}.

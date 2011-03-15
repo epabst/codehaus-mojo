@@ -1,0 +1,127 @@
+ ------
+ Maven 2 Eclispe PDE Plugin
+ ------
+ Dan T. Tran
+ <dantran@gmail.com>
+ Barrie Treloar
+ <baerrach@gmail.com>
+ ------
+ November 23, 2006
+
+Usage
+
+
+* Source Structure
+
+  To use this plugin, structure your PDE plugin and feature directories
+  using the following format:
+  
+-------------------------
+
+  features
+    feature-1
+    feature-2
+    ....
+  plugins
+    plugin-1
+    plugin-2 (if this is a pde product then also include the following:)
+      your-product-name.product (for pde products only)
+      buildConfiguration/build.properties (for pde products only)
+    ....
+    
+--------------------------
+
+* Build with the custom build lifecycle provided by pde-maven-plugin
+
+ To build each feature/plugin with the custom {{{lifecycle.html} build lifecycle}} provided by pde-maven-plugin, 
+ place a pom file with following contents.
+ 
+--------------------------
+
+<project>
+
+  .....
+  
+  <packaging>zip</packaging>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>pde-maven-plugin</artifactId>
+        <extensions>true</extensions>
+        <configuration>
+           <buildProperties>
+             Additional PDE ant properies goes here
+             .....
+           </buildProperties>
+        </configuration>
+        <!-- Also bind to mvn clean -->
+        <executions>
+          <execution>
+            <id>clean-pde</id>
+            <phase>clean</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+          </execution>
+        </executions>        
+      </plugin>
+    </plugins>
+  </build>
+  
+</project>
+ 
+----------------------------
+
+  Note that, building a PDE feature or product also triggers its plugin builds, therefore it
+  is not neccessary to place a pom under dependent plugins.
+ 
+* Build with default maven build lifecycle
+
+  You can configure {{{attach-mojo.html}pde:attach}} to a build execution so that you have complete
+  control over where in the build lifecylce you want the plugin to be executed.
+  
+--------------
+
+<project>
+
+  .....
+  
+  <packaging>pom</packaging>
+  
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>pde-maven-plugin</artifactId>
+        <configuration>
+           <buildProperties>
+             Additional PDE ant properies goes here
+             .....
+           </buildProperties>
+        </configuration>
+        <executions>
+          <execution>
+            <id>build-pde</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>attach</goal>
+            </goals>
+          </execution>
+          <!-- Also bind to mvn clean -->
+          <execution>
+            <id>clean-pde</id>
+            <phase>clean</phase>
+            <goals>
+              <goal>clean</goal>
+            </goals>
+          </execution>          
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+  
+</project>
+
+----------------

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF8"?>
+<cvs-settings>
+  <compressionLevel>${cvs-settings.compressionLevel}</compressionLevel>
+  <useCvsrc>${cvs-settings.useCvsrc}</useCvsrc>
+  <useForceTag>${cvs-settings.useForceTag}</useForceTag>
+  <traceCvsCommand>${cvs-settings.traceCvsCommand}</traceCvsCommand>
+  <changeLogCommandDateFormat>${cvs-settings.changeLogCommandDateFormat}</changeLogCommandDateFormat>
+  <temporaryFilesDirectory>${cvs-settings.temporaryFilesDirectory}</temporaryFilesDirectory>
+  <cvsVariables>
+    <key>${cvs-settings.cvsVariables}</key>
+  </cvsVariables>
+</cvs-settings>

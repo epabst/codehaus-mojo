@@ -1,0 +1,52 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.codehaus.mojo.plugins</groupId>
+  <artifactId>rubyscript-parent-maven-plugin</artifactId>
+  <version>1</version>
+  <packaging>pom</packaging>
+  <name>Rubyscript Plugin Parent</name>
+  <description>Rubyscript Plugin Parent</description>
+  <developers>
+    <developer>
+      <id>eredmond</id>
+      <name>Eric Redmond</name>
+      <email>eric.redmond@gmail.com</email>
+      <roles>
+        <role>Developer</role>
+      </roles>
+    </developer>
+  </developers>
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.codehaus.mojo</groupId>
+      <artifactId>rubyscript-maven-plugin</artifactId>
+	  <version>1.0-beta-1-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
+  <build>
+	<scriptSourceDirectory>src/main/ruby</scriptSourceDirectory>
+	<plugins>
+	  <plugin>
+		<artifactId>maven-plugin-plugin</artifactId>
+		<configuration>
+		  <prefix>ruby</prefix>
+		</configuration>
+		<dependencies>
+		  <dependency>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>rubyscript-maven-plugin</artifactId>
+			<version>1.0-beta-1-SNAPSHOT</version>
+		  </dependency>
+		</dependencies>
+	  </plugin>
+	</plugins>
+  </build>
+</project>

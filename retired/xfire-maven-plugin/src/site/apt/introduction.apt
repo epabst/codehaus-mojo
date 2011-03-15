@@ -1,0 +1,15 @@
+ ------
+ Maven 2 XFire Plugin
+ ------
+
+Maven 2 XFire Plugin
+
+ This plugin provides the capability to:
+
+   * generate wsdl files with the goal "xfire:wsdlgen".
+
+   * convert generate code from wsdl files with the goal "xfire:wsgen".
+
+
+ To learn how to use the plugin, click {{{howto.html}here}}.
+

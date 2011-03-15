@@ -1,0 +1,94 @@
+<!--
+
+   Copyright 2006 The Apache Software Foundation.
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+ 
+        http://www.apache.org/licenses/LICENSE-2.0
+ 
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+
+-->
+<faqs title="Maven CIS Plugin FAQ">
+  <part id="general">
+    <title>General</title>
+
+    <faq id="Crossvision Application Designer">
+      <question>What is the Crossvision Application Designer?</question>
+      <answer>
+        <p>The <a href="http://www.softwareag.com/Corporate/products/cv/appldes/default.asp">
+          Crossvision Application Designer</a> is a GUI builder for web applications based
+          on Ajax. If you've ever been using a GUI builder for Swing or SWT applications
+          and wished, that someone would invent the same thing for web applications,
+          give it a try.</p>
+      </answer>
+    </faq>
+
+    <faq id="Casabac">
+      <question>What is Casabac?</question>
+      <answer>
+        <p>The Crossvision Application Designer was originally developed by a small
+          company named Casabac. This name was shared by both company and product.</p>
+        <p>Later on, the company was acquired by <a href="http://www.softwareag.com">
+          Software AG</a> and the product emerged into a part of the SOA suite
+          Crossvision. The Crossvision Application Composer, a similar product with
+          the emphasis on use of web services, rather than Java code, was developed out of
+          the Application Designer.</p>
+      </answer>
+    </faq>
+
+    <faq id="CIS">
+      <question>What does the abbreviation CIS mean?</question>
+      <answer>
+        <p>The abbreviation is for <code>Composite Integrator Server</code>. Casabac
+          (the product) was renamed to CIS, after Casabac (the company) was acquired
+          by Software AG. Later on, the product was renamed again to
+          <code>Crossvision Application Designer</code>.</p>
+        <p>The application designers jar files are still using the package name
+          <code>com.softwareag.cis</code>, which is why the plugin was named
+          <code>Maven CIS Plugin</code>, and not, for example, Maven Application
+          Designer Plugin.</p>
+      </answer>
+    </faq>
+  </part>
+
+  <part id="Configuration">
+    <title>Configuration of the Maven CIS Plugin</title>
+
+    <faq id="CIS Packaging">
+      <question>Can I use the packaging cis in my POM?</question>
+      <answer>
+        <p>Yes, your POM may have packaging <code>cis</code>. Nevertheless, he generated file
+          has the extension <file>.war</file>.</p>
+      </answer>
+    </faq>
+
+    <faq id="servlets">
+      <question>How do I add my own servlets, filters, resources, or mappings to <file>WEB-INF/web.xml</file>?</question>
+      <answer>
+        <p>Provide an application specific <file>web.xml</file> with your own declarations
+          in <file>src/main/cis/<code>MyApplication</code>/web.xml</file>. The Maven CIS
+          Plugin will merge your settings into the generated war files <file>web.xml</file>.
+          See <a href="examples/mergingWebXml">this example</a> for details.</p>
+      </answer>
+    </faq>
+
+    <faq id="startApps">
+      <question>How do I add my own startup code to the web application?</question>
+      <answer>
+        <p>The <code>Crossvision Application Designer</code> provides an interface
+          named <code>com.softwareag.cis.server.IServletInitHandler</code>.
+          Implementations of this class may be added to the application designers
+          initialization phase by declaring them as a <code>startApp</code> in
+          the CIS applications configuration. See <a href="examples/cisApplications.html">
+          this example</a> for details.</p>
+      </answer>
+    </faq>
+  </part>
+</faqs>

@@ -1,0 +1,45 @@
+<model>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>maven</groupId>
+  <artifactId>maven-hibernate-plugin-test</artifactId>
+  <packaging>jar</packaging>
+  <name>Maven Hibernate Plug-in Test Project</name>
+  <version>1.0-SNAPSHOT</version>
+  <description></description>
+  <build>
+    <sourceDirectory>src/main/java</sourceDirectory>
+    <testSourceDirectory>src/test/java</testSourceDirectory>
+    <resources>
+      <resource>
+        <directory>src/main/conf</directory>
+      </resource>
+      <resource>
+        <directory>src/main/java</directory>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-hibernate-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <executions>
+          <execution>
+            <configuration>
+              <config>target/classes/hibernate.cfg.xml</config>
+              <text>true</text>
+              <quiet>false</quiet>
+              <basedir>target/classes</basedir>
+              <includes>**/*.hbm.xml</includes>
+            </configuration>
+            <goals>
+              <goal>schema-export</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</model>

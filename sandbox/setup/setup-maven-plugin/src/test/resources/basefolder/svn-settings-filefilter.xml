@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svn-settings>
+  <configDirectory>${svn-settings.configDirectory}</configDirectory>
+  <useCygwinPath>${svn-settings.useCygwinPath}</useCygwinPath>
+  <cygwinMountPath>${svn-settings.cygwinMountPath}</cygwinMountPath>
+  <useNonInteractive>${svn-settings.useNonInteractive}</useNonInteractive>
+</svn-settings>

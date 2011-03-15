@@ -1,0 +1,43 @@
+ ------
+ Maven 2 DbUnit Plugin - Introduction
+ ------
+ Dan T. Tran
+ <dantran@gmail.com>
+ ------
+ January 05, 2007
+
+DbUnit Maven Plugin
+
+  Use this plugin to execute {{{http://dbunit.sourceforge.net}DbUnit}}'s utilities.
+  
+
+* Goals Overview
+
+  * {{{operation-mojo.html}dbunit:operation}}: Execute a database operation using an external dataset file.
+
+  * {{{export-mojo.html}dbunit:export}}: Export database tables into a dataset file.
+
+  * {{{compare-mojo.html}dbunit:compare}}: Compare a dataset with database.
+  
+  
+  []
+  
+
+* Usage
+  
+  Instructions on how to use the DbUnit Maven Plugin can be found on the {{{usage.html}usage page}}.
+ 
+   
+* Examples
+
+  * {{{examples/clean-insert.html}Clear database and insert a dataset before test phase.}}
+
+  * {{{examples/export-full.html}Export entired database to a dataset file after test.}}
+  
+  * {{{examples/settings.html}Hide username/password in settings.xml.}}
+
+  []
+  
+  A comprehensive and runnable example is available 
+  in {{{http://svn.codehaus.org/mojo/trunk/mojo/dbunit-maven-plugin/src/example}SVN}}
+  

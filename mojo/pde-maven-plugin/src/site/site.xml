@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+/*
+ * Copyright 2006 The Apache Software Foundation.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+
+<project name="Mojo">
+   <bannerLeft>
+      <name>Mojo</name>
+      <src>http://mojo.codehaus.org/images/mojo_logo.png</src>
+      <href>http://mojo.codehaus.org</href>
+   </bannerLeft>
+   <bannerRight>
+      <name>Codehaus</name>
+      <src>http://mojo.codehaus.org/images/codehaus-small.png</src>
+      <href>http://www.codehaus.org</href>
+   </bannerRight>
+   <body>
+      <links>
+         <item name="Mojo" href="http://mojo.codehaus.org"/>
+         <item name="Maven" href="http://maven.apache.org/maven2"/>
+      </links>
+      <menu name="Eclipse PDE Plugin">
+         <item name="Introduction" href="index.html"/>
+         <item name="Usage" href="usage.html"/>
+         <item name="Build Lifecycle" href="lifecycle.html"/>
+         <item name="Goals" href="plugin-info.html"/>
+         <item name="References" href="references.html"/>
+         <item name="FAQ" href="faq.html"/>
+      </menu>
+      <menu name="Examples">
+         <item name="Getting Started" href="examples/getting_started.html"/>
+         <item name="Creating a plugin" href="examples/simple_plugin.html"/>
+         <item name="Creating a feature" href="examples/simple_feature.html"/>
+         <item name="Creating a product" href="examples/simple_product.html"/>
+         <item name="Creating an updatesite" href="examples/simple_updatesite.html"/>
+         <item name="Building M2Eclipse" href="examples/m2eclipse.html"/>
+      </menu>
+      ${reports}
+   </body>
+</project>
+

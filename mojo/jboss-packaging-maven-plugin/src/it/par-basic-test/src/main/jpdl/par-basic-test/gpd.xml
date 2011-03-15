@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<root-container name="par-basic-test" width="966" height="848">
+  <node name="start-state1" x="364" y="89" width="132" height="36">
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="state1" x="485" y="235" width="132" height="36">
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="state2" x="450" y="402" width="132" height="36">
+    <edge>
+      <label x="5" y="-10"/>
+      <bendpoint w1="-91" h1="0" w2="-91" h2="0"/>
+      <bendpoint w1="-91" h1="-24" w2="-91" h2="-24"/>
+    </edge>
+    <edge>
+      <label x="5" y="-10"/>
+    </edge>
+  </node>
+  <node name="end-state1" x="429" y="539" width="132" height="36"/>
+</root-container>

@@ -1,0 +1,13 @@
+Maven2 Script Plugin
+
+ Maven2 Script Plugin allows you to execute script in one of supported programming languages
+ as a part of your build. During execution script may have access to project object.
+
+ Plugin uses Jakarta BSF as a script execution engine so all interpreters supported by BSF
+ may be used.
+
+ Maven2 Script Plugin is modelled after {{{http://mojo.codehaus.org/groovy-maven-plugin/}groovy-maven-plugin}}.
+
+ For information about using plugin see {{{usage.html}usage}} instructions.
+
+ For list of configuration for different languages see {{{languages.html}languages}} page.

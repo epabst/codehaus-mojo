@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faqs xmlns="http://maven.apache.org/FML/1.0.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/FML/1.0.1 http://maven.apache.org/xsd/fml-1.0.1.xsd"
+  title="Frequently Asked Questions"
+  toplink="false">
+  
+  <part id="general">
+    <title>General</title>
+    
+    <faq id="execute-right-now">
+      <question>
+        Can I use the setup-maven-plugin right now?
+      </question>
+      <answer>
+        As long as this plugin hasn't been promoted to the Maven central repository you'll have to do some things yourself.
+        You have a few options: 
+        * Check out the code, build and install it.
+        * Refer to the codehaus snapshot-repository, so you can use the latest deployed version of the setup-maven-plugin.
+        How long it takes before the plugin is available all depends on the pre-release stage of the plugin.
+      </answer>
+    </faq>
+
+    <faq id="setup-maven-plugin_and_proxies">
+      <question>
+        Can I use the setup-maven-plugin to configure the proxy if I'm behind one?
+      </question>
+      <answer>
+        <p>If you don't have this plugin in your local repository yet, it's not possible.
+        Since the proxy isn't set, Maven will try to download this plugin directly from the expected location. 
+        The proxy configuration can only be set inside the settings.xml, there's no option to set it by any commandline argument.   
+        So here's some manual action required.
+        </p>
+        <source>
+          &lt;settings&gt;
+            &lt;proxies&gt;
+              &lt;proxy&gt;
+                &lt;protocol/&gt;  &lt;!-- set the protocol --&gt; 
+                &lt;host/&gt; &lt;!-- set the host --&gt;
+                &lt;port/&gt; &lt;!-- set the port --&gt;
+              &lt;/proxy&gt;
+            &lt;/proxies&gt;
+          &lt;/settings&gt;
+        </source>
+        For further details, check <a href="http://maven.apache.org/guides/mini/guide-proxies.html">Proxies Mini Guide</a>
+      </answer>
+    </faq>
+    
+    <faq id="setup-maven-plugin_and_repository_managers">
+      <question>
+        We have a repository manager, which contains the setup-maven-plugin. So can I use it?
+      </question>
+      <answer>
+        The answer is almost the same as the proxy-settings: There's no option to refer to a remote repository by any command line argument.
+        So if you don't have a reference to the repository manager in your settings.xml or in a valid pom.xml in the basedirectory then you'll have to do it by hand.
+        
+      </answer>
+    </faq> 
+
+  </part>
+  
+</faqs>

@@ -1,0 +1,7 @@
+<?xml version="1.0" ?>
+
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+
+  <!--  activate ${customization.dir}/fo/xsl/custom.xls -->
+  <uri name="cfg:fo/xsl/custom.xsl" uri="fo/xsl/custom.xsl" />
+</catalog>

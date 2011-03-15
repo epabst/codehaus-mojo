@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<document>
+	<properties>
+		<author email="dvicente72@gmail.com">David Vicente</author>
+		<title>
+			Maven Dashboard Report Plugin : Standard Usage for Historic
+			support
+		</title>
+	</properties>
+	<!-- Optional HEAD element, which is copied as is into the XHTML <head> element -->
+	<head>
+		<meta />
+	</head>
+	<body>
+		<!-- The body of the document contains a number of sections -->
+		<section name="About Standard Usage for Historic support">
+
+			<subsection name="Before Starting">
+				<p>
+					Before using, setup your project as described here:
+					<a href="usage.html">Standard Usage</a>
+				</p>
+				<p>
+					<font color="red"><b>Warning :</b></font> <b>The Dashboard plugin does not use an embedded database.</b>
+				</p>
+				<p>In order to use the Dashboard plugin with historic support, you have to respect the following steps :</p>
+				<ul>
+					<li>Install any database which is compatible with Hibernate 3.2.2 .See <a href="http://www.hibernate.org/80.html">Hibernate doc</a>.</li>
+					<li>Create a schema</li>
+					<li>Create a user having all rights on this database schema</li>
+				</ul>
+			</subsection>
+			<subsection name="Configuring the database support">
+				<p>
+					To add database support for dashboard plugin, you
+					must configure the plugin in the
+					<tt>build</tt>
+					section in the POM as :
+				</p>
+				<source>
+					<![CDATA[
+<project>
+	[...]
+	<build>
+		[...]
+		<plugins>
+			[...]
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>dashboard-maven-plugin</artifactId>
+
+				<!--jar file that has the jdbc driver -->
+				<dependencies>
+					<dependency>
+						<groupId>xxxx</groupId>
+						<artifactId>xxxxx</artifactId>
+						<version>xxxx</version>
+					</dependency>
+				</dependencies>
+				<!-- common configurations -->
+				<configuration>
+					<!-- set the hibernate dialect for your specific database -->
+					<dialect>xxx</dialect>
+					<!-- database driver classname -->
+					<driverClass>xxxx</driverClass>
+					<!-- database URL -->
+					<connectionUrl>xxxx</connectionUrl>
+					<!-- database username -->
+					<username>xxxx</username>
+					<!-- database password -->
+					<password>xxxx</password>
+				</configuration>
+			</plugin>
+			[...]
+		</plugins>
+		[...]
+	</build>
+	[...]
+</project>
+       ]]>
+				</source>
+				<p>
+					<ul>
+						<li>
+							<font color="red"><b>Note 1: To be able to run the plugin you don't
+							need to add the hibernate jars as dependency
+							in your pom.xml</b></font>
+						</li>
+					</ul>
+				</p>
+				<p>
+					<ul>
+						<li>
+							<font color="red"><b>Note 2: Only Hibernate 3.2.2 supported databases can be used. See <a href="http://www.hibernate.org/80.html">Hibernate doc</a>.
+							</b></font>
+						</li>
+					</ul>
+				</p>
+				<p>
+					<b>
+						See this example to use an Apache Derby database :
+					</b>
+				</p>
+				<source>
+					<![CDATA[
+[...]
+<build>
+	<plugins>
+		<plugin>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>dashboard-maven-plugin</artifactId>
+			<version>1.0-SNAPSHOT</version>
+			<configuration>
+				<dialect>org.hibernate.dialect.DerbyDialect</dialect>
+				<driverClass>
+					org.apache.derby.jdbc.ClientDriver
+				</driverClass>
+				<connectionUrl>
+					jdbc:derby://localhost:1527/myDB;create=true
+				</connectionUrl>
+				<username>usr</username>
+				<password>usr</password>
+			</configuration>
+			<dependencies>
+				<dependency>
+					<groupId>org.apache.derby</groupId>
+					<artifactId>derbyclient</artifactId>
+					<version>10.2.1.6</version>
+				</dependency>
+			</dependencies>
+		</plugin>
+	</plugins>
+</build>
+[...]
+				]]>
+				</source>
+				<p>
+					To generate the site and the correct dashboard
+					report with historic view, you must run the
+					dashboard report plugin in 3 passes :
+				</p>
+				<ol>
+					<li>
+						<b>mvn site</b>
+					</li>
+					<ol>
+						<li>generate the site .</li>
+						<li>
+							let each report plugin generate its xml
+							file.
+						</li>
+						<li>
+							add the dashboard report item in the left
+							menu.
+						</li>
+					</ol>
+					<li>
+						<b>mvn dashboard:persist</b>
+					</li>
+					<ol>
+						<li>aggregate all results of each report.</li>
+						<li>store aggregated results in database.</li>
+					</ol>
+					<li>
+						<b>mvn dashboard:dashboard</b>
+					</li>
+					<ol>
+						<li>aggregate all results of each report.</li>
+						<li>re-generate the dashboard HTML file.</li>
+						<li>generate the historic dashboard HTML file with stored values in database.</li>
+					</ol>
+				</ol>
+
+			</subsection>
+		</section>
+	</body>
+</document>

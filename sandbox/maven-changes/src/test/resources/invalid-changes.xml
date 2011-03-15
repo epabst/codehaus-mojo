@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<document>
+  <properties>
+    <title>Changes</title>
+    <author email="snicoll@apache.org">Stephane Nicoll</author>
+  </properties>
+  <body>
+    <release version="1.2" date="2002-09-07">
+      <action type="fix">
+        Wrong action, no author was specified.
+      </action>
+    </release>
+    <release date="2002-09-05">
+      <action dev="snicoll" type="fix">
+        Wrong release without a version attribute.
+      </action>
+    </release>
+    <release version="1.0" date="2002-08-04" description="First release.">
+      <action dev="snicoll" type="wrongType">
+        Initial plugin created.
+      </action>
+    </release>
+  </body>
+</document>

@@ -1,0 +1,40 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>mojo-sandbox</artifactId>
+    <groupId>org.codehaus.mojo</groupId>
+    <version>2</version>
+  </parent>
+  <artifactId>apidocs-maven-plugin</artifactId>
+  <version>1.0-alpha-1-SNAPSHOT</version>
+  <packaging>maven-plugin</packaging>
+  <name>Maven API Docs Plugin</name>
+  <developers>
+    <developer>
+      <id>trygvis</id>
+      <name>Trygve Laugstøl</name>
+      <email>trygvis@inamo.no</email>
+      <organization>Inamo Software Group</organization>
+      <roles>
+        <role>Creator</role>
+      </roles>
+    </developer>
+  </developers>
+  <dependencies>
+    <dependency>
+      <groupId>qdox</groupId>
+      <artifactId>qdox</artifactId>
+      <version>1.4</version>
+    </dependency>
+    <dependency>
+      <groupId>velocity</groupId>
+      <artifactId>velocity</artifactId>
+      <version>1.4</version>
+    </dependency>
+    <dependency>
+      <groupId>plexus</groupId>
+      <artifactId>plexus-container-default</artifactId>
+      <version>1.0-alpha-2</version>
+    </dependency>
+  </dependencies>
+</project>

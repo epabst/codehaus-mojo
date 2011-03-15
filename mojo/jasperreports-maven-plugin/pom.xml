@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <artifactId>mojo-parent</artifactId>
+    <groupId>org.codehaus.mojo</groupId>
+    <version>24</version>
+  </parent>
+
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>jasperreports-maven-plugin</artifactId>
+  <version>1.0-beta-3-SNAPSHOT</version>
+
+  <packaging>maven-plugin</packaging>
+
+  <name>Maven JasperReports Plugin</name>
+  <description>Compile Jasper report design file</description>
+  <url>http://mojo.codehaus.org/jasperreports-maven-plugin</url>
+
+  <licenses>
+    <license>
+      <name>Apache License 2</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <prerequisites>
+    <maven>2.0.6</maven>
+  </prerequisites>
+  
+
+  <scm>
+    <connection>scm:svn:http://svn.codehaus.org/mojo/trunk/mojo/jasperreports-maven-plugin</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/jasperreports-maven-plugin</developerConnection>
+    <url>http://svn.codehaus.org/mojo/trunk/mojo/jasperreports-maven-plugin</url>
+  </scm>
+
+
+  <developers>
+    <developer>
+      <id>gjoseph</id>
+      <email>gjoseph_AT_codehaus_DOT_org</email>
+      <timezone>CET</timezone>
+      <url>http://incongru.net</url>
+    </developer>
+  </developers>
+
+  <dependencies>
+    <dependency>
+      <groupId>net.sf.jasperreports</groupId>
+      <artifactId>jasperreports</artifactId>
+      <version>3.7.3</version>
+    </dependency>
+    <dependency>
+      <groupId>log4j</groupId>
+      <artifactId>log4j</artifactId>
+      <version>1.2.16</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <version>${maven.api.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-project</artifactId>
+      <version>${maven.api.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-compiler-api</artifactId>
+      <version>1.5.3</version>
+    </dependency>
+    
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.2</version>
+      <scope>test</scope>
+    </dependency>
+    
+  </dependencies>
+
+
+  <properties>
+    <maven.api.version>2.0.6</maven.api.version>
+  </properties>
+
+</project>

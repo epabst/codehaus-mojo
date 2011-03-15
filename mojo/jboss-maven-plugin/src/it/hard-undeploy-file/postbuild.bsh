@@ -1,0 +1,19 @@
+import java.io.*;
+import java.util.*;
+
+try
+{
+    File file = new File( basedir, "jboss/server/default/deploy/sar-basic-test-1.0-SNAPSHOT.sar" );
+    if ( file.isFile() )
+    {
+        System.err.println( "File was not undeployed: " + file );
+        return false;
+    }
+}
+catch( Throwable t )
+{
+    t.printStackTrace();
+    return false;
+}
+
+return true;

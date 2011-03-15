@@ -1,0 +1,79 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.codehaus.mojo.fitnesse.integration</groupId>
+        <artifactId>parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>org.codehaus.mojo.fitnesse.integration</groupId>
+     <artifactId>integration-multiproject</artifactId>
+
+    <packaging>pom</packaging>
+    <name>Maven FitNesse Plugin Multiproject</name>
+    <description>Maven FitNesse Plugin Multiproject</description>
+    <version>1.0-SNAPSHOT</version>
+ 	
+	<modules>
+		<module>jar1</module>
+		<module>jar2</module>
+	</modules>
+	
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>fitnesse-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</reporting>
+	<build>
+       <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>fitnesse-maven-plugin</artifactId>
+                <version>@pluginVersion@</version>
+                <configuration>
+                    <!-- Fail and Output configuration -->
+                    <failOnError>true</failOnError>
+                   <classPathProvider>fitnesse</classPathProvider>
+                    <!-- Fitnesse servers list -->
+					<fitnesses>
+						<fitnesse>
+							<hostName>localhost</hostName>
+							<port>@fitnessePort@</port>
+							<pageName>FitnesseIntegrationTest.SuiteCoverage</pageName>
+						</fitnesse>
+						<fitnesse>
+							<hostName>localhost</hostName>
+							<port>@fitnessePort@</port>
+							<pageName>FitnesseIntegrationTest.SuiteCoverage3</pageName>
+							<!--serverId>fitnesseTest</serverId-->
+						</fitnesse>
+					</fitnesses>
+                    <!-- Local path substitution mecanism 
+                    <classPathSubstitutions>
+                        <classPathSubstitution>
+                            <search>target</search>
+                            <replaceWith>../../../../..</replaceWith>
+                        </classPathSubstitution>
+                        <classPathSubstitution>
+                            <search>/</search>
+                            <replaceWith>${myFolderSeparator}</replaceWith>
+                        </classPathSubstitution>
+                    </classPathSubstitutions-->
+				</configuration>
+				<executions>
+					<execution>
+						<id>site</id>
+						<phase>pre-site</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

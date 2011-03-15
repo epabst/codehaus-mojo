@@ -1,0 +1,82 @@
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one
+  or more contributor license agreements.  See the NOTICE file
+  distributed with this work for additional information
+  regarding copyright ownership.  The ASF licenses this file
+  to you under the Apache License, Version 2.0 (the
+  "License"); you may not use this file except in compliance
+  with the License.  You may obtain a copy of the License at
+  
+  http://www.apache.org/licenses/LICENSE-2.0
+  
+  Unless required by applicable law or agreed to in writing,
+  software distributed under the License is distributed on an
+  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+  KIND, either express or implied.  See the License for the
+  specific language governing permissions and limitations
+  under the License.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd ">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.codehaus.mojo.ec2</groupId>
+  <artifactId>test-simple</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>Amazon EC2 Maven Plugin Simple Test</name>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>ec2-maven-plugin</artifactId>
+        <configuration>
+          <!-- pass these with -D
+            <accessKeyId></accessKeyId>
+            <secretAccessKey></secretAccessKey>
+          -->
+          <launchConfigurations>
+            <launchConfiguration>
+              <imageId>ami-225fba4b</imageId>
+              <minCount>1</minCount>
+              <maxCount>1</maxCount>
+              <keyName>carlos-keypar</keyName>
+              <userDataString>xyz</userDataString>
+              <instanceTypeString>m1.small</instanceTypeString>
+              <!--
+                <securityGroup>
+                <group>default</group>
+                </securityGroup>
+                <AvailabilityZone></AvailabilityZone>
+                <kernelId></kernelId>
+                <ramdiskId></ramdiskId>
+                <blockDeviceMappings>
+                <blockDeviceMapping></blockDeviceMapping>
+                </blockDeviceMappings>
+                <elasticIp></elasticIp>
+              -->
+              <wait>true</wait>
+              <terminate>true</terminate>
+            </launchConfiguration>
+          </launchConfigurations>
+        </configuration>
+        <executions>
+          <execution>
+            <phase>pre-integration-test</phase>
+            <goals>
+              <goal>start</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>2.0.2</version>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

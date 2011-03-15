@@ -1,0 +1,12 @@
+  ------
+  ${project.artifactId}
+  ------
+
+
+
+FAQs
+
+* How do I override the spring ws version?
+
+  This should hardly be neccessary, but if you want, a newer version can be added in the plugins <dependencies> section.
+

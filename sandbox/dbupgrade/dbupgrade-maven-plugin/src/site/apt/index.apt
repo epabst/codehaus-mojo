@@ -1,0 +1,45 @@
+ ------
+ Introduction
+ ------
+ Dan T. Tran
+ ------
+ 2009-01-15
+ ------
+
+
+Database Upgrade Maven Plugin
+
+  This plugin lets you incrementally upgrade your project database schema and data during your development/product lifecycles.
+  You can also use it's core component, {{{../dbupgrade-core}dbupgrade-core}}, to perform your application's database 
+  upgrade at startup which happens quickly if no newer upgrade detected.
+  
+
+* Goals Overview
+
+  There are 2 upgrade methods.
+
+  * {{{generic-upgrade-mojo.html}dbupgrade:generic-upgrade}}
+    lets you hook up your global pre-upgrade, incremental upgrades, and finally global post-upgrade using both java and SQL 
+    in your Java resources to upgrade multiple database types of your choice. Each incremental upgrade has an associated version 
+    number to be stored in your configurable database version table. DBUpgrade uses your database version's value to 
+    pickup the next upgrade in your java resource, if any.
+
+  * {{{filelist-upgrade-mojo.html}dbupgrade:filelist-upgrade}}
+    lets you hookup your sql upgrade script locations contained in a text file ( ie the text file contains a list of SQL script paths ). 
+    After a SQL script is executed, its names is stored in your configurable database version table. DBUpgrade uses
+    your database version's value ( a SQL script name ) to pickup the next upgrade script, if any.
+
+  * {{{clean-database-mojo.html}dbupgrade:clean-database}}
+    Use this goal to clean your database via a provided script
+  
+  []
+  
+* Usage
+
+  Instructions on how to use the Database Upgrade Maven Plugin can be found on the {{{usage.html}usage page}}.
+
+
+* Examples
+
+    See junit test for samples 
+

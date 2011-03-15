@@ -1,0 +1,374 @@
+Generating an EAR that runs in IBM WebSphere Process Server
+
+  IBM WebSphere Process Server is IBM's offering for Business Process Managment that can
+  be used part of a SOA solution. As a technology stack, Process Server sits on top of
+  WebSphere Enterprise Service Bus (ESB) which in turn sits on top of WebSphere Application
+  Server.
+  
+  Process Server provides an execution environment for SCA Modules. Currently, the only means
+  of developing these is to use WebSphere Integration Developer (WID). WID is an eclipse based
+  IDE that allows you to create Libraries (that contain Business Objects (expressed as 
+  XSD files) or interfaces (expressed as WSDL)) or Modules (that contain the business logic
+  which can be implemented as Java code, BPEL, State Machines etc).
+  
+  WID can export EARs that can be directly deployed to Process Server. The only non WID means
+  of producing an EAR file for Process Server is to use ServiceDeploy, a tool that
+  comes with Process Server. This plugin's {{{../servicedeploy-mojo.html}was6:servicedeploy}} mojo
+  is designed to provide a wrapper for that functionality.
+  
+  ServiceDeploy can take one of several input types:
+  
+  * An existing EAR file.
+  
+  * A Zip in Project Interchange format exported from WID.
+  
+  * A Jar file that contains one (and only one) sca.module file (a WID Module), and any other supporting resources (WID Libraries).
+  
+  * A Zip file of Jar files that are WID Modules and any associated WID Libraries.
+  
+  []
+
+  From a Maven perspective, I have found working with WID Libraries and WID Modules packaged as
+  Jar files to be the easiest.
+  
+  Please refer to IBM developerWorks article {{{http://www.ibm.com/developerworks/websphere/techjournal/0512_peterson/0512_peterson.html} IBM WebSphere Developer Technical Journal: Get started with WebSphere Integration Developer}}
+  as a reference for the following examples.
+  
+  This article creates a simple sample stock market service. It is implemented in two parts:
+  
+  * A WID Library, called StockLibrary contains the interface, in this instance, a WSDL document.
+  
+  * A WID Module, called StockModule, that is the SCA Module that implements the business logic of the service.
+  
+  []
+
+  WID (6.0.2 at least) *enforces* that the source (and target) are set to the root dir of the project.
+  
+  Under the covers, WID will create supporting projects as necessary. These are to be treated as generated
+  artifacts and are generally not to be modified directly in any way. In this example, WID will generate a
+  StockModuleApp (EAR) project, a StockModuleEJB (EJB) and if a Web Service is used or needed [not in this example]
+  StockModuleWeb (Web) project. When outside the WID context, it is the job of ServiceDeploy to create
+  these synthetic projects with the end point being an EAR file that can be deployed to Process Server.
+  ServiceDeploy itself launches an Eclipse instance to generate and compile these synthetic projects
+  into an EAR file. The EJB deployment process is currently implenmented in a similar manner.
+  
+  Note: As Process Server sits on top of WebSphere Application Server, it is still perfectly capable
+  of running normal J2EE EAR files. 
+
+* Stock Sample
+
+  In this example, we will create:
+  
+  * A normal JAR file of the StockLibrary project.
+  
+  * A normal JAR file of the StockModule project.
+  
+  * A POM project that creates the EAR that calls ServiceDeploy.
+  
+  * A J2EE Multi Module project that ties them all together.
+  
+  * An accessory project for the Assembly plugin to promote reuse.
+  
+* StockLibrary
+  
+  The POM file for the StockLibrary is as follows:
+  
++--
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.ibm.dw.sample.stock</groupId>
+        <artifactId>Stock</artifactId>
+        <version>1.0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.ibm.dw.sample.stock</groupId>
+    <artifactId>StockLibrary</artifactId>
+    <packaging>jar</packaging>
+    
+    <name>StockLibrary</name>
+    <description>This is the StockLibrary library from the StockModule developerWorks sample.</description>
+    <url>http://www.ibm.com/developerworks/websphere/techjournal/0512_peterson/0512_peterson.html</url>
+
+    <build>
+        <sourceDirectory />
+        <resources>
+            <resource>
+                <directory>.</directory>
+                <includes>
+                    <include>**/*.wsdl</include>
+                </includes>
+            </resource>
+        </resources>
+        
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <finalName>StockLibrary</finalName>
+                    <archive>
+                        <manifestEntries>
+                            <ServiceLibrary>true</ServiceLibrary>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>        
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.ibm.websphere.processserver</groupId>
+            <artifactId>runtime-library</artifactId>
+            <version>6.0.2</version>
+            <type>pom</type>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+</project>
++--
+
+* StockModule
+
+   The POM file for the StockModule is as follows:
+
++--
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.ibm.dw.sample.stock</groupId>
+        <artifactId>Stock</artifactId>
+        <version>1.0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.ibm.dw.sample.stock</groupId>
+    <artifactId>StockModule</artifactId>
+    <packaging>jar</packaging>
+    
+    <name>StockModule</name>
+    <description>This is the StockModule module from the StockModule developerWorks sample.</description>
+    <url>http://www.ibm.com/developerworks/websphere/techjournal/0512_peterson/0512_peterson.html</url>
+
+    <build>
+        <sourceDirectory />
+        <resources>
+            <resource>
+                <directory>.</directory>
+                <includes>
+                    <include>**/sca.*</include>
+                    <include>**/*.wsdl</include>
+                    <include>**/*.component</include>
+                    <include>**/*.mon</include>
+                    <include>**/*.bpel*</include>
+                    <include>**/*.sacl*</include>
+                </includes>
+            </resource>
+        </resources>
+        
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <!-- In this case, we merge the existing WID one so we get the non versioned dependencies in the classpath entry. -->
+                        <manifestFile>META-INF/MANIFEST.MF</manifestFile>
+                        <!--
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                        </manifest>
+                        -->
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>        
+    </build>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.ibm.websphere.processserver</groupId>
+            <artifactId>runtime-library</artifactId>
+            <version>6.0.2</version>
+            <type>pom</type>
+            <scope>provided</scope>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.ibm.dw.sample.stock</groupId>
+            <artifactId>StockLibrary</artifactId>
+            <version>1.0.0.1-SNAPSHOT</version>
+        </dependency>
+
+    </dependencies>
+    
+</project>
++--
+
+* StockEAR
+
+   The POM file for the StockEAR is as follows (the packaging type is set to POM,
+   but could also be EAR, but the generated EAR will be overwritten by ServiceDeploy):
+
++--
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.ibm.dw.sample.stock</groupId>
+        <artifactId>Stock</artifactId>
+        <version>1.0.0.1-SNAPSHOT</version>
+    </parent>
+ 
+    <groupId>com.ibm.dw.sample.stock</groupId>
+    <artifactId>StockEAR</artifactId>
+    <packaging>pom</packaging>
+
+    <name>StockEAR</name>
+    <description>This is the Stock ear project from the StockModule developerWorks sample.</description>
+    <url>http://www.ibm.com/developerworks/websphere/techjournal/0512_peterson/0512_peterson.html</url>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.ibm.websphere.processserver</groupId>
+            <artifactId>runtime-library</artifactId>
+            <version>6.0.2</version>
+            <type>pom</type>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- List the Dependencies (WID Libraries and Modules) here so the Assembly Plugin can find them -->
+        <dependency>
+            <groupId>com.ibm.dw.sample.stock</groupId>
+            <artifactId>StockLibrary</artifactId>
+            <version>1.0.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.ibm.dw.sample.stock</groupId>
+            <artifactId>StockModule</artifactId>
+            <version>1.0.0.1-SNAPSHOT</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+
+			<!-- Use the assembly plugin to create a zip file of all our dependencies. -->
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <configuration>
+                    <descriptorRefs>
+                        <descriptorRef>assembly-zip-for-wid</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>attached</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>some.package.assemblies</groupId>
+                        <artifactId>assembly-zip-for-wid</artifactId>
+                        <version>0.0.1</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+			<!-- And then pass it to the servicedeploy mojo -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>was6-maven-plugin</artifactId>
+                <version>${project.version}</version>
+                <executions>
+                    <execution>
+                        <id>servicedeploy-ear</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>servicedeploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <scaModule>\${project.build.directory}/\${project.artifactId}-\${project.version}.zip</scaModule>
+                    <wasHome>C:/Program Files/IBM/WID602/runtimes/bi_v6</wasHome>
+                    <!-- if wasHome is not defined - the OS environment variable WAS_HOME will be used
+                    <wasHome>/usr/WebSphere602/ProcServer</wasHome>
+                    -->
+                    <outputApplication>\${project.build.directory}/\${project.artifactId}-\${project.version}.ear</outputApplication>
+                    <workspaceDirectory>/tmp</workspaceDirectory>
+                    <skipXsdValidate>true</skipXsdValidate>
+                </configuration>
+            </plugin>
+
+        </plugins>
+    </build>
+</project>
++--
+
+* Stock
+
+  The POM file for the Multi Module project that ties everything together is as follows:
+  
++--
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ibm.dw.sample.stock</groupId>
+    <artifactId>Stock</artifactId>
+    <version>1.0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>Stock - J2EE Multi Module Project</name>
+    <description>Stock - J2EE Multi Module Project</description>
+    <url>http://www.ibm.com/developerworks/websphere/techjournal/0512_peterson/0512_peterson.html</url>
+
+    <modules>
+        <module>StockLibrary</module>
+        <module>StockModule</module>
+        <module>StockEAR</module>
+    </modules>
+
+</project>
++--
+
+* Assembly Module
+
+  The StockEAR module above makes use of the Assembly Plugin to generate a Zip file of renamed
+  dependencies to pass to ServiceDeploy. It has been packaged as a Jar file and added as a depencency
+  of the Assembly Plugin to facilitate sharing between projects.
+  
+  Just place this XML file in a package called assemblies and install it into your (local) repository.
+  
++--
+<?xml version='1.0' encoding='UTF-8'?>
+<assembly>
+    <id></id>
+    <formats>
+        <format>zip</format>
+    </formats>
+    <includeBaseDirectory>false</includeBaseDirectory>
+    <dependencySets>
+        <dependencySet>
+            <outputDirectory></outputDirectory>
+            <outputFileNameMapping>${artifact.artifactId}.${artifact.extension}</outputFileNameMapping>
+            <useProjectArtifact>false</useProjectArtifact>
+            <!--
+            Use if useProjectArtifact does not work
+            <includes>
+                <include>*:jar</include>
+            </includes>
+            -->
+        </dependencySet>
+    </dependencySets>
+</assembly>
++--

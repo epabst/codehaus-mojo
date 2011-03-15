@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+
+<model>
+  <id>pde-feature-descriptor</id>
+  <name>Feature</name>
+  <description>
+    <![CDATA[
+    <p>
+    </p>
+    ]]>
+  </description>
+  <defaults>
+    <default>
+      <key>package</key>
+      <value>org.codehaus.mojo.pde.descriptor</value>
+    </default>
+  </defaults>
+  <classes>
+  
+    <class>
+      <name>Descriptor</name>
+      <version>1.0.0</version>
+      <fields>
+          <field xml.attribute="true">
+          <name>id</name>
+          <required>true</required>
+          <type>String</type>
+          <required>true</required>
+        </field>
+        <field xml.attribute="true">
+          <name>name</name>
+          <required>true</required>
+          <type>String</type>
+        </field>
+        <field xml.attribute="true">
+          <name>version</name>
+          <required>true</required>
+          <type>String</type>
+        </field>
+      </fields>
+    </class>
+  
+    <class rootElement="true" xml.tagName="feature">
+      <name>FeatureDescriptor</name>
+      <superClass>Descriptor</superClass>
+      <description>
+        PDE Feature.xml Java binding.
+      </description>
+      <!-- repeat here due to a bug in modello -->
+      <fields>
+          <field xml.attribute="true">
+          <name>id</name>
+          <required>true</required>
+          <type>String</type>
+          <required>true</required>
+        </field>
+        <field xml.attribute="true">
+          <name>name</name>
+          <required>true</required>
+          <type>String</type>
+        </field>
+        <field xml.attribute="true">
+          <name>version</name>
+          <required>true</required>
+          <type>String</type>
+        </field>
+      </fields>
+      
+    </class>
+  </classes>
+</model>
+

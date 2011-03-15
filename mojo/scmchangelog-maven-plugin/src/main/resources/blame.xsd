@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:include schemaLocation="common.xsd"/>
+  <!--
+    XML RELAX NG schema for Subversion command-line client output
+    For "svn blame"
+  -->
+  <xs:element name="blame">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="target"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="target">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="entry"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.target"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.target">
+    <xs:attribute name="path" use="required" type="target.type"/>
+  </xs:attributeGroup>
+  <xs:element name="entry">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="commit"/>
+      </xs:sequence>
+      <xs:attributeGroup ref="attlist.entry"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="attlist.entry">
+    <xs:attribute name="line-number" use="required">
+      <xs:annotation>
+        <xs:documentation>Line number.</xs:documentation>
+      </xs:annotation>
+      <xs:simpleType>
+        <xs:restriction base="xs:integer">
+          <xs:minInclusive value="1"/>
+        </xs:restriction>
+      </xs:simpleType>
+    </xs:attribute>
+  </xs:attributeGroup>
+</xs:schema>

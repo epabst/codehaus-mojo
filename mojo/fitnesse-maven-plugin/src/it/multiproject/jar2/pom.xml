@@ -1,0 +1,20 @@
+<project>
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.codehaus.mojo.fitnesse.integration</groupId>
+        <artifactId>integration-multiproject</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>fitnesse-maven-plugin-sample-multiproject-jar2</artifactId>
+    <packaging>jar</packaging>
+    <name>Maven FitNesse Plugin Multiproject Sample - JAR 2</name>
+    <description>Maven FitNesse Plugin Multiproject Sample - JAR 2</description>
+    <version>1.0-SNAPSHOT</version>
+    <dependencies>
+        <dependency>
+        <groupId>org.codehaus.mojo.fitnesse.integration</groupId>
+            <artifactId>fitnesse-maven-plugin-sample-multiproject-jar1</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
+</project>

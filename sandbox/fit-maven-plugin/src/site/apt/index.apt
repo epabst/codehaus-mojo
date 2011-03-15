@@ -1,0 +1,28 @@
+ ------
+ Introduction
+ ------
+ Mauro Talevi
+ ------
+ August 2006
+ ------
+
+
+Maven 2 Fit Plugin
+
+  This plugin allow to run {{{http://fit.c2.com}Fit}} tests.
+
+* Goals Overview
+
+  * {{{plugin-info.html}fit:run}} Run Fit tests.
+  []
+
+* Usage
+
+  Instructions on how to use the Fit Plugin can be found {{{usage.html}here}}.
+
+* Examples
+
+  To provide you with better understanding of some usages of the Fit Plugin,
+  you can take a look at the following examples:
+
+  * {{{examples/running-fit.html}Running Fit}}    

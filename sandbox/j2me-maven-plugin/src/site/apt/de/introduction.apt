@@ -1,0 +1,69 @@
+ --------------------------------
+ Willkommen zum Maven J2ME Plugin
+ --------------------------------
+ Frank Seidinger
+ --------------------------------
+ 2006-03-29
+ --------------------------------
+
+{maven-j2me-plugin}
+
+  Das maven J2ME Plugin unterstützt die Entwicklung von J2ME Applikationen. Die
+Ziele (goal) dieses Plugins decken den preverification Prozess der übersetzten
+Klassen und die Erzeugung des Java Descriptors ab. Die Ziele werden wie üblich
+über die Plugin-Konfiguration und die Verwendung von Profilen konfiguriert.
+
+{Einführung}
+
+  Die Entwicklung von J2ME  Applikationen ist etwas unterschiedlich zur
+Entwicklung von Anwendungen mit der J2SE. Das Gerät auf denen eine J2ME
+Applikation abläuft, ist in der Regel durch seine Ressourcen beschränkt. Im
+Rahmen der Java Specifications Prozesse (JSR) zur J2ME Plattform wurden daher
+Untermengen der Standard Java APIs definiert, um den eingeschränkten Ressourcen
+der mobilen Geräte Rechnung zu tragen.
+  
+  Derzeit werden hauptsächlich zwei Untermengen der Java APIs für den Einsatz
+auf mobilen Geräten verwendet. Die erste den Namen CLDC (connected limited
+device configuration). Sie enthält eine stark eingeschränkte Sammlung der
+Standard Java Klassenbibliotheken und ist das Minimum dessen, was zum Start
+einer JVM (Java Virtual Machine) benötigt wird.
+  
+  Die zweite Untermenge trägt den Namen MIDP (mobile information device
+profile). Sie enthält Klassen die für eine grafische Ausgabe benötigt werden und  
+zielt auf LCDs ab, die kleine Auflösungen und wenige Farben besitzen. Daneben
+enthält MIDP ein 2D API, mit dem einfache, animierte Grafiken z.B. für Spiele
+erstellt werden können.
+
+  Die Java Virtual Machine, die auf mobilen Geräten zum Einsatz kommt, weicht
+ebenfalls aufgrund von Ressourcenbeschränkungen stark von der Version ab, die  
+für die Starndard Edition zum Einsatz kommt. Sun hat für mobile Geräte eine
+eingeschränkte VM mit dem Namen K Virtual Machine (KVM) entwickelt. Sie wird
+derzeit auf vielen mobilen Geräten eingesetzt.
+
+  Eine Aufgabe der Java VM  besteht darin, die Klassen vor dem Laden in den
+Hauptspeicher zu optimieren. Dieser Vorgang wird als JVM class file verification
+bezeichnet. Der Vorgang besteht aus vier Schritten, die für jede Klasse
+durchgeführt werden müssen, bevor die JVM mit der Ausführung der Klasse beginnt.
+Der dazu notwendige Codeteil nimmt in der Standard VM nach Angaben der
+englischen Ausgabe der Wikipedia etwa 50 Kilobyte ein.
+
+  Die Entwickler von Sun haben sich diesen Codeteil zugunsten der Größe der KVM
+gespart. Der Vorgang zur Verifizierung der Java Klassen muss deshalb als Teil
+der Entwicklung, genauer als Teil des Build-Prozesses durchgeführt werden. Dazu
+kommt ein J2ME SDK mit einem ausführbaren Programm, dass den namen preverify
+(oder preverify.exe auf der Windows Plattform) trägt. Nach der Übersetzung der
+Java Klassen mit einem Java Compiler, müssen die Klassen mit Hilfe des preverify
+Programms bearbeitet werden, bevor sie auf das mobile Gerät übertragen werden
+können. Als Compiler wird übrigens der Compiler eines Stadard SDKs verwendet, da
+ein J2ME SDK keinen eigenen Compiler mitbringt.
+
+  Für weitere Informationen zur Entwicklung und den Bau von J2ME Applikationen,
+können die folgenden Links herangezogen werden:
+
+*-------------------------------------+
+{{http://en.wikipedia.org/wiki/J2ME}}
+*-------------------------------------+
+{{http://en.wikipedia.org/wiki/MIDlet}}
+*-------------------------------------+
+{{http://java.sun.com/j2me}}
+*-------------------------------------+

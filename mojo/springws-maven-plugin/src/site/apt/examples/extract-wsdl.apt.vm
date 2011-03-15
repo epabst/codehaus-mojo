@@ -1,0 +1,24 @@
+Extracting a wsdl.
+
+  
++--
+
+<plugin>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>springws-maven-plugin</artifactId>
+  <version>${project.version}</version>
+  <executions>
+    <execution>
+      <goals>
+        <goal>springws</goal>
+      </goals>
+    </execution>
+  </executions>
+  <configuration>
+    <contextLocations>
+      <contextLocation>classpath:spring-context1.xml</contextLocation>
+      <contextLocation>classpath:aDir/spring-context2.xml</contexLocation>
+    </contextLocations>
+  </configuration>
+</plugin>
++--

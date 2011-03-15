@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project name="Sample Master Test" basedir="." default="all">
+
+  <!--
+   |
+   | Add additional targets here
+   |
+   -->
+
+  <target name="all" >
+    <ant antfile="green_test.xml" dir="."/>
+    <!-- ant antfile="red_test.xml" dir="."/ -->
+  </target>
+
+</project>

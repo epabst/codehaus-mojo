@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<document>
+	<properties>
+		<author email="dvicente72@gmail.com">David Vicente</author>
+		<title>
+			Maven Dashboard Report Plugin : Using a Custom Configuration
+			of historic support
+		</title>
+	</properties>
+	<!-- Optional HEAD element, which is copied as is into the XHTML <head> element -->
+	<head>
+		<meta />
+	</head>
+	<body>
+		<!-- The body of the document contains a number of sections -->
+		<section
+			name="About Custom Configuration of
+			historic support">
+			<subsection
+				name="Using a Custom Configuration of historic support">
+
+				<p>
+					A custom
+					<a href="standard_config.html">
+						Dashboard configuration xml file
+					</a>
+					can be defined and then referenced via a URL, File,
+					or build classpath resource reference.
+				</p>
+				<p>
+					To reference a custom Dashboard configuration, use
+					the
+					<b>configLocation</b>
+					parameter.
+				</p>
+
+				<source>
+					<![CDATA[
+<project>
+	[...]
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>dashboard-maven-plugin</artifactId>
+				<version>1.0-SNAPSHOT</version>
+				<configuration>
+					<dialect>
+						org.hibernate.dialect.DerbyDialect
+					</dialect>
+					<driverClass>
+						org.apache.derby.jdbc.ClientDriver
+					</driverClass>
+					<connectionUrl>
+						jdbc:derby://localhost:1527/myDB;create=true
+					</connectionUrl>
+					<username>usr</username>
+					<password>usr</password>
+					]]>
+					<font color="red">
+						<b><![CDATA[<configLocation>myDashboardConfig.xml</configLocation>]]></b>
+					</font>
+					<![CDATA[
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.derby</groupId>
+						<artifactId>derbyclient</artifactId>
+						<version>10.2.1.6</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+		</plugins>
+	</build>
+	[...]
+</project>
+]]>
+				</source>
+				<p>
+					This example causes the Maven 2 Dashboard plugin to
+					check for a File named
+					<i>
+						<b>myDashboardConfig.xml</b>
+					</i>
+					or a resource named
+					<i>
+						<b>myDashboardConfig.xml</b>
+					</i>
+					within the compile scope of the dependencies or
+					build extensions classpath.
+				</p>
+			</subsection>
+
+			<subsection
+				name="Create a Custom Configuration of historic support">
+
+				<p>
+					<ul>
+						<li>
+							create a new myDashboardConfig.xml file at
+							project's root directory
+						</li>
+						<li>
+							copy all xml elements from the
+							<a href="standard_config.html">
+								standard configuration file
+							</a>
+							.
+						</li>
+						<li>
+							add any
+							<b>
+								<![CDATA[<graph>]]>
+							</b>
+							elements in each
+							<b>
+								<![CDATA[<historicgraphs>]]>
+							</b>
+							section.
+						</li>
+					</ul>
+				</p>
+				<p>
+					<font color="red">
+						<b>
+							At this time, you can only add or delete
+							<font color="black">
+								<b>
+									<![CDATA[<graph>]]>
+								</b>
+							</font>
+							elements in your custom configuration file.
+						</b>
+					</font>
+				</p>
+				<p></p>
+				<p>For this example, we will delete the 2 existing graphs and add 3 new graphs in the <i>"Checkstyle"</i> section</p>
+				<p>
+					<ul>
+					<li>one to monitor all checkstyle indicators during 2 weeks.</li>
+					<li>one to monitor all checkstyle indicators during the current month.</li>
+					<li>one to monitor all checkstyle indicators during the previous month.</li>
+					</ul>
+				</p>
+				<p>See the default configuration :</p>
+				<source>
+					<![CDATA[
+[...]
+<section id="checkstyle.summary" title="Checkstyle Report Summary"
+	groupId="org.apache.maven.plugins"
+	artifactId="maven-checkstyle-plugin">
+	<historicgraphs>
+		<graph id="checkstyle.currentweek"
+			title="Checkstyle current Week" timeUnit="day"
+			startPeriod="Startof_thisweek" endPeriod="Endof_thisweek" />
+		<graph id="checkstyle.previousweek"
+			title="Checkstyle previous Week" timeUnit="day"
+			startPeriod="Startof_lastweek" endPeriod="Endof_lastweek" />
+	</historicgraphs>
+</section>
+[...]
+					]]>
+				</source>
+				<p>See the new configuration :</p>
+				<source>
+					<![CDATA[
+[...]
+<section id="checkstyle.summary" title="Checkstyle Report Summary"
+	groupId="org.apache.maven.plugins"
+	artifactId="maven-checkstyle-plugin">
+	<historicgraphs>
+		<graph id="checkstyle.currenttwoweek"
+			title="Checkstyle current two Weeks" timeUnit="day"
+			startPeriod="Startof_lastweek" endPeriod="Endof_thisweek" />
+		<graph id="checkstyle.currentmonth"
+			title="Checkstyle current Month" timeUnit="day"
+			startPeriod="Startof_thismonth" endPeriod="Endof_thismonth" />
+		<graph id="checkstyle.currentmonth"
+			title="Checkstyle current Month" timeUnit="day"
+			startPeriod="Startof_lastmonth" endPeriod="Endof_lastmonth" />
+	</historicgraphs>
+</section>
+[...]
+					]]>
+				</source>
+			</subsection>
+		</section>
+	</body>
+</document>

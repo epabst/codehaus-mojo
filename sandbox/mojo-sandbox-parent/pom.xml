@@ -1,0 +1,37 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>mojo-parent</artifactId>
+    <version>28</version>
+  </parent>
+
+  <artifactId>mojo-sandbox-parent</artifactId>
+  <version>10-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>Codehaus Mojo Sandbox Parent</name>
+  <!-- force official and sandbox plugins to appear at the same level -->
+  <url>http://mojo.codehaus.org/</url>
+
+  <scm>
+    <connection>scm:svn:http://svn.codehaus.org/mojo/trunk/sandbox/mojo-sandbox-parent</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/sandbox/mojo-sandbox-parent</developerConnection>
+    <url>http://svn.codehaus.org/mojo/trunk/sandbox/mojo-sandbox-parent</url>
+  </scm>
+  <distributionManagement>
+    <!-- Prevent accidental release of official version from sandbox -->
+    <repository>
+      <id>repo1</id>
+      <name>Redirected Snapshots repository</name>
+      <url>scp://localhost</url>
+    </repository>
+    <!-- force official and sandbox plugins to appear at the same level -->
+    <site>
+      <id>codehaus.org</id>
+      <name>Mojo Website</name>
+      <url>dav:https://dav.codehaus.org/mojo/</url>
+    </site>
+  </distributionManagement>
+</project>

@@ -1,0 +1,38 @@
+<project name="test-project-5" default="build">
+  <property file="project.properties"/>
+  <target name="build" description="Build">
+    <exec dir="${project.directory}" executable="${mvn.path}">
+      <arg line="package"/>
+    </exec>
+  </target>
+  <target name="clean" description="Clean">
+    <exec dir="${project.directory}" executable="${mvn.path}">
+      <arg line="clean:clean"/>
+    </exec>
+  </target>
+  <target name="javadoc" description="Javadoc">
+    <exec dir="${project.directory}" executable="${mvn.path}">
+      <arg line="site:site"/>
+    </exec>
+  </target>
+  <target name="run" description="Install Locally">
+    <exec dir="${project.directory}" executable="${mvn.path}">
+      <arg line="install"/>
+    </exec>
+  </target>
+  <target name="test" description="Test Project">
+    <exec dir="${project.directory}" executable="${mvn.path}">
+      <arg line="test"/>
+    </exec>
+  </target>
+  <target name="jalopy" description="Format Code">
+    <exec dir="${project.directory}" executable="${mvn.path}">
+      <arg line="jalopy:format"/>
+    </exec>
+  </target>
+  <target name="refresh-project" description="Refresh Project">
+    <exec dir="${project.directory}" executable="${mvn.path}">
+      <arg line="netbeans-freeform:generate-netbeans-project"/>
+    </exec>
+  </target>
+</project>

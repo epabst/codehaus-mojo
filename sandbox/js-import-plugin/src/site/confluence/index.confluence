@@ -1,0 +1,21 @@
+h1. Maven JavaScript Import Plugin
+
+Imagine writing just the following in your JavaScript code when you want to ensure that jQuery or Prototype.js is present at runtime:
+
+{code}
+/*global $ */
+{code}
+
+Alternatively when there are no global variables declared by a JavaScript dependency you can import it without being concerned about its file location and version:
+
+{code}
+/**
+ * @import com.jqueryui:jquery-ui
+ */
+{code}
+
+This frictionless approach to declaring JavaScript dependency requirements is the motivation for the Maven JavaScript Import Plugin.
+
+{note}
+Please note that this project is presently in the Codehaus MOJO Sandbox and therefore requires you to check it out from source code and build it locally. Once the project migrates from the sandbox it will become available from a repository.
+{note}

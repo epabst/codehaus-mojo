@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>mojo-sandbox</artifactId>
+    <groupId>org.codehaus.mojo</groupId>
+    <version>4</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>cis-maven-plugin-parent</artifactId>
+  <packaging>pom</packaging>
+  <name>Maven CIS Plugin Parent</name>
+  <version>1.0-alpha-1-SNAPSHOT</version>
+  <description>
+    The Maven CIS Plugin is a plugin working with Software AG's Application Designer,
+    formerly Casabac.
+  </description>
+  <prerequisites>
+    <maven>2.0.9</maven>
+  </prerequisites>
+  <inceptionYear>2007</inceptionYear>
+  <url>http://mojo.codehaus.org/cis-maven-plugin</url>
+
+  <developers>
+    <developer>
+      <id>jochen</id>
+      <name>Jochen Wiedmann</name>
+      <email>jochen.wiedmann@gmail.com</email>
+    </developer>
+  </developers>
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <organization>
+    <name>The Apache Software Foundation</name>
+    <url>http://www.apache.org/</url>
+  </organization>
+
+  <build>
+    <plugins>
+<!--
+      <plugin>
+        <artifactId>maven-docck-plugin</artifactId>
+        <executions>
+          <execution>
+            <goals>
+              <goal>check</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+-->
+    </plugins>
+  </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-changes-plugin</artifactId>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>changes-report</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>rat-maven-plugin</artifactId>
+        <configuration>
+          <excludes>
+            <exclude>src/test/it*/target/**/*</exclude>
+          </excludes>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
+
+  <scm>
+    <connection>scm:svn:http://svn.codehaus.org/mojo/trunk/sandbox/cis-maven-plugin</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/sandbox/cis-maven-plugin</developerConnection>
+    <url>http://svn.codehaus.org/mojo/trunk/sandbox/cis-maven-plugin</url>
+  </scm>
+
+  <modules>
+    <module>cis-maven-plugin-core</module>
+    <module>cis-maven-plugin-ant</module>
+    <module>cis-maven-plugin</module>
+  </modules>
+
+  <profiles>
+    <profile>
+      <id>enable.stumaven</id>
+      <distributionManagement>
+        <repository>
+          <id>stumaven-archiva</id>
+          <name>StuMaven Archiva Server, Releases</name>
+          <url>dav:http://stumaven.eur.ad.sag:7090/archiva/repository/internal/</url>
+        </repository>
+        <snapshotRepository>
+          <id>stumaven-archiva-internal</id>
+          <name>StuMaven Archiva Server, Snapshots</name>
+          <url>dav:http://stumaven.eur.ad.sag:7090/archiva/repository/snapshots/</url>
+        </snapshotRepository>
+      </distributionManagement>
+    </profile>
+  </profiles>
+</project>

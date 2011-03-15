@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.codehaus.mojo.chronos.it</groupId>
+  <artifactId>dummyplugintest</artifactId>
+	<packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>plugintest</name>
+  <url>http://maven.apache.org</url>
+  	<dependencies>
+		<dependency>
+			<groupId>org.codehaus.mojo.chronos.it</groupId>
+			<artifactId>dummyplugin</artifactId>
+			<version>1.0</version>
+		</dependency>
+	</dependencies>
+  
+	<properties>
+		<jmeter.home>/Applications/Utilities/Java/jakarta-jmeter-2.3.1</jmeter.home>
+	</properties>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>chronos-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>jmeter</goal>
+						</goals>
+						<configuration>
+							<input>${basedir}/src/main/resources/simplewebplan.jmx</input>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>chronos-maven-plugin</artifactId>
+				<configuration>
+					<plugins>
+						<plugin
+							implementation="org.codehaus.mojo.chronos.it.DummyPlugin">
+							<samplesprvalue>100</samplesprvalue>
+							<values>30</values>
+						</plugin>
+					</plugins>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
+</project>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>mojo-parent</artifactId>
+    <version>21</version>
+  </parent>
+
+  <groupId>org.codehaus.mojo</groupId>
+  <artifactId>virtualization-maven-plugin</artifactId>
+  <version>0.0.1-alpha-1-SNAPSHOT</version>
+  <packaging>maven-plugin</packaging>
+
+  <name>Virtualization Maven Plugin</name>
+
+  <description>
+    Virtualization Plugin for Maven 2. The Virtualization Plugin allows control of virtual computers from within
+    the project lifecycle.
+  </description>
+
+  <inceptionYear>2009</inceptionYear>
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <issueManagement>
+    <system>jira</system>
+    <url>http://jira.codehaus.org/browse/MOJO</url>
+  </issueManagement>
+
+  <scm>
+    <connection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/virtualization-maven-plugin</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/virtualization-maven-plugin
+    </developerConnection>
+    <url>http://fisheye.codehaus.org/browse/mojo/trunk/mojo/virtualization-maven-plugin</url>
+  </scm>
+
+  <developers>
+    <developer>
+      <name>Stephen Connolly</name>
+      <email>stephen.alan.connolly@gmail.com</email>
+      <roles>
+        <role>Lead Developer</role>
+      </roles>
+      <timezone>0</timezone>
+    </developer>
+  </developers>
+
+  <prerequisites>
+    <maven>2.0.6</maven>
+  </prerequisites>
+
+  <properties>
+    <project.build.java.target>1.5</project.build.java.target>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>net.java.dev.vcc</groupId>
+      <artifactId>vcc-api</artifactId>
+      <version>0.0.3</version>
+    </dependency>
+    <dependency>
+      <groupId>net.java.dev.vcc</groupId>
+      <artifactId>vcc-vmware-esx-impl</artifactId>
+      <version>0.0.3</version>
+      <scope>runtime</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <version>2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-utils</artifactId>
+      <version>1.5.9</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+        <version>1.0-beta-1</version>
+        <executions>
+          <execution>
+            <id>enforce-java</id>
+            <goals>
+              <goal>enforce</goal>
+            </goals>
+            <configuration>
+              <rules>
+                <requireJavaVersion>
+                  <version>1.5.0</version>
+                </requireJavaVersion>
+              </rules>    
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.5</source>
+          <target>1.5</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-plugin-plugin</artifactId>
+        <version>2.4.3</version>
+        <configuration>
+          <requirements>
+            <maven>2.0.6</maven>
+            <jdk>1.5</jdk>
+            <memory>256m</memory>
+          </requirements>
+        </configuration>
+      </plugin>
+    </plugins>
+  </reporting>
+
+</project>

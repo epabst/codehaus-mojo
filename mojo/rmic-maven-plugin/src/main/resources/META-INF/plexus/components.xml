@@ -1,0 +1,19 @@
+<component-set>
+  <components>
+    <component>
+      <role>org.codehaus.mojo.rmic.RmiCompilerManager</role>
+      <implementation>org.codehaus.mojo.rmic.DefaultRmiCompilerManager</implementation>
+      <requirements>
+        <requirement>
+          <role>org.codehaus.mojo.rmic.RmiCompiler</role>
+          <field-name>rmiCompilers</field-name>
+        </requirement>
+      </requirements>
+    </component>
+    <component>
+      <role>org.codehaus.mojo.rmic.RmiCompiler</role>
+      <role-hint>sun</role-hint>
+      <implementation>org.codehaus.mojo.rmic.SunRmiCompiler</implementation>
+    </component>
+  </components>
+</component-set>

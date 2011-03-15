@@ -1,0 +1,29 @@
+  ------
+ Maven 2 Hibernate3 Plugin - Simple Configuration
+ ------
+ Johann Reyes
+ <jreyes@hiberforum.org>
+ ------
+ December 13, 2006
+
+Overview
+
+  This is a simple configuration if we would run the plugin using all the defaults.
+
+Example
+
++---
+<project>
+...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>hibernate3-maven-plugin</artifactId>
+        <version>${project.version}</version>
+      </plugin>
+    </plugins>
+  </build>
+...
+</project>
++---

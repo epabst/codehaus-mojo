@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+  <!--
+    Licensed to the Apache Software Foundation (ASF) under one or more contributor license agreements. See the NOTICE
+    file distributed with this work for additional information regarding copyright ownership. The ASF licenses this file
+    to You under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with
+    the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0 Unless required by
+    applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language
+    governing permissions and limitations under the License.
+  -->
+
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>net.sourceforge.dita-ot</groupId>
+  <artifactId>dita-ot-taskbook</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>DITA Open Toolkit Sample - TaskBook </name>
+  
+  <description>
+    This example shows how to transform DITA to PDF, and how to customize DITA-OT FO plugin  
+  </description>
+  
+  <scm>
+    <connection>scm:svn:http://svn.codehaus.org/mojo/trunk/mojo/dita-maven-plugin/src/it/dita-to-pdf</connection>
+    <developerConnection>scm:svn:https://svn.codehaus.org/mojo/trunk/mojo/dita-maven-plugin/src/it/dita-to-pdf</developerConnection>
+    <url>http://svn.codehaus.org/mojo/trunk/mojo/dita-maven-plugin/src/it/dita-to-pdf</url>
+  </scm>
+  
+  
+  <dependencies>
+  
+    <dependency>
+      <groupId>net.sourceforge.saxon</groupId>
+      <artifactId>saxon</artifactId>
+      <version>9.1.0.8</version>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>net.sourceforge.saxon</groupId>
+      <artifactId>saxon</artifactId>
+      <classifier>dom</classifier>
+      <version>9.1.0.8</version>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+      <groupId>com.ibm.icu</groupId>
+      <artifactId>icu4j</artifactId>
+      <version>3.4.4</version>
+      <optional>true</optional>
+    </dependency>
+    
+    <dependency>
+      <groupId>org.apache.xmlgraphics</groupId>
+      <artifactId>fop</artifactId>
+      <version>0.95-1</version>
+      <optional>true</optional>
+    </dependency>
+
+    
+    <!-- note: fop.jar must always after saxon -->
+    
+  </dependencies>
+  
+ 
+  <build>
+    <defaultGoal>package</defaultGoal>
+    <plugins>
+
+
+      <!--  load ${timestamp} -->        
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>buildnumber-maven-plugin</artifactId>
+        <version>1.0-beta-2</version>
+        <executions>
+          <execution>
+            <phase>validate</phase>
+            <goals>
+              <goal>create</goal>
+            </goals>
+            <configuration>
+              <timestampFormat>{0,date,MMMMM dd yyyy}</timestampFormat>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- put build properties into an xsl file to be consumed by custom.xsl -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>2.4.1</version>
+        <executions>
+          <execution>
+            <id>make-doc-date</id>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <resources>
+                <resource>
+                  <directory>src/main/resources</directory>
+                  <filtering>true</filtering>
+                </resource>
+              </resources>
+              <outputDirectory>${project.build.directory}/dita/resources</outputDirectory>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>dita-maven-plugin</artifactId>
+        <version>1.0-beta-2</version>
+        <executions>
+          <execution>
+            <id>dita2pdf</id>
+            <phase>package</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+            <configuration>
+              <useDitaAnt>false</useDitaAnt>
+              <antArguments></antArguments>
+              <antProperties>
+                <args.input>${basedir}/src/main/dita/taskbook-sample.ditamap</args.input>
+                <!--dont turn this on unless you are using minimum or standard DITA-OT package-->
+                <fop.home>${basedir}/src/main/fop</fop.home>
+                <transtype>pdf2</transtype>
+                <dita.extname>dita</dita.extname>
+                <customization.dir>${customization.dir}</customization.dir>
+                <clean.temp>yes</clean.temp>
+              </antProperties>
+              <antOpts>-Xmx500m</antOpts>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+  
+  <properties>
+    <customization.dir>${basedir}/src/main/fo/cfg</customization.dir>
+  </properties>
+
+
+
+</project>

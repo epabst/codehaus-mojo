@@ -1,0 +1,206 @@
+ ------
+ Usage
+ ------
+Philippe Kernevez
+ <pkernevez@octo.com>
+ ------
+ February 12th, 2007
+ ------
+
+{Usage}
+
+* Table Of Contents
+
+ * {{{usage.html#Getting Started}Getting Started}}
+   
+   * {{{usage.html#Calling FitNesse plugin}Calling FitNesse plugin}}
+
+   * {{{usage.html#Configure FitNesse servers}Configure FitNesse servers}}
+
+   * {{{usage.html#Provide FitNesse dependency}Provide FitNesse dependency}}
+
+   * {{{usage.html#Change FitNesse classpath}Change FitNesse classpath}}
+
+   * {{{usage.html#Generating a FitNesse report}Generating a FitNesse report}}
+
+   * {{{usage.html#Fail Maven build on FitNesse failure}Fail Maven build on FitNesse failure}}
+
+  
+ []
+ 
+* {Getting Started}
+
+** {Calling FitNesse plugin}
+
+  Until the first release of the FitNesse plugin you may use the full command line mode (with the full plugin name).
+  For example, when this tutorial gives this command:
+
++---------
+mvn fitnesse:run
++---------
+  
+  You may use instead:
+
++---------
+mvn org.codehaus.mojo:fitnesse-maven-plugin:run
++---------
+  
+** {Calling Fitnesse server with command line arguments}
+    
+    The simplest way for calling a test page or suite is to use command line parameter:
+
++---------
+mvn -o fitnesse:run -Dfitnesse.page=SuiteInfra.SuiteCoverage -Dfitnesse.hostName=localhost -Dfitnesse.port=80
++---------
+
+  Another way is to define a fitnesse page list into your pom. 
+  These mechanisms can be mixed, in this case, the plugin will keep only first Fitnesse configuration found in your pom and then errase its value with your command line parameters. 
+  So, you can pass only the <<<fitnesse.page>>> parameter when your want to test a single page during development time and reuse those define in your pom.
+
+** {Configure FitNesse servers}
+
+  The first thing to do is to define at least one FitNesse server.
+
++---------
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>fitnesse-maven-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <configuration>
+          <!-- Fitnesse servers list -->
+          <fitnesses>
+            <fitnesse>
+                <hostName>myServer</hostName>
+                <port>80</port>
+                <pageName>mySuitePage</pageName>
+            </fitnesse>            
+          </fitnesses>
+        </configuration>
+      </plugin>
+    </plugins>
++---------
+
+** {Execute the plugin}
+
+  At this time you already be able to execute locally your remote page with the maven command: 
+
++---------
+mvn fitnesse:run
++---------
+
+  You may have difficulties with an invalid (on your desktop) classpath, according to it has been defined for your server. We'll see how to solve that in {{{usage.html#Change FitNesse classpath}the next part of this page}} and in the specific part of the task {{{run-mojo.html}fitnesse:run}}.
+  
+  You are also able to execute this page on your server with the maven command: 
+
++---------
+mvn fitnesse:remotecall
++---------
+
+  
+* {Change FitNesse classpath} (only for <fitnesse:run> goal)
+
+  FitNesse defines its own classpath using the <!define> tag. This mecanism differs of Maven POM approch. 
+  More often, the server classpath won't match the local desktop classpath (the server may be an Unix or the location of the Maven repository isn't the same). 
+  
+  You have 2 solutions:
+  
+  * You can use the FitNesse classpath and modify it after its download. The subsitutions will be defined with the following configuration. For more detail {{{run-mojo.html#classPathSubstitutions}see there}}. This is the default configuration.
+
++---------
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>fitnesse-maven-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        [...]
+        <configuration>
+          [...]
+          <!-- Local path substitution mecanism -->
+          <classPathSubstitutions>
+            <classPathSubstitution>
+                <search>/etc/udd/m2_repository</search>
+                <replaceWith>${settings.localRepository}</replaceWith>
+            </classPathSubstitution>
+            <classPathSubstitution>
+                <search>/</search>
+                <replaceWith>${myPathSeparator}</replaceWith>
+            </classPathSubstitution>
+          </classPathSubstitutions>
+        </configuration>
+    [...]
++---------
+  
+  * You can prefer your POM classpath to that download from FitNesse server. It can be done with {{{run-mojo.html#classPathProvider}classPathProvider parameter}}. In this case the plugin use the project classpath instead of the page one.
+    
++---------
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>fitnesse-maven-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        [...]
+        <configuration>
+          [...]
+          <classPathProvider>maven</classPathProvider>
+    [...]
++---------
+  
+  
+* {Generating a FitNesse report}
+
+  To generate a FitNesse report, simply execute the following command:
+  
++---------
+mvn fitnesse:fitnesse
++---------
+
+
+  Also, you may want to generate a FitNesse Report everytime you generate site for
+  your maven project (i.e. <<<mvn site>>>):
+  
++--------
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>fitnesse-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>fitnesse-maven-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        [...]
+        <executions>
+          <execution>
+            <id>site</id>
+            <phase>pre-site</phase>
+            <goals>
+              <goal>run</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
++--------
+
+* {Fail Maven build on FitNesse failure}
+  
+  If you want to fail the maven build when a FitNesse test fail you have to change the coniguration like that:
+  
++--------
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>fitnesse-maven-plugin</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        [...]
+        <configuration>
+          <failOnError>true</failOnError>
+          [...]
++--------
+
+  <Back to {{{usage.html}top}}.>
+  

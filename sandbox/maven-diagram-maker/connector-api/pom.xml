@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<project>
+	<parent>
+		<artifactId>diagrams</artifactId>
+		<groupId>org.codehaus.mojo.maven-diagram-maker</groupId>
+		<version>0.1-SNAPSHOT</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>connector-api</artifactId>
+	<name>connector-api</name>
+	<version>0.1-SNAPSHOT</version>
+	<url>http://maven.apache.org</url>
+	<dependencies>
+		<dependency>
+			<artifactId>graph-api</artifactId>
+		        <groupId>org.codehaus.mojo.maven-diagram-maker</groupId>
+			<version>0.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.plexus</groupId>
+			<artifactId>plexus-utils</artifactId>
+			<version>1.4.5</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<artifactId>maven-project</artifactId>
+			<groupId>org.apache.maven</groupId>
+			<version>2.0.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.plexus</groupId>
+			<artifactId>plexus-component-api</artifactId>
+			<version>1.0-alpha-31</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.plexus</groupId>
+			<artifactId>plexus-container-default</artifactId>
+			<version>1.0-alpha-31</version>
+			<scope>runtime</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>1.2.2</version>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+</project>

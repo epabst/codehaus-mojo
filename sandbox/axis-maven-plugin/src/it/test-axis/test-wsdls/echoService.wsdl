@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<definitions name="EchoService" 
+             targetNamespace="EchoService"
+             xmlns:svc="EchoService" 
+             xmlns="http://schemas.xmlsoap.org/wsdl/" 
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" 
+             >
+
+    <types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" 
+                xmlns:svc="EchoService" 
+                xmlns:soap11-enc="http://schemas.xmlsoap.org/soap/encoding/" 
+                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+                targetNamespace="EchoService"
+                elementFormDefault="qualified">
+
+            <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+
+            <element name="EchoSvcRequest" type="string"/>
+            <element name="EchoSvcResponse" type="string"/>
+        </schema>
+    </types>
+
+    <message name="EchoService_Request">
+        <part name="parameters" element="svc:EchoSvcRequest"/>
+    </message>
+
+    <message name="EchoService_Response">
+        <part name="result" element="svc:EchoSvcResponse"/>
+    </message>
+
+    <portType name="EchoServicePort">
+        <operation name="echo">
+            <input message="svc:EchoService_Request"/>
+            <output message="svc:EchoService_Response"/>
+        </operation>
+    </portType>
+
+    <binding name="EchoServiceBinding" type="svc:EchoServicePort">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <operation name="echo">
+            <soap:operation soapAction=""/>
+            <input>
+                <soap:body use="literal"/>
+            </input>
+            <output>
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+
+    <service name="EchoService">
+        <port name="EchoSvc" binding="svc:EchoServiceBinding">
+            <soap:address
+                    xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+                    location="http://localhost:8080/axis/services/EchoService"/>
+        </port>
+    </service>
+</definitions>

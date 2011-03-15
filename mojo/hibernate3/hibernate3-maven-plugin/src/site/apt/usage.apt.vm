@@ -1,0 +1,86 @@
+  ------
+ Maven 2 Hibernate3 Plugin - Usage
+ ------
+ Johann Reyes
+ <jreyes@hiberforum.org>
+ ------
+ December 13, 2006
+
+Usage
+
+* How to Use
+
+  In the pom.xml, insert this segment.
+
+------------------------------------------------------------------------------
+<project>
+...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>hibernate3-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <configuration>
+          <components>
+            <component>
+              <name>hbm2ddl</name>
+              <implementation>jdbcconfiguration</implementation>
+            </component>
+            <component>
+              <name>hbm2hbmxml</name>
+              <outputDirectory>src/main/resources</outputDirectory>
+            </component>
+          </components>
+          <componentProperties>
+            <drop>true</drop>
+            <configurationfile>/src/main/resources/hibernate.cfg.xml</configurationfile>
+          </componentProperties>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>jdbc.artifact.groupid</groupId>
+            <artifactId>jdbc-driver</artifactId>
+            <version>1.0</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
+  </build>
+...
+</project>
+------------------------------------------------------------------------------
+
+  * Note: To be able to run the plugin you don't need to add the hibernate jars as dependency in your pom.xml
+
+* Using a different Hibernate version
+
+  This plugin comes with a default hibernate version as plugin dependency.
+  If you need to use a different version then please add the following lines to the <<build>> section of your pom.xml (example for hibernate-3.0.6.Final):
+
+------------------------------------------------------------------------------
+<project>
+  ...
+  <build>
+    ...
+    <pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>hibernate3-maven-plugin</artifactId>
+                <version>2.3-SNAPSHOT</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.hibernate</groupId>
+                        <artifactId>hibernate-core</artifactId>
+                        <version>3.6.0.Final</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+        </plugins>
+    </pluginManagement>
+    ...
+  </build>
+  ...
+</project>
+------------------------------------------------------------------------------

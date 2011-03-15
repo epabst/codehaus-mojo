@@ -1,0 +1,174 @@
+Pluing usage
+
+* Adding Plugin to project
+
+ To add a plugin to a project, add following entry to your pom.xml:
+
++---
+...
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>script-maven-plugin</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <configuration>
+        <language>ruby</language>
+        <scriptFile>scripts/test.rb</scriptFile>
+        <passProjectAsProperty>true</passProjectAsProperty>
+    </configuration>
+    <dependencies>
+        <dependency>
+            <groupId>org.jruby</groupId>
+            <artifactId>jruby</artifactId>
+            <version>0.8.3</version>
+        </dependency>
+    </dependencies>
+</plugin>
+...
++---
+
+ where <<<language>>> should be one of languages supported by BSF (see {{{http://jakarta.apache.org/bsf}BSF project site}}),
+ <<<scriptFile>>> is a script file name to be executed.
+ The <<<passProjectAsProperty>>> tag allows you to pass the maven project object into your script.
+ It is by default set to false and will not pass it unless you set it to true.
+
+ If you have all this executed as above and test.rb looks like:
+
++---
+puts "(Ruby) Project name: " + $project.getName();
++---
+
+ then after executing mvn script:execute  you'll get:
+
++---
+$ mvn script:execute
+...
+[INFO] [script:execute]
+(Ruby) Project name: Maven2 Script Testing
+[INFO] -----------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] -----------------------------------------------------------------
+[INFO] Total time: 1 second
+[INFO] Finished at: Wed Aug 23 21:35:34 CEST 2006
+[INFO] Final Memory: 3M/6M
+[INFO] -----------------------------------------------------------------
++---
+
+* Binding plugin into project bulid cycle
+
+ To bind plugin into <<<test>>> phase add following to your <<<pom.xml>>>
+
++---
+...
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>script-maven-plugin</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <executions>
+        <execution>
+            <phase>test</phase>
+            <goals>
+                <goal>execute</goal>
+            </goals>
+        </execution>
+    </executions>
+    <configuration>
+        <language>ruby</language>
+        <scriptFile>scripts/test.rb</scriptFile>
+        <passProjectAsProperty>true</passProjectAsProperty>
+    </configuration>
+    <dependencies>
+        <dependency>
+            <groupId>org.jruby</groupId>
+            <artifactId>jruby</artifactId>
+            <version>0.8.3</version>
+        </dependency>
+    </dependencies>
+</plugin>
+...
++---
+
+* Using third-party BSF Engines
+
+ BFS comes with some engines preconfigured, version <<<2.3.0>>> supports:
+
++---
+javascript = org.apache.bsf.engines.javascript.JavaScriptEngine, js
+jacl = org.apache.bsf.engines.jacl.JaclEngine, jacl
+netrexx = org.apache.bsf.engines.netrexx.NetRexxEngine, nrx
+java = org.apache.bsf.engines.java.JavaEngine, java
+javaclass = org.apache.bsf.engines.javaclass.JavaClassEngine, class
+bml = org.apache.bml.ext.BMLEngine, bml
+vbscript = org.apache.bsf.engines.activescript.ActiveScriptEngine, vbs
+jscript = org.apache.bsf.engines.activescript.ActiveScriptEngine, jss
+perlscript = org.apache.bsf.engines.activescript.ActiveScriptEngine, pls
+perl = org.apache.bsf.engines.perl.PerlEngine, pl
+jpython = org.apache.bsf.engines.jpython.JPythonEngine, py
+jython = org.apache.bsf.engines.jython.JythonEngine, py
+lotusscript = org.apache.bsf.engines.lotusscript.LsEngine, lss
+xslt = org.apache.bsf.engines.xslt.XSLTEngine, xslt
+pnuts = pnuts.ext.PnutsBSFEngine, pnut
+beanbasic = org.apache.bsf.engines.beanbasic.BeanBasicEngine, bb
+beanshell = bsh.util.BeanShellBSFEngine, bsh
+ruby = org.jruby.javasupport.bsf.JRubyEngine, rb
+judoscript = com.judoscript.BSFJudoEngine, judo|jud
++---
+
+ But, if you want to use one of those engines, you also have to add an interpreter
+ as a dependency to your plugin configuration (as jruby and groovy are in examples).
+
+ To add different engine, use <<<engine>>> configuration parameter.
+ So, if you want to use Groovy interpreter, add following to your pom:
+
++---
+...
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>script-maven-plugin</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <configuration>
+        <language>groovy</language>
+        <scriptFile>scripts/test.groovy</scriptFile>
+        <engine>org.codehaus.groovy.bsf.GroovyEngine</engine>
+        <passProjectAsProperty>true</passProjectAsProperty>
+    </configuration>
+    <dependencies>
+        <dependency>
+            <groupId>groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>1.0-jsr-04</version>
+        </dependency>
+    </dependencies>
+</plugin>
+...
++---
+
+* Embedding code directly in pom file
+
+ It's also possible to embed script code in pom.xml file instead of referencing separate
+ file. To embed script use <<<script>>> configuration parameter:
+
++---
+...
+<plugin>
+    <groupId>org.codehaus.mojo</groupId>
+    <artifactId>script-maven-plugin</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <configuration>
+        <language>groovy</language>
+        <engine>org.codehaus.groovy.bsf.GroovyEngine</engine>
+        <passProjectAsProperty>true</passProjectAsProperty>
+        <script>
+          System.out.println("Inlined in " + project.getName());
+        </script>
+    </configuration>
+    <dependencies>
+        <dependency>
+            <groupId>groovy</groupId>
+            <artifactId>groovy-all</artifactId>
+            <version>1.0-jsr-04</version>
+        </dependency>
+    </dependencies>
+</plugin>
+...
++---
+

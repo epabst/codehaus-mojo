@@ -1,0 +1,27 @@
+<?xml version="1.0"?><project>
+  <parent>
+    <artifactId>diagrams</artifactId>
+    <groupId>org.codehaus.mojo.maven-diagram-maker</groupId>
+    <version>0.1-SNAPSHOT</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.codehaus.mojo.maven-diagram-maker</groupId>
+  <artifactId>experiments-maven-test</artifactId>
+  <name>to-test</name>
+  <version>0.1-SNAPSHOT</version>
+  <url>http://maven.apache.org</url>
+  <dependencies>
+    <!--dependency>
+        <groupId>org.prefuse</groupId>
+		<artifactId>prefuse</artifactId>
+        <version>beta-20060715</version>
+    </dependency-->
+    
+    <dependency>
+        <groupId>org.apache.maven</groupId>
+		<artifactId>maven-project</artifactId>
+        <version>2.0.7</version>
+    </dependency>
+    
+  </dependencies>
+</project>

@@ -1,0 +1,75 @@
+<document>
+	<properties>
+		<author email="hermod.opstvedt@dnbnor.no">Hermod Opstvedt</author>
+		<title>How to use WSDL2Java</title>
+	</properties>
+	<body>
+		<section>
+			<h2>About WSDL2Java</h2>
+			<p>
+				The WSDL2Java goal will generate Java source files that are dependent on WebSphere
+				libraries from a wsdl document, along with the IBM specific artifacts
+				<ul>
+					<li>ibm-webservicesclient-bnd.xmi</li>
+					<li>ibm-webservicesclient-ext.xmi</li>
+					<li>xxxxx_mapping.xml</li>
+					<li>webservicesclient.xml</li>
+				</ul>
+				These will be located in the META-INF directory. A subdirectory "wsdl" will
+				also be generated.
+			</p>
+			<h2>Running WSDL2Java from commandline</h2>
+			<p>
+				Running the WSDL2java task from the commandline is done using the following syntax:
+				<pre>
+	mvn was5:WSDL2Java -DwasHome=&lt;install dir of WebSphere&gt; \
+		-Durl=&lt;path to wsdl&gt; \
+		-Doutput=&lt;path to directory to generate sources in&gt;
+				</pre>
+			</p>
+			<h2>Running WSDL2Java with definition in pom</h2>
+			<p>
+				Running the WSDL2java task with the definition defined in the build section of the pom:
+				
+				<pre>
+	&lt;dependencies&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
+			&lt;artifactId&gt;was5-plugin&lt;/artifactId&gt;
+			&lt;version&gt;1.0&lt;/version&gt;
+			&lt;scope&gt;runtime&lt;/scope&gt;
+		&lt;/dependency&gt;
+	&lt;/dependencies&gt;
+
+	&lt;build&gt;
+		&lt;plugins&gt;
+			&lt;plugin&gt;
+				&lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
+				&lt;artifactId&gt;was5-plugin&lt;/artifactId&gt;
+				&lt;version&gt;1.0&lt;/version&gt;
+				&lt;executions&gt;
+					&lt;execution&gt;
+						&lt;id&gt;generate-javacode&lt;/id&gt;
+						&lt;phase&gt;generate-sources&lt;/phase&gt;
+						&lt;goals&gt;
+							&lt;goal&gt;WSDL2Java&lt;/goal&gt;
+						&lt;/goals&gt;
+						&lt;configuration&gt;
+							&lt;url&gt;ValutaKurserWS.wsdl&lt;/url&gt;
+							&lt;output&gt;
+								${project.build.sourceDirectory}
+							&lt;/output&gt;
+							&lt;wasHome&gt;
+								C:/Programfiles/WebSphere/AppServer
+							&lt;/wasHome&gt;
+						&lt;/configuration&gt;
+					&lt;/execution&gt;
+				&lt;/executions&gt;
+			&lt;/plugin&gt;
+		&lt;/plugins&gt;
+	&lt;/build&gt;
+				</pre>
+			</p>
+		</section>
+	</body>
+</document>

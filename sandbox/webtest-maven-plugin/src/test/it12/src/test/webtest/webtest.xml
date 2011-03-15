@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE project [
+   <!ENTITY init                                        SYSTEM "modules/set.init.txt">
+   <!ENTITY config                                      SYSTEM "modules/set.config.txt">
+]>
+
+<project name="Sample Master Test" basedir="." default="all">
+
+ 
+  <!-- Initialize Canoo WebTest -->
+  
+  &init;
+  
+  <target name="all" >
+    <testSpec name="MyTest" >
+      &config;
+      <steps>              
+        <invoke description="Spring dynamic page" url="/course?courseID=17750" />
+        <storeProperty property="courseUrl" propertyType="ant" value="/training/course?courseID=17750" />
+        <echo message="url: ${courseUrl}" />
+        <invoke description="Spring url from ant property" url="../training/course?courseID=17750" />
+        <verifytitle description="Check the title is parsed correctly" text=".*Core Spring.*" regex="true" /> 
+        <invoke description="Spring url from ant property" url="..${courseUrl}" />
+        <verifytitle description="Check the title is parsed correctly" text=".*Core Spring.*" regex="true" /> 
+      </steps>      
+    </testSpec>        
+  </target>
+
+</project>

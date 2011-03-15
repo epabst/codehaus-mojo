@@ -1,0 +1,8 @@
+<verifications>
+  <files>
+    <file>
+      <location>build.log</location>
+      <contains>Using as namingstrategy org.hibernate.cfg.ImprovedNamingStrategy</contains>
+    </file>
+  </files>
+</verifications>

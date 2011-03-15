@@ -1,0 +1,133 @@
+ ------
+ Usage
+ ------
+ Paul Gier <pgier at redhat.com>
+ ------
+ February 07 2008
+ ------
+
+Usage
+
+  By default, the <<<{{{rmic-mojo.html}rmic}}>>> goal will search for classes that implement <<<java.rmi.Remote>>> in
+  the directory <<<$\{project.build.outputDirectory\}>>>.
+  Specific files can be included or excluded from compilation by using the <<<\<includes\>>>> and <<<\<excludes\>>>>
+  parameters.
+
+  Output is by default written to the directory <<<target/rmi-classes>>>.  However, this location can be changed using the
+  <<<\<outputDirectory\>>>> parameter.  For example, to output the stubs directly to the classes directory for inclusion
+  in the main project jar, outputDirectory can be set to <<<$\{project.build.outputDirectory\}>>>.
+
+* Configuring includes/excludes and rmic params
+
+-------------------
+<project>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>rmic-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <executions>
+          <execution>
+            <id>rmic-process-classes</id>
+            <goals>
+              <goal>rmic</goal>
+            </goals>
+            <configuration>
+              <iiop>true</iiop>
+              <verbose>true</verbose>
+              <includes>
+                <include>**/RemoteImpl.class</include>
+              </includes>
+              <excludes>
+                <exclude>**/DontRmicThis.class</exclude>
+              </excludes>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
+-------------------
+
+* Running rmic against classes not in the main project classes
+
+  It may be necessary to generate rmi stubs for classes that are not in the main classes directory.
+  For these classes you must specify the fully qualified class name that you wish to compile.  As
+  long as the class is found on the classpath (i.e. in the project dependencies) rmic will be able to 
+  compile it.  The class can also be specified using the "/" delimited path to the class.
+
+-------------------
+<project>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>rmic-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <executions>
+          <execution>
+            <id>rmic-process-classes</id>
+            <goals>
+              <goal>rmic</goal>
+            </goals>
+            <configuration>
+              <includes>
+                <include>some.specific.RemoteClass1</include>
+                <include>another/specific/dependency/RemoteClass2.class</include>
+              </includes>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
+-------------------
+
+* Including the stub classes in the main project jar
+
+  Output is by default written to the directory <<<target/rmi-classes>>>.  Using this default behavior the stub
+  classes will not be included in the main project artifact.  To include the stubs in the main project jar the
+  outputDirectory can be set to <<<$\{project.build.outputDirectory\}>>>.
+  
+  Similarly, to include the stubs in the test jar the <<<testOutputDirectory>>> should be set to <<<$\{project.build.testOutputDirectory\}>>>
+
+* Using the package goal
+
+-------------------
+<project>
+  ...
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>rmic-maven-plugin</artifactId>
+        <version>${project.version}</version>
+        <executions>
+          <execution>
+            <id>rmic-package</id>
+            <goals>
+              <goal>package</goal>
+            </goals>
+            <configuration>
+              <excludes>
+                <exclude>**/*Junk_Stub.class</exclude>
+              </excludes>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+    ...
+  </build>
+  ...
+</project>
+-------------------

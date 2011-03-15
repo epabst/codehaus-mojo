@@ -1,0 +1,29 @@
+<document>
+   <properties>
+      <title>Maven Plugin for Castor XML code generator</title>
+      <author email="wguttmn@codehaus.org">Werner Guttmann</author>
+   </properties>
+   <body>
+   
+      <release version="2.0" date="2009-11-01" description="Release 2.0">
+         <action dev="wguttmn" type="fix" issue="MCASTOR-27">Introduced Java 5.0 as requirement.</action>
+         <action dev="wguttmn" type="add" issue="MCASTOR-31">
+            Added option to specify separate output directory for generated resources.
+         </action>
+         <action dev="wguttmn" type="fix" issue="MCASTOR-32">
+            Added option to allow usage of Velocity code generation.</action>
+      </release>
+      
+      <release version="1.5" date="2009-07-15" description="Subsequent release">
+         <action dev="wguttmn" type="fix" issue="MCASTOR-24">Added property to allow generation of mapping files.</action>
+         <action dev="wguttmn" type="fix" issue="MCASTOR-25">Added property to allow generation of JDO descriptors.</action>
+         <action dev="wguttmn" type="fix" issue="MCASTOR-18">Removed hard-coding of schema directory for Clover runs.</action>
+         <action dev="wguttmn" type="fix" issue="MCASTOR-1">${basedir}-aligned schemaDirectory property.</action>
+         <action dev="wguttmn" type="fix" issue="MCASTOR-15">Upgraded dependency to Castor to 1.2 and 1.3.</action>
+         <action dev="wguttmn" type="fix" issue="MCASTOR-15">Upgraded dependency to Castor to 1.2 and 1.3.</action>
+         <action dev="wguttmn" type="fix" issue="MCASTOR-17">Fixed handling of imported schemas during generation.</action>
+         <action dev="wguttmn" type="fix" issue="MCASTOR-14">Eased requirement to require a castor.properties to be present.</action>
+      </release>
+      
+   </body>
+</document>

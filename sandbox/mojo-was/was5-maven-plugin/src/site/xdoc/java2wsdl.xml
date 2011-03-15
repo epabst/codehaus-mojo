@@ -1,0 +1,78 @@
+<document>
+	<properties>
+		<author email="hermod.opstvedt@dnbnor.no">
+			Hermod Opstvedt
+		</author>
+		<title>How to use Java2WSDL</title>
+	</properties>
+	<body>
+		<section>
+			<h2>About Java2WSDL</h2>
+			<p>
+				The Java2WSDL goal will generate a wsdl document from a
+				Java class file that is WebSphere specific. The wsdl
+				document will be created in the root directory.
+			</p>
+			<h2>Running Java2WSDL from commandline</h2>
+			<p>
+				Running the Java2WSDL task from the commandline is done
+				using the following syntax:
+				<pre>
+	mvn was5:Java2WSDL \
+		-DwasHome=&lt;path to WAS&gt; \
+		-Doutput=&lt;mynewwsdl.wsdl&gt; \
+		-DclassName=&lt;fully qualified classname&gt; \
+		-DimplClass=&lt;fully qualified classname&gt;
+				</pre>
+			</p>
+			<h2>Running Java2WSDL with definition in pom</h2>
+			<p>
+				Running the Java2WSDL task with the definition defined
+				in the build section of the pom:
+			<pre>
+	&lt;dependencies&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
+			&lt;artifactId&gt;was5-plugin&lt;/artifactId&gt;
+			&lt;version&gt;1.0&lt;/version&gt;
+			&lt;scope&gt;runtime&lt;/scope&gt;
+		&lt;/dependency&gt;
+	&lt;/dependencies&gt;
+
+	&lt;build&gt;
+		&lt;plugins&gt;
+			&lt;plugin&gt;
+				&lt;groupId&gt;org.codehaus.mojo&lt;/groupId&gt;
+				&lt;artifactId&gt;was5-plugin&lt;/artifactId&gt;
+				&lt;version&gt;1.0&lt;/version&gt;
+				&lt;executions&gt;
+					&lt;execution&gt;
+						&lt;id&gt;generate-wsdl&lt;/id&gt;
+						&lt;phase&gt;pre-integration-test&lt;/phase&gt;
+						&lt;goals&gt;
+							&lt;goal&gt;Java2WSDL&lt;/goal&gt;
+						&lt;/goals&gt;
+						&lt;configuration&gt;
+							&lt;output&gt;
+								mynewwsdl.wsdl
+							&lt;/output&gt;
+							&lt;className&gt;
+								no.dnbnor.portal.ws.ValutaKurserWS
+							&lt;/className&gt;
+							&lt;implClass&gt;
+								no.dnbnor.portal.ws.ValutaKurserWS
+							&lt;/implClass&gt;
+							&lt;wasHome&gt;
+								C:/Programfiles/WebSphere/AppServer
+							&lt;/wasHome&gt;
+						&lt;/configuration&gt;
+					&lt;/execution&gt;
+				&lt;/executions&gt;
+			&lt;/plugin&gt;
+		&lt;/plugins&gt;
+	&lt;/build&gt;
+				</pre>
+			</p>
+		</section>
+	</body>
+</document>
