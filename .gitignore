@@ -1,0 +1,33 @@
+*.ser
+*.class
+*~
+*.bak
+#*.off
+*.old
+
+# eclipse conf file
+.settings
+.classpath
+.project
+.manager
+.scala_dependencies
+
+# idea
+.idea
+*.iws
+*.ipr
+*.iml
+
+# building
+target
+build
+null
+tmp*
+test-output
+*.log
+serverLog.xml
+
+# other scm
+.svn
+.CVS
+.hg*
