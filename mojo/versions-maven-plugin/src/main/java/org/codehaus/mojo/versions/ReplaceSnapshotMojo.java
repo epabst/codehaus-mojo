@@ -21,46 +21,29 @@ package org.codehaus.mojo.versions;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.codehaus.plexus.components.interactivity.Prompter;
-import org.codehaus.plexus.components.interactivity.PrompterException;
-import org.codehaus.plexus.util.StringUtils;
 
 /**
- * Sets the current projects version, updating the details of any child modules as necessary.
+ * Sets the current projects version by replacing "-SNAPSHOT" with the value of <code>newSuffix</code>,
+ * updating the details of any child modules as necessary.
  *
- * @author Stephen Connolly
- * @goal set
+ * @author Eric Pabst
+ * @goal replace-snapshot
  * @aggregator
  * @requiresProject true
  * @requiresDirectInvocation true
- * @since 1.0-beta-1
+ * @since 1.2
  */
-public class SetMojo
+public class ReplaceSnapshotMojo
         extends AbstractSetMojo
 {
 
     /**
-     * The new version number to set.
+     * The new version number suffix to use instead of "-SNAPSHOT".  It should start with a "." or "-".
      *
-     * @parameter expression="${newVersion}"
-     * @since 1.0-beta-1
-     */
-    private String newVersion;
-
-    /**
-     * The version of the dependency/module to update.
-     *
-     * @parameter expression="${oldVersion}" default-value="${project.version}"
+     * @parameter expression="${newSuffix}"
      * @since 1.2
      */
-    private String oldVersion;
-
-    /**
-     * Component used to prompt for input
-     *
-     * @component
-     */
-    private Prompter prompter;
+    private String newSuffix;
 
     /**
      * Called when this mojo is executed.
@@ -78,32 +61,22 @@ public class SetMojo
             updateMatchingVersions = Boolean.TRUE;
         }
 
-        if ( getProject().getOriginalModel().getVersion() == null )
+        String oldVersion = getProject().getOriginalModel().getVersion();
+
+        if ( oldVersion == null )
         {
             throw new MojoExecutionException( "Project version is inherited from parent." );
         }
 
-        if ( StringUtils.isEmpty( newVersion ) )
+        String oldSuffix = "-SNAPSHOT";
+
+        if ( oldVersion.endsWith(oldSuffix) )
         {
-            if ( settings.isInteractiveMode() )
-            {
-                try
-                {
-                    newVersion =
-                        prompter.prompt( "Enter the new version to set", getProject().getOriginalModel().getVersion() );
-                }
-                catch ( PrompterException e )
-                {
-                    throw new MojoExecutionException( e.getMessage(), e );
-                }
-            }
-            else
-            {
-                throw new MojoExecutionException( "You must specify the new version, either by using the newVersion "
-                    + "property (that is -DnewVersion=... on the command line) or run in interactive mode" );
-            }
+            setVersion( oldVersion.substring(0, oldVersion.length() - oldSuffix.length()) + newSuffix, oldVersion);
         }
-        setVersion(newVersion, oldVersion);
+        else {
+            getLog().info( "Leaving version unchanged as " + oldVersion);
+        }
     }
 
 }
