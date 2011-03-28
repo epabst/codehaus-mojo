@@ -346,7 +346,7 @@ public class PropertyVersions
             throw new MojoExecutionException( e.getMessage(), e );
         }
         ArtifactVersion result =
-            getNewestVersion( range, helper.createArtifactVersion( currentVersion ), null, includeSnapshots, false,
+            getNewestVersion( range, null, null, includeSnapshots, false,
                               true );
         helper.getLog().debug( "Property ${" + property.getName() + "}: Current winner is: " + result );
 
